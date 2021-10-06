@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEA270D23B700271A73 /* AppDelegate.swift */; };
+		CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */; };
+		CB8E9DEF270D23B700271A73 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* ContentView.swift */; };
+		CB8E9DF1270D23BA00271A73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8E9DF0270D23BA00271A73 /* Assets.xcassets */; };
+		CB8E9DF4270D23BA00271A73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8E9DF3270D23BA00271A73 /* Preview Assets.xcassets */; };
+		CB8E9DF7270D23BA00271A73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB8E9DF5270D23BA00271A73 /* LaunchScreen.storyboard */; };
+		CB8E9E02270D23BB00271A73 /* Daegu_SoftBankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E01270D23BB00271A73 /* Daegu_SoftBankTests.swift */; };
+		CB8E9E0D270D23BB00271A73 /* Daegu_SoftBankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E0C270D23BB00271A73 /* Daegu_SoftBankUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB8E9DFE270D23BB00271A73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB8E9DDF270D23B700271A73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB8E9DE6270D23B700271A73;
+			remoteInfo = Daegu_SoftBank;
+		};
+		CB8E9E09270D23BB00271A73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB8E9DDF270D23B700271A73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB8E9DE6270D23B700271A73;
+			remoteInfo = Daegu_SoftBank;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daegu_SoftBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB8E9DEA270D23B700271A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CB8E9DEE270D23B700271A73 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CB8E9DF0270D23BA00271A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB8E9DF3270D23BA00271A73 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CB8E9DF6270D23BA00271A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CB8E9DF8270D23BA00271A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB8E9DFD270D23BB00271A73 /* Daegu_SoftBankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Daegu_SoftBankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB8E9E01270D23BB00271A73 /* Daegu_SoftBankTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daegu_SoftBankTests.swift; sourceTree = "<group>"; };
+		CB8E9E03270D23BB00271A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB8E9E08270D23BB00271A73 /* Daegu_SoftBankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Daegu_SoftBankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB8E9E0C270D23BB00271A73 /* Daegu_SoftBankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daegu_SoftBankUITests.swift; sourceTree = "<group>"; };
+		CB8E9E0E270D23BB00271A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB8E9DE4270D23B700271A73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB8E9DFA270D23BB00271A73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB8E9E05270D23BB00271A73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB8E9DDE270D23B700271A73 = {
+			isa = PBXGroup;
+			children = (
+				CB8E9DE9270D23B700271A73 /* Daegu_SoftBank */,
+				CB8E9E00270D23BB00271A73 /* Daegu_SoftBankTests */,
+				CB8E9E0B270D23BB00271A73 /* Daegu_SoftBankUITests */,
+				CB8E9DE8270D23B700271A73 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB8E9DE8270D23B700271A73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */,
+				CB8E9DFD270D23BB00271A73 /* Daegu_SoftBankTests.xctest */,
+				CB8E9E08270D23BB00271A73 /* Daegu_SoftBankUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB8E9DE9270D23B700271A73 /* Daegu_SoftBank */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9DEA270D23B700271A73 /* AppDelegate.swift */,
+				CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */,
+				CB8E9DEE270D23B700271A73 /* ContentView.swift */,
+				CB8E9DF0270D23BA00271A73 /* Assets.xcassets */,
+				CB8E9DF5270D23BA00271A73 /* LaunchScreen.storyboard */,
+				CB8E9DF8270D23BA00271A73 /* Info.plist */,
+				CB8E9DF2270D23BA00271A73 /* Preview Content */,
+			);
+			path = Daegu_SoftBank;
+			sourceTree = "<group>";
+		};
+		CB8E9DF2270D23BA00271A73 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9DF3270D23BA00271A73 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CB8E9E00270D23BB00271A73 /* Daegu_SoftBankTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E01270D23BB00271A73 /* Daegu_SoftBankTests.swift */,
+				CB8E9E03270D23BB00271A73 /* Info.plist */,
+			);
+			path = Daegu_SoftBankTests;
+			sourceTree = "<group>";
+		};
+		CB8E9E0B270D23BB00271A73 /* Daegu_SoftBankUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E0C270D23BB00271A73 /* Daegu_SoftBankUITests.swift */,
+				CB8E9E0E270D23BB00271A73 /* Info.plist */,
+			);
+			path = Daegu_SoftBankUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB8E9DE6270D23B700271A73 /* Daegu_SoftBank */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB8E9E11270D23BB00271A73 /* Build configuration list for PBXNativeTarget "Daegu_SoftBank" */;
+			buildPhases = (
+				CB8E9DE3270D23B700271A73 /* Sources */,
+				CB8E9DE4270D23B700271A73 /* Frameworks */,
+				CB8E9DE5270D23B700271A73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Daegu_SoftBank;
+			productName = Daegu_SoftBank;
+			productReference = CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB8E9DFC270D23BB00271A73 /* Daegu_SoftBankTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB8E9E14270D23BB00271A73 /* Build configuration list for PBXNativeTarget "Daegu_SoftBankTests" */;
+			buildPhases = (
+				CB8E9DF9270D23BB00271A73 /* Sources */,
+				CB8E9DFA270D23BB00271A73 /* Frameworks */,
+				CB8E9DFB270D23BB00271A73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB8E9DFF270D23BB00271A73 /* PBXTargetDependency */,
+			);
+			name = Daegu_SoftBankTests;
+			productName = Daegu_SoftBankTests;
+			productReference = CB8E9DFD270D23BB00271A73 /* Daegu_SoftBankTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CB8E9E07270D23BB00271A73 /* Daegu_SoftBankUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB8E9E17270D23BB00271A73 /* Build configuration list for PBXNativeTarget "Daegu_SoftBankUITests" */;
+			buildPhases = (
+				CB8E9E04270D23BB00271A73 /* Sources */,
+				CB8E9E05270D23BB00271A73 /* Frameworks */,
+				CB8E9E06270D23BB00271A73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB8E9E0A270D23BB00271A73 /* PBXTargetDependency */,
+			);
+			name = Daegu_SoftBankUITests;
+			productName = Daegu_SoftBankUITests;
+			productReference = CB8E9E08270D23BB00271A73 /* Daegu_SoftBankUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB8E9DDF270D23B700271A73 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					CB8E9DE6270D23B700271A73 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					CB8E9DFC270D23BB00271A73 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = CB8E9DE6270D23B700271A73;
+					};
+					CB8E9E07270D23BB00271A73 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = CB8E9DE6270D23B700271A73;
+					};
+				};
+			};
+			buildConfigurationList = CB8E9DE2270D23B700271A73 /* Build configuration list for PBXProject "Daegu_SoftBank" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB8E9DDE270D23B700271A73;
+			productRefGroup = CB8E9DE8270D23B700271A73 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB8E9DE6270D23B700271A73 /* Daegu_SoftBank */,
+				CB8E9DFC270D23BB00271A73 /* Daegu_SoftBankTests */,
+				CB8E9E07270D23BB00271A73 /* Daegu_SoftBankUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB8E9DE5270D23B700271A73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB8E9DF7270D23BA00271A73 /* LaunchScreen.storyboard in Resources */,
+				CB8E9DF4270D23BA00271A73 /* Preview Assets.xcassets in Resources */,
+				CB8E9DF1270D23BA00271A73 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB8E9DFB270D23BB00271A73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB8E9E06270D23BB00271A73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB8E9DE3270D23B700271A73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */,
+				CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */,
+				CB8E9DEF270D23B700271A73 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB8E9DF9270D23BB00271A73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB8E9E02270D23BB00271A73 /* Daegu_SoftBankTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB8E9E04270D23BB00271A73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB8E9E0D270D23BB00271A73 /* Daegu_SoftBankUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB8E9DFF270D23BB00271A73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB8E9DE6270D23B700271A73 /* Daegu_SoftBank */;
+			targetProxy = CB8E9DFE270D23BB00271A73 /* PBXContainerItemProxy */;
+		};
+		CB8E9E0A270D23BB00271A73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB8E9DE6270D23B700271A73 /* Daegu_SoftBank */;
+			targetProxy = CB8E9E09270D23BB00271A73 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CB8E9DF5270D23BA00271A73 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB8E9DF6270D23BA00271A73 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CB8E9E0F270D23BB00271A73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB8E9E10270D23BB00271A73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB8E9E12270D23BB00271A73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Daegu_SoftBank/Preview Content\"";
+				DEVELOPMENT_TEAM = FP96Y4C764;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Daegu_SoftBank/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dgsw.Daegu-SoftBank";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB8E9E13270D23BB00271A73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Daegu_SoftBank/Preview Content\"";
+				DEVELOPMENT_TEAM = FP96Y4C764;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Daegu_SoftBank/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dgsw.Daegu-SoftBank";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CB8E9E15270D23BB00271A73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FP96Y4C764;
+				INFOPLIST_FILE = Daegu_SoftBankTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dgsw.Daegu-SoftBankTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daegu_SoftBank.app/Daegu_SoftBank";
+			};
+			name = Debug;
+		};
+		CB8E9E16270D23BB00271A73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FP96Y4C764;
+				INFOPLIST_FILE = Daegu_SoftBankTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dgsw.Daegu-SoftBankTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daegu_SoftBank.app/Daegu_SoftBank";
+			};
+			name = Release;
+		};
+		CB8E9E18270D23BB00271A73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FP96Y4C764;
+				INFOPLIST_FILE = Daegu_SoftBankUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dgsw.Daegu-SoftBankUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Daegu_SoftBank;
+			};
+			name = Debug;
+		};
+		CB8E9E19270D23BB00271A73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FP96Y4C764;
+				INFOPLIST_FILE = Daegu_SoftBankUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dgsw.Daegu-SoftBankUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Daegu_SoftBank;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB8E9DE2270D23B700271A73 /* Build configuration list for PBXProject "Daegu_SoftBank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB8E9E0F270D23BB00271A73 /* Debug */,
+				CB8E9E10270D23BB00271A73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB8E9E11270D23BB00271A73 /* Build configuration list for PBXNativeTarget "Daegu_SoftBank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB8E9E12270D23BB00271A73 /* Debug */,
+				CB8E9E13270D23BB00271A73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB8E9E14270D23BB00271A73 /* Build configuration list for PBXNativeTarget "Daegu_SoftBankTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB8E9E15270D23BB00271A73 /* Debug */,
+				CB8E9E16270D23BB00271A73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB8E9E17270D23BB00271A73 /* Build configuration list for PBXNativeTarget "Daegu_SoftBankUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB8E9E18270D23BB00271A73 /* Debug */,
+				CB8E9E19270D23BB00271A73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB8E9DDF270D23B700271A73 /* Project object */;
+}
