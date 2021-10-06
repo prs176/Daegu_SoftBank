@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		108AD46BE10D5F6597864830 /* Pods_Daegu_SoftBankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5D93350B161C8B18373F46 /* Pods_Daegu_SoftBankTests.framework */; };
+		2D4D2C08ACC599A76C27FF28 /* Pods_Daegu_SoftBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F00E37D9231BB8E8C2CC186 /* Pods_Daegu_SoftBank.framework */; };
 		CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEA270D23B700271A73 /* AppDelegate.swift */; };
 		CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */; };
 		CB8E9DEF270D23B700271A73 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* ContentView.swift */; };
@@ -15,6 +17,7 @@
 		CB8E9DF7270D23BA00271A73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB8E9DF5270D23BA00271A73 /* LaunchScreen.storyboard */; };
 		CB8E9E02270D23BB00271A73 /* Daegu_SoftBankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E01270D23BB00271A73 /* Daegu_SoftBankTests.swift */; };
 		CB8E9E0D270D23BB00271A73 /* Daegu_SoftBankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E0C270D23BB00271A73 /* Daegu_SoftBankUITests.swift */; };
+		E58446802138ED5C96F59BBA /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09471FF1588F1F349CDD652D /* Pods-Daegu_SoftBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank.debug.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank/Pods-Daegu_SoftBank.debug.xcconfig"; sourceTree = "<group>"; };
+		0F00E37D9231BB8E8C2CC186 /* Pods_Daegu_SoftBank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daegu_SoftBank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D5D93350B161C8B18373F46 /* Pods_Daegu_SoftBankTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daegu_SoftBankTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26C907E3203E988291619D6B /* Pods-Daegu_SoftBankTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBankTests.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBankTests/Pods-Daegu_SoftBankTests.release.xcconfig"; sourceTree = "<group>"; };
+		6B2B83C9B72BFC9F1095699E /* Pods-Daegu_SoftBankTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBankTests.debug.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBankTests/Pods-Daegu_SoftBankTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B598EAF4CFFF0F63C440BA6F /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daegu_SoftBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DEA270D23B700271A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +59,8 @@
 		CB8E9E08270D23BB00271A73 /* Daegu_SoftBankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Daegu_SoftBankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9E0C270D23BB00271A73 /* Daegu_SoftBankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daegu_SoftBankUITests.swift; sourceTree = "<group>"; };
 		CB8E9E0E270D23BB00271A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCDE540131452B1D3C2FEED6 /* Pods-Daegu_SoftBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank/Pods-Daegu_SoftBank.release.xcconfig"; sourceTree = "<group>"; };
+		FEBCE5EE181CC1D48C2CCA9B /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D4D2C08ACC599A76C27FF28 /* Pods_Daegu_SoftBank.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				108AD46BE10D5F6597864830 /* Pods_Daegu_SoftBankTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58446802138ED5C96F59BBA /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A0AED1FDE78ED4C20557A30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F00E37D9231BB8E8C2CC186 /* Pods_Daegu_SoftBank.framework */,
+				CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */,
+				1D5D93350B161C8B18373F46 /* Pods_Daegu_SoftBankTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CB8E9DDE270D23B700271A73 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				CB8E9E00270D23BB00271A73 /* Daegu_SoftBankTests */,
 				CB8E9E0B270D23BB00271A73 /* Daegu_SoftBankUITests */,
 				CB8E9DE8270D23B700271A73 /* Products */,
+				E705E77BD6DCA9BB4FF0798F /* Pods */,
+				7A0AED1FDE78ED4C20557A30 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +163,20 @@
 			path = Daegu_SoftBankUITests;
 			sourceTree = "<group>";
 		};
+		E705E77BD6DCA9BB4FF0798F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09471FF1588F1F349CDD652D /* Pods-Daegu_SoftBank.debug.xcconfig */,
+				FCDE540131452B1D3C2FEED6 /* Pods-Daegu_SoftBank.release.xcconfig */,
+				B598EAF4CFFF0F63C440BA6F /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig */,
+				FEBCE5EE181CC1D48C2CCA9B /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig */,
+				6B2B83C9B72BFC9F1095699E /* Pods-Daegu_SoftBankTests.debug.xcconfig */,
+				26C907E3203E988291619D6B /* Pods-Daegu_SoftBankTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB8E9E11270D23BB00271A73 /* Build configuration list for PBXNativeTarget "Daegu_SoftBank" */;
 			buildPhases = (
+				55B535F549C2F10648E97E37 /* [CP] Check Pods Manifest.lock */,
 				CB8E9DE3270D23B700271A73 /* Sources */,
 				CB8E9DE4270D23B700271A73 /* Frameworks */,
 				CB8E9DE5270D23B700271A73 /* Resources */,
+				18324A1A5853E78A6BB6B2B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +203,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB8E9E14270D23BB00271A73 /* Build configuration list for PBXNativeTarget "Daegu_SoftBankTests" */;
 			buildPhases = (
+				716CC92DEDA5B3BFBD05039B /* [CP] Check Pods Manifest.lock */,
 				CB8E9DF9270D23BB00271A73 /* Sources */,
 				CB8E9DFA270D23BB00271A73 /* Frameworks */,
 				CB8E9DFB270D23BB00271A73 /* Resources */,
@@ -178,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB8E9E17270D23BB00271A73 /* Build configuration list for PBXNativeTarget "Daegu_SoftBankUITests" */;
 			buildPhases = (
+				950874960DA04AE8E2EAB0A4 /* [CP] Check Pods Manifest.lock */,
 				CB8E9E04270D23BB00271A73 /* Sources */,
 				CB8E9E05270D23BB00271A73 /* Frameworks */,
 				CB8E9E06270D23BB00271A73 /* Resources */,
+				607C4721BC9AC3B2E7B2B075 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +306,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18324A1A5853E78A6BB6B2B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Daegu_SoftBank/Pods-Daegu_SoftBank-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Daegu_SoftBank/Pods-Daegu_SoftBank-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Daegu_SoftBank/Pods-Daegu_SoftBank-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55B535F549C2F10648E97E37 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Daegu_SoftBank-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		607C4721BC9AC3B2E7B2B075 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		716CC92DEDA5B3BFBD05039B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Daegu_SoftBankTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		950874960DA04AE8E2EAB0A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Daegu_SoftBank-Daegu_SoftBankUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CB8E9DE3270D23B700271A73 /* Sources */ = {
@@ -433,6 +582,7 @@
 		};
 		CB8E9E12270D23BB00271A73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09471FF1588F1F349CDD652D /* Pods-Daegu_SoftBank.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -454,6 +604,7 @@
 		};
 		CB8E9E13270D23BB00271A73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCDE540131452B1D3C2FEED6 /* Pods-Daegu_SoftBank.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,6 +626,7 @@
 		};
 		CB8E9E15270D23BB00271A73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B2B83C9B72BFC9F1095699E /* Pods-Daegu_SoftBankTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -497,6 +649,7 @@
 		};
 		CB8E9E16270D23BB00271A73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26C907E3203E988291619D6B /* Pods-Daegu_SoftBankTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -519,6 +672,7 @@
 		};
 		CB8E9E18270D23BB00271A73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B598EAF4CFFF0F63C440BA6F /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +693,7 @@
 		};
 		CB8E9E19270D23BB00271A73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEBCE5EE181CC1D48C2CCA9B /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
