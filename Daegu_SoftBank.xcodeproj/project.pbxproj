@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -126,11 +126,8 @@
 		CB8E9DE9270D23B700271A73 /* Daegu_SoftBank */ = {
 			isa = PBXGroup;
 			children = (
-				CB8E9DEA270D23B700271A73 /* AppDelegate.swift */,
-				CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */,
-				CB8E9DEE270D23B700271A73 /* ContentView.swift */,
-				CB8E9DF0270D23BA00271A73 /* Assets.xcassets */,
-				CB8E9DF5270D23BA00271A73 /* LaunchScreen.storyboard */,
+				CB8E9E20270D25F300271A73 /* Resource */,
+				CB8E9E1F270D25E600271A73 /* Source */,
 				CB8E9DF8270D23BA00271A73 /* Info.plist */,
 				CB8E9DF2270D23BA00271A73 /* Preview Content */,
 			);
@@ -163,6 +160,145 @@
 			path = Daegu_SoftBankUITests;
 			sourceTree = "<group>";
 		};
+		CB8E9E1A270D259A00271A73 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E22270D262800271A73 /* ViewModel */,
+				CB8E9E21270D261C00271A73 /* View */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CB8E9E1B270D25A100271A73 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E24270D263300271A73 /* Repository */,
+				CB8E9E23270D262E00271A73 /* UseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CB8E9E1C270D25BD00271A73 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB8E9E1E270D25DA00271A73 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E27270D265800271A73 /* Remote */,
+				CB8E9E25270D263A00271A73 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CB8E9E1F270D25E600271A73 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E2B270D26AD00271A73 /* Widget */,
+				CB8E9E1C270D25BD00271A73 /* Model */,
+				CB8E9E1E270D25DA00271A73 /* Data */,
+				CB8E9E1B270D25A100271A73 /* Domain */,
+				CB8E9E1A270D259A00271A73 /* Presentation */,
+				CB8E9DEA270D23B700271A73 /* AppDelegate.swift */,
+				CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CB8E9E20270D25F300271A73 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9DF0270D23BA00271A73 /* Assets.xcassets */,
+				CB8E9DF5270D23BA00271A73 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CB8E9E21270D261C00271A73 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9DEE270D23B700271A73 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB8E9E22270D262800271A73 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CB8E9E23270D262E00271A73 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		CB8E9E24270D263300271A73 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CB8E9E25270D263A00271A73 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CB8E9E26270D263F00271A73 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		CB8E9E27270D265800271A73 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E26270D263F00271A73 /* Remote */,
+				CB8E9E28270D266100271A73 /* API */,
+				CB8E9E29270D266400271A73 /* Request */,
+				CB8E9E2A270D266A00271A73 /* Response */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		CB8E9E28270D266100271A73 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CB8E9E29270D266400271A73 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		CB8E9E2A270D266A00271A73 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		CB8E9E2B270D26AD00271A73 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		E705E77BD6DCA9BB4FF0798F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +309,6 @@
 				6B2B83C9B72BFC9F1095699E /* Pods-Daegu_SoftBankTests.debug.xcconfig */,
 				26C907E3203E988291619D6B /* Pods-Daegu_SoftBankTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
