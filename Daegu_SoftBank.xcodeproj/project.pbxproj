@@ -23,6 +23,10 @@
 		CB8E9E39270D312F00271A73 /* LabelTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E38270D312F00271A73 /* LabelTextFieldStyle.swift */; };
 		CB8E9E43270EB2D200271A73 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E42270EB2D200271A73 /* LoginView.swift */; };
 		CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E44270EB2F800271A73 /* LoginViewModel.swift */; };
+		CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E46270EB38B00271A73 /* RegisterAuthNumView.swift */; };
+		CB8E9E4B270EB61C00271A73 /* AutoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4A270EB61C00271A73 /* AutoFocusTextField.swift */; };
+		CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4D270EE76D00271A73 /* UIApplication.swift */; };
+		CB8E9E50270EE7B100271A73 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4F270EE7B100271A73 /* View.swift */; };
 		E58446802138ED5C96F59BBA /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +75,10 @@
 		CB8E9E38270D312F00271A73 /* LabelTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldStyle.swift; sourceTree = "<group>"; };
 		CB8E9E42270EB2D200271A73 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CB8E9E44270EB2F800271A73 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CB8E9E46270EB38B00271A73 /* RegisterAuthNumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAuthNumView.swift; sourceTree = "<group>"; };
+		CB8E9E4A270EB61C00271A73 /* AutoFocusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextField.swift; sourceTree = "<group>"; };
+		CB8E9E4D270EE76D00271A73 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		CB8E9E4F270EE7B100271A73 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		FCDE540131452B1D3C2FEED6 /* Pods-Daegu_SoftBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank/Pods-Daegu_SoftBank.release.xcconfig"; sourceTree = "<group>"; };
 		FEBCE5EE181CC1D48C2CCA9B /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +217,7 @@
 		CB8E9E1F270D25E600271A73 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CB8E9E4C270EE75700271A73 /* Extension */,
 				CB8E9E2B270D26AD00271A73 /* Widget */,
 				CB8E9E1C270D25BD00271A73 /* Model */,
 				CB8E9E1E270D25DA00271A73 /* Data */,
@@ -309,8 +318,8 @@
 		CB8E9E2B270D26AD00271A73 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				CB8E9E36270D310500271A73 /* CustomUI */,
 				CB8E9E32270D2CDD00271A73 /* RepresentableView */,
+				CB8E9E36270D310500271A73 /* CustomUI */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -320,6 +329,7 @@
 			children = (
 				CB8E9E2D270D2C8B00271A73 /* RegisterView.swift */,
 				CB8E9E42270EB2D200271A73 /* LoginView.swift */,
+				CB8E9E46270EB38B00271A73 /* RegisterAuthNumView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -337,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				CB8E9E34270D2DE800271A73 /* PhotoPicker.swift */,
+				CB8E9E4A270EB61C00271A73 /* AutoFocusTextField.swift */,
 			);
 			name = RepresentableView;
 			path = "Representable퍋ㅈ";
@@ -364,6 +375,15 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CB8E9E4C270EE75700271A73 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E4D270EE76D00271A73 /* UIApplication.swift */,
+				CB8E9E4F270EE7B100271A73 /* View.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		E705E77BD6DCA9BB4FF0798F /* Pods */ = {
@@ -617,8 +637,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
+				CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */,
 				CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */,
+				CB8E9E4B270EB61C00271A73 /* AutoFocusTextField.swift in Sources */,
 				CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */,
+				CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */,
 				CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */,
 				CB8E9E35270D2DE800271A73 /* PhotoPicker.swift in Sources */,
 				CB8E9E39270D312F00271A73 /* LabelTextFieldStyle.swift in Sources */,
@@ -799,6 +823,7 @@
 				DEVELOPMENT_TEAM = FP96Y4C764;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Daegu_SoftBank/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -806,7 +831,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dgsw.Daegu-SoftBank";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -821,6 +846,7 @@
 				DEVELOPMENT_TEAM = FP96Y4C764;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Daegu_SoftBank/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -828,7 +854,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dgsw.Daegu-SoftBank";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

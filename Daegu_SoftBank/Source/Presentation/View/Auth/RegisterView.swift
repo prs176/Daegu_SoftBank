@@ -33,7 +33,6 @@ struct RegisterView: View {
                 .onTapGesture {
                     isActivedPhotoPicker.toggle()
                 }
-                .frame(minWidth: 0, maxWidth: .infinity)
                 
                 VStack(alignment: .leading) {
                     Text("아이디")
@@ -58,7 +57,7 @@ struct RegisterView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("이메일")
+                    Text("전화번호")
                     TextField("", text: $viewModel.phoneNum)
                         .textFieldStyle(LabelTextFieldStyle())
                 }
@@ -66,31 +65,29 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("주민등록번호")
                     HStack {
-                        TextField("", text: $viewModel.rrn)
-                            .textFieldStyle(LabelTextFieldStyle())
-                        
-                        TextField("", text: $viewModel.rrn)
-                            .textFieldStyle(LabelTextFieldStyle())
-                        
-                        TextField("", text: $viewModel.rrn)
-                            .textFieldStyle(LabelTextFieldStyle())
-                        
-                        TextField("", text: $viewModel.rrn)
-                            .textFieldStyle(LabelTextFieldStyle())
-                        
-                        TextField("", text: $viewModel.rrn)
-                            .textFieldStyle(LabelTextFieldStyle())
-                        
-                        TextField("", text: $viewModel.rrn)
-                            .textFieldStyle(LabelTextFieldStyle())
+                        ForEach(0..<6, id: \.self) { idx in
+                            AutoFocusTextField(text: $viewModel.rrnLetters[idx], isFirstResponder: viewModel.rnnCursor == idx)
+                                .padding(.vertical)
+                                .padding(.horizontal, 5)
+                                .background(Color(.secondarySystemBackground))
+                                .cornerRadius(5.0)
+                                .disabled(viewModel.rnnCursor != idx)
+                        }
                     
                         Image(systemName: "minus")
-                    
-                        TextField("", text: $viewModel.rrn)
-                            .textFieldStyle(LabelTextFieldStyle())
+                            .font(.caption)
+                        
+                        AutoFocusTextField(text: $viewModel.rrnLetters[6], isFirstResponder: viewModel.rnnCursor == 6)
+                            .padding(.vertical)
+                            .padding(.horizontal, 5)
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(5.0)
+                            .disabled(viewModel.rnnCursor != 6)
                     }
+                    .highPriorityGesture(TapGesture().onEnded {
+                        viewModel.resetRnnLetters()
+                    })
                 }
-                
                 
                 VStack(alignment: .leading) {
                     Text("이름(실명)")
@@ -110,7 +107,6 @@ struct RegisterView: View {
                 }
                 
                 Toggle("약관동의", isOn: $viewModel.isAgree)
-                    .padding(.bottom)
                 
                 Button(action: {
                     viewModel.register()
@@ -126,10 +122,14 @@ struct RegisterView: View {
             }
             .padding()
         }
+        .onTapGesture {
+            viewModel.rnnCursor = 7
+        }
         .navigationTitle("회원가입")
         .sheet(isPresented: $isActivedPhotoPicker, content: {
             PhotoPicker(configuration: getConfiguration(), photo: $viewModel.profileImage)
         })
+        .resignKeyboardOnDragGesture()
     }
     
     func getConfiguration() -> PHPickerConfiguration {
