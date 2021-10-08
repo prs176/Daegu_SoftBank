@@ -18,6 +18,18 @@ struct AuthView: View {
                 Spacer()
                 
                 NavigationLink(
+                    destination: LoginView(),
+                    label: {
+                        Text("로그인")
+                            .foregroundColor(.white)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 12.0)
+                            )
+                    })
+                
+                NavigationLink(
                     destination: RegisterView(),
                     label: {
                         Text("회원가입")
