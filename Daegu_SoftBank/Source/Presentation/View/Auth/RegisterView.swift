@@ -11,7 +11,7 @@ import PhotosUI
 struct RegisterView: View {
     @StateObject var viewModel = RegisterViewModel()
     
-    @State var isActivedPhotoPicker = false
+    @State var isPresentedPhotoPicker = false
     
     var body: some View {
         ScrollView {
@@ -31,7 +31,7 @@ struct RegisterView: View {
                 .background(Color(.secondarySystemBackground))
                 .clipShape(Circle())
                 .onTapGesture {
-                    isActivedPhotoPicker.toggle()
+                    isPresentedPhotoPicker.toggle()
                 }
                 
                 VStack(alignment: .leading) {
@@ -60,6 +60,7 @@ struct RegisterView: View {
                     Text("전화번호")
                     TextField("", text: $viewModel.phoneNum)
                         .textFieldStyle(LabelTextFieldStyle())
+                        .keyboardType(.numberPad)
                 }
                 
                 VStack(alignment: .leading) {
@@ -122,13 +123,13 @@ struct RegisterView: View {
             }
             .padding()
         }
+        .navigationTitle("회원가입")
+        .sheet(isPresented: $isPresentedPhotoPicker) {
+            PhotoPicker(configuration: getConfiguration(), photo: $viewModel.profileImage)
+        }
         .onTapGesture {
             viewModel.rnnCursor = 7
         }
-        .navigationTitle("회원가입")
-        .sheet(isPresented: $isActivedPhotoPicker, content: {
-            PhotoPicker(configuration: getConfiguration(), photo: $viewModel.profileImage)
-        })
         .resignKeyboardOnDragGesture()
     }
     

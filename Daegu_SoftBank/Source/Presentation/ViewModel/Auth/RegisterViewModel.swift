@@ -16,6 +16,9 @@ class RegisterViewModel: ObservableObject {
             if oldValue.count < phoneNum.count, (phoneNum.count == 3 || phoneNum.count == 8) {
                 phoneNum = phoneNum + "-"
             }
+            else if oldValue.count > phoneNum.count, oldValue.last == "-" {
+                phoneNum.removeLast()
+            }
         }
     }
     @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""] {
@@ -23,7 +26,7 @@ class RegisterViewModel: ObservableObject {
             if rrnLetters.filter({ $0.count > 1 }).count != 0 {
                 rrnLetters = oldValue
             }
-            if rnnCursor >= 0 && rnnCursor <= 6 && rrnLetters[rnnCursor].count > 0 {
+            if rnnCursor >= 0, rnnCursor <= 6, rrnLetters[rnnCursor].count > 0 {
                 rnnCursor += 1
             }
         }
