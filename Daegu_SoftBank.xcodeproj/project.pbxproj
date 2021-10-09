@@ -219,7 +219,6 @@
 		CB8E9E1F270D25E600271A73 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				CB8E9E4C270EE75700271A73 /* Extension */,
 				CB8E9E2B270D26AD00271A73 /* Widget */,
 				CB8E9E1C270D25BD00271A73 /* Model */,
 				CB8E9E1E270D25DA00271A73 /* Data */,
@@ -319,6 +318,7 @@
 		CB8E9E2B270D26AD00271A73 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				CB8E9E4C270EE75700271A73 /* Extension */,
 				CB8E9E32270D2CDD00271A73 /* RepresentableView */,
 				CB8E9E36270D310500271A73 /* CustomUI */,
 			);

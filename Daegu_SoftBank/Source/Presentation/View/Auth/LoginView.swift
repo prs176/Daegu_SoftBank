@@ -11,7 +11,7 @@ struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 15) {
             VStack(alignment: .leading) {
                 Text("아이디")
                 TextField("", text: $viewModel.id)
@@ -32,8 +32,6 @@ struct LoginView: View {
                 HStack {
                     ForEach(0..<6, id: \.self) { idx in
                         AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
-                            .padding(.vertical)
-                            .padding(.horizontal, 5)
                             .background(Color(.secondarySystemBackground))
                             .cornerRadius(5.0)
                             .keyboardType(.numberPad)

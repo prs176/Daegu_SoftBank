@@ -16,14 +16,13 @@ struct RegisterAuthNumView: View {
                 .font(.title)
             
             Text("간편인증번호를 입력하세요")
-                .font(.title)
+                .font(.title3)
             
             Spacer()
             
             HStack {
                 ForEach(0..<6, id: \.self) { idx in
                     AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
-                        .padding(.vertical)
                         .padding(.horizontal, 5)
                         .background(Color(.secondarySystemBackground))
                         .cornerRadius(5.0)
@@ -53,10 +52,10 @@ struct RegisterAuthNumView: View {
                     )
             })
         }
+        .padding()
         .onTapGesture {
             viewModel.authNumCursor = 6
         }
-        .padding()
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("간편인증번호 등록")
         .navigationBarTitleDisplayMode(.inline)

@@ -15,7 +15,7 @@ struct RegisterView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
+            VStack(spacing: 15) {
                 ZStack {
                     if let image = viewModel.profileImage {
                         Image(uiImage: image)
@@ -129,7 +129,6 @@ struct RegisterView: View {
         .sheet(isPresented: $isPresentedPhotoPicker) {
             PhotoPicker(configuration: getConfiguration(), photo: $viewModel.profileImage)
         }
-        .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("회원가입")
         .navigationBarTitleDisplayMode(.inline)
         .navigate(to: RegisterAuthNumView(), when: $viewModel.isSuccess)
