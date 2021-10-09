@@ -48,14 +48,32 @@ class RegisterViewModel: BaseViewModel {
     }
     
     func idDoubleCheck() {
+        if !id.isValidId() {
+            isErrorOcuured = true
+            errorMessage = "아이디는 영문+숫자, 3~12자로 입력해주세요."
+            return
+        }
+        
         isIdAvailable = true
     }
     
     func pwDoubleCheck() {
+        if !pw.isValidPw() {
+            isErrorOcuured = true
+            errorMessage = "비밀번호는 영문+숫자+특수문자 조합, 8~12자로 입력해주세요."
+            return
+        }
+        
         isPwAvailable = true
     }
     
     func nicknameDoubleCheck() {
+        if nickname.count < 2 {
+            isErrorOcuured = true
+            errorMessage = "별명은 2자 이상으로 입력해주세요."
+            return
+        }
+        
         isNicknameAvailable = true
     }
     
@@ -67,18 +85,6 @@ class RegisterViewModel: BaseViewModel {
 
 extension RegisterViewModel {
     func validate() -> Bool {
-        if !id.isValidId() {
-            isErrorOcuured = true
-            errorMessage = "아이디는 영문+숫자 조합, 3~12자로 입력해주세요."
-            return false
-        }
-        
-        if !pw.isValidPw() {
-            isErrorOcuured = true
-            errorMessage = "비밀번호는 영문+숫자+특수문자(!@#$%^*+=-) 조합, 각 1자 이상, 8~12자로 입력해주세요."
-            return false
-        }
-        
         if !phoneNum.isValidPhone() {
             isErrorOcuured = true
             errorMessage = "전화번호는 숫자, 11자로 입력해주세요."
@@ -88,12 +94,6 @@ extension RegisterViewModel {
         if rrnLetters.map({ $0.isNumber() }).contains(false) {
             isErrorOcuured = true
             errorMessage = "주민등록번호는 숫자, 7자로 입력해주세요."
-            return false
-        }
-        
-        if nickname.count < 2 {
-            isErrorOcuured = true
-            errorMessage = "별명은 2자로 입력해주세요."
             return false
         }
         

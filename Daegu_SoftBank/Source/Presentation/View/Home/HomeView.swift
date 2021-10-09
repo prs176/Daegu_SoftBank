@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel: HomeViewModel = HomeViewModel()
-    @Environment(\.rootPresentation) var rootPresentation: Binding<Bool>
+    @Environment(\.loginViewRootPresentation) var loginViewRootPresentation: Binding<Bool>
+    @Environment(\.registerViewRootPresentation) var registerViewRootPresentation: Binding<Bool>
     
     var body: some View {
         ScrollView {
@@ -19,7 +20,8 @@ struct HomeView: View {
                     
                     Menu(content: {
                         Button(action: {
-                            rootPresentation.wrappedValue = false
+                            loginViewRootPresentation.wrappedValue = false
+                            registerViewRootPresentation.wrappedValue = false
                         }, label: {
                             Text("로그아웃")
                         })
