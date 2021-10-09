@@ -36,22 +36,40 @@ struct RegisterView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("아이디")
+                    HStack {
+                        Text("아이디")
+                        if let available = viewModel.isIdAvailable {
+                            Text(available ? "사용 가능한 아이디입니다." : "사용 불가능한 아이디입니다.")
+                                .font(.caption)
+                                .foregroundColor(available ? .secondary : .red)
+                        }
+                    }
                     HStack {
                         TextField("영문+숫자 조합, 3~12자", text: $viewModel.id)
                             .textFieldStyle(LabelTextFieldStyle())
-                        Button(action: {}, label: {
+                        Button(action: {
+                            viewModel.idDoubleCheck()
+                        }, label: {
                             Text("중복확인")
                         })
                     }
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("비밀번호")
                     HStack {
-                        SecureField("영문+숫자+특수문자 조합, 8~12자", text: $viewModel.pw)
+                        Text("비밀번호")
+                        if let available = viewModel.isPwAvailable {
+                            Text(available ? "사용 가능한 비밀번호입니다." : "사용 불가능한 비밀번호입니다.")
+                                .font(.caption)
+                                .foregroundColor(available ? .secondary : .red)
+                        }
+                    }
+                    HStack {
+                        SecureField("영문+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.pw)
                             .textFieldStyle(LabelTextFieldStyle())
-                        Button(action: {}, label: {
+                        Button(action: {
+                            viewModel.pwDoubleCheck()
+                        }, label: {
                             Text("중복확인")
                         })
                     }
@@ -59,9 +77,19 @@ struct RegisterView: View {
                 
                 VStack(alignment: .leading) {
                     Text("전화번호")
-                    TextField("", text: $viewModel.phoneNum)
-                        .textFieldStyle(LabelTextFieldStyle())
-                        .keyboardType(.numberPad)
+                    TextField("11자", text: $viewModel.phoneNum, onEditingChanged: { isEditing in
+                        if isEditing {
+                            viewModel.phoneNum = ""
+                        }
+                        else {
+                            if viewModel.phoneNum.count == 11 {
+                                viewModel.phoneNum.insert("-", at: viewModel.phoneNum.index(viewModel.phoneNum.startIndex, offsetBy: 3))
+                                viewModel.phoneNum.insert("-", at: viewModel.phoneNum.index(viewModel.phoneNum.startIndex, offsetBy: 8))
+                            }
+                        }
+                    })
+                    .textFieldStyle(LabelTextFieldStyle())
+                    .keyboardType(.numberPad)
                 }
                 
                 VStack(alignment: .leading) {
@@ -98,11 +126,20 @@ struct RegisterView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("별명")
                     HStack {
-                        TextField("", text: $viewModel.nickname)
+                        Text("별명")
+                        if let available = viewModel.isNicknameAvailable {
+                            Text(available ? "사용 가능한 별명입니다." : "사용 불가능한 별명입니다.")
+                                .font(.caption)
+                                .foregroundColor(available ? .secondary : .red)
+                        }
+                    }
+                    HStack {
+                        TextField("2자 이상", text: $viewModel.nickname)
                             .textFieldStyle(LabelTextFieldStyle())
-                        Button(action: {}, label: {
+                        Button(action: {
+                            viewModel.nicknameDoubleCheck()
+                        }, label: {
                             Text("중복확인")
                         })
                     }
@@ -132,6 +169,7 @@ struct RegisterView: View {
                             RoundedRectangle(cornerRadius: 12.0)
                         )
                 })
+                .disabled(!viewModel.enterValidate())
             }
             .padding()
         }

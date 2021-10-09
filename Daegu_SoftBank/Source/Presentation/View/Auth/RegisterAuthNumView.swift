@@ -56,7 +56,7 @@ struct RegisterAuthNumView: View {
                                 RoundedRectangle(cornerRadius: 12.0)
                             )
                     })
-                    .disabled(!viewModel.validate())
+                    .disabled(!viewModel.enterValidate())
                 }
                 .transition(viewModel.curStep == 0 ? .move(edge: .leading) : .move(edge: .trailing))
             }
@@ -102,7 +102,7 @@ struct RegisterAuthNumView: View {
                                 RoundedRectangle(cornerRadius: 12.0)
                             )
                     })
-                    .disabled(!viewModel.validate())
+                    .disabled(!viewModel.enterValidate())
                 }
             }
         }
