@@ -14,19 +14,18 @@ struct LoginView: View {
         VStack(spacing: 20) {
             VStack(alignment: .leading) {
                 Text("아이디")
-                TextField("아이디를 입력해주세요", text: $viewModel.id)
+                TextField("", text: $viewModel.id)
                     .textFieldStyle(LabelTextFieldStyle())
             }
             
             VStack(alignment: .leading) {
                 Text("비밀번호")
-                SecureField("비밀번호를 입력해주세요", text: $viewModel.pw)
+                SecureField("", text: $viewModel.pw)
                     .textFieldStyle(LabelTextFieldStyle())
             }
             
             Text("또는")
-                .font(.title3)
-                .padding(20)
+                .fontWeight(.thin)
             
             VStack(alignment: .leading) {
                 Text("간편인증번호")
@@ -49,24 +48,25 @@ struct LoginView: View {
             
             Spacer()
             
-            VStack {
-                Button(action: {
-                    viewModel.login()
-                }, label: {
-                    Text("로그인")
-                        .foregroundColor(.white)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 12.0)
-                        )
-                })
-            }
+            Button(action: {
+                viewModel.login()
+            }, label: {
+                Text("로그인")
+                    .foregroundColor(.white)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 12.0)
+                    )
+            })
         }
+        .padding()
         .onTapGesture {
             viewModel.authNumCursor = 6
         }
-        .padding()
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .navigationTitle("로그인")
+        .navigationBarTitleDisplayMode(.inline)
         .resignKeyboardOnDragGesture()
     }
 }

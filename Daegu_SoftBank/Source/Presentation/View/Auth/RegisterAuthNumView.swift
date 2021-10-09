@@ -53,7 +53,13 @@ struct RegisterAuthNumView: View {
                     )
             })
         }
+        .onTapGesture {
+            viewModel.authNumCursor = 6
+        }
         .padding()
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .navigationTitle("간편인증번호 등록")
+        .navigationBarTitleDisplayMode(.inline)
         .resignKeyboardOnDragGesture()
     }
 }

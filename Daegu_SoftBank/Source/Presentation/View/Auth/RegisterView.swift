@@ -123,13 +123,15 @@ struct RegisterView: View {
             }
             .padding()
         }
-        .navigationTitle("회원가입")
-        .sheet(isPresented: $isPresentedPhotoPicker) {
-            PhotoPicker(configuration: getConfiguration(), photo: $viewModel.profileImage)
-        }
         .onTapGesture {
             viewModel.rnnCursor = 7
         }
+        .sheet(isPresented: $isPresentedPhotoPicker) {
+            PhotoPicker(configuration: getConfiguration(), photo: $viewModel.profileImage)
+        }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .navigationTitle("회원가입")
+        .navigationBarTitleDisplayMode(.inline)
         .navigate(to: RegisterAuthNumView(), when: $viewModel.isSuccess)
         .resignKeyboardOnDragGesture()
     }
