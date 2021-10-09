@@ -32,7 +32,7 @@ struct RegisterAuthNumView: View {
                 }
             }
             .onTapGesture {
-                viewModel.resetAuthLetters()
+                viewModel.resetAuthNumLetters()
             }
             .frame(height: 50)
             

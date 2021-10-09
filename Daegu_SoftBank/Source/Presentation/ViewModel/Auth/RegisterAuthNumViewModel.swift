@@ -22,7 +22,7 @@ class RegisterAuthNumViewModel: ObservableObject {
     
     @Published var isSuccess: Bool = false
     
-    func resetAuthLetters() {
+    func resetAuthNumLetters() {
         authNumLetters = ["", "", "", "", "", ""]
         authNumCursor = 0
     }

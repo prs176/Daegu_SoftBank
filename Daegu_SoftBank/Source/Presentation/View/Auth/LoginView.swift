@@ -24,6 +24,29 @@ struct LoginView: View {
                     .textFieldStyle(LabelTextFieldStyle())
             }
             
+            Text("또는")
+                .font(.title3)
+                .padding(20)
+            
+            VStack(alignment: .leading) {
+                Text("간편인증번호")
+                HStack {
+                    ForEach(0..<6, id: \.self) { idx in
+                        AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
+                            .padding(.vertical)
+                            .padding(.horizontal, 5)
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(5.0)
+                            .keyboardType(.numberPad)
+                            .disabled(viewModel.authNumCursor != idx)
+                    }
+                }
+                .onTapGesture {
+                    viewModel.resetAuthNumLetters()
+                }
+                .frame(height: 50)
+            }
+            
             Spacer()
             
             VStack {
@@ -40,8 +63,11 @@ struct LoginView: View {
                 })
             }
         }
-        .navigationTitle("아이디로 로그인")
+        .onTapGesture {
+            viewModel.authNumCursor = 6
+        }
         .padding()
+        .resignKeyboardOnDragGesture()
     }
 }
 
