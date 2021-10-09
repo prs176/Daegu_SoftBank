@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct AuthMainView: View {
-    @State var rootPresenting: Bool = false
+    @State var loginPresenting: Bool = false
+    @State var registerPresenting: Bool = false
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .center) {
-                Text("안녕하세요")
-                    .font(.title)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            VStack(alignment: .center, spacing: 15) {
+                VStack {
+                    Text("대구소프트뱅크")
+                        .padding(.top, 50)
+                    
+                    Text("안녕하세요")
+                        .font(.title)
+                }
                 
                 Spacer()
                 
                 NavigationLink(
                     destination: LoginView(),
-                    isActive: $rootPresenting,
+                    isActive: $loginPresenting,
                     label: {
                         Text("로그인")
                             .foregroundColor(.white)
@@ -34,7 +39,7 @@ struct AuthMainView: View {
                 
                 NavigationLink(
                     destination: RegisterView(),
-                    isActive: $rootPresenting,
+                    isActive: $registerPresenting,
                     label: {
                         Text("회원가입")
                             .foregroundColor(.white)
@@ -45,10 +50,14 @@ struct AuthMainView: View {
                             )
                     })
             }
-            .padding()
+            .padding(20)
+            .background(
+                Color(.secondarySystemBackground).ignoresSafeArea()
+            )
             .navigationBarHidden(true)
         }
-        .environment(\.rootPresentation, $rootPresenting)
+        .environment(\.loginViewRootPresentation, $loginPresenting)
+        .environment(\.registerViewRootPresentation, $registerPresenting)
     }
 }
 

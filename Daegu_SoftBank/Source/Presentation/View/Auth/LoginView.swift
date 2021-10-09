@@ -67,7 +67,6 @@ struct LoginView: View {
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("로그인")
-        .navigationBarTitleDisplayMode(.inline)
         .navigate(to: HomeView(), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()

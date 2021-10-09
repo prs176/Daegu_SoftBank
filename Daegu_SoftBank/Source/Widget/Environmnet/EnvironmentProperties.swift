@@ -7,17 +7,30 @@
 
 import SwiftUI
 
-struct RootPresentationKey: EnvironmentKey {
+struct LoginViewRootPresentationKey: EnvironmentKey {
+    static let defaultValue: Binding<Bool> = .constant(false)
+}
+
+struct RegisterViewRootPresentationKey: EnvironmentKey {
     static let defaultValue: Binding<Bool> = .constant(false)
 }
 
 extension EnvironmentValues {
-    var rootPresentation: Binding<Bool> {
+    var loginViewRootPresentation: Binding<Bool> {
         get {
-            self[RootPresentationKey.self]
+            self[LoginViewRootPresentationKey.self]
         }
         set {
-            self[RootPresentationKey.self] = newValue
+            self[LoginViewRootPresentationKey.self] = newValue
+        }
+    }
+    
+    var registerViewRootPresentation: Binding<Bool> {
+        get {
+            self[RegisterViewRootPresentationKey.self]
+        }
+        set {
+            self[RegisterViewRootPresentationKey.self] = newValue
         }
     }
 }
