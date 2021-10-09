@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class RegisterViewModel: ObservableObject {
+class RegisterViewModel: BaseViewModel {
     @Published var profileImage: UIImage? = nil
     @Published var id: String = ""
     @Published var pw: String = ""
@@ -32,10 +32,11 @@ class RegisterViewModel: ObservableObject {
             }
         }
     }
-    @Published var rnnCursor: Int = 7
     @Published var name: String = ""
     @Published var nickname: String = ""
     @Published var isAgree: Bool = false
+    
+    @Published var rnnCursor: Int = 7
     
     @Published var isSuccess: Bool = false
     
@@ -45,6 +46,64 @@ class RegisterViewModel: ObservableObject {
     }
     
     func register() {
+        if !validate() {
+            return
+        }
+        
         isSuccess = true
+    }
+}
+
+extension RegisterViewModel {
+    func validate() -> Bool {
+        if profileImage == nil {
+            isErrorOcuured = true
+            errorMessage = "프로필 사진을 선택해주세요."
+            return false
+        }
+        
+        if id.isEmpty {
+            isErrorOcuured = true
+            errorMessage = "아이디를 입력해주세요."
+            return false
+        }
+        
+        if pw.isEmpty {
+            isErrorOcuured = true
+            errorMessage = "비밀번호를 입력해주세요."
+            return false
+        }
+        
+        if phoneNum.isEmpty {
+            isErrorOcuured = true
+            errorMessage = "전화번호를 입력해주세요."
+            return false
+        }
+        
+        if rrnLetters.contains("") {
+            isErrorOcuured = true
+            errorMessage = "주민등록번호를 입력해주세요."
+            return false
+        }
+        
+        if name.isEmpty {
+            isErrorOcuured = true
+            errorMessage = "이름을 입력해주세요."
+            return false
+        }
+        
+        if nickname.isEmpty {
+            isErrorOcuured = true
+            errorMessage = "별명을 선택해주세요."
+            return false
+        }
+        
+        if !isAgree {
+            isErrorOcuured = true
+            errorMessage = "약관에 동의해주세요."
+            return false
+        }
+        
+        return true
     }
 }

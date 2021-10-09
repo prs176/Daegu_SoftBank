@@ -19,15 +19,16 @@
 		CB8E9E0D270D23BB00271A73 /* Daegu_SoftBankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E0C270D23BB00271A73 /* Daegu_SoftBankUITests.swift */; };
 		CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E2D270D2C8B00271A73 /* RegisterView.swift */; };
 		CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E30270D2CB400271A73 /* RegisterViewModel.swift */; };
-		CB8E9E35270D2DE800271A73 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E34270D2DE800271A73 /* PhotoPicker.swift */; };
 		CB8E9E39270D312F00271A73 /* LabelTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E38270D312F00271A73 /* LabelTextFieldStyle.swift */; };
 		CB8E9E43270EB2D200271A73 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E42270EB2D200271A73 /* LoginView.swift */; };
 		CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E44270EB2F800271A73 /* LoginViewModel.swift */; };
 		CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E46270EB38B00271A73 /* RegisterAuthNumView.swift */; };
-		CB8E9E4B270EB61C00271A73 /* AutoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4A270EB61C00271A73 /* AutoFocusTextField.swift */; };
 		CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4D270EE76D00271A73 /* UIApplication.swift */; };
 		CB8E9E50270EE7B100271A73 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4F270EE7B100271A73 /* View.swift */; };
 		CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E5127104E5400271A73 /* RegisterAuthNumViewModel.swift */; };
+		CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C4271143E600985ACA /* PhotoPicker.swift */; };
+		CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C5271143E600985ACA /* AutoFocusTextField.swift */; };
+		CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C92711444000985ACA /* BaseViewModel.swift */; };
 		E58446802138ED5C96F59BBA /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,15 +73,16 @@
 		CB8E9E0E270D23BB00271A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB8E9E2D270D2C8B00271A73 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		CB8E9E30270D2CB400271A73 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
-		CB8E9E34270D2DE800271A73 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		CB8E9E38270D312F00271A73 /* LabelTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldStyle.swift; sourceTree = "<group>"; };
 		CB8E9E42270EB2D200271A73 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CB8E9E44270EB2F800271A73 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CB8E9E46270EB38B00271A73 /* RegisterAuthNumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAuthNumView.swift; sourceTree = "<group>"; };
-		CB8E9E4A270EB61C00271A73 /* AutoFocusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextField.swift; sourceTree = "<group>"; };
 		CB8E9E4D270EE76D00271A73 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CB8E9E4F270EE7B100271A73 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		CB8E9E5127104E5400271A73 /* RegisterAuthNumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAuthNumViewModel.swift; sourceTree = "<group>"; };
+		CBD8F5C4271143E600985ACA /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPicker.swift; path = Daegu_SoftBank/Source/Widget/RepresentableView/PhotoPicker.swift; sourceTree = SOURCE_ROOT; };
+		CBD8F5C5271143E600985ACA /* AutoFocusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoFocusTextField.swift; path = Daegu_SoftBank/Source/Widget/RepresentableView/AutoFocusTextField.swift; sourceTree = SOURCE_ROOT; };
+		CBD8F5C92711444000985ACA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		FCDE540131452B1D3C2FEED6 /* Pods-Daegu_SoftBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank/Pods-Daegu_SoftBank.release.xcconfig"; sourceTree = "<group>"; };
 		FEBCE5EE181CC1D48C2CCA9B /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -318,6 +320,7 @@
 		CB8E9E2B270D26AD00271A73 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				CBD8F5C82711441A00985ACA /* Base */,
 				CB8E9E4C270EE75700271A73 /* Extension */,
 				CB8E9E32270D2CDD00271A73 /* RepresentableView */,
 				CB8E9E36270D310500271A73 /* CustomUI */,
@@ -349,8 +352,8 @@
 		CB8E9E32270D2CDD00271A73 /* RepresentableView */ = {
 			isa = PBXGroup;
 			children = (
-				CB8E9E34270D2DE800271A73 /* PhotoPicker.swift */,
-				CB8E9E4A270EB61C00271A73 /* AutoFocusTextField.swift */,
+				CBD8F5C5271143E600985ACA /* AutoFocusTextField.swift */,
+				CBD8F5C4271143E600985ACA /* PhotoPicker.swift */,
 			);
 			name = RepresentableView;
 			path = "Representable퍋ㅈ";
@@ -387,6 +390,14 @@
 				CB8E9E4F270EE7B100271A73 /* View.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		CBD8F5C82711441A00985ACA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CBD8F5C92711444000985ACA /* BaseViewModel.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		E705E77BD6DCA9BB4FF0798F /* Pods */ = {
@@ -643,14 +654,15 @@
 				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
 				CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */,
 				CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */,
-				CB8E9E4B270EB61C00271A73 /* AutoFocusTextField.swift in Sources */,
 				CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */,
+				CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */,
 				CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */,
 				CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */,
-				CB8E9E35270D2DE800271A73 /* PhotoPicker.swift in Sources */,
+				CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */,
 				CB8E9E39270D312F00271A73 /* LabelTextFieldStyle.swift in Sources */,
 				CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */,
 				CB8E9E43270EB2D200271A73 /* LoginView.swift in Sources */,
+				CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */,
 				CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */,
 				CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */,
 				CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */,

@@ -132,6 +132,7 @@ struct RegisterView: View {
         .navigationTitle("회원가입")
         .navigationBarTitleDisplayMode(.inline)
         .navigate(to: RegisterAuthNumView(), when: $viewModel.isSuccess)
+        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
     

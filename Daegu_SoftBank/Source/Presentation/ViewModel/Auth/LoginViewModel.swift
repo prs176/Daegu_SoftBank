@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginViewModel: ObservableObject {
+class LoginViewModel: BaseViewModel {
     @Published var id: String = ""
     @Published var pw: String = ""
     @Published var authNumLetters: [String] = ["", "", "", "", "", ""] {
@@ -30,6 +30,30 @@ class LoginViewModel: ObservableObject {
     }
     
     func login() {
+        if !validate() {
+            return
+        }
+        
         isSuccess = true
+    }
+}
+
+extension LoginViewModel {
+    func validate() -> Bool {
+        if authNumLetters.contains("") {
+            if id.isEmpty {
+                isErrorOcuured = true
+                errorMessage = "아이디를 입력해주세요."
+                return false
+            }
+            
+            if  pw.isEmpty {
+                isErrorOcuured = true
+                errorMessage = "비밀번호를 입력해주세요."
+                return false
+            }
+        }
+        
+        return true
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RegisterAuthNumViewModel: ObservableObject {
+class RegisterAuthNumViewModel: BaseViewModel {
     @Published var authNumLetters: [String] = ["", "", "", "", "", ""] {
         didSet {
             if authNumLetters.filter({ $0.count > 1 }).count != 0 {
@@ -18,6 +18,7 @@ class RegisterAuthNumViewModel: ObservableObject {
             }
         }
     }
+    
     @Published var authNumCursor: Int = 6
     
     @Published var isSuccess: Bool = false
@@ -28,6 +29,22 @@ class RegisterAuthNumViewModel: ObservableObject {
     }
     
     func registerAuthNum() {
+        if !validate() {
+            return
+        }
+        
         isSuccess = true
+    }
+}
+
+extension RegisterAuthNumViewModel {
+    func validate() -> Bool {
+        if authNumLetters.contains("") {
+            isErrorOcuured = true
+            errorMessage = "인증번호를 입력해주세요."
+            return false
+        }
+        
+        return true
     }
 }

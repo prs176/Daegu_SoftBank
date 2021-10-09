@@ -41,6 +41,7 @@ struct RegisterAuthNumView: View {
             Spacer()
             
             Button(action: {
+                viewModel.authNumCursor = 6
                 viewModel.registerAuthNum()
             }, label: {
                 Text("가입완료")
@@ -59,6 +60,7 @@ struct RegisterAuthNumView: View {
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("간편인증번호 등록")
         .navigationBarTitleDisplayMode(.inline)
+        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

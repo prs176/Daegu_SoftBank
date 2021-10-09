@@ -47,6 +47,7 @@ struct LoginView: View {
             Spacer()
             
             Button(action: {
+                viewModel.authNumCursor = 6
                 viewModel.login()
             }, label: {
                 Text("로그인")
@@ -65,6 +66,7 @@ struct LoginView: View {
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("로그인")
         .navigationBarTitleDisplayMode(.inline)
+        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

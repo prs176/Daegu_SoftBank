@@ -21,4 +21,10 @@ extension View {
     func resignKeyboardOnDragGesture() -> some View {
         return modifier(ResignKeyboardOnDragGesture())
     }
+    
+    func activeErrorToastMessage(when binding: Binding<Bool>, message: String?) -> some View {
+        self.toast(isPresenting: binding, duration: 2.0) {
+            AlertToast(displayMode: .banner(.pop), type: .error(.accentColor), title: message)
+        }
+    }
 }
