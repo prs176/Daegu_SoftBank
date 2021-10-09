@@ -11,12 +11,26 @@
 		2D4D2C08ACC599A76C27FF28 /* Pods_Daegu_SoftBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F00E37D9231BB8E8C2CC186 /* Pods_Daegu_SoftBank.framework */; };
 		CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEA270D23B700271A73 /* AppDelegate.swift */; };
 		CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */; };
-		CB8E9DEF270D23B700271A73 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* ContentView.swift */; };
+		CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* AuthMainView.swift */; };
 		CB8E9DF1270D23BA00271A73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8E9DF0270D23BA00271A73 /* Assets.xcassets */; };
 		CB8E9DF4270D23BA00271A73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8E9DF3270D23BA00271A73 /* Preview Assets.xcassets */; };
 		CB8E9DF7270D23BA00271A73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB8E9DF5270D23BA00271A73 /* LaunchScreen.storyboard */; };
 		CB8E9E02270D23BB00271A73 /* Daegu_SoftBankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E01270D23BB00271A73 /* Daegu_SoftBankTests.swift */; };
 		CB8E9E0D270D23BB00271A73 /* Daegu_SoftBankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E0C270D23BB00271A73 /* Daegu_SoftBankUITests.swift */; };
+		CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E2D270D2C8B00271A73 /* RegisterView.swift */; };
+		CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E30270D2CB400271A73 /* RegisterViewModel.swift */; };
+		CB8E9E39270D312F00271A73 /* LabelTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E38270D312F00271A73 /* LabelTextFieldStyle.swift */; };
+		CB8E9E43270EB2D200271A73 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E42270EB2D200271A73 /* LoginView.swift */; };
+		CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E44270EB2F800271A73 /* LoginViewModel.swift */; };
+		CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E46270EB38B00271A73 /* RegisterAuthNumView.swift */; };
+		CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4D270EE76D00271A73 /* UIApplication.swift */; };
+		CB8E9E50270EE7B100271A73 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4F270EE7B100271A73 /* View.swift */; };
+		CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E5127104E5400271A73 /* RegisterAuthNumViewModel.swift */; };
+		CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C4271143E600985ACA /* PhotoPicker.swift */; };
+		CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C5271143E600985ACA /* AutoFocusTextField.swift */; };
+		CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C92711444000985ACA /* BaseViewModel.swift */; };
+		CBD8F5D327116E8600985ACA /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5D227116E8600985ACA /* WebView.swift */; };
+		CBD8F5D52711731000985ACA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5D42711731000985ACA /* String.swift */; };
 		E58446802138ED5C96F59BBA /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +62,7 @@
 		CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daegu_SoftBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DEA270D23B700271A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CB8E9DEE270D23B700271A73 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CB8E9DEE270D23B700271A73 /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CB8E9DF0270D23BA00271A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB8E9DF3270D23BA00271A73 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB8E9DF6270D23BA00271A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +73,20 @@
 		CB8E9E08270D23BB00271A73 /* Daegu_SoftBankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Daegu_SoftBankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9E0C270D23BB00271A73 /* Daegu_SoftBankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daegu_SoftBankUITests.swift; sourceTree = "<group>"; };
 		CB8E9E0E270D23BB00271A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB8E9E2D270D2C8B00271A73 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		CB8E9E30270D2CB400271A73 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		CB8E9E38270D312F00271A73 /* LabelTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldStyle.swift; sourceTree = "<group>"; };
+		CB8E9E42270EB2D200271A73 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CB8E9E44270EB2F800271A73 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CB8E9E46270EB38B00271A73 /* RegisterAuthNumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAuthNumView.swift; sourceTree = "<group>"; };
+		CB8E9E4D270EE76D00271A73 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		CB8E9E4F270EE7B100271A73 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		CB8E9E5127104E5400271A73 /* RegisterAuthNumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAuthNumViewModel.swift; sourceTree = "<group>"; };
+		CBD8F5C4271143E600985ACA /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPicker.swift; path = Daegu_SoftBank/Source/Widget/RepresentableView/PhotoPicker.swift; sourceTree = SOURCE_ROOT; };
+		CBD8F5C5271143E600985ACA /* AutoFocusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoFocusTextField.swift; path = Daegu_SoftBank/Source/Widget/RepresentableView/AutoFocusTextField.swift; sourceTree = SOURCE_ROOT; };
+		CBD8F5C92711444000985ACA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		CBD8F5D227116E8600985ACA /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		CBD8F5D42711731000985ACA /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		FCDE540131452B1D3C2FEED6 /* Pods-Daegu_SoftBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank/Pods-Daegu_SoftBank.release.xcconfig"; sourceTree = "<group>"; };
 		FEBCE5EE181CC1D48C2CCA9B /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,7 +248,7 @@
 		CB8E9E21270D261C00271A73 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CB8E9DEE270D23B700271A73 /* ContentView.swift */,
+				CB8E9E2C270D273000271A73 /* Auth */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,6 +256,7 @@
 		CB8E9E22270D262800271A73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CB8E9E2F270D2CAB00271A73 /* Auth */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -295,8 +324,85 @@
 		CB8E9E2B270D26AD00271A73 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				CBD8F5C82711441A00985ACA /* Base */,
+				CB8E9E4C270EE75700271A73 /* Extension */,
+				CB8E9E32270D2CDD00271A73 /* RepresentableView */,
+				CB8E9E36270D310500271A73 /* CustomUI */,
 			);
 			path = Widget;
+			sourceTree = "<group>";
+		};
+		CB8E9E2C270D273000271A73 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9DEE270D23B700271A73 /* AuthMainView.swift */,
+				CB8E9E42270EB2D200271A73 /* LoginView.swift */,
+				CB8E9E2D270D2C8B00271A73 /* RegisterView.swift */,
+				CB8E9E46270EB38B00271A73 /* RegisterAuthNumView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CB8E9E2F270D2CAB00271A73 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E30270D2CB400271A73 /* RegisterViewModel.swift */,
+				CB8E9E44270EB2F800271A73 /* LoginViewModel.swift */,
+				CB8E9E5127104E5400271A73 /* RegisterAuthNumViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CB8E9E32270D2CDD00271A73 /* RepresentableView */ = {
+			isa = PBXGroup;
+			children = (
+				CBD8F5D227116E8600985ACA /* WebView.swift */,
+				CBD8F5C5271143E600985ACA /* AutoFocusTextField.swift */,
+				CBD8F5C4271143E600985ACA /* PhotoPicker.swift */,
+			);
+			path = RepresentableView;
+			sourceTree = "<group>";
+		};
+		CB8E9E36270D310500271A73 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E3A270D915000271A73 /* View */,
+				CB8E9E37270D311400271A73 /* Style */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		CB8E9E37270D311400271A73 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E38270D312F00271A73 /* LabelTextFieldStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		CB8E9E3A270D915000271A73 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB8E9E4C270EE75700271A73 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CB8E9E4D270EE76D00271A73 /* UIApplication.swift */,
+				CB8E9E4F270EE7B100271A73 /* View.swift */,
+				CBD8F5D42711731000985ACA /* String.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CBD8F5C82711441A00985ACA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CBD8F5C92711444000985ACA /* BaseViewModel.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		E705E77BD6DCA9BB4FF0798F /* Pods */ = {
@@ -550,9 +656,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
+				CBD8F5D327116E8600985ACA /* WebView.swift in Sources */,
+				CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */,
 				CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */,
+				CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */,
+				CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */,
+				CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */,
+				CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */,
+				CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */,
+				CB8E9E39270D312F00271A73 /* LabelTextFieldStyle.swift in Sources */,
 				CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */,
-				CB8E9DEF270D23B700271A73 /* ContentView.swift in Sources */,
+				CB8E9E43270EB2D200271A73 /* LoginView.swift in Sources */,
+				CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */,
+				CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */,
+				CBD8F5D52711731000985ACA /* String.swift in Sources */,
+				CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */,
+				CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +846,7 @@
 				DEVELOPMENT_TEAM = FP96Y4C764;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Daegu_SoftBank/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -733,7 +854,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dgsw.Daegu-SoftBank";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -748,6 +869,7 @@
 				DEVELOPMENT_TEAM = FP96Y4C764;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Daegu_SoftBank/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -755,7 +877,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dgsw.Daegu-SoftBank";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
