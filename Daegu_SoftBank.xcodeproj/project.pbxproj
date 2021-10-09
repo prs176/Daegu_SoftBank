@@ -11,7 +11,7 @@
 		2D4D2C08ACC599A76C27FF28 /* Pods_Daegu_SoftBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F00E37D9231BB8E8C2CC186 /* Pods_Daegu_SoftBank.framework */; };
 		CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEA270D23B700271A73 /* AppDelegate.swift */; };
 		CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */; };
-		CB8E9DEF270D23B700271A73 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* AuthView.swift */; };
+		CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* AuthMainView.swift */; };
 		CB8E9DF1270D23BA00271A73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8E9DF0270D23BA00271A73 /* Assets.xcassets */; };
 		CB8E9DF4270D23BA00271A73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8E9DF3270D23BA00271A73 /* Preview Assets.xcassets */; };
 		CB8E9DF7270D23BA00271A73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB8E9DF5270D23BA00271A73 /* LaunchScreen.storyboard */; };
@@ -59,7 +59,7 @@
 		CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daegu_SoftBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DEA270D23B700271A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CB8E9DEE270D23B700271A73 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		CB8E9DEE270D23B700271A73 /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CB8E9DF0270D23BA00271A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB8E9DF3270D23BA00271A73 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB8E9DF6270D23BA00271A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -244,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				CB8E9E2C270D273000271A73 /* Auth */,
-				CB8E9DEE270D23B700271A73 /* AuthView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,6 +328,7 @@
 		CB8E9E2C270D273000271A73 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				CB8E9DEE270D23B700271A73 /* AuthMainView.swift */,
 				CB8E9E2D270D2C8B00271A73 /* RegisterView.swift */,
 				CB8E9E42270EB2D200271A73 /* LoginView.swift */,
 				CB8E9E46270EB38B00271A73 /* RegisterAuthNumView.swift */,
@@ -651,7 +651,7 @@
 				CB8E9E39270D312F00271A73 /* LabelTextFieldStyle.swift in Sources */,
 				CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */,
 				CB8E9E43270EB2D200271A73 /* LoginView.swift in Sources */,
-				CB8E9DEF270D23B700271A73 /* AuthView.swift in Sources */,
+				CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */,
 				CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */,
 				CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */,
 			);
