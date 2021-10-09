@@ -23,25 +23,17 @@ class RegisterAuthNumViewModel: BaseViewModel {
     
     @Published var isSuccess: Bool = false
     
+    func registerAuthNum() {
+        isSuccess = true
+    }
+    
     func resetAuthNumLetters() {
         authNumLetters = ["", "", "", "", "", ""]
         authNumCursor = 0
     }
     
-    func registerAuthNum() {
-        if !validate() {
-            return
-        }
-        
-        isSuccess = true
-    }
-}
-
-extension RegisterAuthNumViewModel {
     func validate() -> Bool {
         if authNumLetters.contains("") {
-            isErrorOcuured = true
-            errorMessage = "인증번호를 입력해주세요."
             return false
         }
         

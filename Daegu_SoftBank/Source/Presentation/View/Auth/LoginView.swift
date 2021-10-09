@@ -58,6 +58,7 @@ struct LoginView: View {
                         RoundedRectangle(cornerRadius: 12.0)
                     )
             })
+            .disabled(!viewModel.validate())
         }
         .padding()
         .onTapGesture {
