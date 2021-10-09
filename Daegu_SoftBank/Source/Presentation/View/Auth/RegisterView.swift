@@ -11,6 +11,7 @@ import PhotosUI
 struct RegisterView: View {
     @StateObject var viewModel = RegisterViewModel()
     
+    @State var isPresentedWebView = false
     @State var isPresentedPhotoPicker = false
     
     var body: some View {
@@ -107,7 +108,18 @@ struct RegisterView: View {
                     }
                 }
                 
-                Toggle("약관동의", isOn: $viewModel.isAgree)
+                HStack {
+                    Button(action: {
+                        isPresentedWebView.toggle()
+                    }, label: {
+                        Text("약관동의")
+                    })
+                    
+                    Spacer()
+                    
+                    Toggle("약관동의", isOn: $viewModel.isAgree)
+                        .labelsHidden()
+                }
                 
                 Button(action: {
                     viewModel.register()
@@ -128,6 +140,9 @@ struct RegisterView: View {
         }
         .sheet(isPresented: $isPresentedPhotoPicker) {
             PhotoPicker(configuration: getConfiguration(), photo: $viewModel.profileImage)
+        }
+        .sheet(isPresented: $isPresentedWebView) {
+            WebView(url: "https://docs.google.com/document/d/1XrCnV4_17cBfQx_Elo6ux33biBjJQc33ebBezdCkc8c/edit")
         }
         .navigationTitle("회원가입")
         .navigationBarTitleDisplayMode(.inline)
