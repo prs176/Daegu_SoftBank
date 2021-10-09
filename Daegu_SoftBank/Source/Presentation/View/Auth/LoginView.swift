@@ -59,14 +59,15 @@ struct LoginView: View {
                         RoundedRectangle(cornerRadius: 12.0)
                     )
             })
-            .disabled(!viewModel.validate())
+            .disabled(!viewModel.enterValidate())
         }
         .padding()
         .onTapGesture {
             viewModel.authNumCursor = 6
         }
-        .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("로그인")
+        .navigationBarTitleDisplayMode(.inline)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: HomeView(), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()

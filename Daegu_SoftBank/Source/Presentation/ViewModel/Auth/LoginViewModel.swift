@@ -32,8 +32,10 @@ class LoginViewModel: BaseViewModel {
         authNumLetters = ["", "", "", "", "", ""]
         authNumCursor = 0
     }
-    
-    func validate() -> Bool {
+}
+
+extension LoginViewModel {
+    func enterValidate() -> Bool {
         if authNumLetters.contains("") {
             if id.isEmpty {
                 return false

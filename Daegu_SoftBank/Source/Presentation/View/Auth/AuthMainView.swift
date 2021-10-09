@@ -51,9 +51,6 @@ struct AuthMainView: View {
                     })
             }
             .padding(20)
-            .background(
-                Color(.secondarySystemBackground).ignoresSafeArea()
-            )
             .navigationBarHidden(true)
         }
         .environment(\.loginViewRootPresentation, $loginPresenting)

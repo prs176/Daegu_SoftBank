@@ -47,6 +47,10 @@ struct RegisterView: View {
                     HStack {
                         TextField("영문+숫자 조합, 3~12자", text: $viewModel.id)
                             .textFieldStyle(LabelTextFieldStyle())
+                            .onChange(of: viewModel.id, perform: { value in
+                                viewModel.isIdAvailable = nil
+                            })
+                        
                         Button(action: {
                             viewModel.idDoubleCheck()
                         }, label: {
@@ -67,6 +71,10 @@ struct RegisterView: View {
                     HStack {
                         SecureField("영문+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.pw)
                             .textFieldStyle(LabelTextFieldStyle())
+                            .onChange(of: viewModel.pw, perform: { value in
+                                viewModel.isPwAvailable = nil
+                            })
+                        
                         Button(action: {
                             viewModel.pwDoubleCheck()
                         }, label: {
@@ -137,6 +145,10 @@ struct RegisterView: View {
                     HStack {
                         TextField("2자 이상", text: $viewModel.nickname)
                             .textFieldStyle(LabelTextFieldStyle())
+                            .onChange(of: viewModel.nickname, perform: { value in
+                                viewModel.isNicknameAvailable = nil
+                            })
+                        
                         Button(action: {
                             viewModel.nicknameDoubleCheck()
                         }, label: {
@@ -159,6 +171,7 @@ struct RegisterView: View {
                 }
                 
                 Button(action: {
+                    UIApplication.shared.endEditing(true)
                     viewModel.register()
                 }, label: {
                     Text("회원가입")

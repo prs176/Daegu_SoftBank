@@ -113,6 +113,7 @@ struct RegisterAuthNumView: View {
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("간편인증번호 등록")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(viewModel.curStep == 1)
         .navigationBarItems(leading:
                                 HStack {
                                     if viewModel.curStep == 1 {
@@ -125,7 +126,6 @@ struct RegisterAuthNumView: View {
                                         })
                                     }
                                 })
-        .navigationBarBackButtonHidden(viewModel.curStep == 1)
         .navigate(to: HomeView(), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
