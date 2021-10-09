@@ -12,32 +12,35 @@ struct AccountView: View {
     
     var body: some View {
         VStack {
-            HStack(alignment: .top) {
+            HStack(alignment: .center) {
+                Image("TemporaryImage")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .cornerRadius(10.0)
+                
                 VStack(alignment: .leading) {
                     Text(account.name)
                     
                     Text(account.accountNum)
-                        .font(.callout)
+                        .fontWeight(.thin)
                 }
                 
                 Spacer()
                 
                 Text("\(account.balance) 원")
                     .font(.title3)
-                    .foregroundColor(.primary)
                     .bold()
             }
-            .padding(.bottom)
             
             HStack {
                 NavigationLink(destination: Text("asdf"), label: {
                     Text("가져오기")
-                        .foregroundColor(.secondary)
+                        .foregroundColor(Color(.secondaryLabel))
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
                         .background(
                             RoundedRectangle(cornerRadius: 5)
-                                .foregroundColor(.secondary.opacity(0.15))
+                                .foregroundColor(Color(.secondarySystemBackground))
                         )
                 })
                 
@@ -45,12 +48,12 @@ struct AccountView: View {
                 
                 NavigationLink(destination: Text("asdf"), label: {
                     Text("이체")
-                        .foregroundColor(.secondary)
+                        .foregroundColor(Color(.secondaryLabel))
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
                         .background(
                             RoundedRectangle(cornerRadius: 5)
-                                .foregroundColor(.secondary.opacity(0.15))
+                                .foregroundColor(Color(.secondarySystemBackground))
                         )
                 })
             }

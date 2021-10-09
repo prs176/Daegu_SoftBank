@@ -34,6 +34,7 @@ struct AuthMainView: View {
                 
                 NavigationLink(
                     destination: RegisterView(),
+                    isActive: $rootPresenting,
                     label: {
                         Text("회원가입")
                             .foregroundColor(.white)

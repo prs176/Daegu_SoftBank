@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel = HomeViewModel()
+    @StateObject var viewModel: HomeViewModel = HomeViewModel()
     @Environment(\.rootPresentation) var rootPresentation: Binding<Bool>
     
     var body: some View {
@@ -38,8 +38,8 @@ struct HomeView: View {
                             Image(systemName: "plus.circle")
                                 .font(.title)
                         }
+                        .padding(.vertical, 20)
                         .frame(maxWidth: .infinity)
-                        .frame(height: 100)
                         .background(
                             RoundedRectangle(cornerRadius: 15)
                                 .foregroundColor(Color(.tertiarySystemBackground))
@@ -58,7 +58,6 @@ struct HomeView: View {
                             .padding(.vertical, 5)
                     }
                 }
-                .cornerRadius(10)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 15)
