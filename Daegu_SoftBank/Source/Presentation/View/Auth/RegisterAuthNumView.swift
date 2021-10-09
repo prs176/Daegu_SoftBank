@@ -126,6 +126,7 @@ struct RegisterAuthNumView: View {
                                     }
                                 })
         .navigationBarBackButtonHidden(viewModel.curStep == 1)
+        .navigate(to: HomeView(), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

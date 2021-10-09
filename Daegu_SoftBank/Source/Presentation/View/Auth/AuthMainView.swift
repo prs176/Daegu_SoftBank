@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AuthMainView: View {
+    @State var rootPresenting: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
@@ -19,6 +21,7 @@ struct AuthMainView: View {
                 
                 NavigationLink(
                     destination: LoginView(),
+                    isActive: $rootPresenting,
                     label: {
                         Text("로그인")
                             .foregroundColor(.white)
@@ -31,6 +34,7 @@ struct AuthMainView: View {
                 
                 NavigationLink(
                     destination: RegisterView(),
+                    isActive: $rootPresenting,
                     label: {
                         Text("회원가입")
                             .foregroundColor(.white)
@@ -44,6 +48,7 @@ struct AuthMainView: View {
             .padding()
             .navigationBarHidden(true)
         }
+        .environment(\.rootPresentation, $rootPresenting)
     }
 }
 

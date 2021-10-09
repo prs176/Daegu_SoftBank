@@ -31,6 +31,12 @@
 		CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C92711444000985ACA /* BaseViewModel.swift */; };
 		CBD8F5D327116E8600985ACA /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5D227116E8600985ACA /* WebView.swift */; };
 		CBD8F5D52711731000985ACA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5D42711731000985ACA /* String.swift */; };
+		CBD8F5DB27118C3300985ACA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5DA27118C3300985ACA /* HomeViewModel.swift */; };
+		CBD8F5DD27118C5300985ACA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5DC27118C5300985ACA /* HomeView.swift */; };
+		CBD8F5E027118C8400985ACA /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5DF27118C8400985ACA /* UserInfoView.swift */; };
+		CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5E127118D0200985ACA /* AccountView.swift */; };
+		CBD8F5E427118D1E00985ACA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5E327118D1E00985ACA /* Account.swift */; };
+		CBF9E0BA2711AFBA00DDC3E8 /* EnvironmentProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9E0B92711AFBA00DDC3E8 /* EnvironmentProperties.swift */; };
 		E58446802138ED5C96F59BBA /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +93,12 @@
 		CBD8F5C92711444000985ACA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		CBD8F5D227116E8600985ACA /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		CBD8F5D42711731000985ACA /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		CBD8F5DA27118C3300985ACA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CBD8F5DC27118C5300985ACA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CBD8F5DF27118C8400985ACA /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		CBD8F5E127118D0200985ACA /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		CBD8F5E327118D1E00985ACA /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		CBF9E0B92711AFBA00DDC3E8 /* EnvironmentProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentProperties.swift; sourceTree = "<group>"; };
 		FCDE540131452B1D3C2FEED6 /* Pods-Daegu_SoftBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank/Pods-Daegu_SoftBank.release.xcconfig"; sourceTree = "<group>"; };
 		FEBCE5EE181CC1D48C2CCA9B /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +221,7 @@
 		CB8E9E1C270D25BD00271A73 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CBD8F5E327118D1E00985ACA /* Account.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,6 +261,7 @@
 		CB8E9E21270D261C00271A73 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CBD8F5D627118C1B00985ACA /* Home */,
 				CB8E9E2C270D273000271A73 /* Auth */,
 			);
 			path = View;
@@ -256,6 +270,7 @@
 		CB8E9E22270D262800271A73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CBD8F5D727118C2100985ACA /* Home */,
 				CB8E9E2F270D2CAB00271A73 /* Auth */,
 			);
 			path = ViewModel;
@@ -324,6 +339,7 @@
 		CB8E9E2B270D26AD00271A73 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				CBF9E0B82711AF9200DDC3E8 /* Environmnet */,
 				CBD8F5C82711441A00985ACA /* Base */,
 				CB8E9E4C270EE75700271A73 /* Extension */,
 				CB8E9E32270D2CDD00271A73 /* RepresentableView */,
@@ -403,6 +419,40 @@
 				CBD8F5C92711444000985ACA /* BaseViewModel.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		CBD8F5D627118C1B00985ACA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CBD8F5DE27118C7B00985ACA /* SubView */,
+				CBD8F5DC27118C5300985ACA /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CBD8F5D727118C2100985ACA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CBD8F5DA27118C3300985ACA /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CBD8F5DE27118C7B00985ACA /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				CBD8F5DF27118C8400985ACA /* UserInfoView.swift */,
+				CBD8F5E127118D0200985ACA /* AccountView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		CBF9E0B82711AF9200DDC3E8 /* Environmnet */ = {
+			isa = PBXGroup;
+			children = (
+				CBF9E0B92711AFBA00DDC3E8 /* EnvironmentProperties.swift */,
+			);
+			path = Environmnet;
 			sourceTree = "<group>";
 		};
 		E705E77BD6DCA9BB4FF0798F /* Pods */ = {
@@ -664,15 +714,21 @@
 				CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */,
 				CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */,
 				CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */,
+				CBD8F5E427118D1E00985ACA /* Account.swift in Sources */,
 				CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */,
 				CB8E9E39270D312F00271A73 /* LabelTextFieldStyle.swift in Sources */,
 				CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */,
+				CBF9E0BA2711AFBA00DDC3E8 /* EnvironmentProperties.swift in Sources */,
 				CB8E9E43270EB2D200271A73 /* LoginView.swift in Sources */,
 				CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */,
 				CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */,
 				CBD8F5D52711731000985ACA /* String.swift in Sources */,
 				CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */,
+				CBD8F5DB27118C3300985ACA /* HomeViewModel.swift in Sources */,
 				CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */,
+				CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */,
+				CBD8F5DD27118C5300985ACA /* HomeView.swift in Sources */,
+				CBD8F5E027118C8400985ACA /* UserInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
