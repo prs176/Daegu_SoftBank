@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class RegisterViewModel: ObservableObject {
+    @Published var profileImage: UIImage? = nil
     @Published var id: String = ""
     @Published var pw: String = ""
     @Published var phoneNum: String = "" {
@@ -26,7 +27,7 @@ class RegisterViewModel: ObservableObject {
             if rrnLetters.filter({ $0.count > 1 }).count != 0 {
                 rrnLetters = oldValue
             }
-            if rnnCursor >= 0, rnnCursor <= 6, rrnLetters[rnnCursor].count > 0 {
+            if rnnCursor <= 6, rrnLetters[rnnCursor].count > 0 {
                 rnnCursor += 1
             }
         }
@@ -34,8 +35,9 @@ class RegisterViewModel: ObservableObject {
     @Published var rnnCursor: Int = 7
     @Published var name: String = ""
     @Published var nickname: String = ""
-    @Published var profileImage: UIImage? = nil
     @Published var isAgree: Bool = false
+    
+    @Published var isSuccess: Bool = false
     
     func resetRnnLetters() {
         rrnLetters = ["", "", "", "", "", "", ""]
@@ -43,6 +45,6 @@ class RegisterViewModel: ObservableObject {
     }
     
     func register() {
-        
+        isSuccess = true
     }
 }

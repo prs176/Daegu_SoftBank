@@ -114,7 +114,7 @@ struct RegisterView: View {
                 }, label: {
                     Text("회원가입")
                         .foregroundColor(.white)
-                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(maxWidth: .infinity)
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 12.0)
@@ -130,6 +130,7 @@ struct RegisterView: View {
         .onTapGesture {
             viewModel.rnnCursor = 7
         }
+        .navigate(to: RegisterAuthNumView(), when: $viewModel.isSuccess)
         .resignKeyboardOnDragGesture()
     }
     
