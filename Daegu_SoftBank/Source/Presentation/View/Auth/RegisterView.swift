@@ -48,7 +48,7 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("비밀번호")
                     HStack {
-                        TextField("영문+숫자+특수문자 조합, 8~12자", text: $viewModel.pw)
+                        SecureField("영문+숫자+특수문자 조합, 8~12자", text: $viewModel.pw)
                             .textFieldStyle(LabelTextFieldStyle())
                         Button(action: {}, label: {
                             Text("중복확인")
@@ -120,7 +120,6 @@ struct RegisterView: View {
                             RoundedRectangle(cornerRadius: 12.0)
                         )
                 })
-                .disabled(!viewModel.validate())
             }
             .padding()
         }

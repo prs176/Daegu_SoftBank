@@ -22,7 +22,7 @@ struct AuthMainView: View {
                     label: {
                         Text("로그인")
                             .foregroundColor(.white)
-                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(maxWidth: .infinity)
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 12.0)
@@ -34,7 +34,7 @@ struct AuthMainView: View {
                     label: {
                         Text("회원가입")
                             .foregroundColor(.white)
-                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame( maxWidth: .infinity)
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 12.0)
