@@ -11,17 +11,19 @@ struct RegisterAuthNumView: View {
     @StateObject var viewModel = RegisterAuthNumViewModel()
     
     var body: some View {
-        ZStack {
+        VStack {
+            VStack {
+                Text("마지막 단계입니다")
+                    .font(.title)
+                
+                Text("간편인증번호를 \(viewModel.curStep == 1 ? "재" : "")입력하세요")
+                    .font(.title3)
+            }
+            .padding(.bottom, 80)
+                
+            
             if viewModel.curStep == 0 {
                 VStack {
-                    Text("마지막 단계입니다")
-                        .font(.title)
-                    
-                    Text("간편인증번호를 입력하세요")
-                        .font(.title3)
-                    
-                    Spacer()
-                    
                     HStack {
                         ForEach(0..<6, id: \.self) { idx in
                             AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
@@ -32,44 +34,20 @@ struct RegisterAuthNumView: View {
                                 .disabled(viewModel.authNumCursor != idx)
                         }
                     }
-                    .onTapGesture {
+                    .highPriorityGesture(TapGesture().onEnded {
                         viewModel.resetAuthNumLetters()
-                    }
+                    })
                     .frame(height: 50)
                     
                     Text("6자리 숫자를 입력하세요")
                         .fontWeight(.thin)
                     
                     Spacer()
-                    
-                    Button(action: {
-                        viewModel.authNumCursor = 6
-                        withAnimation {
-                            viewModel.curStep += 1
-                        }
-                    }, label: {
-                        Text("다음")
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 12.0)
-                            )
-                    })
-                    .disabled(!viewModel.enterValidate())
                 }
                 .transition(viewModel.curStep == 0 ? .move(edge: .leading) : .move(edge: .trailing))
             }
             else {
                 VStack {
-                    Text("마지막 단계입니다")
-                        .font(.title)
-                    
-                    Text("간편인증번호를 재입력하세요")
-                        .font(.title3)
-                    
-                    Spacer()
-                    
                     HStack {
                         ForEach(0..<6, id: \.self) { idx in
                             AutoFocusTextField(text: $viewModel.reAuthNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
@@ -80,9 +58,9 @@ struct RegisterAuthNumView: View {
                                 .disabled(viewModel.authNumCursor != idx)
                         }
                     }
-                    .onTapGesture {
+                    .highPriorityGesture(TapGesture().onEnded {
                         viewModel.resetAuthNumLetters()
-                    }
+                    })
                     .frame(height: 50)
                     
                     Text("6자리 숫자를 입력하세요")
@@ -111,8 +89,7 @@ struct RegisterAuthNumView: View {
             viewModel.authNumCursor = 6
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .navigationTitle("간편인증번호 등록")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("회원가입")
         .navigationBarBackButtonHidden(viewModel.curStep == 1)
         .navigationBarItems(leading:
                                 HStack {
@@ -125,7 +102,20 @@ struct RegisterAuthNumView: View {
                                             Text("이전")
                                         })
                                     }
-                                })
+                                },
+                            trailing: HStack {
+                                if viewModel.curStep == 0 {
+                                    Button(action: {
+                                        viewModel.authNumCursor = 6
+                                        withAnimation {
+                                            viewModel.curStep += 1
+                                        }
+                                    }, label: {
+                                        Text("다음")
+                                    })
+                                    .disabled(!viewModel.enterValidate())
+                                }
+                            })
         .navigate(to: HomeView(), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
