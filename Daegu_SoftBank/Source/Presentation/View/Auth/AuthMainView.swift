@@ -52,6 +52,7 @@ struct AuthMainView: View {
             }
             .padding(20)
             .navigationBarHidden(true)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
         }
         .environment(\.loginViewRootPresentation, $loginPresenting)
         .environment(\.registerViewRootPresentation, $registerPresenting)
