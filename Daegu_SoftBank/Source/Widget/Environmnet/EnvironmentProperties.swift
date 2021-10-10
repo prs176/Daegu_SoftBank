@@ -15,22 +15,6 @@ struct RegisterViewRootPresentationKey: EnvironmentKey {
     static let defaultValue: Binding<Bool> = .constant(false)
 }
 
-struct CreateAccountViewRootPresentationKey: EnvironmentKey {
-    static let defaultValue: Binding<Bool> = .constant(false)
-}
-
-struct AddAccountViewRootPresentationKey: EnvironmentKey {
-    static let defaultValue: Binding<Bool> = .constant(false)
-}
-
-struct TransferViewRootPresentationKey: EnvironmentKey {
-    static let defaultValue: Binding<Bool> = .constant(false)
-}
-
-struct BringViewRootPresentationKey: EnvironmentKey {
-    static let defaultValue: Binding<Bool> = .constant(false)
-}
-
 extension EnvironmentValues {
     var loginViewRootPresentation: Binding<Bool> {
         get {
@@ -47,42 +31,6 @@ extension EnvironmentValues {
         }
         set {
             self[RegisterViewRootPresentationKey.self] = newValue
-        }
-    }
-    
-    var createAccountViewRootPresentation: Binding<Bool> {
-        get {
-            self[CreateAccountViewRootPresentationKey.self]
-        }
-        set {
-            self[CreateAccountViewRootPresentationKey.self] = newValue
-        }
-    }
-    
-    var addAccountViewRootPresentation: Binding<Bool> {
-        get {
-            self[AddAccountViewRootPresentationKey.self]
-        }
-        set {
-            self[AddAccountViewRootPresentationKey.self] = newValue
-        }
-    }
-    
-    var transferViewRootPresentation: Binding<Bool> {
-        get {
-            self[TransferViewRootPresentationKey.self]
-        }
-        set {
-            self[TransferViewRootPresentationKey.self] = newValue
-        }
-    }
-    
-    var bringViewRootPresentationKey: Binding<Bool> {
-        get {
-            self[BringViewRootPresentationKey.self]
-        }
-        set {
-            self[BringViewRootPresentationKey.self] = newValue
         }
     }
 }
