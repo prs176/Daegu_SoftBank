@@ -18,6 +18,15 @@ extension View {
         )
     }
     
+    func notDetailLinkNavigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
+        self.background(
+            NavigationLink(destination: view, isActive: binding) {
+                EmptyView()
+            }
+            .isDetailLink(false)
+        )
+    }
+    
     func resignKeyboardOnDragGesture() -> some View {
         return modifier(ResignKeyboardOnDragGesture())
     }

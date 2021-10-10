@@ -32,7 +32,7 @@ struct HomeView: View {
                 }
                 
                 NavigationLink(
-                    destination: Text("Destination"),
+                    destination: FirstCreateAccountView(),
                     label: {
                         VStack(alignment: .center) {
                             Text("계좌 개설하기")

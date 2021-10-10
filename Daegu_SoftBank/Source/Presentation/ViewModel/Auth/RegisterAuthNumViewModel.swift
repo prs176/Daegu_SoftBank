@@ -30,7 +30,7 @@ class RegisterAuthNumViewModel: BaseViewModel {
     }
     
     @Published var curStep: Int = 0
-    @Published var authNumCursor: Int = 6
+    var authNumCursor: Int = 6
     
     @Published var isSuccess: Bool = false
     
