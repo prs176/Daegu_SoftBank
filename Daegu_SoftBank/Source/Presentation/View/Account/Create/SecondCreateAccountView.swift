@@ -10,22 +10,61 @@ import SwiftUI
 struct SecondCreateAccountView: View {
     @ObservedObject var viewModel: SecondCreateAccountViewModel
     
+    var name: String
+    var rrn: String
+    var phoneNum: String
+    
     init(phoneNum: String, request: CreateAccountRequest) {
-        viewModel = SecondCreateAccountViewModel(phoneNum: phoneNum, request: request)
+        viewModel = SecondCreateAccountViewModel(request: request)
+        
+        name = request.name
+        
+        let temp = String(request.rrn)
+        rrn = String(temp[temp.startIndex..<temp.index(temp.endIndex, offsetBy: -1)]) + "-" + String(temp.last!)
+        
+        self.phoneNum = phoneNum
     }
     
     var body: some View {
         VStack {
+            Text("개인정보 확인")
+                .font(.title)
+            
             VStack {
-                Text("개인정보를 확인")
-                    .font(.title)
+                HStack {
+                    Text("이름")
+                        .font(.title3)
+                        .fontWeight(.thin)
+                    
+                    Spacer()
+                    
+                    Text(name)
+                        .font(.title3)
+                }
                 
-                Text("이름: \(viewModel.name)")
-                Text("주민등록번호: \(String(viewModel.rrn))")
-                Text("전화번호: \(viewModel.phoneNum)")
+                HStack {
+                    Text("주민등록번호")
+                        .font(.title3)
+                        .fontWeight(.thin)
+                    
+                    Spacer()
+                    
+                    Text(rrn)
+                        .font(.title3)
+                }
+                
+                HStack {
+                    Text("전화번호")
+                        .font(.title3)
+                        .fontWeight(.thin)
+                    
+                    Spacer()
+                    
+                    Text(phoneNum)
+                        .font(.title3)
+                }
             }
-            .font(.title3)
-            .padding(.bottom)
+            .padding(.vertical)
             
             VStack(alignment: .leading) {
                 Text("통장별명")
@@ -47,6 +86,7 @@ struct SecondCreateAccountView: View {
                             RoundedRectangle(cornerRadius: 12.0)
                         )
                 })
+                .isDetailLink(false)
                 .disabled(!viewModel.enterValidate())
         }
         .padding()

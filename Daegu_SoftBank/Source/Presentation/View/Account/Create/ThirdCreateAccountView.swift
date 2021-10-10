@@ -16,8 +16,11 @@ struct ThirdCreateAccountView: View {
     
     var body: some View {
         VStack {
-            Text("입출금통장 비밀번호 설정")
+            Text("마지막 단계입니다")
                 .font(.title)
+            
+            Text("입출금통장 비밀번호 설정")
+                .font(.title3)
                 .padding(.bottom)
             
             HStack {
@@ -40,7 +43,7 @@ struct ThirdCreateAccountView: View {
             Button(action: {
                 viewModel.apply()
             }, label: {
-                Text("확인")
+                Text("개설완료")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -48,12 +51,11 @@ struct ThirdCreateAccountView: View {
                         RoundedRectangle(cornerRadius: 12.0)
                     )
             })
-            .disabled(!viewModel.enterValidate())
         }
         .padding()
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .navigate(to: FourthCreateAccountView(), when: $viewModel.isSuccess)
+        .notDetailLinkNavigate(to: FourthCreateAccountView(accountInfo: viewModel.accountInfo), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

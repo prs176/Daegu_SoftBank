@@ -12,15 +12,13 @@ struct FirstCreateAccountView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                Text("실명정보 확인")
-                    .font(.title)
-                
-                Text("이름과 주민등록번호를 입력하세요")
-                    .font(.title3)
-                    .multilineTextAlignment(.center)
-            }
-            .padding(.bottom)
+            Text("실명정보 확인")
+                .font(.title)
+            
+            Text("이름과 주민등록번호를 입력하세요")
+                .font(.title3)
+                .multilineTextAlignment(.center)
+                .padding(.bottom)
             
             VStack(alignment: .leading) {
                 Text("이름")
@@ -60,7 +58,7 @@ struct FirstCreateAccountView: View {
             Spacer()
             
             Button(action: {
-                viewModel.searchUserInfo()
+                viewModel.search()
             }, label: {
                 Text("확인")
                     .foregroundColor(.white)
@@ -78,7 +76,7 @@ struct FirstCreateAccountView: View {
         }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .navigate(to: SecondCreateAccountView(phoneNum: viewModel.phoneNum, request: viewModel.request), when: $viewModel.isSuccess)
+        .notDetailLinkNavigate(to: SecondCreateAccountView(phoneNum: viewModel.phoneNum, request: viewModel.request), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

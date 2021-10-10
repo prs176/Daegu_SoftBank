@@ -27,7 +27,7 @@ class FirstCreateAccountViewModel: BaseViewModel {
     @Published var isSuccess: Bool = false
     var phoneNum: String = ""
     
-    func searchUserInfo() {
+    func search() {
         guard validate() else {
             return
         }
