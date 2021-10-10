@@ -35,7 +35,6 @@ struct FirstCreateAccountView: View {
                 HStack {
                     ForEach(0..<6, id: \.self) { idx in
                         AutoFocusTextField(text: $viewModel.rrnLetters[idx], isFirstResponder: viewModel.rnnCursor == idx)
-                            .padding(.vertical)
                             .padding(.horizontal, 5)
                             .background(Color(.secondarySystemBackground))
                             .cornerRadius(5.0)

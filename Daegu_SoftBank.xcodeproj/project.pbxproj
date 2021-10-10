@@ -31,6 +31,10 @@
 		CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC81E2712C9C5003EB1A2 /* SecondCreateAccountView.swift */; };
 		CBBAC8212712CA34003EB1A2 /* SecondCreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8202712CA34003EB1A2 /* SecondCreateAccountViewModel.swift */; };
 		CBBAC8232712DBF2003EB1A2 /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8222712DBF2003EB1A2 /* CreateAccountRequest.swift */; };
+		CBBAC8252712E498003EB1A2 /* ThirdCreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8242712E498003EB1A2 /* ThirdCreateAccountViewModel.swift */; };
+		CBBAC8272712E4AF003EB1A2 /* ThirdCreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8262712E4AF003EB1A2 /* ThirdCreateAccountView.swift */; };
+		CBBAC82A2712E5D3003EB1A2 /* FourthCreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8292712E5D3003EB1A2 /* FourthCreateAccountView.swift */; };
+		CBBAC82C2712ED14003EB1A2 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */; };
 		CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C4271143E600985ACA /* PhotoPicker.swift */; };
 		CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C5271143E600985ACA /* AutoFocusTextField.swift */; };
 		CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C92711444000985ACA /* BaseViewModel.swift */; };
@@ -98,6 +102,10 @@
 		CBBAC81E2712C9C5003EB1A2 /* SecondCreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCreateAccountView.swift; sourceTree = "<group>"; };
 		CBBAC8202712CA34003EB1A2 /* SecondCreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCreateAccountViewModel.swift; sourceTree = "<group>"; };
 		CBBAC8222712DBF2003EB1A2 /* CreateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
+		CBBAC8242712E498003EB1A2 /* ThirdCreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCreateAccountViewModel.swift; sourceTree = "<group>"; };
+		CBBAC8262712E4AF003EB1A2 /* ThirdCreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCreateAccountView.swift; sourceTree = "<group>"; };
+		CBBAC8292712E5D3003EB1A2 /* FourthCreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthCreateAccountView.swift; sourceTree = "<group>"; };
+		CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
 		CBD8F5C4271143E600985ACA /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPicker.swift; path = Daegu_SoftBank/Source/Widget/RepresentableView/PhotoPicker.swift; sourceTree = SOURCE_ROOT; };
 		CBD8F5C5271143E600985ACA /* AutoFocusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoFocusTextField.swift; path = Daegu_SoftBank/Source/Widget/RepresentableView/AutoFocusTextField.swift; sourceTree = SOURCE_ROOT; };
 		CBD8F5C92711444000985ACA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -232,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				CBD8F5E327118D1E00985ACA /* Account.swift */,
+				CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -447,6 +456,8 @@
 			children = (
 				CBBAC8192712AB99003EB1A2 /* FirstCreateAccountView.swift */,
 				CBBAC81E2712C9C5003EB1A2 /* SecondCreateAccountView.swift */,
+				CBBAC8262712E4AF003EB1A2 /* ThirdCreateAccountView.swift */,
+				CBBAC8292712E5D3003EB1A2 /* FourthCreateAccountView.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -456,6 +467,7 @@
 			children = (
 				CBBAC81C2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift */,
 				CBBAC8202712CA34003EB1A2 /* SecondCreateAccountViewModel.swift */,
+				CBBAC8242712E498003EB1A2 /* ThirdCreateAccountViewModel.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -756,10 +768,13 @@
 				CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */,
 				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
 				CBD8F5D327116E8600985ACA /* WebView.swift in Sources */,
+				CBBAC8252712E498003EB1A2 /* ThirdCreateAccountViewModel.swift in Sources */,
 				CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */,
+				CBBAC82C2712ED14003EB1A2 /* AccountInfo.swift in Sources */,
 				CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */,
 				CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */,
 				CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */,
+				CBBAC8272712E4AF003EB1A2 /* ThirdCreateAccountView.swift in Sources */,
 				CBBAC81A2712AB99003EB1A2 /* FirstCreateAccountView.swift in Sources */,
 				CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */,
 				CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */,
@@ -780,6 +795,7 @@
 				CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */,
 				CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */,
 				CBD8F5DD27118C5300985ACA /* HomeView.swift in Sources */,
+				CBBAC82A2712E5D3003EB1A2 /* FourthCreateAccountView.swift in Sources */,
 				CBD8F5E027118C8400985ACA /* UserInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

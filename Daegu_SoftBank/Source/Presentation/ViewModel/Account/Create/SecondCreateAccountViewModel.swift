@@ -32,6 +32,8 @@ extension SecondCreateAccountViewModel {
             return false
         }
         
+        request.accountName = accountName
+        
         return true
     }
 }

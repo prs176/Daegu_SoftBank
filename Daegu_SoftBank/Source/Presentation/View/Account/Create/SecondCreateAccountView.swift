@@ -17,7 +17,7 @@ struct SecondCreateAccountView: View {
     var body: some View {
         VStack {
             VStack {
-                Text("개인정보를 확인하세요")
+                Text("개인정보를 확인")
                     .font(.title)
                 
                 Text("이름: \(viewModel.name)")
@@ -37,7 +37,7 @@ struct SecondCreateAccountView: View {
             Spacer()
             
             NavigationLink(
-                destination: Text("Destination"),
+                destination: ThirdCreateAccountView(request: viewModel.request),
                 label: {
                     Text("확인")
                         .foregroundColor(.white)
