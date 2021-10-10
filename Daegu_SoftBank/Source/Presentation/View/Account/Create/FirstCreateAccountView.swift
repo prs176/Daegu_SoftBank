@@ -25,7 +25,7 @@ struct FirstCreateAccountView: View {
             VStack(alignment: .leading) {
                 Text("이름")
                 
-                TextField("이름", text: $viewModel.name)
+                TextField("", text: $viewModel.name)
                     .textFieldStyle(LabelTextFieldStyle())
             }
             

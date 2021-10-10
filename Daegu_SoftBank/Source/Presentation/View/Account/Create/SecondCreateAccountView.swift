@@ -16,15 +16,43 @@ struct SecondCreateAccountView: View {
     
     var body: some View {
         VStack {
-            Text("개인정보를 확인하세요")
-                .font(.title3)
-            
             VStack {
-                Text("이름: \(viewModel.request.name)")
-                Text("주민등록번호: \(viewModel.request.rrn)")
+                Text("개인정보를 확인하세요")
+                    .font(.title)
+                
+                Text("이름: \(viewModel.name)")
+                Text("주민등록번호: \(String(viewModel.rrn))")
                 Text("전화번호: \(viewModel.phoneNum)")
             }
+            .font(.title3)
+            .padding(.bottom)
+            
+            VStack(alignment: .leading) {
+                Text("통장별명")
+                
+                TextField("", text: $viewModel.accountName)
+                    .textFieldStyle(LabelTextFieldStyle())
+            }
+            
+            Spacer()
+            
+            NavigationLink(
+                destination: Text("Destination"),
+                label: {
+                    Text("확인")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 12.0)
+                        )
+                })
+                .disabled(!viewModel.enterValidate())
         }
+        .padding()
+        .navigationTitle("계좌개설")
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .resignKeyboardOnDragGesture()
     }
 }
 
