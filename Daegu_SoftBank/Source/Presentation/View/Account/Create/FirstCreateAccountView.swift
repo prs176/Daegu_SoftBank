@@ -79,7 +79,7 @@ struct FirstCreateAccountView: View {
         }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .navigate(to: SecondCreateAccountView(), when: $viewModel.isSuccess)
+        .navigate(to: SecondCreateAccountView(phoneNum: viewModel.phoneNum, request: viewModel.request), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

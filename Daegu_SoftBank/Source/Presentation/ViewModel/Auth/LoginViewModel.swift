@@ -20,7 +20,8 @@ class LoginViewModel: BaseViewModel {
             }
         }
     }
-    @Published var authNumCursor: Int = 6
+    
+    var authNumCursor: Int = 6
     
     @Published var isSuccess: Bool = false
     

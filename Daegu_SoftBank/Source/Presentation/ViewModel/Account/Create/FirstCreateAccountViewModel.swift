@@ -20,15 +20,22 @@ class FirstCreateAccountViewModel: BaseViewModel {
         }
     }
     
-    @Published var rnnCursor: Int = 7
+    var rnnCursor: Int = 7
+    
+    var request: CreateAccountRequest = CreateAccountRequest()
     
     @Published var isSuccess: Bool = false
+    var phoneNum: String = ""
     
     func searchUserInfo() {
         guard validate() else {
             return
         }
         
+        request.name = name
+        request.rrn = Int(rrnLetters.joined())!
+        
+        phoneNum = "010-1234-1234"
         isSuccess = true
     }
     

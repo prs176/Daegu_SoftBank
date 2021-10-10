@@ -8,5 +8,12 @@
 import Foundation
 
 class SecondCreateAccountViewModel: BaseViewModel {
+    var phoneNum: String
     
+    var request: CreateAccountRequest
+    
+    init(phoneNum: String, request: CreateAccountRequest) {
+        self.phoneNum = phoneNum
+        self.request = request
+    }
 }

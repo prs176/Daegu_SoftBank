@@ -33,7 +33,7 @@ class RegisterViewModel: BaseViewModel {
     @Published var nickname: String = ""
     @Published var isAgree: Bool = false
     
-    @Published var rnnCursor: Int = 7
+    var rnnCursor: Int = 7
     
     @Published var isIdAvailable: Bool? = nil
     @Published var isPwAvailable: Bool? = nil
