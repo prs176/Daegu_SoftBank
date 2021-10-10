@@ -12,6 +12,8 @@ struct HomeView: View {
     @Environment(\.loginViewRootPresentation) var loginViewRootPresentation: Binding<Bool>
     @Environment(\.registerViewRootPresentation) var registerViewRootPresentation: Binding<Bool>
     
+    @State var createAccountPresenting: Bool = false
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -32,7 +34,9 @@ struct HomeView: View {
                 }
                 
                 NavigationLink(
-                    destination: Text("Destination"),
+                    destination: FirstCreateAccountView()
+                        .environment(\.createAccountViewRootPresentation, $createAccountPresenting),
+                    isActive: $createAccountPresenting,
                     label: {
                         VStack(alignment: .center) {
                             Text("계좌 개설하기")
