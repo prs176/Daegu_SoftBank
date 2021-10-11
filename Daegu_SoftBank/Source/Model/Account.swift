@@ -10,6 +10,7 @@ import Foundation
 class Account: Codable, Hashable {
     var idx: Int
     var accountNum: String
+    var bank: String
     var name: String
     var balance: Int
     
@@ -21,9 +22,10 @@ class Account: Codable, Hashable {
         hasher.combine(idx)
     }
     
-    internal init(idx: Int, accountNum: String, name: String, balance: Int) {
+    internal init(idx: Int, accountNum: String, bank: String, name: String, balance: Int) {
         self.idx = idx
         self.accountNum = accountNum
+        self.bank = bank
         self.name = name
         self.balance = balance
     }

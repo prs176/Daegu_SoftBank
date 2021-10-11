@@ -69,7 +69,7 @@ struct HomeView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: FirstAddAcountView(),
+                    destination: FirstAddAccountView(),
                     label: {
                         HStack {
                             Image(systemName: "plus")

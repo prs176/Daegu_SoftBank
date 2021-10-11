@@ -63,6 +63,6 @@ struct AccountView: View {
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView(account: Account(idx: 0, accountNum: "123-41234", name: "로미 통장", balance: 50000))
+        AccountView(account: Account(idx: 0, accountNum: "123-41234", bank: "부산", name: "로미 통장", balance: 50000))
     }
 }

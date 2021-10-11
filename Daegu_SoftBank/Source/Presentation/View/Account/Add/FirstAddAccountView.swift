@@ -76,14 +76,14 @@ struct FirstAddAccountView: View {
         }
         .navigationTitle("계좌추가")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .navigate(to: <#T##View#>, when: $viewModel.isSuccess)
+        .notDetailLinkNavigate(to: SecondAddAccountView(request: viewModel.request, accounts: viewModel.accounts), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }
 
-struct FirstAddAcountView_Previews: PreviewProvider {
+struct FirstAddAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstAddAcountView()
+        FirstAddAccountView()
     }
 }

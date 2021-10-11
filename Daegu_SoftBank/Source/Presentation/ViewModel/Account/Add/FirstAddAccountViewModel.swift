@@ -25,6 +25,7 @@ class FirstAddAccountViewModel: BaseViewModel {
     var request: AddAccountRequest = AddAccountRequest()
     
     @Published var isSuccess: Bool = false
+    var accounts: [Account] = []
     
     func search() {
         guard validate() else {
@@ -34,6 +35,7 @@ class FirstAddAccountViewModel: BaseViewModel {
         request.name = name
         request.rrn = Int(rrnLetters.joined())!
         
+        accounts = [Account(idx: 0, accountNum: "1234-4312", bank: "로미", name: "로미", balance: 34102), Account(idx: 3, accountNum: "1234-3212", bank: "로미", name: "로ㅇㄴㅁ미", balance: 34412102)]
         isSuccess = true
     }
     
@@ -43,7 +45,7 @@ class FirstAddAccountViewModel: BaseViewModel {
     }
 }
 
-extension FirstAddAcountViewModel {
+extension FirstAddAccountViewModel {
     func validate() -> Bool {
         if rrnLetters.map({ $0.isNumber() }).contains(false) {
             isErrorOcuured = true

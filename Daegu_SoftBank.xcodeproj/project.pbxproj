@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		108AD46BE10D5F6597864830 /* Pods_Daegu_SoftBankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5D93350B161C8B18373F46 /* Pods_Daegu_SoftBankTests.framework */; };
 		2D4D2C08ACC599A76C27FF28 /* Pods_Daegu_SoftBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F00E37D9231BB8E8C2CC186 /* Pods_Daegu_SoftBank.framework */; };
+		CB415499271445C800E434B3 /* SecondAddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB415498271445C800E434B3 /* SecondAddAccountView.swift */; };
+		CB41549B271445D500E434B3 /* SecondAddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41549A271445D500E434B3 /* SecondAddAccountViewModel.swift */; };
+		CB4154A0271449A700E434B3 /* AddAccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41549F271449A700E434B3 /* AddAccountRow.swift */; };
 		CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEA270D23B700271A73 /* AppDelegate.swift */; };
 		CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */; };
 		CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* AuthMainView.swift */; };
@@ -76,6 +79,9 @@
 		26C907E3203E988291619D6B /* Pods-Daegu_SoftBankTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBankTests.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBankTests/Pods-Daegu_SoftBankTests.release.xcconfig"; sourceTree = "<group>"; };
 		6B2B83C9B72BFC9F1095699E /* Pods-Daegu_SoftBankTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBankTests.debug.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBankTests/Pods-Daegu_SoftBankTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B598EAF4CFFF0F63C440BA6F /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB415498271445C800E434B3 /* SecondAddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddAccountView.swift; sourceTree = "<group>"; };
+		CB41549A271445D500E434B3 /* SecondAddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddAccountViewModel.swift; sourceTree = "<group>"; };
+		CB41549F271449A700E434B3 /* AddAccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountRow.swift; sourceTree = "<group>"; };
 		CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daegu_SoftBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DEA270D23B700271A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +169,14 @@
 				1D5D93350B161C8B18373F46 /* Pods_Daegu_SoftBankTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB41549C2714465C00E434B3 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				CB41549F271449A700E434B3 /* AddAccountRow.swift */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 		CB8E9DDE270D23B700271A73 = {
@@ -484,7 +498,9 @@
 		CBBAC82D271331D5003EB1A2 /* Add */ = {
 			isa = PBXGroup;
 			children = (
+				CB41549C2714465C00E434B3 /* SubView */,
 				CBBAC82E271331EB003EB1A2 /* FirstAddAccountView.swift */,
+				CB415498271445C800E434B3 /* SecondAddAccountView.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -493,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				CBBAC8312713320D003EB1A2 /* FirstAddAccountViewModel.swift */,
+				CB41549A271445D500E434B3 /* SecondAddAccountViewModel.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -792,6 +809,7 @@
 			files = (
 				CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */,
 				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
+				CB4154A0271449A700E434B3 /* AddAccountRow.swift in Sources */,
 				CBD8F5D327116E8600985ACA /* WebView.swift in Sources */,
 				CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */,
 				CBBAC8252712E498003EB1A2 /* ThirdCreateAccountViewModel.swift in Sources */,
@@ -804,6 +822,7 @@
 				CBBAC81A2712AB99003EB1A2 /* FirstCreateAccountView.swift in Sources */,
 				CBBAC834271334BB003EB1A2 /* AddAccountRequest.swift in Sources */,
 				CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */,
+				CB415499271445C800E434B3 /* SecondAddAccountView.swift in Sources */,
 				CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */,
 				CBBAC8212712CA34003EB1A2 /* SecondCreateAccountViewModel.swift in Sources */,
 				CBD8F5E427118D1E00985ACA /* Account.swift in Sources */,
@@ -812,6 +831,7 @@
 				CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */,
 				CB8E9E39270D312F00271A73 /* LabelTextFieldStyle.swift in Sources */,
 				CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */,
+				CB41549B271445D500E434B3 /* SecondAddAccountViewModel.swift in Sources */,
 				CBF9E0BA2711AFBA00DDC3E8 /* EnvironmentProperties.swift in Sources */,
 				CB8E9E43270EB2D200271A73 /* LoginView.swift in Sources */,
 				CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */,
