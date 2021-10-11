@@ -19,12 +19,11 @@ struct SecondAddAccountView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("\(Set(viewModel.accounts.map({ $0.bank })).count) 개의 은행에서\n\(viewModel.accounts.count) 개의 계좌를 찾았습니다.")
-                .font(.title)
+                .font(.title2)
             
             Text("등록할 계좌를 선택해주세요.\n등록된 계좌는 간편하게 송금 및 조회할 수 있습니다.")
                 .font(.title3)
                 .fontWeight(.thin)
-                .padding(.bottom)
             
             ScrollView {
                 ForEach(viewModel.accounts, id: \.self) { account in
@@ -40,7 +39,6 @@ struct SecondAddAccountView: View {
                     }, label: {
                         AddAccountRow(account: account, isChecked: viewModel.selectedAccounts.contains(account.idx))
                     })
-                    .padding(.vertical)
                 }
             }
             

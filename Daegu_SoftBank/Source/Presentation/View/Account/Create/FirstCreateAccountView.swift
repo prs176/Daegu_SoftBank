@@ -33,12 +33,9 @@ struct FirstCreateAccountView: View {
                 HStack {
                     ForEach(0..<6, id: \.self) { idx in
                         AutoFocusTextField(text: $viewModel.rrnLetters[idx], isFirstResponder: viewModel.rnnCursor == idx)
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 5.0)
-                                    .foregroundColor(Color(.secondarySystemBackground))
-                            )
-                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.horizontal, 5)
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(5.0)
                             .keyboardType(.numberPad)
                             .disabled(viewModel.rnnCursor != idx)
                     }
@@ -47,15 +44,14 @@ struct FirstCreateAccountView: View {
                         .font(.caption)
                     
                     AutoFocusTextField(text: $viewModel.rrnLetters[6], isFirstResponder: viewModel.rnnCursor == 6)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 5.0)
-                                .foregroundColor(Color(.secondarySystemBackground))
-                        )
-                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.vertical)
+                        .padding(.horizontal, 5)
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(5.0)
                         .keyboardType(.numberPad)
                         .disabled(viewModel.rnnCursor != 6)
                 }
+                .frame(height: 55)
                 .highPriorityGesture(TapGesture().onEnded {
                     viewModel.resetRnnLetters()
                 })
