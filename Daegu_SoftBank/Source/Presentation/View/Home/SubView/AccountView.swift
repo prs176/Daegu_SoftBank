@@ -1,5 +1,5 @@
 //
-//  AccountView.swift
+//  AccountRow.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/09.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AccountView: View {
+struct AccountRow: View {
     var account: Account
     
     var body: some View {
@@ -61,8 +61,8 @@ struct AccountView: View {
     }
 }
 
-struct AccountView_Previews: PreviewProvider {
+struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView(account: Account(idx: 0, accountNum: "123-41234", bank: "부산", name: "로미 통장", balance: 50000))
+        AccountRow(account: Account(idx: 0, accountNum: "123-41234", bank: "부산", name: "로미 통장", balance: 50000))
     }
 }

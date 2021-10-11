@@ -63,9 +63,7 @@ struct FirstCreateAccountView: View {
             
             Spacer()
             
-            Button(action: {
-                viewModel.search()
-            }, label: {
+            Button(action: viewModel.search, label: {
                 Text("확인")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)

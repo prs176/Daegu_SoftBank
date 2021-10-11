@@ -43,9 +43,7 @@ struct ThirdCreateAccountView: View {
             
             Spacer()
             
-            Button(action: {
-                viewModel.apply()
-            }, label: {
+            Button(action: viewModel.apply, label: {
                 Text("개설완료")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)

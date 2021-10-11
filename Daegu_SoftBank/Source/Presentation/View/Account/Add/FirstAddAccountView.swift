@@ -17,7 +17,6 @@ struct FirstAddAccountView: View {
             
             Text("이름과 주민등록번호를 입력하세요")
                 .font(.title3)
-                .multilineTextAlignment(.center)
                 .padding(.bottom)
             
             VStack(alignment: .leading) {
