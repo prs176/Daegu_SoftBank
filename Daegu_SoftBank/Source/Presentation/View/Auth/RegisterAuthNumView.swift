@@ -27,9 +27,12 @@ struct RegisterAuthNumView: View {
                     HStack {
                         ForEach(0..<6, id: \.self) { idx in
                             AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
-                                .padding(.horizontal, 5)
-                                .background(Color(.secondarySystemBackground))
-                                .cornerRadius(5.0)
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 5.0)
+                                        .foregroundColor(Color(.secondarySystemBackground))
+                                )
+                                .fixedSize(horizontal: false, vertical: true)
                                 .keyboardType(.numberPad)
                                 .disabled(viewModel.authNumCursor != idx)
                         }
@@ -51,9 +54,12 @@ struct RegisterAuthNumView: View {
                     HStack {
                         ForEach(0..<6, id: \.self) { idx in
                             AutoFocusTextField(text: $viewModel.reAuthNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
-                                .padding(.horizontal, 5)
-                                .background(Color(.secondarySystemBackground))
-                                .cornerRadius(5.0)
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 5.0)
+                                        .foregroundColor(Color(.secondarySystemBackground))
+                                )
+                                .fixedSize(horizontal: false, vertical: true)
                                 .keyboardType(.numberPad)
                                 .disabled(viewModel.authNumCursor != idx)
                         }

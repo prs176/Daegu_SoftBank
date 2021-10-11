@@ -11,7 +11,9 @@ struct LabelTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .padding()
-            .background(Color(.secondarySystemBackground))
-            .cornerRadius(5.0)
+            .background(
+                RoundedRectangle(cornerRadius: 5.0)
+                    .foregroundColor(Color(.secondarySystemBackground))
+            )
     }
 }

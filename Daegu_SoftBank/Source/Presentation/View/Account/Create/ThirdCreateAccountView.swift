@@ -26,23 +26,24 @@ struct ThirdCreateAccountView: View {
             HStack {
                 ForEach(0..<4, id: \.self) { idx in
                     AutoFocusTextField(text: $viewModel.pwLetters[idx], isFirstResponder: viewModel.pwCursor == idx)
-                        .padding(.horizontal, 5)
-                        .frame(width: 50)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(5.0)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 5.0)
+                                .foregroundColor(Color(.secondarySystemBackground))
+                        )
+                        .frame(width: 55)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .keyboardType(.numberPad)
                         .disabled(viewModel.pwCursor != idx)
                 }
             }
-            .frame(height: 50)
             .highPriorityGesture(TapGesture().onEnded {
                 viewModel.resetPwLetters()
             })
             
             Spacer()
             
-            Button(action: {
-                viewModel.apply()
-            }, label: {
+            Button(action: viewModel.apply, label: {
                 Text("개설완료")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)

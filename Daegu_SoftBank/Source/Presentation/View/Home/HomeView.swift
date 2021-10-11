@@ -56,7 +56,7 @@ struct HomeView: View {
                     ForEach(viewModel.accounts, id: \.self) { account in
                         Divider()
                         
-                        AccountView(account: account)
+                        AccountRow(account: account)
                             .padding(.vertical, 5)
                     }
                 }
@@ -69,7 +69,7 @@ struct HomeView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: Text("Destination"),
+                    destination: FirstAddAccountView(),
                     label: {
                         HStack {
                             Image(systemName: "plus")
