@@ -37,6 +37,6 @@ struct AddAccountRow: View {
 
 struct AddAccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        AddAccountRow(account: Account(idx: 0, accountNum: "1234-1234", bank: "안녕", name: "안녕", balance: 2341), isChecked: false)
+        AddAccountRow(account: Account(), isChecked: false)
     }
 }

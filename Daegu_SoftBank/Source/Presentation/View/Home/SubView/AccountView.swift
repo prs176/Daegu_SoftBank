@@ -46,7 +46,7 @@ struct AccountRow: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: Text("asdf"), label: {
+                NavigationLink(destination: FirstTransferView(account: account), label: {
                     Text("이체")
                         .foregroundColor(Color(.secondaryLabel))
                         .padding(.horizontal, 12)
@@ -63,6 +63,6 @@ struct AccountRow: View {
 
 struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        AccountRow(account: Account(idx: 0, accountNum: "123-41234", bank: "부산", name: "로미 통장", balance: 50000))
+        AccountRow(account: Account())
     }
 }
