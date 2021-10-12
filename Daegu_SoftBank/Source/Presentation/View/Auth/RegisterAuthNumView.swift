@@ -27,20 +27,17 @@ struct RegisterAuthNumView: View {
                     HStack {
                         ForEach(0..<6, id: \.self) { idx in
                             AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 5.0)
-                                        .foregroundColor(Color(.secondarySystemBackground))
-                                )
-                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(.horizontal, 5)
+                                .background(Color(.secondarySystemBackground))
+                                .cornerRadius(5.0)
                                 .keyboardType(.numberPad)
                                 .disabled(viewModel.authNumCursor != idx)
                         }
                     }
+                    .frame(height: 55)
                     .highPriorityGesture(TapGesture().onEnded {
                         viewModel.resetAuthNumLetters()
                     })
-                    .frame(height: 50)
                     
                     Text("6자리 숫자를 입력하세요")
                         .fontWeight(.thin)
@@ -54,20 +51,17 @@ struct RegisterAuthNumView: View {
                     HStack {
                         ForEach(0..<6, id: \.self) { idx in
                             AutoFocusTextField(text: $viewModel.reAuthNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 5.0)
-                                        .foregroundColor(Color(.secondarySystemBackground))
-                                )
-                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(.horizontal, 5)
+                                .background(Color(.secondarySystemBackground))
+                                .cornerRadius(5.0)
                                 .keyboardType(.numberPad)
                                 .disabled(viewModel.authNumCursor != idx)
                         }
                     }
+                    .frame(height: 50)
                     .highPriorityGesture(TapGesture().onEnded {
                         viewModel.resetAuthNumLetters()
                     })
-                    .frame(height: 50)
                     
                     Text("6자리 숫자를 입력하세요")
                         .fontWeight(.thin)

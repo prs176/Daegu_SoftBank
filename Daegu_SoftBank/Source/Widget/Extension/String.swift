@@ -30,7 +30,7 @@ extension String {
     }
     
     func isNumber() -> Bool {
-        let numberRegEx = "[0-9]"
+        let numberRegEx = "^[0-9]*$"
         
         let numberTest = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
         return numberTest.evaluate(with: self)

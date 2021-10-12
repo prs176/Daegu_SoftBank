@@ -1,27 +1,27 @@
 //
-//  ThirdCreateAccountView.swift
+//  ThirdTransferView.swift
 //  Daegu_SoftBank
 //
-//  Created by 박세은 on 2021/10/10.
+//  Created by 박세은 on 2021/10/12.
 //
 
 import SwiftUI
 
-struct ThirdCreateAccountView: View {
-    @ObservedObject var viewModel: ThirdCreateAccountViewModel
+struct ThirdTransferView: View {
+    @ObservedObject var viewModel: ThirdTransferViewModel
     
-    init(request: CreateAccountRequest) {
-        viewModel = ThirdCreateAccountViewModel(request: request)
+    var fees: Int
+    
+    init(fees: Int, request: TransferRequest) {
+        self.fees = fees
+        viewModel = ThirdTransferViewModel(request: request)
     }
     
     var body: some View {
         VStack {
-            Text("마지막 단계입니다")
+            Text("계좌비밀번호를 입력하세요.")
                 .font(.title)
-            
-            Text("입출금통장 비밀번호 설정")
-                .font(.title3)
-                .padding(.bottom)
+                .padding(.bottom, 80)
             
             HStack {
                 ForEach(0..<4, id: \.self) { idx in
@@ -42,7 +42,7 @@ struct ThirdCreateAccountView: View {
             Spacer()
             
             Button(action: viewModel.apply, label: {
-                Text("개설완료")
+                Text("확인")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -56,16 +56,16 @@ struct ThirdCreateAccountView: View {
         .onAppear {
             viewModel.isSuccess = false
         }
-        .navigationTitle("계좌개설")
+        .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .notDetailLinkNavigate(to: FourthCreateAccountView(accountInfo: viewModel.accountInfo), when: $viewModel.isSuccess)
+        .notDetailLinkNavigate(to: FourthTransferView(bank: viewModel.request.bank, accountNum: viewModel.request.accountNum, price: viewModel.request.price, fees: fees), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }
 
-struct ThirdCreateAccountView_Previews: PreviewProvider {
+struct ThirdTransferView_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdCreateAccountView(request: CreateAccountRequest())
+        ThirdTransferView(fees: 0, request: TransferRequest())
     }
 }

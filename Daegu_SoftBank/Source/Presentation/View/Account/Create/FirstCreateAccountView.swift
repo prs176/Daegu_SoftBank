@@ -11,14 +11,14 @@ struct FirstCreateAccountView: View {
     @StateObject var viewModel: FirstCreateAccountViewModel = FirstCreateAccountViewModel()
     
     var body: some View {
-        VStack {
-            Text("실명정보 확인")
-                .font(.title)
-            
-            Text("이름과 주민등록번호를 입력하세요")
-                .font(.title3)
-                .multilineTextAlignment(.center)
-                .padding(.bottom)
+        VStack(spacing: 15) {
+            VStack {
+                Text("실명정보 확인")
+                    .font(.title)
+                
+                Text("이름과 주민등록번호를 입력하세요")
+                    .font(.title3)
+            }
             
             VStack(alignment: .leading) {
                 Text("이름")
@@ -33,12 +33,9 @@ struct FirstCreateAccountView: View {
                 HStack {
                     ForEach(0..<6, id: \.self) { idx in
                         AutoFocusTextField(text: $viewModel.rrnLetters[idx], isFirstResponder: viewModel.rnnCursor == idx)
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 5.0)
-                                    .foregroundColor(Color(.secondarySystemBackground))
-                            )
-                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.horizontal, 5)
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(5.0)
                             .keyboardType(.numberPad)
                             .disabled(viewModel.rnnCursor != idx)
                     }
@@ -47,15 +44,14 @@ struct FirstCreateAccountView: View {
                         .font(.caption)
                     
                     AutoFocusTextField(text: $viewModel.rrnLetters[6], isFirstResponder: viewModel.rnnCursor == 6)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 5.0)
-                                .foregroundColor(Color(.secondarySystemBackground))
-                        )
-                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.vertical)
+                        .padding(.horizontal, 5)
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(5.0)
                         .keyboardType(.numberPad)
                         .disabled(viewModel.rnnCursor != 6)
                 }
+                .frame(height: 55)
                 .highPriorityGesture(TapGesture().onEnded {
                     viewModel.resetRnnLetters()
                 })
@@ -75,6 +71,9 @@ struct FirstCreateAccountView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
+        .onAppear {
+            viewModel.isSuccess = false
+        }
         .onTapGesture {
             viewModel.rnnCursor = 7
         }

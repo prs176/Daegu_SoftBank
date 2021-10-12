@@ -8,11 +8,11 @@
 import Foundation
 
 class Account: Codable, Hashable {
-    var idx: Int
-    var accountNum: String
-    var bank: String
-    var name: String
-    var balance: Int
+    var idx: Int = 0
+    var accountNum: String = ""
+    var bank: String = ""
+    var name: String = ""
+    var balance: Int = 0
     
     static func == (lhs: Account, rhs: Account) -> Bool {
         return lhs.idx == rhs.idx
@@ -20,13 +20,5 @@ class Account: Codable, Hashable {
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(idx)
-    }
-    
-    internal init(idx: Int, accountNum: String, bank: String, name: String, balance: Int) {
-        self.idx = idx
-        self.accountNum = accountNum
-        self.bank = bank
-        self.name = name
-        self.balance = balance
     }
 }

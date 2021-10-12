@@ -1,13 +1,13 @@
 //
-//  ThirdCreateAccountViewModel.swift
+//  ThirdTransferViewModel.swift
 //  Daegu_SoftBank
 //
-//  Created by 박세은 on 2021/10/10.
+//  Created by 박세은 on 2021/10/12.
 //
 
 import Foundation
 
-class ThirdCreateAccountViewModel: BaseViewModel {
+class ThirdTransferViewModel: BaseViewModel {
     @Published var pwLetters: [String] = ["", "", "", ""] {
         didSet {
             if pwLetters.filter({ $0.count > 1 }).count != 0 {
@@ -21,13 +21,11 @@ class ThirdCreateAccountViewModel: BaseViewModel {
     
     var pwCursor: Int = 4
     
-    var request: CreateAccountRequest
+    var request: TransferRequest
     
     @Published var isSuccess: Bool = false
-    var accountInfo: AccountInfo = AccountInfo()
     
-    init(request: CreateAccountRequest) {
-        print(pwCursor)
+    init(request: TransferRequest) {
         self.request = request
     }
     
@@ -36,7 +34,7 @@ class ThirdCreateAccountViewModel: BaseViewModel {
             return
         }
         
-        accountInfo = AccountInfo()
+        request.pw = pwLetters.joined()
         isSuccess = true
     }
     
@@ -46,7 +44,7 @@ class ThirdCreateAccountViewModel: BaseViewModel {
     }
 }
 
-extension ThirdCreateAccountViewModel {
+extension ThirdTransferViewModel {
     func validate() -> Bool {
         if pwLetters.map({ $0.isNumber() }).contains(false) {
             isErrorOcuured = true
@@ -65,3 +63,4 @@ extension ThirdCreateAccountViewModel {
         return true
     }
 }
+
