@@ -10,7 +10,10 @@ import SwiftUI
 struct ThirdTransferView: View {
     @ObservedObject var viewModel: ThirdTransferViewModel
     
-    init(request: TransferRequest) {
+    var fees: Int
+    
+    init(fees: Int, request: TransferRequest) {
+        self.fees = fees
         viewModel = ThirdTransferViewModel(request: request)
     }
     
@@ -50,8 +53,12 @@ struct ThirdTransferView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
-        .navigationTitle("송금")
+        .onAppear {
+            viewModel.isSuccess = false
+        }
+        .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
+        .notDetailLinkNavigate(to: FourthTransferView(bank: viewModel.request.bank, accountNum: viewModel.request.accountNum, price: viewModel.request.price, fees: fees), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
@@ -59,6 +66,6 @@ struct ThirdTransferView: View {
 
 struct ThirdTransferView_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdTransferView(request: TransferRequest())
+        ThirdTransferView(fees: 0, request: TransferRequest())
     }
 }

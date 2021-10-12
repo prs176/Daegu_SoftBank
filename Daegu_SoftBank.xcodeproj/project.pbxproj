@@ -29,6 +29,7 @@
 		CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4D270EE76D00271A73 /* UIApplication.swift */; };
 		CB8E9E50270EE7B100271A73 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4F270EE7B100271A73 /* View.swift */; };
 		CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E5127104E5400271A73 /* RegisterAuthNumViewModel.swift */; };
+		CBA02338271588BC001ED232 /* FourthTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferView.swift */; };
 		CBAF76742715040300E827E1 /* FirstTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76732715040300E827E1 /* FirstTransferView.swift */; };
 		CBAF76762715041200E827E1 /* FirstTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76752715041200E827E1 /* FirstTransferViewModel.swift */; };
 		CBAF76782715050400E827E1 /* TransferRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76772715050400E827E1 /* TransferRequest.swift */; };
@@ -114,6 +115,7 @@
 		CB8E9E4D270EE76D00271A73 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CB8E9E4F270EE7B100271A73 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		CB8E9E5127104E5400271A73 /* RegisterAuthNumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAuthNumViewModel.swift; sourceTree = "<group>"; };
+		CBA02337271588BC001ED232 /* FourthTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferView.swift; sourceTree = "<group>"; };
 		CBAF76732715040300E827E1 /* FirstTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferView.swift; sourceTree = "<group>"; };
 		CBAF76752715041200E827E1 /* FirstTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferViewModel.swift; sourceTree = "<group>"; };
 		CBAF76772715050400E827E1 /* TransferRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRequest.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				CBAF76732715040300E827E1 /* FirstTransferView.swift */,
 				CBAF767D27153EF300E827E1 /* SecondTransferView.swift */,
 				CBAF7681271550D100E827E1 /* ThirdTransferView.swift */,
+				CBA02337271588BC001ED232 /* FourthTransferView.swift */,
 			);
 			path = Transfer;
 			sourceTree = "<group>";
@@ -862,6 +865,7 @@
 				CBAF767A271506E200E827E1 /* PickerTextField.swift in Sources */,
 				CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */,
 				CBBAC8272712E4AF003EB1A2 /* ThirdCreateAccountView.swift in Sources */,
+				CBA02338271588BC001ED232 /* FourthTransferView.swift in Sources */,
 				CBBAC81A2712AB99003EB1A2 /* FirstCreateAccountView.swift in Sources */,
 				CBAF7682271550D200E827E1 /* ThirdTransferView.swift in Sources */,
 				CBBAC834271334BB003EB1A2 /* AddAccountRequest.swift in Sources */,

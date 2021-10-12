@@ -92,7 +92,7 @@ struct SecondTransferView: View {
                 })
                 
                 NavigationLink(
-                    destination: ThirdTransferView(request: request),
+                    destination: ThirdTransferView(fees: viewModel.fees, request: request),
                     label: {
                         Text("예")
                             .foregroundColor(.white)
@@ -106,7 +106,7 @@ struct SecondTransferView: View {
             }
         }
         .padding()
-        .notDetailLinkNavigate(to: ThirdTransferView(request: request), when: .constant(false))
+        .notDetailLinkNavigate(to: ThirdTransferView(fees: 0, request: request), when: .constant(false))
         .navigationBarHidden(true)
     }
 }
