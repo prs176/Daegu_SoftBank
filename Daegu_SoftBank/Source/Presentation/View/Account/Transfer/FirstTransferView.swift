@@ -14,7 +14,8 @@ struct FirstTransferView: View {
     
     init(account: Account) {
         self.account = account
-        viewModel = FirstTransferViewModel(account: account)
+        print(account.hashValue)
+        viewModel = FirstTransferViewModel(idx: account.idx)
     }
     
     var body: some View {
@@ -61,8 +62,15 @@ struct FirstTransferView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
+        .alert(isPresented: $viewModel.isSuccess) {
+            Alert(title: Text("받는 사람이 맞나요?"),
+                  message: Text(viewModel.name),
+                  primaryButton: .cancel(Text("아니요")),
+                  secondaryButton: .default(Text("예")) { viewModel.isAgree = true })
+        }
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
+        .notDetailLinkNavigate(to: SecondTransferView(name: viewModel.name, account: account, request: viewModel.request), when: $viewModel.isAgree)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

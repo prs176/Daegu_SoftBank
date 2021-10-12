@@ -11,14 +11,14 @@ struct FirstCreateAccountView: View {
     @StateObject var viewModel: FirstCreateAccountViewModel = FirstCreateAccountViewModel()
     
     var body: some View {
-        VStack {
-            Text("실명정보 확인")
-                .font(.title)
-            
-            Text("이름과 주민등록번호를 입력하세요")
-                .font(.title3)
-                .multilineTextAlignment(.center)
-                .padding(.bottom)
+        VStack(spacing: 15) {
+            VStack {
+                Text("실명정보 확인")
+                    .font(.title)
+                
+                Text("이름과 주민등록번호를 입력하세요")
+                    .font(.title3)
+            }
             
             VStack(alignment: .leading) {
                 Text("이름")

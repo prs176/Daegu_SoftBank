@@ -8,8 +8,9 @@
 import Foundation
 
 class TransferRequest: Codable {
-    var account: Account = Account()
-    var price: String = ""
+    var depositAccountIdx: Int = 0
+    var price: Int = 0
     var bank: String = ""
+    var accountNum: String = ""
     var pw: String = ""
 }
