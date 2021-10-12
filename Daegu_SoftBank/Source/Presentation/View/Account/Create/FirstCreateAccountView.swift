@@ -71,6 +71,9 @@ struct FirstCreateAccountView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
+        .onAppear {
+            viewModel.isSuccess = false
+        }
         .onTapGesture {
             viewModel.rnnCursor = 7
         }

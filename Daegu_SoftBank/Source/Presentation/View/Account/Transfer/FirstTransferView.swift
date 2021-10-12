@@ -61,6 +61,9 @@ struct FirstTransferView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
+        .onAppear {
+            viewModel.isSuccess = false
+        }
         .alert(isPresented: $viewModel.isSuccess) {
             Alert(title: Text("받는 사람이 맞나요?"),
                   message: Text(viewModel.name),

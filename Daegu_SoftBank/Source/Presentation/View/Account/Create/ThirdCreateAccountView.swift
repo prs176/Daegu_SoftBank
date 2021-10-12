@@ -53,6 +53,9 @@ struct ThirdCreateAccountView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
+        .onAppear {
+            viewModel.isSuccess = false
+        }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .notDetailLinkNavigate(to: FourthCreateAccountView(accountInfo: viewModel.accountInfo), when: $viewModel.isSuccess)
