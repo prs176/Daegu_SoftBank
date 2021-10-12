@@ -35,6 +35,8 @@
 		CBAF767A271506E200E827E1 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7679271506E200E827E1 /* PickerTextField.swift */; };
 		CBAF767E27153EF300E827E1 /* SecondTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF767D27153EF300E827E1 /* SecondTransferView.swift */; };
 		CBAF768027153EFB00E827E1 /* SecondTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF767F27153EFB00E827E1 /* SecondTransferViewModel.swift */; };
+		CBAF7682271550D200E827E1 /* ThirdTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7681271550D100E827E1 /* ThirdTransferView.swift */; };
+		CBAF7684271550DD00E827E1 /* ThirdTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7683271550DD00E827E1 /* ThirdTransferViewModel.swift */; };
 		CBBAC81A2712AB99003EB1A2 /* FirstCreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8192712AB99003EB1A2 /* FirstCreateAccountView.swift */; };
 		CBBAC81D2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC81C2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift */; };
 		CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC81E2712C9C5003EB1A2 /* SecondCreateAccountView.swift */; };
@@ -118,6 +120,8 @@
 		CBAF7679271506E200E827E1 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		CBAF767D27153EF300E827E1 /* SecondTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferView.swift; sourceTree = "<group>"; };
 		CBAF767F27153EFB00E827E1 /* SecondTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferViewModel.swift; sourceTree = "<group>"; };
+		CBAF7681271550D100E827E1 /* ThirdTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTransferView.swift; sourceTree = "<group>"; };
+		CBAF7683271550DD00E827E1 /* ThirdTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTransferViewModel.swift; sourceTree = "<group>"; };
 		CBBAC8192712AB99003EB1A2 /* FirstCreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCreateAccountView.swift; sourceTree = "<group>"; };
 		CBBAC81C2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCreateAccountViewModel.swift; sourceTree = "<group>"; };
 		CBBAC81E2712C9C5003EB1A2 /* SecondCreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCreateAccountView.swift; sourceTree = "<group>"; };
@@ -475,6 +479,7 @@
 			children = (
 				CBAF76732715040300E827E1 /* FirstTransferView.swift */,
 				CBAF767D27153EF300E827E1 /* SecondTransferView.swift */,
+				CBAF7681271550D100E827E1 /* ThirdTransferView.swift */,
 			);
 			path = Transfer;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 			children = (
 				CBAF76752715041200E827E1 /* FirstTransferViewModel.swift */,
 				CBAF767F27153EFB00E827E1 /* SecondTransferViewModel.swift */,
+				CBAF7683271550DD00E827E1 /* ThirdTransferViewModel.swift */,
 			);
 			path = Transfer;
 			sourceTree = "<group>";
@@ -846,6 +852,7 @@
 				CB4154A0271449A700E434B3 /* AddAccountRow.swift in Sources */,
 				CBD8F5D327116E8600985ACA /* WebView.swift in Sources */,
 				CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */,
+				CBAF7684271550DD00E827E1 /* ThirdTransferViewModel.swift in Sources */,
 				CBBAC8252712E498003EB1A2 /* ThirdCreateAccountViewModel.swift in Sources */,
 				CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */,
 				CBBAC82C2712ED14003EB1A2 /* AccountInfo.swift in Sources */,
@@ -856,6 +863,7 @@
 				CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */,
 				CBBAC8272712E4AF003EB1A2 /* ThirdCreateAccountView.swift in Sources */,
 				CBBAC81A2712AB99003EB1A2 /* FirstCreateAccountView.swift in Sources */,
+				CBAF7682271550D200E827E1 /* ThirdTransferView.swift in Sources */,
 				CBBAC834271334BB003EB1A2 /* AddAccountRequest.swift in Sources */,
 				CBAF767E27153EF300E827E1 /* SecondTransferView.swift in Sources */,
 				CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */,

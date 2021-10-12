@@ -13,6 +13,7 @@ struct SecondAddAccountView: View {
     @ObservedObject var viewModel: SecondAddAccountViewModel
     
     init(request: AddAccountRequest, accounts: [Account]) {
+        print("asfd")
         viewModel = SecondAddAccountViewModel(accounts: accounts, request: request)
     }
     

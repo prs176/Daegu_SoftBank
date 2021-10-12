@@ -14,7 +14,6 @@ struct FirstTransferView: View {
     
     init(account: Account) {
         self.account = account
-        print(account.hashValue)
         viewModel = FirstTransferViewModel(idx: account.idx)
     }
     

@@ -26,6 +26,7 @@ struct SecondTransferView: View {
         VStack(spacing: 15) {
             Text("\(name) 에게 이체 하시겠습니까?")
                 .font(.title2)
+                .padding(.top, 30)
             
             Divider()
                 .padding(.vertical)
@@ -91,7 +92,7 @@ struct SecondTransferView: View {
                 })
                 
                 NavigationLink(
-                    destination: Text(""),
+                    destination: ThirdTransferView(request: request),
                     label: {
                         Text("예")
                             .foregroundColor(.white)
@@ -105,7 +106,8 @@ struct SecondTransferView: View {
             }
         }
         .padding()
-        .navigationTitle("이체")
+        .notDetailLinkNavigate(to: ThirdTransferView(request: request), when: .constant(false))
+        .navigationBarHidden(true)
     }
 }
 
