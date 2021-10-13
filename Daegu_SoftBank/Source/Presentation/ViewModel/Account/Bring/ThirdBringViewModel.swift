@@ -50,7 +50,7 @@ extension ThirdBringViewModel {
     func validate() -> Bool {
         if !pwLetters.joined().isNumber() {
             isErrorOcuured = true
-            errorMessage = "입출금통장 비밀번호는 숫자, 4자로 입력해주세요."
+            errorMessage = "입출금통장 비밀번호는 숫자로 입력해주세요."
             return false
         }
         

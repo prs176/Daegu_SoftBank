@@ -39,6 +39,8 @@ struct FirstBringView: View {
                     Button {
                         selectedAccount = account
                         request.withdrawAccountIdx = account.idx
+                        print(selectedAccount.name)
+                        print(selectedAccount.balance)
                         isActiveSecondBringView = true
                     } label: {
                         SimpleAccountRow(account: account, isChecked: false)

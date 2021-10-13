@@ -49,7 +49,7 @@ extension FirstAddAccountViewModel {
     func validate() -> Bool {
         if !rrnLetters.joined().isNumber() {
             isErrorOcuured = true
-            errorMessage = "주민등록번호는 숫자, 7자로 입력해주세요."
+            errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
         }
         
