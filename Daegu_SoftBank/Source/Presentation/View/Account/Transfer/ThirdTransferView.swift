@@ -20,7 +20,7 @@ struct ThirdTransferView: View {
     var body: some View {
         VStack {
             Text("계좌비밀번호를 입력하세요.")
-                .font(.title)
+                .font(.title2)
                 .padding(.bottom, 80)
             
             HStack {

@@ -27,7 +27,7 @@ class FirstCreateAccountViewModel: BaseViewModel {
     @Published var isSuccess: Bool = false
     var phoneNum: String = ""
     
-    func search() {
+    func fetch() {
         guard validate() else {
             return
         }
@@ -47,9 +47,9 @@ class FirstCreateAccountViewModel: BaseViewModel {
 
 extension FirstCreateAccountViewModel {
     func validate() -> Bool {
-        if rrnLetters.map({ $0.isNumber() }).contains(false) {
+        if !rrnLetters.joined().isNumber() {
             isErrorOcuured = true
-            errorMessage = "주민등록번호는 숫자, 7자로 입력해주세요."
+            errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
         }
         

@@ -16,8 +16,9 @@ struct FourthTransferView: View {
     var fees: Int
     
     var body: some View {
-        VStack {
+        VStack(spacing: 15) {
             Image(systemName: "checkmark.circle.fill")
+                .padding(.top, 80)
             
             Text("이체완료")
                 .font(.title2)
@@ -79,7 +80,7 @@ struct FourthTransferView: View {
                     )
             })
         }
-        .navigationTitle("이체")
+        .navigationBarHidden(true)
         .padding()
     }
 }

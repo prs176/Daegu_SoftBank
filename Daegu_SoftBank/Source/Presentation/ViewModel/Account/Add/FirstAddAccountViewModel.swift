@@ -27,7 +27,7 @@ class FirstAddAccountViewModel: BaseViewModel {
     @Published var isSuccess: Bool = false
     var accounts: [Account] = []
     
-    func search() {
+    func fetch() {
         guard validate() else {
             return
         }
@@ -35,7 +35,7 @@ class FirstAddAccountViewModel: BaseViewModel {
         request.name = name
         request.rrn = Int(rrnLetters.joined())!
         
-        accounts = [Account(), Account()]
+        accounts = [Account(idx: 0, accountNum: "321-432", bank: "ㄴㅁㄹ", name: "ㅁㅇㄴㄹ", balance: 123043), Account(idx: 1, accountNum: "3-2123", bank: "fasdf", name: "fasdf", balance: 3142)]
         isSuccess = true
     }
     
@@ -47,7 +47,7 @@ class FirstAddAccountViewModel: BaseViewModel {
 
 extension FirstAddAccountViewModel {
     func validate() -> Bool {
-        if rrnLetters.map({ $0.isNumber() }).contains(false) {
+        if !rrnLetters.joined().isNumber() {
             isErrorOcuured = true
             errorMessage = "주민등록번호는 숫자, 7자로 입력해주세요."
             return false

@@ -14,9 +14,10 @@ struct FirstCreateAccountView: View {
         VStack(spacing: 15) {
             VStack {
                 Text("실명정보 확인")
-                    .font(.title)
+                    .font(.title2)
                 
                 Text("이름과 주민등록번호를 입력하세요")
+                    .fontWeight(.thin)
                     .font(.title3)
             }
             
@@ -59,7 +60,7 @@ struct FirstCreateAccountView: View {
             
             Spacer()
             
-            Button(action: viewModel.search, label: {
+            Button(action: viewModel.fetch, label: {
                 Text("확인")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)

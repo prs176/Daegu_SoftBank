@@ -8,23 +8,16 @@
 import SwiftUI
 
 struct SecondTransferView: View {
-    @ObservedObject var viewModel: SecondTransferViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedObject var viewModel: SecondTransferViewModel
     
-    var account: Account
-    var name: String
-    var request: TransferRequest
-    
-    init(name: String, account: Account, request: TransferRequest) {
-        self.name = name
-        self.account = account
-        self.request = request
-        viewModel = SecondTransferViewModel(price: request.price)
+    init(name: String, withdrawAccount: Account, request: TransferRequest) {
+        viewModel = SecondTransferViewModel(name: name, withdrawAccount: withdrawAccount, request: request)
     }
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("\(name) 에게 이체 하시겠습니까?")
+            Text("\(viewModel.name) 에게 이체 하시겠습니까?")
                 .font(.title2)
                 .padding(.top, 30)
             
@@ -38,7 +31,7 @@ struct SecondTransferView: View {
                 
                 Spacer()
                 
-                Text(account.accountNum)
+                Text(viewModel.withdrawAccount.accountNum)
                     .font(.title3)
             }
             
@@ -49,7 +42,10 @@ struct SecondTransferView: View {
                 
                 Spacer()
                 
-                Text(request.accountNum)
+                Text(viewModel.request.bank)
+                    .font(.title3)
+                
+                Text(viewModel.request.accountNum)
                     .font(.title3)
             }
             
@@ -60,7 +56,7 @@ struct SecondTransferView: View {
                 
                 Spacer()
                 
-                Text("\(request.price) 원")
+                Text("\(viewModel.request.price) 원")
                     .font(.title3)
             }
             
@@ -92,7 +88,7 @@ struct SecondTransferView: View {
                 })
                 
                 NavigationLink(
-                    destination: ThirdTransferView(fees: viewModel.fees, request: request),
+                    destination: ThirdTransferView(fees: viewModel.fees, request: viewModel.request),
                     label: {
                         Text("예")
                             .foregroundColor(.white)
@@ -106,13 +102,13 @@ struct SecondTransferView: View {
             }
         }
         .padding()
-        .notDetailLinkNavigate(to: ThirdTransferView(fees: 0, request: request), when: .constant(false))
+        .notDetailLinkNavigate(to: ThirdTransferView(fees: viewModel.fees, request: viewModel.request), when: .constant(false))
         .navigationBarHidden(true)
     }
 }
 
 struct SecondTransferView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondTransferView(name: "로미", account: Account(), request: TransferRequest())
+        SecondTransferView(name: "로미", withdrawAccount: Account(), request: TransferRequest())
     }
 }

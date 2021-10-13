@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SecondAddAccountView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     @ObservedObject var viewModel: SecondAddAccountViewModel
     
     init(request: AddAccountRequest, accounts: [Account]) {

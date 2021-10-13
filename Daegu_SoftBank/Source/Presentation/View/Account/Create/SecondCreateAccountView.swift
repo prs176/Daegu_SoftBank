@@ -10,25 +10,16 @@ import SwiftUI
 struct SecondCreateAccountView: View {
     @ObservedObject var viewModel: SecondCreateAccountViewModel
     
-    var name: String
-    var rrn: String
-    var phoneNum: String
+    @State var isActiveThirdCreateAccountView: Bool = false
     
     init(phoneNum: String, request: CreateAccountRequest) {
-        viewModel = SecondCreateAccountViewModel(request: request)
-        
-        name = request.name
-        
-        let temp = String(request.rrn)
-        rrn = String(temp[temp.startIndex..<temp.index(temp.endIndex, offsetBy: -1)]) + "-" + String(temp.last!)
-        
-        self.phoneNum = phoneNum
+        viewModel = SecondCreateAccountViewModel(phoneNum: phoneNum, request: request)
     }
     
     var body: some View {
         VStack {
             Text("개인정보 확인")
-                .font(.title)
+                .font(.title2)
             
             VStack {
                 HStack {
@@ -38,7 +29,7 @@ struct SecondCreateAccountView: View {
                     
                     Spacer()
                     
-                    Text(name)
+                    Text(viewModel.request.name)
                         .font(.title3)
                 }
                 
@@ -49,7 +40,7 @@ struct SecondCreateAccountView: View {
                     
                     Spacer()
                     
-                    Text(rrn)
+                    Text(viewModel.rrn)
                         .font(.title3)
                 }
                 
@@ -60,7 +51,7 @@ struct SecondCreateAccountView: View {
                     
                     Spacer()
                     
-                    Text(phoneNum)
+                    Text(viewModel.phoneNum)
                         .font(.title3)
                 }
             }
@@ -75,23 +66,27 @@ struct SecondCreateAccountView: View {
             
             Spacer()
             
-            NavigationLink(
-                destination: ThirdCreateAccountView(request: viewModel.request),
-                label: {
-                    Text("확인")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 12.0)
-                        )
-                })
-                .isDetailLink(false)
-                .disabled(!viewModel.enterValidate())
+            Button {
+                viewModel.request.accountName = viewModel.accountName
+                isActiveThirdCreateAccountView = true
+            } label: {
+                Text("확인")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 12.0)
+                    )
+            }
+            .disabled(!viewModel.enterValidate())
         }
         .padding()
+        .onAppear {
+            isActiveThirdCreateAccountView = false
+        }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
+        .notDetailLinkNavigate(to: ThirdCreateAccountView(request: viewModel.request), when: $isActiveThirdCreateAccountView)
         .resignKeyboardOnDragGesture()
     }
 }

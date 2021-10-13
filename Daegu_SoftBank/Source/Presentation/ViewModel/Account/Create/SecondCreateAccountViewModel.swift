@@ -9,11 +9,17 @@ import Foundation
 
 class SecondCreateAccountViewModel: BaseViewModel {
     @Published var accountName: String = ""
+    var rrn: String
+    var phoneNum: String
     
     var request: CreateAccountRequest
     
-    init(request: CreateAccountRequest) {
+    init(phoneNum: String, request: CreateAccountRequest) {
+        self.phoneNum = phoneNum
         self.request = request
+        
+        let temp = String(request.rrn)
+        self.rrn = String(temp[temp.startIndex..<temp.index(temp.endIndex, offsetBy: -1)]) + "-" + String(temp.last!)
     }
 }
 
@@ -22,8 +28,6 @@ extension SecondCreateAccountViewModel {
         if accountName.isEmpty {
             return false
         }
-        
-        request.accountName = accountName
         
         return true
     }

@@ -78,7 +78,6 @@ extension String {
             }
         }
         
-        
         return removeJari2Arr.joined().reversed().joined()
     }
 }

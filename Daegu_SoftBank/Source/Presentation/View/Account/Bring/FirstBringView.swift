@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct FirstBringView: View {
+    @State var isActiveSecondBringView: Bool = false
+    @State var selectedAccount: Account = Account()
+    
     var accounts: [Account]
     
     var depositAccount: Account
     var request: BringRequest = BringRequest()
     
     init(depositAccount: Account, accounts: [Account]) {
-        self.accounts = accounts
-        
-        self.request.depositAccountIdx = depositAccount.idx
         self.depositAccount = depositAccount
+        self.request.depositAccountIdx = depositAccount.idx
+        
+        self.accounts = accounts
         
         if let idx = accounts.map({ $0.idx }).firstIndex(of: depositAccount.idx) {
             self.accounts.remove(at: idx)
@@ -33,18 +36,22 @@ struct FirstBringView: View {
                 ForEach(accounts, id: \.self) { account in
                     Divider()
                     
-                    NavigationLink(destination: SecondBringView(depositAccount: depositAccount, withdrawAccount: account, request: request)) {
+                    Button {
+                        selectedAccount = account
+                        request.withdrawAccountIdx = account.idx
+                        isActiveSecondBringView = true
+                    } label: {
                         SimpleAccountRow(account: account, isChecked: false)
                     }
-                    .isDetailLink(false)
-                    .simultaneousGesture(TapGesture().onEnded{
-                        request.withdrawAccountIdx = account.idx
-                    })
                 }
             }
         }
         .padding()
+        .onAppear {
+            isActiveSecondBringView = false
+        }
         .navigationTitle("가져오기")
+        .notDetailLinkNavigate(to: SecondBringView(depositAccount: depositAccount, withdrawAccount: selectedAccount, request: request), when: $isActiveSecondBringView)
     }
 }
 

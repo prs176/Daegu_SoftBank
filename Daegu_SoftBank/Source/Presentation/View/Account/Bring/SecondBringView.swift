@@ -10,9 +10,6 @@ import SwiftUI
 struct SecondBringView: View {
     @ObservedObject var viewModel: SecondBringViewModel
     
-    var depositAccount: Account
-    var withdrawAccount: Account
-    var request: BringRequest
     
     var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -22,10 +19,7 @@ struct SecondBringView: View {
     } ()
     
     init(depositAccount: Account, withdrawAccount: Account, request: BringRequest) {
-        self.depositAccount = depositAccount
-        self.withdrawAccount = withdrawAccount
-        self.request = request
-        viewModel = SecondBringViewModel(balance: withdrawAccount.balance, request: request)
+        viewModel = SecondBringViewModel(depositAccount: depositAccount, withdrawAccount: withdrawAccount, request: request)
     }
     
     var body: some View {
@@ -50,10 +44,10 @@ struct SecondBringView: View {
                     .cornerRadius(10.0)
                 
                 VStack(alignment: .leading) {
-                    Text(withdrawAccount.bank)
+                    Text(viewModel.withdrawAccount.bank)
                         .font(.title3)
                     
-                    Text(withdrawAccount.accountNum)
+                    Text(viewModel.withdrawAccount.accountNum)
                         .font(.title3)
                         .fontWeight(.thin)
                 }
@@ -62,7 +56,7 @@ struct SecondBringView: View {
             HStack {
                 Text("출금가능금액: ")
                 
-                Text("\(withdrawAccount.balance) 원")
+                Text("\(viewModel.withdrawAccount.balance) 원")
                     .underline()
             }
             .padding(8)
@@ -99,10 +93,13 @@ struct SecondBringView: View {
             }
             .disabled(!viewModel.enterValidate())
         }
+        .onAppear {
+            viewModel.isSuccess = false
+        }
         .padding()
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("가져오기")
-        .notDetailLinkNavigate(to: ThirdBringView(depositAccount: depositAccount, request: request), when: $viewModel.isSuccess)
+        .notDetailLinkNavigate(to: ThirdBringView(depositAccount: viewModel.depositAccount, request: viewModel.request), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
