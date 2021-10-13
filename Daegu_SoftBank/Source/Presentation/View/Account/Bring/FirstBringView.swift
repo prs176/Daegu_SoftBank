@@ -40,7 +40,7 @@ struct FirstBringView: View {
             }
         }
         .padding()
-        .navigationTitle("계좌추가")
+        .navigationTitle("가져오기")
     }
 }
 
