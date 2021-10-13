@@ -19,21 +19,36 @@ class SecondBringViewModel: BaseViewModel {
     }
     
     var formatter: NumberFormatter = NumberFormatter()
-    
     var balance: Int
     
-    init(balance: Int) {
+    var request: BringRequest
+    
+    @Published var isSuccess: Bool = false
+    
+    init(balance: Int, request: BringRequest) {
         self.balance = balance
-        
         formatter.numberStyle = .decimal
+        self.request = request
     }
 }
 
 extension SecondBringViewModel {
+    func validate() {
+        if balance < Int(price)! {
+            isErrorOcuured = true
+            errorMessage = "가져오기할 금액이 출금가능금액보다 큽니다."
+            return
+        }
+        
+        isSuccess = true
+    }
+    
     func enterValidate() -> Bool {
         if Int(price)! <= 0 {
             return false
         }
+        
+        request.price = Int(price)!
         
         return true
     }

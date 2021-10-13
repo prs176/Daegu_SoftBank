@@ -10,13 +10,15 @@ import SwiftUI
 struct SecondBringView: View {
     @ObservedObject var viewModel: SecondBringViewModel
     
-    var request: BringRequest
+    var depositAccount: Account
     var withdrawAccount: Account
+    var request: BringRequest
     
-    init(withdrawAccount: Account, request: BringRequest) {
+    init(depositAccount: Account, withdrawAccount: Account, request: BringRequest) {
+        self.depositAccount = depositAccount
         self.withdrawAccount = withdrawAccount
         self.request = request
-        viewModel = SecondBringViewModel(balance: withdrawAccount.balance)
+        viewModel = SecondBringViewModel(balance: withdrawAccount.balance, request: request)
     }
     
     var body: some View {
@@ -66,29 +68,28 @@ struct SecondBringView: View {
             
             Spacer()
             
-            NavigationLink(
-                destination: Text(""),
-                label: {
-                    Text("다음")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 12.0)
-                        )
-                })
-                .isDetailLink(false)
-                .disabled(!viewModel.enterValidate())
+            Button(action: viewModel.validate) {
+                Text("다음")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 12.0)
+                    )
+            }
+            .disabled(!viewModel.enterValidate())
         }
         .padding()
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("가져오기")
+        .notDetailLinkNavigate(to: ThirdBringView(depositAccount: depositAccount, request: request), when: $viewModel.isSuccess)
+        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }
 
 struct SecondBringView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondBringView(withdrawAccount: Account(), request: BringRequest())
+        SecondBringView(depositAccount: Account(), withdrawAccount: Account(), request: BringRequest())
     }
 }

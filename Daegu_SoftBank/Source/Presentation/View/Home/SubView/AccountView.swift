@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountRow: View {
     var account: Account
-    @Binding var selectedAccountIdx: Int
+    @Binding var selectedAccount: Account
     @Binding var isActiveBringView: Bool
     
     var body: some View {
@@ -36,7 +36,7 @@ struct AccountRow: View {
             
             HStack {
                 Button {
-                    selectedAccountIdx = account.idx
+                    selectedAccount = account
                     isActiveBringView = true
                 } label: {
                     Text("가져오기")
@@ -68,6 +68,6 @@ struct AccountRow: View {
 
 struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        AccountRow(account: Account(), selectedAccountIdx: .constant(0), isActiveBringView: .constant(false))
+        AccountRow(account: Account(), selectedAccount: .constant(Account()), isActiveBringView: .constant(false))
     }
 }
