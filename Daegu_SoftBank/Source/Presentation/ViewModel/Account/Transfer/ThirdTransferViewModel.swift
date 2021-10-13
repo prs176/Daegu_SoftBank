@@ -34,7 +34,7 @@ class ThirdTransferViewModel: BaseViewModel {
             return
         }
         
-        request.pw = pwLetters.joined()
+        request.pw = Int(pwLetters.joined())!
         isSuccess = true
     }
     

@@ -37,7 +37,7 @@ struct SecondAddAccountView: View {
                             viewModel.selectedAccounts.append(account.idx)
                         }
                     }, label: {
-                        AddAccountRow(account: account, isChecked: viewModel.selectedAccounts.contains(account.idx))
+                        SimpleAccountRow(account: account, isChecked: viewModel.selectedAccounts.contains(account.idx))
                     })
                 }
             }

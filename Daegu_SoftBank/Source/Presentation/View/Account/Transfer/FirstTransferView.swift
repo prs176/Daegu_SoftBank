@@ -14,7 +14,7 @@ struct FirstTransferView: View {
     
     init(account: Account) {
         self.account = account
-        viewModel = FirstTransferViewModel(idx: account.idx)
+        viewModel = FirstTransferViewModel(idx: account.idx, balance: account.balance)
     }
     
     var body: some View {

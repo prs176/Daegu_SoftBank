@@ -12,6 +12,9 @@ struct HomeView: View {
     @Environment(\.loginViewRootPresentation) var loginViewRootPresentation: Binding<Bool>
     @Environment(\.registerViewRootPresentation) var registerViewRootPresentation: Binding<Bool>
     
+    @State var isActiveBringView: Bool = false
+    @State var selectedAccountIdx: Int = -1
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -56,7 +59,7 @@ struct HomeView: View {
                     ForEach(viewModel.accounts, id: \.self) { account in
                         Divider()
                         
-                        AccountRow(account: account)
+                        AccountRow(account: account, selectedAccountIdx: $selectedAccountIdx, isActiveBringView: $isActiveBringView)
                             .padding(.vertical, 5)
                     }
                 }
@@ -89,6 +92,7 @@ struct HomeView: View {
             Color(.secondarySystemBackground).ignoresSafeArea()
         )
         .navigationBarHidden(true)
+        .navigate(to: FirstBringView(depositAccountIdx: selectedAccountIdx, accounts: viewModel.accounts), when: $isActiveBringView)
     }
 }
 

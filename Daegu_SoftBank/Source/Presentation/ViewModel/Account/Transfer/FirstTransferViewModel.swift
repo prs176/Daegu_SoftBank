@@ -13,13 +13,16 @@ class FirstTransferViewModel: BaseViewModel {
     @Published var accountNum: String = ""
     @Published var isAgree: Bool = false
     
+    var balance: Int
+    
     var request: TransferRequest = TransferRequest()
     
     @Published var isSuccess: Bool = false
     @Published var name: String = ""
     
-    init(idx: Int) {
-        request.depositAccountIdx = idx
+    init(idx: Int, balance: Int) {
+        request.withdrawAccountIdx = idx
+        self.balance = balance
     }
     
     func search() {
@@ -47,6 +50,12 @@ extension FirstTransferViewModel {
         if !accountNum.filter({ $0 != "-" }).isNumber() {
             isErrorOcuured = true
             errorMessage = "계좌번호는 숫자로 입력해주세요."
+            return false
+        }
+        
+        if Int(price)! > balance {
+            isErrorOcuured = true
+            errorMessage = "입금금액이 잔액보다 큽니다."
             return false
         }
         
