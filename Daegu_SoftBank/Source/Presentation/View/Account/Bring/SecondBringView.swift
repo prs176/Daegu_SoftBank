@@ -14,6 +14,13 @@ struct SecondBringView: View {
     var withdrawAccount: Account
     var request: BringRequest
     
+    var formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        return formatter
+    } ()
+    
     init(depositAccount: Account, withdrawAccount: Account, request: BringRequest) {
         self.depositAccount = depositAccount
         self.withdrawAccount = withdrawAccount
@@ -22,6 +29,19 @@ struct SecondBringView: View {
     }
     
     var body: some View {
+        let price = Binding<String> {
+            viewModel.price
+        } set: { value in
+            let filtered = Int(value.filter { "0123456789".contains($0) }) ?? 0
+            
+            if filtered > 10000000 {
+                viewModel.price = "10,000,000"
+                return
+            }
+            
+            viewModel.price = formatter.string(from: NSNumber(value: filtered)) ?? "0"
+        }
+        
         VStack(alignment: .center) {
             HStack {
                 Image("TemporaryImage")
@@ -54,7 +74,7 @@ struct SecondBringView: View {
             .padding(.bottom)
             
             HStack {
-                TextField("", text: $viewModel.price)
+                TextField("", text: price)
                     .font(.largeTitle)
                     .fixedSize(horizontal: true, vertical: false)
                     .keyboardType(.numberPad)
@@ -63,7 +83,7 @@ struct SecondBringView: View {
                     .font(.largeTitle)
             }
             
-            Text("\(viewModel.price.numberToKorean() ?? "영") 원")
+            Text("\(viewModel.price.components(separatedBy: [","]).joined().numberToKorean() ?? "영") 원")
                 .foregroundColor(.secondary)
             
             Spacer()

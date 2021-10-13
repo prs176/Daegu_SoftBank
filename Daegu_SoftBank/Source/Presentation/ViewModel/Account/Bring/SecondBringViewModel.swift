@@ -8,15 +8,7 @@
 import Foundation
 
 class SecondBringViewModel: BaseViewModel {
-    @Published var price: String = "0" {
-        didSet {
-            let filtered = Int(price.filter { "0123456789".contains($0) }) ?? 0
-            
-            if String(filtered) != price {
-                price = String(filtered)
-            }
-        }
-    }
+    @Published var price: String = "0"
     
     var formatter: NumberFormatter = NumberFormatter()
     var balance: Int
