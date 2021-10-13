@@ -1,13 +1,13 @@
 //
-//  ThirdTransferViewModel.swift
+//  ThirdBringViewModel.swift
 //  Daegu_SoftBank
 //
-//  Created by 박세은 on 2021/10/12.
+//  Created by 박세은 on 2021/10/13.
 //
 
 import Foundation
 
-class ThirdTransferViewModel: BaseViewModel {
+class ThirdBringViewModel: BaseViewModel {
     @Published var pwLetters: [String] = ["", "", "", ""] {
         didSet {
             if pwLetters.filter({ $0.count > 1 }).count != 0 {
@@ -21,11 +21,11 @@ class ThirdTransferViewModel: BaseViewModel {
     
     var pwCursor: Int = 4
     
-    var request: TransferRequest
+    var request: BringRequest
     
     @Published var isSuccess: Bool = false
     
-    init(request: TransferRequest) {
+    init(request: BringRequest) {
         self.request = request
     }
     
@@ -44,7 +44,7 @@ class ThirdTransferViewModel: BaseViewModel {
     }
 }
 
-extension ThirdTransferViewModel {
+extension ThirdBringViewModel {
     func validate() -> Bool {
         if pwLetters.map({ $0.isNumber() }).contains(false) {
             isErrorOcuured = true
@@ -63,4 +63,3 @@ extension ThirdTransferViewModel {
         return true
     }
 }
-

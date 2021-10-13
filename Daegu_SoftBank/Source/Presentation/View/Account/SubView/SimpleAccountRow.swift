@@ -1,5 +1,5 @@
 //
-//  AddAccountRow.swift
+//  SimpleAccountRow.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/11.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddAccountRow: View {
+struct SimpleAccountRow: View {
     var account: Account
     var isChecked: Bool
     
@@ -35,8 +35,8 @@ struct AddAccountRow: View {
     }
 }
 
-struct AddAccountRow_Previews: PreviewProvider {
+struct SimpleAccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        AddAccountRow(account: Account(), isChecked: false)
+        SimpleAccountRow(account: Account(), isChecked: false)
     }
 }

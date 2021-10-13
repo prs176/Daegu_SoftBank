@@ -21,4 +21,20 @@ class Account: Codable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(idx)
     }
+    
+    internal init(idx: Int = 0, accountNum: String = "", bank: String = "", name: String = "", balance: Int = 0) {
+        self.idx = idx
+        self.accountNum = accountNum
+        self.bank = bank
+        self.name = name
+        self.balance = balance
+    }
+    
+    init() {
+        idx = 0
+        accountNum = ""
+        bank = ""
+        name = ""
+        balance = 0
+    }
 }

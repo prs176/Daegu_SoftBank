@@ -27,7 +27,6 @@ class ThirdCreateAccountViewModel: BaseViewModel {
     var accountInfo: AccountInfo = AccountInfo()
     
     init(request: CreateAccountRequest) {
-        print(pwCursor)
         self.request = request
     }
     
