@@ -8,22 +8,13 @@
 import SwiftUI
 
 struct FirstBringView: View {
-    @State var isActiveSecondBringView: Bool = false
-    @State var selectedAccount: Account = Account()
-    
-    var accounts: [Account]
-    
-    var depositAccount: Account
-    var request: BringRequest = BringRequest()
+    @ObservedObject var viewModel: FirstBringViewModel
     
     init(depositAccount: Account, accounts: [Account]) {
-        self.depositAccount = depositAccount
-        self.request.depositAccountIdx = depositAccount.idx
-        
-        self.accounts = accounts
+        viewModel = FirstBringViewModel(accounts: accounts, depositAccount: depositAccount)
         
         if let idx = accounts.map({ $0.idx }).firstIndex(of: depositAccount.idx) {
-            self.accounts.remove(at: idx)
+            viewModel.accounts.remove(at: idx)
         }
     }
     
@@ -33,15 +24,13 @@ struct FirstBringView: View {
                 .font(.title2)
             
             ScrollView {
-                ForEach(accounts, id: \.self) { account in
+                ForEach(viewModel.accounts, id: \.self) { account in
                     Divider()
                     
                     Button {
-                        selectedAccount = account
-                        request.withdrawAccountIdx = account.idx
-                        print(selectedAccount.name)
-                        print(selectedAccount.balance)
-                        isActiveSecondBringView = true
+                        viewModel.selectedAccount = account
+                        viewModel.request.withdrawAccountIdx = account.idx
+                        viewModel.isActiveSecondBringView = true
                     } label: {
                         SimpleAccountRow(account: account, isChecked: false)
                     }
@@ -50,10 +39,10 @@ struct FirstBringView: View {
         }
         .padding()
         .onAppear {
-            isActiveSecondBringView = false
+            viewModel.isActiveSecondBringView = false
         }
         .navigationTitle("가져오기")
-        .notDetailLinkNavigate(to: SecondBringView(depositAccount: depositAccount, withdrawAccount: selectedAccount, request: request), when: $isActiveSecondBringView)
+        .notDetailLinkNavigate(to: SecondBringView(depositAccount: viewModel.depositAccount, withdrawAccount: viewModel.selectedAccount, request: viewModel.request), when: $viewModel.isActiveSecondBringView)
     }
 }
 

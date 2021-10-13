@@ -36,6 +36,7 @@
 		CBA023442715B7BF001ED232 /* SecondBringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023432715B7BF001ED232 /* SecondBringViewModel.swift */; };
 		CBA023462716B0DB001ED232 /* ThirdBringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023452716B0DB001ED232 /* ThirdBringView.swift */; };
 		CBA023482716B11F001ED232 /* ThirdBringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023472716B11F001ED232 /* ThirdBringViewModel.swift */; };
+		CBA0234A27170835001ED232 /* FirstBringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0234927170835001ED232 /* FirstBringViewModel.swift */; };
 		CBAF76742715040300E827E1 /* FirstTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76732715040300E827E1 /* FirstTransferView.swift */; };
 		CBAF76762715041200E827E1 /* FirstTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76752715041200E827E1 /* FirstTransferViewModel.swift */; };
 		CBAF76782715050400E827E1 /* TransferRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76772715050400E827E1 /* TransferRequest.swift */; };
@@ -128,6 +129,7 @@
 		CBA023432715B7BF001ED232 /* SecondBringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBringViewModel.swift; sourceTree = "<group>"; };
 		CBA023452716B0DB001ED232 /* ThirdBringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBringView.swift; sourceTree = "<group>"; };
 		CBA023472716B11F001ED232 /* ThirdBringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBringViewModel.swift; sourceTree = "<group>"; };
+		CBA0234927170835001ED232 /* FirstBringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBringViewModel.swift; sourceTree = "<group>"; };
 		CBAF76732715040300E827E1 /* FirstTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferView.swift; sourceTree = "<group>"; };
 		CBAF76752715041200E827E1 /* FirstTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferViewModel.swift; sourceTree = "<group>"; };
 		CBAF76772715050400E827E1 /* TransferRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRequest.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 			children = (
 				CBA023432715B7BF001ED232 /* SecondBringViewModel.swift */,
 				CBA023472716B11F001ED232 /* ThirdBringViewModel.swift */,
+				CBA0234927170835001ED232 /* FirstBringViewModel.swift */,
 			);
 			path = Bring;
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 			files = (
 				CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */,
 				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
+				CBA0234A27170835001ED232 /* FirstBringViewModel.swift in Sources */,
 				CB4154A0271449A700E434B3 /* SimpleAccountRow.swift in Sources */,
 				CBD8F5D327116E8600985ACA /* WebView.swift in Sources */,
 				CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */,

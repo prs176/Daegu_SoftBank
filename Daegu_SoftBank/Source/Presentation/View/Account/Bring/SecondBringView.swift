@@ -10,7 +10,6 @@ import SwiftUI
 struct SecondBringView: View {
     @ObservedObject var viewModel: SecondBringViewModel
     
-    
     var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
