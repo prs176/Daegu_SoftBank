@@ -16,11 +16,8 @@ struct ThirdCreateAccountView: View {
     
     var body: some View {
         VStack {
-            Text("마지막 단계입니다")
-                .font(.title)
-            
             Text("입출금통장 비밀번호 설정")
-                .font(.title3)
+                .font(.title2)
                 .padding(.bottom)
             
             HStack {
@@ -53,9 +50,6 @@ struct ThirdCreateAccountView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
-        .onAppear {
-            viewModel.isSuccess = false
-        }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .notDetailLinkNavigate(to: FourthCreateAccountView(accountInfo: viewModel.accountInfo), when: $viewModel.isSuccess)

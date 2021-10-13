@@ -10,24 +10,46 @@ import SwiftUI
 struct FirstTransferView: View {
     @ObservedObject var viewModel: FirstTransferViewModel
     
-    var account: Account
+    var formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        return formatter
+    } ()
     
-    init(account: Account) {
-        self.account = account
-        viewModel = FirstTransferViewModel(idx: account.idx, balance: account.balance)
+    init(withdrawAccount: Account) {
+        viewModel = FirstTransferViewModel(withdrawAccount: withdrawAccount)
     }
     
     var body: some View {
+        let price = Binding<String> {
+            viewModel.price
+        } set: { value in
+            let filtered = Int(value.filter { "0123456789".contains($0) }) ?? 0
+            
+            if filtered > 10000000 {
+                viewModel.price = "10,000,000"
+                return
+            }
+            
+            viewModel.price = formatter.string(from: NSNumber(value: filtered)) ?? "0"
+        }
+        
         VStack(alignment: .leading, spacing: 15) {
-            Text("잔액: \(account.balance) 원")
+            Text("잔액: \(viewModel.withdrawAccount.balance) 원")
                 .font(.title3)
         
             VStack(alignment: .leading) {
                 Text("금액")
                 
-                TextField("", text: $viewModel.price)
-                    .textFieldStyle(LabelTextFieldStyle())
-                    .keyboardType(.numberPad)
+                HStack {
+                    TextField("", text: price)
+                        .font(.title3)
+                        .keyboardType(.numberPad)
+                    
+                    Text("원")
+                        .font(.title3)
+                }
             }
             
             HStack {
@@ -49,7 +71,7 @@ struct FirstTransferView: View {
             
             Spacer()
             
-            Button(action: viewModel.search, label: {
+            Button(action: viewModel.fetch, label: {
                 Text("개설완료")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -62,7 +84,7 @@ struct FirstTransferView: View {
         }
         .padding()
         .onAppear {
-            viewModel.isSuccess = false
+            viewModel.isAgree = false
         }
         .alert(isPresented: $viewModel.isSuccess) {
             Alert(title: Text("받는 사람이 맞나요?"),
@@ -72,7 +94,7 @@ struct FirstTransferView: View {
         }
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .notDetailLinkNavigate(to: SecondTransferView(name: viewModel.name, account: account, request: viewModel.request), when: $viewModel.isAgree)
+        .notDetailLinkNavigate(to: SecondTransferView(name: viewModel.name, withdrawAccount: viewModel.withdrawAccount, request: viewModel.request), when: $viewModel.isAgree)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
@@ -80,6 +102,6 @@ struct FirstTransferView: View {
 
 struct FirstTransferView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstTransferView(account: Account())
+        FirstTransferView(withdrawAccount: Account())
     }
 }

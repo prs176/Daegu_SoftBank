@@ -10,18 +10,31 @@ import SwiftUI
 struct SecondBringView: View {
     @ObservedObject var viewModel: SecondBringViewModel
     
-    var depositAccount: Account
-    var withdrawAccount: Account
-    var request: BringRequest
+    var formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        return formatter
+    } ()
     
     init(depositAccount: Account, withdrawAccount: Account, request: BringRequest) {
-        self.depositAccount = depositAccount
-        self.withdrawAccount = withdrawAccount
-        self.request = request
-        viewModel = SecondBringViewModel(balance: withdrawAccount.balance, request: request)
+        viewModel = SecondBringViewModel(depositAccount: depositAccount, withdrawAccount: withdrawAccount, request: request)
     }
     
     var body: some View {
+        let price = Binding<String> {
+            viewModel.price
+        } set: { value in
+            let filtered = Int(value.filter { "0123456789".contains($0) }) ?? 0
+            
+            if filtered > 10000000 {
+                viewModel.price = "10,000,000"
+                return
+            }
+            
+            viewModel.price = formatter.string(from: NSNumber(value: filtered)) ?? "0"
+        }
+        
         VStack(alignment: .center) {
             HStack {
                 Image("TemporaryImage")
@@ -30,10 +43,10 @@ struct SecondBringView: View {
                     .cornerRadius(10.0)
                 
                 VStack(alignment: .leading) {
-                    Text(withdrawAccount.bank)
+                    Text(viewModel.withdrawAccount.bank)
                         .font(.title3)
                     
-                    Text(withdrawAccount.accountNum)
+                    Text(viewModel.withdrawAccount.accountNum)
                         .font(.title3)
                         .fontWeight(.thin)
                 }
@@ -42,7 +55,7 @@ struct SecondBringView: View {
             HStack {
                 Text("출금가능금액: ")
                 
-                Text("\(withdrawAccount.balance) 원")
+                Text("\(viewModel.withdrawAccount.balance) 원")
                     .underline()
             }
             .padding(8)
@@ -54,7 +67,7 @@ struct SecondBringView: View {
             .padding(.bottom)
             
             HStack {
-                TextField("", text: $viewModel.price)
+                TextField("", text: price)
                     .font(.largeTitle)
                     .fixedSize(horizontal: true, vertical: false)
                     .keyboardType(.numberPad)
@@ -63,7 +76,7 @@ struct SecondBringView: View {
                     .font(.largeTitle)
             }
             
-            Text("\(viewModel.price.numberToKorean() ?? "영") 원")
+            Text("\(viewModel.price.components(separatedBy: [","]).joined().numberToKorean() ?? "영") 원")
                 .foregroundColor(.secondary)
             
             Spacer()
@@ -79,10 +92,13 @@ struct SecondBringView: View {
             }
             .disabled(!viewModel.enterValidate())
         }
+        .onAppear {
+            viewModel.isSuccess = false
+        }
         .padding()
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("가져오기")
-        .notDetailLinkNavigate(to: ThirdBringView(depositAccount: depositAccount, request: request), when: $viewModel.isSuccess)
+        .notDetailLinkNavigate(to: ThirdBringView(depositAccount: viewModel.depositAccount, request: viewModel.request), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

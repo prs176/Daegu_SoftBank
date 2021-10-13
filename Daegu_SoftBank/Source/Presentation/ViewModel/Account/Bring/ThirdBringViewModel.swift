@@ -18,6 +18,7 @@ class ThirdBringViewModel: BaseViewModel {
             }
         }
     }
+    var depositAccount: Account
     
     var pwCursor: Int = 4
     
@@ -25,7 +26,8 @@ class ThirdBringViewModel: BaseViewModel {
     
     @Published var isSuccess: Bool = false
     
-    init(request: BringRequest) {
+    init(depositAccount: Account, request: BringRequest) {
+        self.depositAccount = depositAccount
         self.request = request
     }
     
@@ -46,9 +48,9 @@ class ThirdBringViewModel: BaseViewModel {
 
 extension ThirdBringViewModel {
     func validate() -> Bool {
-        if pwLetters.map({ $0.isNumber() }).contains(false) {
+        if !pwLetters.joined().isNumber() {
             isErrorOcuured = true
-            errorMessage = "입출금통장 비밀번호는 숫자, 4자로 입력해주세요."
+            errorMessage = "입출금통장 비밀번호는 숫자로 입력해주세요."
             return false
         }
         

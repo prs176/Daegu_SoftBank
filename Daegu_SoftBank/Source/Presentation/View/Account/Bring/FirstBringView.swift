@@ -8,19 +8,13 @@
 import SwiftUI
 
 struct FirstBringView: View {
-    var accounts: [Account]
-    
-    var depositAccount: Account
-    var request: BringRequest = BringRequest()
+    @ObservedObject var viewModel: FirstBringViewModel
     
     init(depositAccount: Account, accounts: [Account]) {
-        self.accounts = accounts
-        
-        self.request.depositAccountIdx = depositAccount.idx
-        self.depositAccount = depositAccount
+        viewModel = FirstBringViewModel(accounts: accounts, depositAccount: depositAccount)
         
         if let idx = accounts.map({ $0.idx }).firstIndex(of: depositAccount.idx) {
-            self.accounts.remove(at: idx)
+            viewModel.accounts.remove(at: idx)
         }
     }
     
@@ -30,21 +24,25 @@ struct FirstBringView: View {
                 .font(.title2)
             
             ScrollView {
-                ForEach(accounts, id: \.self) { account in
+                ForEach(viewModel.accounts, id: \.self) { account in
                     Divider()
                     
-                    NavigationLink(destination: SecondBringView(depositAccount: depositAccount, withdrawAccount: account, request: request)) {
+                    Button {
+                        viewModel.selectedAccount = account
+                        viewModel.request.withdrawAccountIdx = account.idx
+                        viewModel.isActiveSecondBringView = true
+                    } label: {
                         SimpleAccountRow(account: account, isChecked: false)
                     }
-                    .isDetailLink(false)
-                    .simultaneousGesture(TapGesture().onEnded{
-                        request.withdrawAccountIdx = account.idx
-                    })
                 }
             }
         }
         .padding()
+        .onAppear {
+            viewModel.isActiveSecondBringView = false
+        }
         .navigationTitle("가져오기")
+        .notDetailLinkNavigate(to: SecondBringView(depositAccount: viewModel.depositAccount, withdrawAccount: viewModel.selectedAccount, request: viewModel.request), when: $viewModel.isActiveSecondBringView)
     }
 }
 

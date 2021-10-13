@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct ThirdBringView: View {
-    @ObservedObject var viewModel: ThirdBringViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    var depositAccount: Account
+    @ObservedObject var viewModel: ThirdBringViewModel
     
     init(depositAccount: Account, request: BringRequest) {
-        self.depositAccount = depositAccount
-        viewModel = ThirdBringViewModel(request: request)
+        viewModel = ThirdBringViewModel(depositAccount: depositAccount, request: request)
     }
     
     var body: some View {
@@ -56,7 +53,7 @@ struct ThirdBringView: View {
         .padding()
         .alert(isPresented: $viewModel.isSuccess) {
             Alert(title: Text("가져오기 완료"),
-                  message: Text("\(depositAccount.name)(으)로\n\(viewModel.request.price) 원을 가져왔습니다."),
+                  message: Text("\(viewModel.depositAccount.name)(으)로\n\(viewModel.request.price) 원을 가져왔습니다."),
                   dismissButton: .cancel(Text("확인")) { presentationMode.wrappedValue.dismiss() })
         }
         .navigationTitle("이체")

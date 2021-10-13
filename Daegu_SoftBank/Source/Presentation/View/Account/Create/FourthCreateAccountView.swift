@@ -16,7 +16,7 @@ struct FourthCreateAccountView: View {
         VStack(spacing: 15) {
             VStack {
                 Text("입출금통장 개설완료")
-                    .font(.title)
+                    .font(.title2)
                 
                 Text("입출금통장이 개설되었습니다.\n아래의 내용을 확인해주세요")
                     .multilineTextAlignment(.center)

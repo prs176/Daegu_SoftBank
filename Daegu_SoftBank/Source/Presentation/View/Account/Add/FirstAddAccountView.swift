@@ -13,10 +13,11 @@ struct FirstAddAccountView: View {
     var body: some View {
         VStack {
             Text("추가할 은행 확인")
-                .font(.title)
+                .font(.title2)
             
             Text("이름과 주민등록번호를 입력하세요")
                 .font(.title3)
+                .fontWeight(.thin)
                 .padding(.bottom)
             
             VStack(alignment: .leading) {
@@ -58,9 +59,7 @@ struct FirstAddAccountView: View {
             
             Spacer()
             
-            Button(action: {
-                viewModel.search()
-            }, label: {
+            Button(action: viewModel.fetch, label: {
                 Text("조회하기")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
