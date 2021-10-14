@@ -44,7 +44,7 @@ extension AuthNumAPI: TargetType {
         switch self {
         case let .postAuthNum(request):
             return .requestData(try! JSONEncoder().encode(request))
-        case let .getAuthNum:
+        case .getAuthNum:
             return .requestPlain
         case let .postAuthNumLogin(request):
             return .requestData(try! JSONEncoder().encode(request))
