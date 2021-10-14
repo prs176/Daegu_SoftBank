@@ -12,4 +12,11 @@ class BringRequest: Codable {
     var withdrawAccountIdx: Int = 0
     var price: Int = 0
     var pw: Int = 0
+    
+    internal init(depositAccountIdx: Int = 0, withdrawAccountIdx: Int = 0, price: Int = 0, pw: Int = 0) {
+        self.depositAccountIdx = depositAccountIdx
+        self.withdrawAccountIdx = withdrawAccountIdx
+        self.price = price
+        self.pw = pw
+    }
 }

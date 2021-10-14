@@ -11,4 +11,10 @@ class AccountRequest: Codable {
     var accountPW: String
     var phone: String
     var name: String
+    
+    internal init(accountPW: String, phone: String, name: String) {
+        self.accountPW = accountPW
+        self.phone = phone
+        self.name = name
+    }
 }

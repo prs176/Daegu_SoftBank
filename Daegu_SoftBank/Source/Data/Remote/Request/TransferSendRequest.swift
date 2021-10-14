@@ -12,4 +12,11 @@ class TransferSendRequest: Codable {
     var sendAccountPw: String
     var sendAccountId: String
     var money: Int
+    
+    internal init(receiveAccountId: String, sendAccountPw: String, sendAccountId: String, money: Int) {
+        self.receiveAccountId = receiveAccountId
+        self.sendAccountPw = sendAccountPw
+        self.sendAccountId = sendAccountId
+        self.money = money
+    }
 }

@@ -13,4 +13,12 @@ class TransferGetRequest: Codable {
     var bank: String = ""
     var accountNum: String = ""
     var pw: Int = 0
+    
+    internal init(withdrawAccountIdx: Int = 0, price: Int = 0, bank: String = "", accountNum: String = "", pw: Int = 0) {
+        self.withdrawAccountIdx = withdrawAccountIdx
+        self.price = price
+        self.bank = bank
+        self.accountNum = accountNum
+        self.pw = pw
+    }
 }

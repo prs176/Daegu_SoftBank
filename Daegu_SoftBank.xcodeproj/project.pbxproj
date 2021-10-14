@@ -39,6 +39,7 @@
 		CB8F17B427180BDE0052D4AE /* AccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17B327180BDE0052D4AE /* AccountRequest.swift */; };
 		CB8F17B627180CDD0052D4AE /* TransferAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17B527180CDD0052D4AE /* TransferAPI.swift */; };
 		CB8F17B827180D2C0052D4AE /* TransferSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17B727180D2C0052D4AE /* TransferSendRequest.swift */; };
+		CB8F17BE271871E60052D4AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17BD271871E60052D4AE /* User.swift */; };
 		CBA02338271588BC001ED232 /* FourthTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferView.swift */; };
 		CBA0233C2715A2E4001ED232 /* FirstBringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstBringView.swift */; };
 		CBA023402715A63B001ED232 /* BringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233F2715A63B001ED232 /* BringRequest.swift */; };
@@ -64,7 +65,6 @@
 		CBBAC81D2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC81C2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift */; };
 		CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC81E2712C9C5003EB1A2 /* SecondCreateAccountView.swift */; };
 		CBBAC8212712CA34003EB1A2 /* SecondCreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8202712CA34003EB1A2 /* SecondCreateAccountViewModel.swift */; };
-		CBBAC8232712DBF2003EB1A2 /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8222712DBF2003EB1A2 /* CreateAccountRequest.swift */; };
 		CBBAC8252712E498003EB1A2 /* ThirdCreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8242712E498003EB1A2 /* ThirdCreateAccountViewModel.swift */; };
 		CBBAC8272712E4AF003EB1A2 /* ThirdCreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8262712E4AF003EB1A2 /* ThirdCreateAccountView.swift */; };
 		CBBAC82A2712E5D3003EB1A2 /* FourthCreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8292712E5D3003EB1A2 /* FourthCreateAccountView.swift */; };
@@ -147,6 +147,7 @@
 		CB8F17B327180BDE0052D4AE /* AccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRequest.swift; sourceTree = "<group>"; };
 		CB8F17B527180CDD0052D4AE /* TransferAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferAPI.swift; sourceTree = "<group>"; };
 		CB8F17B727180D2C0052D4AE /* TransferSendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSendRequest.swift; sourceTree = "<group>"; };
+		CB8F17BD271871E60052D4AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CBA02337271588BC001ED232 /* FourthTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferView.swift; sourceTree = "<group>"; };
 		CBA0233B2715A2E4001ED232 /* FirstBringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBringView.swift; sourceTree = "<group>"; };
 		CBA0233F2715A63B001ED232 /* BringRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringRequest.swift; sourceTree = "<group>"; };
@@ -172,7 +173,6 @@
 		CBBAC81C2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCreateAccountViewModel.swift; sourceTree = "<group>"; };
 		CBBAC81E2712C9C5003EB1A2 /* SecondCreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCreateAccountView.swift; sourceTree = "<group>"; };
 		CBBAC8202712CA34003EB1A2 /* SecondCreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCreateAccountViewModel.swift; sourceTree = "<group>"; };
-		CBBAC8222712DBF2003EB1A2 /* CreateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
 		CBBAC8242712E498003EB1A2 /* ThirdCreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCreateAccountViewModel.swift; sourceTree = "<group>"; };
 		CBBAC8262712E4AF003EB1A2 /* ThirdCreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCreateAccountView.swift; sourceTree = "<group>"; };
 		CBBAC8292712E5D3003EB1A2 /* FourthCreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthCreateAccountView.swift; sourceTree = "<group>"; };
@@ -323,6 +323,7 @@
 			children = (
 				CBD8F5E327118D1E00985ACA /* Account.swift */,
 				CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */,
+				CB8F17BD271871E60052D4AE /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -432,7 +433,6 @@
 		CB8E9E29270D266400271A73 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				CBBAC8222712DBF2003EB1A2 /* CreateAccountRequest.swift */,
 				CBBAC833271334BB003EB1A2 /* AddAccountRequest.swift */,
 				CBA0233F2715A63B001ED232 /* BringRequest.swift */,
 				CBA0234F2717EC16001ED232 /* RegisterRequest.swift */,
@@ -1002,7 +1002,6 @@
 				CBA0234C271728AD001ED232 /* Runtime.swift in Sources */,
 				CBA023402715A63B001ED232 /* BringRequest.swift in Sources */,
 				CBA0233C2715A2E4001ED232 /* FirstBringView.swift in Sources */,
-				CBBAC8232712DBF2003EB1A2 /* CreateAccountRequest.swift in Sources */,
 				CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */,
 				CBD8F5D52711731000985ACA /* String.swift in Sources */,
 				CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */,
@@ -1017,6 +1016,7 @@
 				CB8F17A52717F5720052D4AE /* AuthNumRequest.swift in Sources */,
 				CBBAC82A2712E5D3003EB1A2 /* FourthCreateAccountView.swift in Sources */,
 				CBD8F5E027118C8400985ACA /* UserInfoView.swift in Sources */,
+				CB8F17BE271871E60052D4AE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

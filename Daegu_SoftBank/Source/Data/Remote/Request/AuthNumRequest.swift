@@ -9,4 +9,8 @@ import Foundation
 
 class AuthNumRequest: Codable {
     var pw: String
+    
+    internal init(pw: String) {
+        self.pw = pw
+    }
 }
