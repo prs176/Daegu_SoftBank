@@ -39,7 +39,8 @@
 		CB8F17B427180BDE0052D4AE /* AccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17B327180BDE0052D4AE /* AccountRequest.swift */; };
 		CB8F17B627180CDD0052D4AE /* TransferAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17B527180CDD0052D4AE /* TransferAPI.swift */; };
 		CB8F17B827180D2C0052D4AE /* TransferSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17B727180D2C0052D4AE /* TransferSendRequest.swift */; };
-		CB8F17BE271871E60052D4AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17BD271871E60052D4AE /* User.swift */; };
+		CB8F17D52718768C0052D4AE /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17D42718768C0052D4AE /* CreateAccountRequest.swift */; };
+		CB8F17D7271876C10052D4AE /* TransferRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17D6271876C10052D4AE /* TransferRequest.swift */; };
 		CBA02338271588BC001ED232 /* FourthTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferView.swift */; };
 		CBA0233C2715A2E4001ED232 /* FirstBringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstBringView.swift */; };
 		CBA023402715A63B001ED232 /* BringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233F2715A63B001ED232 /* BringRequest.swift */; };
@@ -147,7 +148,8 @@
 		CB8F17B327180BDE0052D4AE /* AccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRequest.swift; sourceTree = "<group>"; };
 		CB8F17B527180CDD0052D4AE /* TransferAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferAPI.swift; sourceTree = "<group>"; };
 		CB8F17B727180D2C0052D4AE /* TransferSendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSendRequest.swift; sourceTree = "<group>"; };
-		CB8F17BD271871E60052D4AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CB8F17D42718768C0052D4AE /* CreateAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
+		CB8F17D6271876C10052D4AE /* TransferRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRequest.swift; sourceTree = "<group>"; };
 		CBA02337271588BC001ED232 /* FourthTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferView.swift; sourceTree = "<group>"; };
 		CBA0233B2715A2E4001ED232 /* FirstBringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBringView.swift; sourceTree = "<group>"; };
 		CBA0233F2715A63B001ED232 /* BringRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringRequest.swift; sourceTree = "<group>"; };
@@ -323,7 +325,6 @@
 			children = (
 				CBD8F5E327118D1E00985ACA /* Account.swift */,
 				CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */,
-				CB8F17BD271871E60052D4AE /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -433,6 +434,7 @@
 		CB8E9E29270D266400271A73 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				CB8F17D42718768C0052D4AE /* CreateAccountRequest.swift */,
 				CBBAC833271334BB003EB1A2 /* AddAccountRequest.swift */,
 				CBA0233F2715A63B001ED232 /* BringRequest.swift */,
 				CBA0234F2717EC16001ED232 /* RegisterRequest.swift */,
@@ -442,6 +444,7 @@
 				CB8F17B327180BDE0052D4AE /* AccountRequest.swift */,
 				CB8F17B727180D2C0052D4AE /* TransferSendRequest.swift */,
 				CBAF76772715050400E827E1 /* TransferGetRequest.swift */,
+				CB8F17D6271876C10052D4AE /* TransferRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -956,11 +959,13 @@
 				CBA023572717ED95001ED232 /* UserAPI.swift in Sources */,
 				CB4154A0271449A700E434B3 /* SimpleAccountRow.swift in Sources */,
 				CBD8F5D327116E8600985ACA /* WebView.swift in Sources */,
+				CB8F17D52718768C0052D4AE /* CreateAccountRequest.swift in Sources */,
 				CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */,
 				CBAF7684271550DD00E827E1 /* ThirdTransferViewModel.swift in Sources */,
 				CBBAC8252712E498003EB1A2 /* ThirdCreateAccountViewModel.swift in Sources */,
 				CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */,
 				CBBAC82C2712ED14003EB1A2 /* AccountInfo.swift in Sources */,
+				CB8F17D7271876C10052D4AE /* TransferRequest.swift in Sources */,
 				CBAF76742715040300E827E1 /* FirstTransferView.swift in Sources */,
 				CB8F17AD2717FEC00052D4AE /* MoyaProvider.swift in Sources */,
 				CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */,
@@ -1016,7 +1021,6 @@
 				CB8F17A52717F5720052D4AE /* AuthNumRequest.swift in Sources */,
 				CBBAC82A2712E5D3003EB1A2 /* FourthCreateAccountView.swift in Sources */,
 				CBD8F5E027118C8400985ACA /* UserInfoView.swift in Sources */,
-				CB8F17BE271871E60052D4AE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
