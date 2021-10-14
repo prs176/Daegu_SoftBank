@@ -11,7 +11,7 @@ struct SecondTransferView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: SecondTransferViewModel
     
-    init(name: String, withdrawAccount: Account, request: TransferRequest) {
+    init(name: String, withdrawAccount: TempAccount, request: TransferRequest) {
         viewModel = SecondTransferViewModel(name: name, withdrawAccount: withdrawAccount, request: request)
     }
     
@@ -109,6 +109,6 @@ struct SecondTransferView: View {
 
 struct SecondTransferView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondTransferView(name: "로미", withdrawAccount: Account(), request: TransferRequest())
+        SecondTransferView(name: "로미", withdrawAccount: TempAccount(), request: TransferRequest())
     }
 }

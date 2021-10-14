@@ -9,14 +9,14 @@ import Foundation
 
 class FirstBringViewModel: BaseViewModel {
     @Published var isActiveSecondBringView: Bool = false
-    @Published var selectedAccount: Account = Account()
+    @Published var selectedAccount: TempAccount = TempAccount()
     
-    var accounts: [Account]
+    var accounts: [TempAccount]
     
-    var depositAccount: Account
+    var depositAccount: TempAccount
     var request: BringRequest = BringRequest()
     
-    init(accounts: [Account], depositAccount: Account) {
+    init(accounts: [TempAccount], depositAccount: TempAccount) {
         self.accounts = accounts
         self.depositAccount = depositAccount
     }

@@ -12,14 +12,14 @@ class FirstTransferViewModel: BaseViewModel {
     @Published var bank: Int = 0
     @Published var accountNum: String = ""
     @Published var isAgree: Bool = false
-    var withdrawAccount: Account = Account()
+    var withdrawAccount: TempAccount = TempAccount()
     
     var request: TransferRequest = TransferRequest()
     
     @Published var isSuccess: Bool = false
     @Published var name: String = ""
     
-    init(withdrawAccount: Account) {
+    init(withdrawAccount: TempAccount) {
         self.withdrawAccount = withdrawAccount
         request.withdrawAccountIdx = withdrawAccount.idx
     }

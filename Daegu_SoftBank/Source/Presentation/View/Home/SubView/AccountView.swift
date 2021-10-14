@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AccountRow: View {
-    var account: Account
-    @Binding var selectedAccount: Account
+    var account: TempAccount
+    @Binding var selectedAccount: TempAccount
     @Binding var isActiveBringView: Bool
     
     var body: some View {
@@ -68,6 +68,6 @@ struct AccountRow: View {
 
 struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        AccountRow(account: Account(), selectedAccount: .constant(Account()), isActiveBringView: .constant(false))
+        AccountRow(account: TempAccount(), selectedAccount: .constant(TempAccount()), isActiveBringView: .constant(false))
     }
 }

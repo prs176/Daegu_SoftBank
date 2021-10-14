@@ -25,7 +25,7 @@ class FirstAddAccountViewModel: BaseViewModel {
     var request: AddAccountRequest = AddAccountRequest()
     
     @Published var isSuccess: Bool = false
-    var accounts: [Account] = []
+    var accounts: [TempAccount] = []
     
     func fetch() {
         guard validate() else {
@@ -35,7 +35,7 @@ class FirstAddAccountViewModel: BaseViewModel {
         request.name = name
         request.rrn = Int(rrnLetters.joined())!
         
-        accounts = [Account(idx: 0, accountNum: "321-432", bank: "ㄴㅁㄹ", name: "ㅁㅇㄴㄹ", balance: 123043), Account(idx: 1, accountNum: "3-2123", bank: "fasdf", name: "fasdf", balance: 3142)]
+        accounts = [TempAccount(idx: 0, accountNum: "321-432", bank: "ㄴㅁㄹ", name: "ㅁㅇㄴㄹ", balance: 123043), TempAccount(idx: 1, accountNum: "3-2123", bank: "fasdf", name: "fasdf", balance: 3142)]
         isSuccess = true
     }
     

@@ -9,14 +9,14 @@ import Foundation
 
 class SecondBringViewModel: BaseViewModel {
     @Published var price: String = "0"
-    var depositAccount: Account
-    var withdrawAccount: Account
+    var depositAccount: TempAccount
+    var withdrawAccount: TempAccount
     
     var request: BringRequest
     
     @Published var isSuccess: Bool = false
     
-    init(depositAccount: Account, withdrawAccount: Account, request: BringRequest) {
+    init(depositAccount: TempAccount, withdrawAccount: TempAccount, request: BringRequest) {
         self.depositAccount = depositAccount
         self.withdrawAccount = withdrawAccount
         self.request = request

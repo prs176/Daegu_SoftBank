@@ -8,14 +8,14 @@
 import Foundation
 
 class SecondAddAccountViewModel: BaseViewModel {
-    var accounts: [Account]
+    var accounts: [TempAccount]
     @Published var selectedAccounts: [Int] = []
     
     var request: AddAccountRequest
     
     @Published var isSuccess: Bool = false
     
-    init(accounts: [Account], request: AddAccountRequest) {
+    init(accounts: [TempAccount], request: AddAccountRequest) {
         self.accounts = accounts
         self.request = request
     }

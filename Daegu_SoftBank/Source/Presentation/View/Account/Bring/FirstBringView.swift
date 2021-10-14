@@ -10,7 +10,7 @@ import SwiftUI
 struct FirstBringView: View {
     @ObservedObject var viewModel: FirstBringViewModel
     
-    init(depositAccount: Account, accounts: [Account]) {
+    init(depositAccount: TempAccount, accounts: [TempAccount]) {
         viewModel = FirstBringViewModel(accounts: accounts, depositAccount: depositAccount)
         
         if let idx = accounts.map({ $0.idx }).firstIndex(of: depositAccount.idx) {
@@ -48,6 +48,6 @@ struct FirstBringView: View {
 
 struct FirstBringView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstBringView(depositAccount: Account(), accounts: [])
+        FirstBringView(depositAccount: TempAccount(), accounts: [])
     }
 }

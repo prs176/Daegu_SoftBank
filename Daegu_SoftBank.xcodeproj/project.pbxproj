@@ -41,6 +41,8 @@
 		CB8F17B827180D2C0052D4AE /* TransferSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17B727180D2C0052D4AE /* TransferSendRequest.swift */; };
 		CB8F17D52718768C0052D4AE /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17D42718768C0052D4AE /* CreateAccountRequest.swift */; };
 		CB8F17D7271876C10052D4AE /* TransferRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17D6271876C10052D4AE /* TransferRequest.swift */; };
+		CB8F17D9271877FA0052D4AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17D8271877FA0052D4AE /* User.swift */; };
+		CB8F17DB271879840052D4AE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17DA271879840052D4AE /* Account.swift */; };
 		CBA02338271588BC001ED232 /* FourthTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferView.swift */; };
 		CBA0233C2715A2E4001ED232 /* FirstBringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstBringView.swift */; };
 		CBA023402715A63B001ED232 /* BringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233F2715A63B001ED232 /* BringRequest.swift */; };
@@ -82,7 +84,7 @@
 		CBD8F5DD27118C5300985ACA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5DC27118C5300985ACA /* HomeView.swift */; };
 		CBD8F5E027118C8400985ACA /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5DF27118C8400985ACA /* UserInfoView.swift */; };
 		CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5E127118D0200985ACA /* AccountView.swift */; };
-		CBD8F5E427118D1E00985ACA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5E327118D1E00985ACA /* Account.swift */; };
+		CBD8F5E427118D1E00985ACA /* TempAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5E327118D1E00985ACA /* TempAccount.swift */; };
 		CBF9E0BA2711AFBA00DDC3E8 /* EnvironmentProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9E0B92711AFBA00DDC3E8 /* EnvironmentProperties.swift */; };
 		E58446802138ED5C96F59BBA /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */; };
 /* End PBXBuildFile section */
@@ -150,6 +152,8 @@
 		CB8F17B727180D2C0052D4AE /* TransferSendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSendRequest.swift; sourceTree = "<group>"; };
 		CB8F17D42718768C0052D4AE /* CreateAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
 		CB8F17D6271876C10052D4AE /* TransferRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRequest.swift; sourceTree = "<group>"; };
+		CB8F17D8271877FA0052D4AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CB8F17DA271879840052D4AE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		CBA02337271588BC001ED232 /* FourthTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferView.swift; sourceTree = "<group>"; };
 		CBA0233B2715A2E4001ED232 /* FirstBringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBringView.swift; sourceTree = "<group>"; };
 		CBA0233F2715A63B001ED232 /* BringRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringRequest.swift; sourceTree = "<group>"; };
@@ -191,7 +195,7 @@
 		CBD8F5DC27118C5300985ACA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CBD8F5DF27118C8400985ACA /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		CBD8F5E127118D0200985ACA /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		CBD8F5E327118D1E00985ACA /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		CBD8F5E327118D1E00985ACA /* TempAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempAccount.swift; sourceTree = "<group>"; };
 		CBF9E0B92711AFBA00DDC3E8 /* EnvironmentProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentProperties.swift; sourceTree = "<group>"; };
 		FCDE540131452B1D3C2FEED6 /* Pods-Daegu_SoftBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank/Pods-Daegu_SoftBank.release.xcconfig"; sourceTree = "<group>"; };
 		FEBCE5EE181CC1D48C2CCA9B /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -323,8 +327,10 @@
 		CB8E9E1C270D25BD00271A73 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CBD8F5E327118D1E00985ACA /* Account.swift */,
+				CBD8F5E327118D1E00985ACA /* TempAccount.swift */,
 				CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */,
+				CB8F17D8271877FA0052D4AE /* User.swift */,
+				CB8F17DA271879840052D4AE /* Account.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -956,6 +962,7 @@
 				CB8F17A72717F57A0052D4AE /* AuthNumLoginRequest.swift in Sources */,
 				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
 				CBA0234A27170835001ED232 /* FirstBringViewModel.swift in Sources */,
+				CB8F17DB271879840052D4AE /* Account.swift in Sources */,
 				CBA023572717ED95001ED232 /* UserAPI.swift in Sources */,
 				CB4154A0271449A700E434B3 /* SimpleAccountRow.swift in Sources */,
 				CBD8F5D327116E8600985ACA /* WebView.swift in Sources */,
@@ -972,6 +979,7 @@
 				CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */,
 				CBAF767A271506E200E827E1 /* PickerTextField.swift in Sources */,
 				CB8F17B227180A470052D4AE /* AccountAPI.swift in Sources */,
+				CB8F17D9271877FA0052D4AE /* User.swift in Sources */,
 				CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */,
 				CBBAC8272712E4AF003EB1A2 /* ThirdCreateAccountView.swift in Sources */,
 				CBA023422715B5D3001ED232 /* SecondBringView.swift in Sources */,
@@ -992,7 +1000,7 @@
 				CBAF768027153EFB00E827E1 /* SecondTransferViewModel.swift in Sources */,
 				CBBAC8212712CA34003EB1A2 /* SecondCreateAccountViewModel.swift in Sources */,
 				CB8F17AB2717FE580052D4AE /* BaseRemote.swift in Sources */,
-				CBD8F5E427118D1E00985ACA /* Account.swift in Sources */,
+				CBD8F5E427118D1E00985ACA /* TempAccount.swift in Sources */,
 				CBBAC82F271331EB003EB1A2 /* FirstAddAccountView.swift in Sources */,
 				CBBAC81D2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift in Sources */,
 				CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */,

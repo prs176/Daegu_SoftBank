@@ -11,7 +11,7 @@ struct SecondAddAccountView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: SecondAddAccountViewModel
     
-    init(request: AddAccountRequest, accounts: [Account]) {
+    init(request: AddAccountRequest, accounts: [TempAccount]) {
         viewModel = SecondAddAccountViewModel(accounts: accounts, request: request)
     }
     

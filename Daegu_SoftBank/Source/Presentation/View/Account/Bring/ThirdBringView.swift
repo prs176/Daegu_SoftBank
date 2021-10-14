@@ -11,7 +11,7 @@ struct ThirdBringView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: ThirdBringViewModel
     
-    init(depositAccount: Account, request: BringRequest) {
+    init(depositAccount: TempAccount, request: BringRequest) {
         viewModel = ThirdBringViewModel(depositAccount: depositAccount, request: request)
     }
     
@@ -65,6 +65,6 @@ struct ThirdBringView: View {
 
 struct ThirdBringView_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdBringView(depositAccount: Account(), request: BringRequest())
+        ThirdBringView(depositAccount: TempAccount(), request: BringRequest())
     }
 }

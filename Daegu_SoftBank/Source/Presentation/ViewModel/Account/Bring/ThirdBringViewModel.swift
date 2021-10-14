@@ -18,7 +18,7 @@ class ThirdBringViewModel: BaseViewModel {
             }
         }
     }
-    var depositAccount: Account
+    var depositAccount: TempAccount
     
     var pwCursor: Int = 4
     
@@ -26,7 +26,7 @@ class ThirdBringViewModel: BaseViewModel {
     
     @Published var isSuccess: Bool = false
     
-    init(depositAccount: Account, request: BringRequest) {
+    init(depositAccount: TempAccount, request: BringRequest) {
         self.depositAccount = depositAccount
         self.request = request
     }

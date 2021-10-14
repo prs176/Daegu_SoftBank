@@ -17,7 +17,7 @@ struct SecondBringView: View {
         return formatter
     } ()
     
-    init(depositAccount: Account, withdrawAccount: Account, request: BringRequest) {
+    init(depositAccount: TempAccount, withdrawAccount: TempAccount, request: BringRequest) {
         viewModel = SecondBringViewModel(depositAccount: depositAccount, withdrawAccount: withdrawAccount, request: request)
     }
     
@@ -106,6 +106,6 @@ struct SecondBringView: View {
 
 struct SecondBringView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondBringView(depositAccount: Account(), withdrawAccount: Account(), request: BringRequest())
+        SecondBringView(depositAccount: TempAccount(), withdrawAccount: TempAccount(), request: BringRequest())
     }
 }

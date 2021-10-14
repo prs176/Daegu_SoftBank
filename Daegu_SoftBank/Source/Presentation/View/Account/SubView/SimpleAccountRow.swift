@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SimpleAccountRow: View {
-    var account: Account
+    var account: TempAccount
     var isChecked: Bool
     
     var body: some View {
@@ -37,6 +37,6 @@ struct SimpleAccountRow: View {
 
 struct SimpleAccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        SimpleAccountRow(account: Account(), isChecked: false)
+        SimpleAccountRow(account: TempAccount(), isChecked: false)
     }
 }

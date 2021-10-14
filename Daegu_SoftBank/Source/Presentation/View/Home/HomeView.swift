@@ -13,7 +13,7 @@ struct HomeView: View {
     @Environment(\.registerViewRootPresentation) var registerViewRootPresentation: Binding<Bool>
     
     @State var isActiveBringView: Bool = false
-    @State var selectedAccount: Account = Account()
+    @State var selectedAccount: TempAccount = TempAccount()
     
     var body: some View {
         ScrollView {
