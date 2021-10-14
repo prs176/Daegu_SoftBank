@@ -38,6 +38,8 @@
 		CBA023482716B11F001ED232 /* ThirdBringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023472716B11F001ED232 /* ThirdBringViewModel.swift */; };
 		CBA0234A27170835001ED232 /* FirstBringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0234927170835001ED232 /* FirstBringViewModel.swift */; };
 		CBA0234C271728AD001ED232 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0234B271728AD001ED232 /* Runtime.swift */; };
+		CBA023502717EC16001ED232 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0234F2717EC16001ED232 /* RegisterRequest.swift */; };
+		CBA023522717ECB3001ED232 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023512717ECB3001ED232 /* LoginRequest.swift */; };
 		CBAF76742715040300E827E1 /* FirstTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76732715040300E827E1 /* FirstTransferView.swift */; };
 		CBAF76762715041200E827E1 /* FirstTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76752715041200E827E1 /* FirstTransferViewModel.swift */; };
 		CBAF76782715050400E827E1 /* TransferRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76772715050400E827E1 /* TransferRequest.swift */; };
@@ -132,6 +134,8 @@
 		CBA023472716B11F001ED232 /* ThirdBringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBringViewModel.swift; sourceTree = "<group>"; };
 		CBA0234927170835001ED232 /* FirstBringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBringViewModel.swift; sourceTree = "<group>"; };
 		CBA0234B271728AD001ED232 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
+		CBA0234F2717EC16001ED232 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		CBA023512717ECB3001ED232 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		CBAF76732715040300E827E1 /* FirstTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferView.swift; sourceTree = "<group>"; };
 		CBAF76752715041200E827E1 /* FirstTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferViewModel.swift; sourceTree = "<group>"; };
 		CBAF76772715050400E827E1 /* TransferRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRequest.swift; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 		CB8E9E1F270D25E600271A73 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CBA023532717ED3D001ED232 /* Util */,
 				CB8E9E2B270D26AD00271A73 /* Widget */,
 				CB8E9E1C270D25BD00271A73 /* Model */,
 				CB8E9E1E270D25DA00271A73 /* Data */,
@@ -404,6 +409,8 @@
 				CBBAC833271334BB003EB1A2 /* AddAccountRequest.swift */,
 				CBAF76772715050400E827E1 /* TransferRequest.swift */,
 				CBA0233F2715A63B001ED232 /* BringRequest.swift */,
+				CBA0234F2717EC16001ED232 /* RegisterRequest.swift */,
+				CBA023512717ECB3001ED232 /* LoginRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -512,6 +519,13 @@
 				CBA023452716B0DB001ED232 /* ThirdBringView.swift */,
 			);
 			path = Bring;
+			sourceTree = "<group>";
+		};
+		CBA023532717ED3D001ED232 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		CBAF766D27146D9D00E827E1 /* Transfer */ = {
@@ -913,7 +927,9 @@
 				CBBAC834271334BB003EB1A2 /* AddAccountRequest.swift in Sources */,
 				CBAF767E27153EF300E827E1 /* SecondTransferView.swift in Sources */,
 				CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */,
+				CBA023502717EC16001ED232 /* RegisterRequest.swift in Sources */,
 				CBAF76762715041200E827E1 /* FirstTransferViewModel.swift in Sources */,
+				CBA023522717ECB3001ED232 /* LoginRequest.swift in Sources */,
 				CB415499271445C800E434B3 /* SecondAddAccountView.swift in Sources */,
 				CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */,
 				CBAF768027153EFB00E827E1 /* SecondTransferViewModel.swift in Sources */,
