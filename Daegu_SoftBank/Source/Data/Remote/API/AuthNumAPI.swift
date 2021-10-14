@@ -1,5 +1,5 @@
 //
-//  UserAPI.swift
+//  AuthNumAPI.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/14.
@@ -7,47 +7,47 @@
 
 import Moya
 
-enum UserAPI {
-    case postRegister(_ request: RegisterRequest)
-    case postLogin(_ request: LoginRequest)
-    case getUser
+enum AuthNumAPI {
+    case postAuthNum(_ request: AuthNumRequest)
+    case getAuthNum
+    case postAuthNumLogin(_ request: AuthNumLoginRequest)
 }
 
-extension UserAPI: TargetType {
+extension AuthNumAPI: TargetType {
     var baseURL: URL {
-        return URL(string: Constants.DEFAULT_HOST + "user")!
+        return URL(string: Constants.DEFAULT_HOST + "password")!
     }
     
     var path: String {
         switch self {
-        case .postRegister:
-            return "/register"
-        case .postLogin:
-            return "/login"
-        case .getUser:
+        case .postAuthNum:
             return ""
+        case .getAuthNum:
+            return ""
+        case .postAuthNumLogin:
+            return "/login"
         }
     }
     
     var method: Method {
         switch self {
-        case .postRegister:
+        case .postAuthNum:
             return .post
-        case .postLogin:
-            return .post
-        case .getUser:
+        case .getAuthNum:
             return .get
+        case .postAuthNumLogin:
+            return .post
         }
     }
     
     var task: Task {
         switch self {
-        case let .postRegister(request):
+        case let .postAuthNum(request):
             return .requestData(try! JSONEncoder().encode(request))
-        case let .postLogin(request):
-            return .requestData(try! JSONEncoder().encode(request))
-        case .getUser:
+        case let .getAuthNum:
             return .requestPlain
+        case let .postAuthNumLogin(request):
+            return .requestData(try! JSONEncoder().encode(request))
         }
     }
     

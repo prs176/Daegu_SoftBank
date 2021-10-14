@@ -29,6 +29,9 @@
 		CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4D270EE76D00271A73 /* UIApplication.swift */; };
 		CB8E9E50270EE7B100271A73 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E4F270EE7B100271A73 /* View.swift */; };
 		CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9E5127104E5400271A73 /* RegisterAuthNumViewModel.swift */; };
+		CB8F17A32717F4770052D4AE /* AuthNumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17A22717F4770052D4AE /* AuthNumAPI.swift */; };
+		CB8F17A52717F5720052D4AE /* AuthNumRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17A42717F5720052D4AE /* AuthNumRequest.swift */; };
+		CB8F17A72717F57A0052D4AE /* AuthNumLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17A62717F57A0052D4AE /* AuthNumLoginRequest.swift */; };
 		CBA02338271588BC001ED232 /* FourthTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferView.swift */; };
 		CBA0233C2715A2E4001ED232 /* FirstBringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstBringView.swift */; };
 		CBA023402715A63B001ED232 /* BringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233F2715A63B001ED232 /* BringRequest.swift */; };
@@ -127,6 +130,9 @@
 		CB8E9E4D270EE76D00271A73 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CB8E9E4F270EE7B100271A73 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		CB8E9E5127104E5400271A73 /* RegisterAuthNumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAuthNumViewModel.swift; sourceTree = "<group>"; };
+		CB8F17A22717F4770052D4AE /* AuthNumAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNumAPI.swift; sourceTree = "<group>"; };
+		CB8F17A42717F5720052D4AE /* AuthNumRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNumRequest.swift; sourceTree = "<group>"; };
+		CB8F17A62717F57A0052D4AE /* AuthNumLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNumLoginRequest.swift; sourceTree = "<group>"; };
 		CBA02337271588BC001ED232 /* FourthTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferView.swift; sourceTree = "<group>"; };
 		CBA0233B2715A2E4001ED232 /* FirstBringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBringView.swift; sourceTree = "<group>"; };
 		CBA0233F2715A63B001ED232 /* BringRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringRequest.swift; sourceTree = "<group>"; };
@@ -403,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				CBA023562717ED95001ED232 /* UserAPI.swift */,
+				CB8F17A22717F4770052D4AE /* AuthNumAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -416,6 +423,8 @@
 				CBA0233F2715A63B001ED232 /* BringRequest.swift */,
 				CBA0234F2717EC16001ED232 /* RegisterRequest.swift */,
 				CBA023512717ECB3001ED232 /* LoginRequest.swift */,
+				CB8F17A42717F5720052D4AE /* AuthNumRequest.swift */,
+				CB8F17A62717F57A0052D4AE /* AuthNumLoginRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -911,6 +920,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */,
+				CB8F17A32717F4770052D4AE /* AuthNumAPI.swift in Sources */,
+				CB8F17A72717F57A0052D4AE /* AuthNumLoginRequest.swift in Sources */,
 				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
 				CBA0234A27170835001ED232 /* FirstBringViewModel.swift in Sources */,
 				CBA023572717ED95001ED232 /* UserAPI.swift in Sources */,
@@ -967,6 +978,7 @@
 				CBA023462716B0DB001ED232 /* ThirdBringView.swift in Sources */,
 				CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */,
 				CBD8F5DD27118C5300985ACA /* HomeView.swift in Sources */,
+				CB8F17A52717F5720052D4AE /* AuthNumRequest.swift in Sources */,
 				CBBAC82A2712E5D3003EB1A2 /* FourthCreateAccountView.swift in Sources */,
 				CBD8F5E027118C8400985ACA /* UserInfoView.swift in Sources */,
 			);
