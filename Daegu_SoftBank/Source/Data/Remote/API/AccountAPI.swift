@@ -45,14 +45,6 @@ extension AccountAPI: TargetType {
         }
     }
     
-    var sampleData: Data {
-        return Data()
-    }
-    
-    var validationType: ValidationType {
-        return .successAndRedirectCodes
-    }
-    
     var task: Task {
         switch self {
         case let .postAccount(request):
@@ -64,6 +56,14 @@ extension AccountAPI: TargetType {
         case let .getAccountByAccount(account):
             return .requestParameters(parameters: ["account": account], encoding: URLEncoding.queryString)
         }
+    }
+    
+    var sampleData: Data {
+        return Data()
+    }
+    
+    var validationType: ValidationType {
+        return .successAndRedirectCodes
     }
     
     var headers: [String : String]? {
