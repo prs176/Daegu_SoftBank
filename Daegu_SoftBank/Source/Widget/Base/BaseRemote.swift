@@ -16,4 +16,3 @@ class BaseRemote<T: TargetType> {
         return provider.request(target, callbackQueue: callbackQueue)
     }
 }
-
