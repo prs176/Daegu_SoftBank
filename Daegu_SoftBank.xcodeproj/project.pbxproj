@@ -43,6 +43,7 @@
 		CB8F17D7271876C10052D4AE /* TransferRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17D6271876C10052D4AE /* TransferRequest.swift */; };
 		CB8F17D9271877FA0052D4AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17D8271877FA0052D4AE /* User.swift */; };
 		CB8F17DB271879840052D4AE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17DA271879840052D4AE /* Account.swift */; };
+		CB8F17DD27187B200052D4AE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17DC27187B200052D4AE /* Response.swift */; };
 		CBA02338271588BC001ED232 /* FourthTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferView.swift */; };
 		CBA0233C2715A2E4001ED232 /* FirstBringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstBringView.swift */; };
 		CBA023402715A63B001ED232 /* BringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233F2715A63B001ED232 /* BringRequest.swift */; };
@@ -154,6 +155,7 @@
 		CB8F17D6271876C10052D4AE /* TransferRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRequest.swift; sourceTree = "<group>"; };
 		CB8F17D8271877FA0052D4AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB8F17DA271879840052D4AE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		CB8F17DC27187B200052D4AE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		CBA02337271588BC001ED232 /* FourthTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferView.swift; sourceTree = "<group>"; };
 		CBA0233B2715A2E4001ED232 /* FirstBringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBringView.swift; sourceTree = "<group>"; };
 		CBA0233F2715A63B001ED232 /* BringRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringRequest.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 		CB8E9E2A270D266A00271A73 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				CB8F17DC27187B200052D4AE /* Response.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1029,6 +1032,7 @@
 				CB8F17A52717F5720052D4AE /* AuthNumRequest.swift in Sources */,
 				CBBAC82A2712E5D3003EB1A2 /* FourthCreateAccountView.swift in Sources */,
 				CBD8F5E027118C8400985ACA /* UserInfoView.swift in Sources */,
+				CB8F17DD27187B200052D4AE /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
