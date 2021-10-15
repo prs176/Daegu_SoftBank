@@ -10,7 +10,7 @@ import Moya
 enum AuthNumAPI {
     case postAuthNum(_ request: AuthNumRequest)
     case getAuthNum
-    case postAuthNumLogin(_ request: AuthNumLoginRequest)
+    case postAuthNumLogin(_ request: LoginRequest)
 }
 
 extension AuthNumAPI: TargetType {
