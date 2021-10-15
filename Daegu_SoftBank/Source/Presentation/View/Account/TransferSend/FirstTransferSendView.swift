@@ -1,5 +1,5 @@
 //
-//  FirstTransferView.swift
+//  FirstTransferSendView.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/12.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct FirstTransferView: View {
-    @ObservedObject var viewModel: FirstTransferViewModel
+struct FirstTransferSendView: View {
+    @ObservedObject var viewModel: FirstTransferSendViewModel
     
     var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -18,7 +18,7 @@ struct FirstTransferView: View {
     } ()
     
     init(withdrawAccount: TempAccount) {
-        viewModel = FirstTransferViewModel(withdrawAccount: withdrawAccount)
+        viewModel = FirstTransferSendViewModel(withdrawAccount: withdrawAccount)
     }
     
     var body: some View {
@@ -94,14 +94,14 @@ struct FirstTransferView: View {
         }
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .notDetailLinkNavigate(to: SecondTransferView(name: viewModel.name, withdrawAccount: viewModel.withdrawAccount, request: viewModel.request), when: $viewModel.isAgree)
+        .notDetailLinkNavigate(to: SecondTransferSendView(name: viewModel.name, withdrawAccount: viewModel.withdrawAccount, request: viewModel.request), when: $viewModel.isAgree)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }
 
-struct FirstTransferView_Previews: PreviewProvider {
+struct FirstTransferSendView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstTransferView(withdrawAccount: TempAccount())
+        FirstTransferSendView(withdrawAccount: TempAccount())
     }
 }

@@ -1,5 +1,5 @@
 //
-//  FirstBringView.swift
+//  FirstTransferGetView.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/12.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct FirstBringView: View {
-    @ObservedObject var viewModel: FirstBringViewModel
+struct FirstTransferGetView: View {
+    @ObservedObject var viewModel: FirstTransferGetViewModel
     
     init(depositAccount: TempAccount, accounts: [TempAccount]) {
-        viewModel = FirstBringViewModel(accounts: accounts, depositAccount: depositAccount)
+        viewModel = FirstTransferGetViewModel(accounts: accounts, depositAccount: depositAccount)
         
         if let idx = accounts.map({ $0.idx }).firstIndex(of: depositAccount.idx) {
             viewModel.accounts.remove(at: idx)
@@ -42,12 +42,12 @@ struct FirstBringView: View {
             viewModel.isActiveSecondBringView = false
         }
         .navigationTitle("가져오기")
-        .notDetailLinkNavigate(to: SecondBringView(depositAccount: viewModel.depositAccount, withdrawAccount: viewModel.selectedAccount, request: viewModel.request), when: $viewModel.isActiveSecondBringView)
+        .notDetailLinkNavigate(to: SecondTransferGetView(depositAccount: viewModel.depositAccount, withdrawAccount: viewModel.selectedAccount, request: viewModel.request), when: $viewModel.isActiveSecondBringView)
     }
 }
 
-struct FirstBringView_Previews: PreviewProvider {
+struct FirstTransferGetView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstBringView(depositAccount: TempAccount(), accounts: [])
+        FirstTransferGetView(depositAccount: TempAccount(), accounts: [])
     }
 }

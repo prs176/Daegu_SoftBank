@@ -1,5 +1,5 @@
 //
-//  SecondBringView.swift
+//  SecondTransferGetView.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/12.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct SecondBringView: View {
-    @ObservedObject var viewModel: SecondBringViewModel
+struct SecondTransferGetView: View {
+    @ObservedObject var viewModel: SecondTransferGetViewModel
     
     var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -18,7 +18,7 @@ struct SecondBringView: View {
     } ()
     
     init(depositAccount: TempAccount, withdrawAccount: TempAccount, request: BringRequest) {
-        viewModel = SecondBringViewModel(depositAccount: depositAccount, withdrawAccount: withdrawAccount, request: request)
+        viewModel = SecondTransferGetViewModel(depositAccount: depositAccount, withdrawAccount: withdrawAccount, request: request)
     }
     
     var body: some View {
@@ -98,14 +98,14 @@ struct SecondBringView: View {
         .padding()
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("가져오기")
-        .notDetailLinkNavigate(to: ThirdBringView(depositAccount: viewModel.depositAccount, request: viewModel.request), when: $viewModel.isSuccess)
+        .notDetailLinkNavigate(to: ThirdTransferGetView(depositAccount: viewModel.depositAccount, request: viewModel.request), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }
 
-struct SecondBringView_Previews: PreviewProvider {
+struct SecondTransferGetView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondBringView(depositAccount: TempAccount(), withdrawAccount: TempAccount(), request: BringRequest())
+        SecondTransferGetView(depositAccount: TempAccount(), withdrawAccount: TempAccount(), request: BringRequest())
     }
 }

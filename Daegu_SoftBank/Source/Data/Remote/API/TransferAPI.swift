@@ -19,7 +19,7 @@ extension TransferAPI: TargetType {
     
     var path: String {
         switch self {
-        case .poseSend:
+        case .postSend:
             return "/send"
         case .postGet:
             return "/get"
@@ -28,7 +28,7 @@ extension TransferAPI: TargetType {
     
     var method: Method {
         switch self {
-        case .poseSend:
+        case .postSend:
             return .post
         case .postGet:
             return .post
@@ -37,7 +37,7 @@ extension TransferAPI: TargetType {
     
     var task: Task {
         switch self {
-        case let .poseSend(request):
+        case let .postSend(request):
             return .requestData(try! JSONEncoder().encode(request))
         case let .postGet(request):
             return .requestData(try! JSONEncoder().encode(request))

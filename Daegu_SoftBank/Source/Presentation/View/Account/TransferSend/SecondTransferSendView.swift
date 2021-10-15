@@ -1,5 +1,5 @@
 //
-//  SecondTransferView.swift
+//  SecondTransferSendView.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/12.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct SecondTransferView: View {
+struct SecondTransferSendView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var viewModel: SecondTransferViewModel
+    @ObservedObject var viewModel: SecondTransferSendViewModel
     
     init(name: String, withdrawAccount: TempAccount, request: TransferRequest) {
-        viewModel = SecondTransferViewModel(name: name, withdrawAccount: withdrawAccount, request: request)
+        viewModel = SecondTransferSendViewModel(name: name, withdrawAccount: withdrawAccount, request: request)
     }
     
     var body: some View {
@@ -88,7 +88,7 @@ struct SecondTransferView: View {
                 })
                 
                 NavigationLink(
-                    destination: ThirdTransferView(fees: viewModel.fees, request: viewModel.request),
+                    destination: ThirdTransferSendView(fees: viewModel.fees, request: viewModel.request),
                     label: {
                         Text("예")
                             .foregroundColor(.white)
@@ -102,13 +102,13 @@ struct SecondTransferView: View {
             }
         }
         .padding()
-        .notDetailLinkNavigate(to: ThirdTransferView(fees: viewModel.fees, request: viewModel.request), when: .constant(false))
+        .notDetailLinkNavigate(to: ThirdTransferSendView(fees: viewModel.fees, request: viewModel.request), when: .constant(false))
         .navigationBarHidden(true)
     }
 }
 
-struct SecondTransferView_Previews: PreviewProvider {
+struct SecondTransferSendView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondTransferView(name: "로미", withdrawAccount: TempAccount(), request: TransferRequest())
+        SecondTransferSendView(name: "로미", withdrawAccount: TempAccount(), request: TransferRequest())
     }
 }

@@ -1,5 +1,5 @@
 //
-//  FirstBringViewModel.swift
+//  FirstTransferGetViewModel.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/13.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FirstBringViewModel: BaseViewModel {
+class FirstTransferGetViewModel: BaseViewModel {
     @Published var isActiveSecondBringView: Bool = false
     @Published var selectedAccount: TempAccount = TempAccount()
     

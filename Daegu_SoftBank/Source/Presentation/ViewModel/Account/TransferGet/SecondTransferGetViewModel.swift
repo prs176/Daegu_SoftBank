@@ -1,5 +1,5 @@
 //
-//  SecondBringViewModel.swift
+//  SecondTransferGetViewModel.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/12.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SecondBringViewModel: BaseViewModel {
+class SecondTransferGetViewModel: BaseViewModel {
     @Published var price: String = "0"
     var depositAccount: TempAccount
     var withdrawAccount: TempAccount
@@ -23,7 +23,7 @@ class SecondBringViewModel: BaseViewModel {
     }
 }
 
-extension SecondBringViewModel {
+extension SecondTransferGetViewModel {
     func validate() {
         let price = Int(price.components(separatedBy: ",").joined())!
         

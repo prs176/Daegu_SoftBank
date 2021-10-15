@@ -1,5 +1,5 @@
 //
-//  SecondTransferViewModel.swift
+//  SecondTransferSendViewModel.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/12.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SecondTransferViewModel: BaseViewModel {
+class SecondTransferSendViewModel: BaseViewModel {
     var name: String
     var withdrawAccount: TempAccount
     

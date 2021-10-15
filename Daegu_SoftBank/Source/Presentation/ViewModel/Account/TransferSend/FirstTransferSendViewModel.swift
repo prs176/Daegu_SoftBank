@@ -1,5 +1,5 @@
 //
-//  FirstTransferViewModel.swift
+//  FirstTransferSendViewModel.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/12.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FirstTransferViewModel: BaseViewModel {
+class FirstTransferSendViewModel: BaseViewModel {
     @Published var price: String = "0"
     @Published var bank: Int = 0
     @Published var accountNum: String = ""
@@ -38,7 +38,7 @@ class FirstTransferViewModel: BaseViewModel {
     }
 }
 
-extension FirstTransferViewModel {
+extension FirstTransferSendViewModel {
     func validate() -> Bool {
         if !accountNum.components(separatedBy: "-").joined().isNumber() {
             isErrorOcuured = true

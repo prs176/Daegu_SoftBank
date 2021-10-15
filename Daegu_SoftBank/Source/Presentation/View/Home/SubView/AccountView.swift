@@ -51,7 +51,7 @@ struct AccountRow: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: FirstTransferView(withdrawAccount: account), label: {
+                NavigationLink(destination: FirstTransferSendView(withdrawAccount: account), label: {
                     Text("이체")
                         .foregroundColor(Color(.secondaryLabel))
                         .padding(.horizontal, 12)

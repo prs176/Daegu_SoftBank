@@ -1,5 +1,5 @@
 //
-//  ThirdBringViewModel.swift
+//  ThirdTransferGetViewModel.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/13.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ThirdBringViewModel: BaseViewModel {
+class ThirdTransferGetViewModel: BaseViewModel {
     @Published var pwLetters: [String] = ["", "", "", ""] {
         didSet {
             if pwLetters.filter({ $0.count > 1 }).count != 0 {
@@ -46,7 +46,7 @@ class ThirdBringViewModel: BaseViewModel {
     }
 }
 
-extension ThirdBringViewModel {
+extension ThirdTransferGetViewModel {
     func validate() -> Bool {
         if !pwLetters.joined().isNumber() {
             isErrorOcuured = true

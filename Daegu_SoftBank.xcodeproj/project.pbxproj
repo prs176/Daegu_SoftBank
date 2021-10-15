@@ -53,27 +53,27 @@
 		CB8F17F0271922F80052D4AE /* AuthNumRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17EF271922F80052D4AE /* AuthNumRemote.swift */; };
 		CB8F17F227193C9A0052D4AE /* AccountRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17F127193C9A0052D4AE /* AccountRemote.swift */; };
 		CB8F17F4271940730052D4AE /* TransferRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17F3271940730052D4AE /* TransferRemote.swift */; };
-		CBA02338271588BC001ED232 /* FourthTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferView.swift */; };
-		CBA0233C2715A2E4001ED232 /* FirstBringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstBringView.swift */; };
+		CBA02338271588BC001ED232 /* FourthTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferSendView.swift */; };
+		CBA0233C2715A2E4001ED232 /* FirstTransferGetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstTransferGetView.swift */; };
 		CBA023402715A63B001ED232 /* BringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233F2715A63B001ED232 /* BringRequest.swift */; };
-		CBA023422715B5D3001ED232 /* SecondBringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023412715B5D3001ED232 /* SecondBringView.swift */; };
-		CBA023442715B7BF001ED232 /* SecondBringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023432715B7BF001ED232 /* SecondBringViewModel.swift */; };
-		CBA023462716B0DB001ED232 /* ThirdBringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023452716B0DB001ED232 /* ThirdBringView.swift */; };
-		CBA023482716B11F001ED232 /* ThirdBringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023472716B11F001ED232 /* ThirdBringViewModel.swift */; };
-		CBA0234A27170835001ED232 /* FirstBringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0234927170835001ED232 /* FirstBringViewModel.swift */; };
+		CBA023422715B5D3001ED232 /* SecondTransferGetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023412715B5D3001ED232 /* SecondTransferGetView.swift */; };
+		CBA023442715B7BF001ED232 /* SecondTransferGetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023432715B7BF001ED232 /* SecondTransferGetViewModel.swift */; };
+		CBA023462716B0DB001ED232 /* ThirdTransferGetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023452716B0DB001ED232 /* ThirdTransferGetView.swift */; };
+		CBA023482716B11F001ED232 /* ThirdTransferGetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023472716B11F001ED232 /* ThirdTransferGetViewModel.swift */; };
+		CBA0234A27170835001ED232 /* FirstTransferGetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0234927170835001ED232 /* FirstTransferGetViewModel.swift */; };
 		CBA0234C271728AD001ED232 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0234B271728AD001ED232 /* Runtime.swift */; };
 		CBA023502717EC16001ED232 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0234F2717EC16001ED232 /* RegisterRequest.swift */; };
 		CBA023522717ECB3001ED232 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023512717ECB3001ED232 /* LoginRequest.swift */; };
 		CBA023572717ED95001ED232 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023562717ED95001ED232 /* UserAPI.swift */; };
 		CBA023592717EDD3001ED232 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023582717EDD3001ED232 /* Constants.swift */; };
-		CBAF76742715040300E827E1 /* FirstTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76732715040300E827E1 /* FirstTransferView.swift */; };
-		CBAF76762715041200E827E1 /* FirstTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76752715041200E827E1 /* FirstTransferViewModel.swift */; };
+		CBAF76742715040300E827E1 /* FirstTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76732715040300E827E1 /* FirstTransferSendView.swift */; };
+		CBAF76762715041200E827E1 /* FirstTransferSendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76752715041200E827E1 /* FirstTransferSendViewModel.swift */; };
 		CBAF76782715050400E827E1 /* TransferGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76772715050400E827E1 /* TransferGetRequest.swift */; };
 		CBAF767A271506E200E827E1 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7679271506E200E827E1 /* PickerTextField.swift */; };
-		CBAF767E27153EF300E827E1 /* SecondTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF767D27153EF300E827E1 /* SecondTransferView.swift */; };
-		CBAF768027153EFB00E827E1 /* SecondTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF767F27153EFB00E827E1 /* SecondTransferViewModel.swift */; };
-		CBAF7682271550D200E827E1 /* ThirdTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7681271550D100E827E1 /* ThirdTransferView.swift */; };
-		CBAF7684271550DD00E827E1 /* ThirdTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7683271550DD00E827E1 /* ThirdTransferViewModel.swift */; };
+		CBAF767E27153EF300E827E1 /* SecondTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF767D27153EF300E827E1 /* SecondTransferSendView.swift */; };
+		CBAF768027153EFB00E827E1 /* SecondTransferSendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF767F27153EFB00E827E1 /* SecondTransferSendViewModel.swift */; };
+		CBAF7682271550D200E827E1 /* ThirdTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7681271550D100E827E1 /* ThirdTransferSendView.swift */; };
+		CBAF7684271550DD00E827E1 /* ThirdTransferSendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7683271550DD00E827E1 /* ThirdTransferSendViewModel.swift */; };
 		CBBAC81A2712AB99003EB1A2 /* FirstCreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8192712AB99003EB1A2 /* FirstCreateAccountView.swift */; };
 		CBBAC81D2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC81C2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift */; };
 		CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC81E2712C9C5003EB1A2 /* SecondCreateAccountView.swift */; };
@@ -174,27 +174,27 @@
 		CB8F17EF271922F80052D4AE /* AuthNumRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNumRemote.swift; sourceTree = "<group>"; };
 		CB8F17F127193C9A0052D4AE /* AccountRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRemote.swift; sourceTree = "<group>"; };
 		CB8F17F3271940730052D4AE /* TransferRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRemote.swift; sourceTree = "<group>"; };
-		CBA02337271588BC001ED232 /* FourthTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferView.swift; sourceTree = "<group>"; };
-		CBA0233B2715A2E4001ED232 /* FirstBringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBringView.swift; sourceTree = "<group>"; };
+		CBA02337271588BC001ED232 /* FourthTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferSendView.swift; sourceTree = "<group>"; };
+		CBA0233B2715A2E4001ED232 /* FirstTransferGetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferGetView.swift; sourceTree = "<group>"; };
 		CBA0233F2715A63B001ED232 /* BringRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringRequest.swift; sourceTree = "<group>"; };
-		CBA023412715B5D3001ED232 /* SecondBringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBringView.swift; sourceTree = "<group>"; };
-		CBA023432715B7BF001ED232 /* SecondBringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBringViewModel.swift; sourceTree = "<group>"; };
-		CBA023452716B0DB001ED232 /* ThirdBringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBringView.swift; sourceTree = "<group>"; };
-		CBA023472716B11F001ED232 /* ThirdBringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBringViewModel.swift; sourceTree = "<group>"; };
-		CBA0234927170835001ED232 /* FirstBringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBringViewModel.swift; sourceTree = "<group>"; };
+		CBA023412715B5D3001ED232 /* SecondTransferGetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferGetView.swift; sourceTree = "<group>"; };
+		CBA023432715B7BF001ED232 /* SecondTransferGetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferGetViewModel.swift; sourceTree = "<group>"; };
+		CBA023452716B0DB001ED232 /* ThirdTransferGetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTransferGetView.swift; sourceTree = "<group>"; };
+		CBA023472716B11F001ED232 /* ThirdTransferGetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTransferGetViewModel.swift; sourceTree = "<group>"; };
+		CBA0234927170835001ED232 /* FirstTransferGetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferGetViewModel.swift; sourceTree = "<group>"; };
 		CBA0234B271728AD001ED232 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		CBA0234F2717EC16001ED232 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		CBA023512717ECB3001ED232 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		CBA023562717ED95001ED232 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		CBA023582717EDD3001ED232 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CBAF76732715040300E827E1 /* FirstTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferView.swift; sourceTree = "<group>"; };
-		CBAF76752715041200E827E1 /* FirstTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferViewModel.swift; sourceTree = "<group>"; };
+		CBAF76732715040300E827E1 /* FirstTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferSendView.swift; sourceTree = "<group>"; };
+		CBAF76752715041200E827E1 /* FirstTransferSendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferSendViewModel.swift; sourceTree = "<group>"; };
 		CBAF76772715050400E827E1 /* TransferGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferGetRequest.swift; sourceTree = "<group>"; };
 		CBAF7679271506E200E827E1 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
-		CBAF767D27153EF300E827E1 /* SecondTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferView.swift; sourceTree = "<group>"; };
-		CBAF767F27153EFB00E827E1 /* SecondTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferViewModel.swift; sourceTree = "<group>"; };
-		CBAF7681271550D100E827E1 /* ThirdTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTransferView.swift; sourceTree = "<group>"; };
-		CBAF7683271550DD00E827E1 /* ThirdTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTransferViewModel.swift; sourceTree = "<group>"; };
+		CBAF767D27153EF300E827E1 /* SecondTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferSendView.swift; sourceTree = "<group>"; };
+		CBAF767F27153EFB00E827E1 /* SecondTransferSendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferSendViewModel.swift; sourceTree = "<group>"; };
+		CBAF7681271550D100E827E1 /* ThirdTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTransferSendView.swift; sourceTree = "<group>"; };
+		CBAF7683271550DD00E827E1 /* ThirdTransferSendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTransferSendViewModel.swift; sourceTree = "<group>"; };
 		CBBAC8192712AB99003EB1A2 /* FirstCreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCreateAccountView.swift; sourceTree = "<group>"; };
 		CBBAC81C2712AC20003EB1A2 /* FirstCreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCreateAccountViewModel.swift; sourceTree = "<group>"; };
 		CBBAC81E2712C9C5003EB1A2 /* SecondCreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCreateAccountView.swift; sourceTree = "<group>"; };
@@ -598,24 +598,24 @@
 			path = Temp;
 			sourceTree = "<group>";
 		};
-		CBA023392715A254001ED232 /* Bring */ = {
+		CBA023392715A254001ED232 /* TransferGet */ = {
 			isa = PBXGroup;
 			children = (
-				CBA023432715B7BF001ED232 /* SecondBringViewModel.swift */,
-				CBA023472716B11F001ED232 /* ThirdBringViewModel.swift */,
-				CBA0234927170835001ED232 /* FirstBringViewModel.swift */,
+				CBA023432715B7BF001ED232 /* SecondTransferGetViewModel.swift */,
+				CBA023472716B11F001ED232 /* ThirdTransferGetViewModel.swift */,
+				CBA0234927170835001ED232 /* FirstTransferGetViewModel.swift */,
 			);
-			path = Bring;
+			path = TransferGet;
 			sourceTree = "<group>";
 		};
-		CBA0233A2715A25B001ED232 /* Bring */ = {
+		CBA0233A2715A25B001ED232 /* TransferGet */ = {
 			isa = PBXGroup;
 			children = (
-				CBA0233B2715A2E4001ED232 /* FirstBringView.swift */,
-				CBA023412715B5D3001ED232 /* SecondBringView.swift */,
-				CBA023452716B0DB001ED232 /* ThirdBringView.swift */,
+				CBA0233B2715A2E4001ED232 /* FirstTransferGetView.swift */,
+				CBA023412715B5D3001ED232 /* SecondTransferGetView.swift */,
+				CBA023452716B0DB001ED232 /* ThirdTransferGetView.swift */,
 			);
-			path = Bring;
+			path = TransferGet;
 			sourceTree = "<group>";
 		};
 		CBA023532717ED3D001ED232 /* Util */ = {
@@ -626,25 +626,25 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		CBAF766D27146D9D00E827E1 /* Transfer */ = {
+		CBAF766D27146D9D00E827E1 /* TransferSend */ = {
 			isa = PBXGroup;
 			children = (
-				CBAF76732715040300E827E1 /* FirstTransferView.swift */,
-				CBAF767D27153EF300E827E1 /* SecondTransferView.swift */,
-				CBAF7681271550D100E827E1 /* ThirdTransferView.swift */,
-				CBA02337271588BC001ED232 /* FourthTransferView.swift */,
+				CBAF76732715040300E827E1 /* FirstTransferSendView.swift */,
+				CBAF767D27153EF300E827E1 /* SecondTransferSendView.swift */,
+				CBAF7681271550D100E827E1 /* ThirdTransferSendView.swift */,
+				CBA02337271588BC001ED232 /* FourthTransferSendView.swift */,
 			);
-			path = Transfer;
+			path = TransferSend;
 			sourceTree = "<group>";
 		};
-		CBAF766E27146DB000E827E1 /* Transfer */ = {
+		CBAF766E27146DB000E827E1 /* TransferSend */ = {
 			isa = PBXGroup;
 			children = (
-				CBAF76752715041200E827E1 /* FirstTransferViewModel.swift */,
-				CBAF767F27153EFB00E827E1 /* SecondTransferViewModel.swift */,
-				CBAF7683271550DD00E827E1 /* ThirdTransferViewModel.swift */,
+				CBAF76752715041200E827E1 /* FirstTransferSendViewModel.swift */,
+				CBAF767F27153EFB00E827E1 /* SecondTransferSendViewModel.swift */,
+				CBAF7683271550DD00E827E1 /* ThirdTransferSendViewModel.swift */,
 			);
-			path = Transfer;
+			path = TransferSend;
 			sourceTree = "<group>";
 		};
 		CBBAC8142712A860003EB1A2 /* Account */ = {
@@ -653,8 +653,8 @@
 				CB41549C2714465C00E434B3 /* SubView */,
 				CBBAC8162712A991003EB1A2 /* Create */,
 				CBBAC82D271331D5003EB1A2 /* Add */,
-				CBAF766D27146D9D00E827E1 /* Transfer */,
-				CBA0233A2715A25B001ED232 /* Bring */,
+				CBAF766D27146D9D00E827E1 /* TransferSend */,
+				CBA0233A2715A25B001ED232 /* TransferGet */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -664,8 +664,8 @@
 			children = (
 				CBBAC81B2712AC13003EB1A2 /* Create */,
 				CBBAC830271331FA003EB1A2 /* Add */,
-				CBAF766E27146DB000E827E1 /* Transfer */,
-				CBA023392715A254001ED232 /* Bring */,
+				CBAF766E27146DB000E827E1 /* TransferSend */,
+				CBA023392715A254001ED232 /* TransferGet */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1006,7 +1006,7 @@
 				CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */,
 				CB8F17A32717F4770052D4AE /* AuthNumAPI.swift in Sources */,
 				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
-				CBA0234A27170835001ED232 /* FirstBringViewModel.swift in Sources */,
+				CBA0234A27170835001ED232 /* FirstTransferGetViewModel.swift in Sources */,
 				CB8F17DB271879840052D4AE /* Account.swift in Sources */,
 				CBA023572717ED95001ED232 /* UserAPI.swift in Sources */,
 				CB4154A0271449A700E434B3 /* SimpleAccountRow.swift in Sources */,
@@ -1014,12 +1014,12 @@
 				CB8F17D52718768C0052D4AE /* CreateAccountRequest.swift in Sources */,
 				CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */,
 				CB8F17E227190D1C0052D4AE /* LoginData.swift in Sources */,
-				CBAF7684271550DD00E827E1 /* ThirdTransferViewModel.swift in Sources */,
+				CBAF7684271550DD00E827E1 /* ThirdTransferSendViewModel.swift in Sources */,
 				CBBAC8252712E498003EB1A2 /* ThirdCreateAccountViewModel.swift in Sources */,
 				CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */,
 				CBBAC82C2712ED14003EB1A2 /* AccountInfo.swift in Sources */,
 				CB8F17D7271876C10052D4AE /* TransferRequest.swift in Sources */,
-				CBAF76742715040300E827E1 /* FirstTransferView.swift in Sources */,
+				CBAF76742715040300E827E1 /* FirstTransferSendView.swift in Sources */,
 				CB8F17AD2717FEC00052D4AE /* MoyaProvider.swift in Sources */,
 				CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */,
 				CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */,
@@ -1029,26 +1029,26 @@
 				CB8F17D9271877FA0052D4AE /* User.swift in Sources */,
 				CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */,
 				CBBAC8272712E4AF003EB1A2 /* ThirdCreateAccountView.swift in Sources */,
-				CBA023422715B5D3001ED232 /* SecondBringView.swift in Sources */,
+				CBA023422715B5D3001ED232 /* SecondTransferGetView.swift in Sources */,
 				CB8F17B427180BDE0052D4AE /* AccountRequest.swift in Sources */,
 				CB8F17E42719110F0052D4AE /* AuthNumData.swift in Sources */,
 				CBA023592717EDD3001ED232 /* Constants.swift in Sources */,
-				CBA02338271588BC001ED232 /* FourthTransferView.swift in Sources */,
+				CBA02338271588BC001ED232 /* FourthTransferSendView.swift in Sources */,
 				CB8F17E82719130C0052D4AE /* AccountData.swift in Sources */,
 				CBBAC81A2712AB99003EB1A2 /* FirstCreateAccountView.swift in Sources */,
-				CBAF7682271550D200E827E1 /* ThirdTransferView.swift in Sources */,
+				CBAF7682271550D200E827E1 /* ThirdTransferSendView.swift in Sources */,
 				CB8F17EC2719205E0052D4AE /* UserRemote.swift in Sources */,
 				CB8F17EE271921E00052D4AE /* AnyPublisher.swift in Sources */,
 				CBBAC834271334BB003EB1A2 /* AddAccountRequest.swift in Sources */,
-				CBAF767E27153EF300E827E1 /* SecondTransferView.swift in Sources */,
+				CBAF767E27153EF300E827E1 /* SecondTransferSendView.swift in Sources */,
 				CB8E9E47270EB38B00271A73 /* RegisterAuthNumView.swift in Sources */,
 				CBA023502717EC16001ED232 /* RegisterRequest.swift in Sources */,
 				CB8F17B627180CDD0052D4AE /* TransferAPI.swift in Sources */,
-				CBAF76762715041200E827E1 /* FirstTransferViewModel.swift in Sources */,
+				CBAF76762715041200E827E1 /* FirstTransferSendViewModel.swift in Sources */,
 				CBA023522717ECB3001ED232 /* LoginRequest.swift in Sources */,
 				CB415499271445C800E434B3 /* SecondAddAccountView.swift in Sources */,
 				CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */,
-				CBAF768027153EFB00E827E1 /* SecondTransferViewModel.swift in Sources */,
+				CBAF768027153EFB00E827E1 /* SecondTransferSendViewModel.swift in Sources */,
 				CB8F17F4271940730052D4AE /* TransferRemote.swift in Sources */,
 				CBBAC8212712CA34003EB1A2 /* SecondCreateAccountViewModel.swift in Sources */,
 				CB8F17E62719116E0052D4AE /* AuthNumLoginData.swift in Sources */,
@@ -1062,20 +1062,20 @@
 				CB41549B271445D500E434B3 /* SecondAddAccountViewModel.swift in Sources */,
 				CBF9E0BA2711AFBA00DDC3E8 /* EnvironmentProperties.swift in Sources */,
 				CB8F17B02717FF270052D4AE /* SoftBankError.swift in Sources */,
-				CBA023482716B11F001ED232 /* ThirdBringViewModel.swift in Sources */,
+				CBA023482716B11F001ED232 /* ThirdTransferGetViewModel.swift in Sources */,
 				CB8E9E43270EB2D200271A73 /* LoginView.swift in Sources */,
 				CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */,
 				CBA0234C271728AD001ED232 /* Runtime.swift in Sources */,
 				CBA023402715A63B001ED232 /* BringRequest.swift in Sources */,
-				CBA0233C2715A2E4001ED232 /* FirstBringView.swift in Sources */,
+				CBA0233C2715A2E4001ED232 /* FirstTransferGetView.swift in Sources */,
 				CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */,
 				CBD8F5D52711731000985ACA /* String.swift in Sources */,
 				CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */,
 				CBD8F5DB27118C3300985ACA /* HomeViewModel.swift in Sources */,
-				CBA023442715B7BF001ED232 /* SecondBringViewModel.swift in Sources */,
+				CBA023442715B7BF001ED232 /* SecondTransferGetViewModel.swift in Sources */,
 				CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */,
 				CBAF76782715050400E827E1 /* TransferGetRequest.swift in Sources */,
-				CBA023462716B0DB001ED232 /* ThirdBringView.swift in Sources */,
+				CBA023462716B0DB001ED232 /* ThirdTransferGetView.swift in Sources */,
 				CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */,
 				CB8F17E027190CA50052D4AE /* RegisterData.swift in Sources */,
 				CB8F17B827180D2C0052D4AE /* TransferSendRequest.swift in Sources */,

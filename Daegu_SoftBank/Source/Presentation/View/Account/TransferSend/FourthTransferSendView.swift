@@ -1,5 +1,5 @@
 //
-//  FourthTransferView.swift
+//  FourthTransferSendView.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/12.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FourthTransferView: View {
+struct FourthTransferSendView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var bank: String
@@ -85,8 +85,8 @@ struct FourthTransferView: View {
     }
 }
 
-struct FourthTransferView_Previews: PreviewProvider {
+struct FourthTransferSendView_Previews: PreviewProvider {
     static var previews: some View {
-        FourthTransferView(bank: "", accountNum: "", price: 0, fees: 0)
+        FourthTransferSendView(bank: "", accountNum: "", price: 0, fees: 0)
     }
 }
