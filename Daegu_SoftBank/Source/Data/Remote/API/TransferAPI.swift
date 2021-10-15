@@ -8,7 +8,7 @@
 import Moya
 
 enum TransferAPI {
-    case poseSend(_ request: TransferSendRequest)
+    case postSend(_ request: TransferSendRequest)
     case postGet(_ request: TransferGetRequest)
 }
 
