@@ -8,10 +8,10 @@
 import Foundation
 
 class Account: Codable {
-    var idx: Int = 0
+    var idx: Int
     var account: String
     var password: String
     var name: String
-    var money: Int = 0
+    var money: Int
     var userId: String
 }

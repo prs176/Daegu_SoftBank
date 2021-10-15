@@ -51,6 +51,7 @@
 		CB8F17EC2719205E0052D4AE /* UserRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17EB2719205E0052D4AE /* UserRemote.swift */; };
 		CB8F17EE271921E00052D4AE /* AnyPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17ED271921E00052D4AE /* AnyPublisher.swift */; };
 		CB8F17F0271922F80052D4AE /* AuthNumRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17EF271922F80052D4AE /* AuthNumRemote.swift */; };
+		CB8F17F227193C9A0052D4AE /* AccountRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17F127193C9A0052D4AE /* AccountRemote.swift */; };
 		CBA02338271588BC001ED232 /* FourthTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferView.swift */; };
 		CBA0233C2715A2E4001ED232 /* FirstBringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstBringView.swift */; };
 		CBA023402715A63B001ED232 /* BringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233F2715A63B001ED232 /* BringRequest.swift */; };
@@ -170,6 +171,7 @@
 		CB8F17EB2719205E0052D4AE /* UserRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemote.swift; sourceTree = "<group>"; };
 		CB8F17ED271921E00052D4AE /* AnyPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPublisher.swift; sourceTree = "<group>"; };
 		CB8F17EF271922F80052D4AE /* AuthNumRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNumRemote.swift; sourceTree = "<group>"; };
+		CB8F17F127193C9A0052D4AE /* AccountRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRemote.swift; sourceTree = "<group>"; };
 		CBA02337271588BC001ED232 /* FourthTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferView.swift; sourceTree = "<group>"; };
 		CBA0233B2715A2E4001ED232 /* FirstBringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBringView.swift; sourceTree = "<group>"; };
 		CBA0233F2715A63B001ED232 /* BringRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringRequest.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			children = (
 				CB8F17EB2719205E0052D4AE /* UserRemote.swift */,
 				CB8F17EF271922F80052D4AE /* AuthNumRemote.swift */,
+				CB8F17F127193C9A0052D4AE /* AccountRemote.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -1076,6 +1079,7 @@
 				CB8F17A52717F5720052D4AE /* AuthNumRequest.swift in Sources */,
 				CBBAC82A2712E5D3003EB1A2 /* FourthCreateAccountView.swift in Sources */,
 				CBD8F5E027118C8400985ACA /* UserInfoView.swift in Sources */,
+				CB8F17F227193C9A0052D4AE /* AccountRemote.swift in Sources */,
 				CB8F17DD27187B200052D4AE /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
