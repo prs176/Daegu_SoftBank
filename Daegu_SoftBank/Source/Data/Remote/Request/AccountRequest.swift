@@ -12,7 +12,7 @@ class AccountRequest: Codable {
     var phone: String
     var name: String
     
-    internal init(accountPW: String, phone: String, name: String) {
+    internal init(accountPW: String = "", phone: String = "", name: String = "") {
         self.accountPW = accountPW
         self.phone = phone
         self.name = name

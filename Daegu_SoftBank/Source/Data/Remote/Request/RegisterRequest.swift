@@ -14,7 +14,7 @@ class RegisterRequest: Codable {
     var phone: String
     var birth: String
     
-    internal init(id: String, pw: String, nick: String, phone: String, birth: String) {
+    internal init(id: String = "", pw: String = "", nick: String = "", phone: String = "", birth: String = "") {
         self.id = id
         self.pw = pw
         self.nick = nick
