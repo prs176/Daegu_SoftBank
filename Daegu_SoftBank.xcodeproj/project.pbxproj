@@ -62,6 +62,8 @@
 		CB8F1804271D01900052D4AE /* AccountRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1803271D01900052D4AE /* AccountRepositoryImpl.swift */; };
 		CB8F1806271D02C30052D4AE /* TransferRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1805271D02C30052D4AE /* TransferRepository.swift */; };
 		CB8F1808271D03000052D4AE /* TransferRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1807271D03000052D4AE /* TransferRepositoryImpl.swift */; };
+		CB8F1812271D05610052D4AE /* BaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1811271D05610052D4AE /* BaseUseCase.swift */; };
+		CB8F1814271D05700052D4AE /* BaseParamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1813271D05700052D4AE /* BaseParamUseCase.swift */; };
 		CBA02338271588BC001ED232 /* FourthTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferSendView.swift */; };
 		CBA0233C2715A2E4001ED232 /* FirstTransferGetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstTransferGetView.swift */; };
 		CBA023402715A63B001ED232 /* BringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233F2715A63B001ED232 /* BringRequest.swift */; };
@@ -192,6 +194,8 @@
 		CB8F1803271D01900052D4AE /* AccountRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepositoryImpl.swift; sourceTree = "<group>"; };
 		CB8F1805271D02C30052D4AE /* TransferRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRepository.swift; sourceTree = "<group>"; };
 		CB8F1807271D03000052D4AE /* TransferRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRepositoryImpl.swift; sourceTree = "<group>"; };
+		CB8F1811271D05610052D4AE /* BaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUseCase.swift; sourceTree = "<group>"; };
+		CB8F1813271D05700052D4AE /* BaseParamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseParamUseCase.swift; sourceTree = "<group>"; };
 		CBA02337271588BC001ED232 /* FourthTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferSendView.swift; sourceTree = "<group>"; };
 		CBA0233B2715A2E4001ED232 /* FirstTransferGetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferGetView.swift; sourceTree = "<group>"; };
 		CBA0233F2715A63B001ED232 /* BringRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringRequest.swift; sourceTree = "<group>"; };
@@ -741,6 +745,8 @@
 			children = (
 				CBD8F5C92711444000985ACA /* BaseViewModel.swift */,
 				CB8F17AA2717FE580052D4AE /* BaseRemote.swift */,
+				CB8F1811271D05610052D4AE /* BaseUseCase.swift */,
+				CB8F1813271D05700052D4AE /* BaseParamUseCase.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1106,12 +1112,14 @@
 				CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */,
 				CBD8F5D52711731000985ACA /* String.swift in Sources */,
 				CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */,
+				CB8F1812271D05610052D4AE /* BaseUseCase.swift in Sources */,
 				CBD8F5DB27118C3300985ACA /* HomeViewModel.swift in Sources */,
 				CBA023442715B7BF001ED232 /* SecondTransferGetViewModel.swift in Sources */,
 				CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */,
 				CBAF76782715050400E827E1 /* TransferGetRequest.swift in Sources */,
 				CBA023462716B0DB001ED232 /* ThirdTransferGetView.swift in Sources */,
 				CB8F1804271D01900052D4AE /* AccountRepositoryImpl.swift in Sources */,
+				CB8F1814271D05700052D4AE /* BaseParamUseCase.swift in Sources */,
 				CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */,
 				CB8F17E027190CA50052D4AE /* RegisterData.swift in Sources */,
 				CB8F17B827180D2C0052D4AE /* TransferSendRequest.swift in Sources */,
