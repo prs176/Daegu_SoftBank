@@ -28,4 +28,11 @@ class UserRemote: BaseRemote<UserAPI> {
             .map { $0.data }
             .eraseToAnyPublisher()
     }
+    
+    func getUserByNameAndBirth(_ name: String, _ birth: String) -> AnyPublisher<User, Error> {
+        return self.request(.getUserByNameAndBirth(name, birth))
+            .map(Response<User>.self, using: decoder)
+            .map { $0.data }
+            .eraseToAnyPublisher()
+    }
 }
