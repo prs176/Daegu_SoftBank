@@ -14,5 +14,5 @@ protocol UserRepository {
     
     func fetchMyUser() -> AnyPublisher<User, Error>
     
-    func fetchUser(_ name: String, _ birth: String) -> AnyPublisher<User, Error>
+    func fetchUserByNameAndBirth(_ name: String, _ birth: String) -> AnyPublisher<User, Error>
 }

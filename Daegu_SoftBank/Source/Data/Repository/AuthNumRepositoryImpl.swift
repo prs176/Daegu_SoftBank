@@ -18,7 +18,7 @@ class AuthNumRepositoryImpl: AuthNumRepository {
         authNumRemote.postAuthNum(request)
     }
     
-    func fetchAuthNum() -> AnyPublisher<Bool, Error> {
+    func fetchMyAuthNum() -> AnyPublisher<Bool, Error> {
         authNumRemote.getAuthNum()
     }
     

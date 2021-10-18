@@ -10,7 +10,7 @@ import Combine
 protocol AuthNumRepository {
     func applyAuthNum(_ request: AuthNumRequest) -> AnyPublisher<String, Error>
     
-    func fetchAuthNum() -> AnyPublisher<Bool, Error>
+    func fetchMyAuthNum() -> AnyPublisher<Bool, Error>
     
     func loginByAuthNum(_ request: LoginRequest) -> AnyPublisher<Void, Error>
 }

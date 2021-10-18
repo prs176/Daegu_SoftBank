@@ -34,7 +34,7 @@ class UserRepositoryImpl: UserRepository {
         userRemote.getUser()
     }
     
-    func fetchUser(_ name: String, _ birth: String) -> AnyPublisher<User, Error> {
+    func fetchUserByNameAndBirth(_ name: String, _ birth: String) -> AnyPublisher<User, Error> {
         userRemote.getUserByNameAndBirth(name, birth)
     }
 }
