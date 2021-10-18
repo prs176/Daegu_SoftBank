@@ -61,6 +61,7 @@ extension AuthNumAPI: TargetType {
     
     var headers: [String : String]? {
         var headers = ["Content-Type": "application/json"]
+        headers["x-access-token"] = AuthController.getInstance().getToken()
         
         return headers
     }
