@@ -18,11 +18,11 @@ class AuthNumRepositoryImpl: AuthNumRepository {
         authNumRemote.postAuthNum(request)
     }
     
-    func getAuthNum() -> AnyPublisher<Bool, Error> {
+    func fetchAuthNum() -> AnyPublisher<Bool, Error> {
         authNumRemote.getAuthNum()
     }
     
-    func authNumLogin(_ request: LoginRequest) -> AnyPublisher<Void, Error> {
+    func loginByAuthNum(_ request: LoginRequest) -> AnyPublisher<Void, Error> {
         authNumRemote.postAuthNumLogin(request)
             .map {
                 AuthController.getInstance().refreshToken(token: $0)
