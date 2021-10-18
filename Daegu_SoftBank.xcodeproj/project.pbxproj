@@ -68,6 +68,9 @@
 		CB8F181C271D10AD0052D4AE /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F181B271D10AD0052D4AE /* LoginUseCase.swift */; };
 		CB8F1820271D112C0052D4AE /* FetchMyUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F181F271D112C0052D4AE /* FetchMyUserUseCase.swift */; };
 		CB8F1822271D118C0052D4AE /* FetchUserByNameAndBirth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1821271D118C0052D4AE /* FetchUserByNameAndBirth.swift */; };
+		CB8F1825271D12920052D4AE /* ApplyAuthNumUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1824271D12920052D4AE /* ApplyAuthNumUseCase.swift */; };
+		CB8F1827271D13430052D4AE /* FetchMyAuthNumUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1826271D13430052D4AE /* FetchMyAuthNumUseCase.swift */; };
+		CB8F1829271D13530052D4AE /* LoginByAuthNumUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1828271D13530052D4AE /* LoginByAuthNumUseCase.swift */; };
 		CBA02338271588BC001ED232 /* FourthTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferSendView.swift */; };
 		CBA0233C2715A2E4001ED232 /* FirstTransferGetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstTransferGetView.swift */; };
 		CBA023402715A63B001ED232 /* BringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233F2715A63B001ED232 /* BringRequest.swift */; };
@@ -204,6 +207,9 @@
 		CB8F181B271D10AD0052D4AE /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		CB8F181F271D112C0052D4AE /* FetchMyUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyUserUseCase.swift; sourceTree = "<group>"; };
 		CB8F1821271D118C0052D4AE /* FetchUserByNameAndBirth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserByNameAndBirth.swift; sourceTree = "<group>"; };
+		CB8F1824271D12920052D4AE /* ApplyAuthNumUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyAuthNumUseCase.swift; sourceTree = "<group>"; };
+		CB8F1826271D13430052D4AE /* FetchMyAuthNumUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyAuthNumUseCase.swift; sourceTree = "<group>"; };
+		CB8F1828271D13530052D4AE /* LoginByAuthNumUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginByAuthNumUseCase.swift; sourceTree = "<group>"; };
 		CBA02337271588BC001ED232 /* FourthTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferSendView.swift; sourceTree = "<group>"; };
 		CBA0233B2715A2E4001ED232 /* FirstTransferGetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferGetView.swift; sourceTree = "<group>"; };
 		CBA0233F2715A63B001ED232 /* BringRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringRequest.swift; sourceTree = "<group>"; };
@@ -441,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				CB8F1816271D0E740052D4AE /* User */,
+				CB8F1823271D126F0052D4AE /* AuthNum */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -646,6 +653,16 @@
 				CB8F1821271D118C0052D4AE /* FetchUserByNameAndBirth.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		CB8F1823271D126F0052D4AE /* AuthNum */ = {
+			isa = PBXGroup;
+			children = (
+				CB8F1824271D12920052D4AE /* ApplyAuthNumUseCase.swift */,
+				CB8F1826271D13430052D4AE /* FetchMyAuthNumUseCase.swift */,
+				CB8F1828271D13530052D4AE /* LoginByAuthNumUseCase.swift */,
+			);
+			path = AuthNum;
 			sourceTree = "<group>";
 		};
 		CBA023392715A254001ED232 /* TransferGet */ = {
@@ -1063,7 +1080,9 @@
 				CBA0234A27170835001ED232 /* FirstTransferGetViewModel.swift in Sources */,
 				CB8F17DB271879840052D4AE /* Account.swift in Sources */,
 				CBA023572717ED95001ED232 /* UserAPI.swift in Sources */,
+				CB8F1827271D13430052D4AE /* FetchMyAuthNumUseCase.swift in Sources */,
 				CB4154A0271449A700E434B3 /* SimpleAccountRow.swift in Sources */,
+				CB8F1829271D13530052D4AE /* LoginByAuthNumUseCase.swift in Sources */,
 				CBD8F5D327116E8600985ACA /* WebView.swift in Sources */,
 				CB8F17D52718768C0052D4AE /* CreateAccountRequest.swift in Sources */,
 				CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */,
@@ -1085,6 +1104,7 @@
 				CB8F17D9271877FA0052D4AE /* User.swift in Sources */,
 				CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */,
 				CBBAC8272712E4AF003EB1A2 /* ThirdCreateAccountView.swift in Sources */,
+				CB8F1825271D12920052D4AE /* ApplyAuthNumUseCase.swift in Sources */,
 				CB8F181C271D10AD0052D4AE /* LoginUseCase.swift in Sources */,
 				CB8F17F6271CEE1A0052D4AE /* UserRepositoryImpl.swift in Sources */,
 				CBA023422715B5D3001ED232 /* SecondTransferGetView.swift in Sources */,
