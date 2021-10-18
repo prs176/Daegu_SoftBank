@@ -15,9 +15,9 @@ class UserRemote: BaseRemote<UserAPI> {
             .eraseToAnyPublisher()
     }
     
-    func postLogin(_ request: LoginRequest) -> AnyPublisher<LoginRequest, Error> {
+    func postLogin(_ request: LoginRequest) -> AnyPublisher<LoginData, Error> {
         return self.request(.postLogin(request))
-            .map(Response<LoginRequest>.self, using: decoder)
+            .map(Response<LoginData>.self, using: decoder)
             .map { $0.data }
             .eraseToAnyPublisher()
     }
