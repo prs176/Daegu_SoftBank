@@ -9,12 +9,12 @@ import Foundation
 
 class AccountRequest: Codable {
     var accountPW: String
-    var phone: String
     var name: String
+    var birth: String
     
-    internal init(accountPW: String = "", phone: String = "", name: String = "") {
+    internal init(accountPW: String = "", name: String = "", birth: String = "") {
         self.accountPW = accountPW
-        self.phone = phone
         self.name = name
+        self.birth = birth
     }
 }
