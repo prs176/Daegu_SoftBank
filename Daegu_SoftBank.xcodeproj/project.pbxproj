@@ -60,6 +60,8 @@
 		CB8F1800271CFE600052D4AE /* AuthNumRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F17FF271CFE600052D4AE /* AuthNumRepositoryImpl.swift */; };
 		CB8F1802271CFF0B0052D4AE /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1801271CFF0B0052D4AE /* AccountRepository.swift */; };
 		CB8F1804271D01900052D4AE /* AccountRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1803271D01900052D4AE /* AccountRepositoryImpl.swift */; };
+		CB8F1806271D02C30052D4AE /* TransferRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1805271D02C30052D4AE /* TransferRepository.swift */; };
+		CB8F1808271D03000052D4AE /* TransferRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F1807271D03000052D4AE /* TransferRepositoryImpl.swift */; };
 		CBA02338271588BC001ED232 /* FourthTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02337271588BC001ED232 /* FourthTransferSendView.swift */; };
 		CBA0233C2715A2E4001ED232 /* FirstTransferGetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233B2715A2E4001ED232 /* FirstTransferGetView.swift */; };
 		CBA023402715A63B001ED232 /* BringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0233F2715A63B001ED232 /* BringRequest.swift */; };
@@ -188,6 +190,8 @@
 		CB8F17FF271CFE600052D4AE /* AuthNumRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNumRepositoryImpl.swift; sourceTree = "<group>"; };
 		CB8F1801271CFF0B0052D4AE /* AccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		CB8F1803271D01900052D4AE /* AccountRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepositoryImpl.swift; sourceTree = "<group>"; };
+		CB8F1805271D02C30052D4AE /* TransferRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRepository.swift; sourceTree = "<group>"; };
+		CB8F1807271D03000052D4AE /* TransferRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRepositoryImpl.swift; sourceTree = "<group>"; };
 		CBA02337271588BC001ED232 /* FourthTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTransferSendView.swift; sourceTree = "<group>"; };
 		CBA0233B2715A2E4001ED232 /* FirstTransferGetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferGetView.swift; sourceTree = "<group>"; };
 		CBA0233F2715A63B001ED232 /* BringRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringRequest.swift; sourceTree = "<group>"; };
@@ -434,6 +438,7 @@
 				CB8F17F7271CEE390052D4AE /* UserRepository.swift */,
 				CB8F17FD271CFDD00052D4AE /* AuthNumRepository.swift */,
 				CB8F1801271CFF0B0052D4AE /* AccountRepository.swift */,
+				CB8F1805271D02C30052D4AE /* TransferRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 				CB8F17F5271CEE1A0052D4AE /* UserRepositoryImpl.swift */,
 				CB8F17FF271CFE600052D4AE /* AuthNumRepositoryImpl.swift */,
 				CB8F1803271D01900052D4AE /* AccountRepositoryImpl.swift */,
+				CB8F1807271D03000052D4AE /* TransferRepositoryImpl.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1034,12 +1040,14 @@
 				CBD8F5D327116E8600985ACA /* WebView.swift in Sources */,
 				CB8F17D52718768C0052D4AE /* CreateAccountRequest.swift in Sources */,
 				CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */,
+				CB8F1806271D02C30052D4AE /* TransferRepository.swift in Sources */,
 				CB8F17E227190D1C0052D4AE /* LoginData.swift in Sources */,
 				CBAF7684271550DD00E827E1 /* ThirdTransferSendViewModel.swift in Sources */,
 				CBBAC8252712E498003EB1A2 /* ThirdCreateAccountViewModel.swift in Sources */,
 				CB8E9E4E270EE76D00271A73 /* UIApplication.swift in Sources */,
 				CBBAC82C2712ED14003EB1A2 /* AccountInfo.swift in Sources */,
 				CB8F17D7271876C10052D4AE /* TransferRequest.swift in Sources */,
+				CB8F1808271D03000052D4AE /* TransferRepositoryImpl.swift in Sources */,
 				CBAF76742715040300E827E1 /* FirstTransferSendView.swift in Sources */,
 				CB8F17AD2717FEC00052D4AE /* MoyaProvider.swift in Sources */,
 				CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */,
