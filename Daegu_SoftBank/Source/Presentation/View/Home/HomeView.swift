@@ -13,7 +13,7 @@ struct HomeView: View {
     @Environment(\.registerViewRootPresentation) var registerViewRootPresentation: Binding<Bool>
     
     @State var isActiveBringView: Bool = false
-    @State var selectedAccount: Account = Account()
+    @State var selectedAccount: TempAccount = TempAccount()
     
     var body: some View {
         ScrollView {
@@ -92,7 +92,7 @@ struct HomeView: View {
             Color(.secondarySystemBackground).ignoresSafeArea()
         )
         .navigationBarHidden(true)
-        .navigate(to: FirstBringView(depositAccount: selectedAccount, accounts: viewModel.accounts), when: $isActiveBringView)
+        .navigate(to: FirstTransferGetView(depositAccount: selectedAccount, accounts: viewModel.accounts), when: $isActiveBringView)
     }
 }
 
