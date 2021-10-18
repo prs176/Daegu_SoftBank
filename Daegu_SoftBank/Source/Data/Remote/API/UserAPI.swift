@@ -11,6 +11,7 @@ enum UserAPI {
     case postRegister(_ request: RegisterRequest)
     case postLogin(_ request: LoginRequest)
     case getUser
+    case getUserByNameAndBirth(_ name: String, _ birth: String)
 }
 
 extension UserAPI: TargetType {
@@ -26,6 +27,8 @@ extension UserAPI: TargetType {
             return "/login"
         case .getUser:
             return ""
+        case .getUserByNameAndBirth:
+            return "/get"
         }
     }
     
@@ -36,6 +39,8 @@ extension UserAPI: TargetType {
         case .postLogin:
             return .post
         case .getUser:
+            return .get
+        case .getUserByNameAndBirth:
             return .get
         }
     }
@@ -48,6 +53,8 @@ extension UserAPI: TargetType {
             return .requestData(try! JSONEncoder().encode(request))
         case .getUser:
             return .requestPlain
+        case let .getUserByNameAndBirth(name, birth):
+            return .requestParameters(parameters: ["name": name, "birth": birth], encoding: URLEncoding.queryString)
         }
     }
     
@@ -61,6 +68,7 @@ extension UserAPI: TargetType {
     
     var headers: [String : String]? {
         var headers = ["Content-Type": "application/json"]
+        headers["x-access-token"] = AuthController.getInstance().getToken()
         
         return headers
     }
