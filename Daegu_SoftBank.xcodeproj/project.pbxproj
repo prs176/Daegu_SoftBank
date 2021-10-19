@@ -84,9 +84,9 @@
 		CBA023522717ECB3001ED232 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023512717ECB3001ED232 /* LoginRequest.swift */; };
 		CBA023572717ED95001ED232 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023562717ED95001ED232 /* UserAPI.swift */; };
 		CBA023592717EDD3001ED232 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023582717EDD3001ED232 /* Constants.swift */; };
+		CBA62D20271E719100684083 /* TransferSendUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA62D1F271E719100684083 /* TransferSendUseCase.swift */; };
 		CBAF76742715040300E827E1 /* FirstTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76732715040300E827E1 /* FirstTransferSendView.swift */; };
 		CBAF76762715041200E827E1 /* FirstTransferSendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76752715041200E827E1 /* FirstTransferSendViewModel.swift */; };
-		CBAF76782715050400E827E1 /* TransferGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76772715050400E827E1 /* TransferGetRequest.swift */; };
 		CBAF767A271506E200E827E1 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7679271506E200E827E1 /* PickerTextField.swift */; };
 		CBAF767E27153EF300E827E1 /* SecondTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF767D27153EF300E827E1 /* SecondTransferSendView.swift */; };
 		CBAF768027153EFB00E827E1 /* SecondTransferSendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF767F27153EFB00E827E1 /* SecondTransferSendViewModel.swift */; };
@@ -223,9 +223,9 @@
 		CBA023512717ECB3001ED232 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		CBA023562717ED95001ED232 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		CBA023582717EDD3001ED232 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CBA62D1F271E719100684083 /* TransferSendUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSendUseCase.swift; sourceTree = "<group>"; };
 		CBAF76732715040300E827E1 /* FirstTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferSendView.swift; sourceTree = "<group>"; };
 		CBAF76752715041200E827E1 /* FirstTransferSendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferSendViewModel.swift; sourceTree = "<group>"; };
-		CBAF76772715050400E827E1 /* TransferGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferGetRequest.swift; sourceTree = "<group>"; };
 		CBAF7679271506E200E827E1 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		CBAF767D27153EF300E827E1 /* SecondTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferSendView.swift; sourceTree = "<group>"; };
 		CBAF767F27153EFB00E827E1 /* SecondTransferSendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferSendViewModel.swift; sourceTree = "<group>"; };
@@ -383,8 +383,7 @@
 		CB8E9E1C270D25BD00271A73 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CBD8F5E327118D1E00985ACA /* TempAccount.swift */,
-				CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */,
+				CBA62D21271E72B200684083 /* Temp */,
 				CB8F17D8271877FA0052D4AE /* User.swift */,
 				CB8F17DA271879840052D4AE /* Account.swift */,
 			);
@@ -448,6 +447,7 @@
 			children = (
 				CB8F1816271D0E740052D4AE /* User */,
 				CB8F1823271D126F0052D4AE /* AuthNum */,
+				CBA62D1E271E715700684083 /* Transfer */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -516,7 +516,6 @@
 				CB8F17A42717F5720052D4AE /* AuthNumRequest.swift */,
 				CB8F17B327180BDE0052D4AE /* AccountRequest.swift */,
 				CB8F17B727180D2C0052D4AE /* TransferSendRequest.swift */,
-				CBAF76772715050400E827E1 /* TransferGetRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -692,6 +691,23 @@
 				CB8F17F9271CF5DB0052D4AE /* AuthController.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		CBA62D1E271E715700684083 /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				CBA62D1F271E719100684083 /* TransferSendUseCase.swift */,
+			);
+			path = Transfer;
+			sourceTree = "<group>";
+		};
+		CBA62D21271E72B200684083 /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */,
+				CBD8F5E327118D1E00985ACA /* TempAccount.swift */,
+			);
+			path = Temp;
 			sourceTree = "<group>";
 		};
 		CBAF766D27146D9D00E827E1 /* TransferSend */ = {
@@ -1107,6 +1123,7 @@
 				CB8F1825271D12920052D4AE /* ApplyAuthNumUseCase.swift in Sources */,
 				CB8F181C271D10AD0052D4AE /* LoginUseCase.swift in Sources */,
 				CB8F17F6271CEE1A0052D4AE /* UserRepositoryImpl.swift in Sources */,
+				CBA62D20271E719100684083 /* TransferSendUseCase.swift in Sources */,
 				CBA023422715B5D3001ED232 /* SecondTransferGetView.swift in Sources */,
 				CB8F17B427180BDE0052D4AE /* AccountRequest.swift in Sources */,
 				CB8F17E42719110F0052D4AE /* AuthNumData.swift in Sources */,
@@ -1160,7 +1177,6 @@
 				CBD8F5DB27118C3300985ACA /* HomeViewModel.swift in Sources */,
 				CBA023442715B7BF001ED232 /* SecondTransferGetViewModel.swift in Sources */,
 				CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */,
-				CBAF76782715050400E827E1 /* TransferGetRequest.swift in Sources */,
 				CBA023462716B0DB001ED232 /* ThirdTransferGetView.swift in Sources */,
 				CB8F1804271D01900052D4AE /* AccountRepositoryImpl.swift in Sources */,
 				CB8F1814271D05700052D4AE /* BaseParamUseCase.swift in Sources */,

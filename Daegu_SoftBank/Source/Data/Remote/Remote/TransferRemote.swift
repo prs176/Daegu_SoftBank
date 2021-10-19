@@ -14,11 +14,4 @@ class TransferRemote: BaseRemote<TransferAPI> {
             .map { $0.message }
             .eraseToAnyPublisher()
     }
-    
-    func postTransferGet(_ request: TransferGetRequest) -> AnyPublisher<String, Error> {
-        return self.request(.postGet(request))
-            .map(MessageResponse.self, using: decoder)
-            .map { $0.message }
-            .eraseToAnyPublisher()
-    }
 }
