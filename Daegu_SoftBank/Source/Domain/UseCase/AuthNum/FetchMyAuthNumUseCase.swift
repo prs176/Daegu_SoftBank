@@ -14,7 +14,7 @@ class FetchMyAuthNumUseCase: BaseUseCase {
         self.authNumRepository = authNumRepository
     }
     
-    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<Bool, Error> {
+    func buildUseCasePublisher() -> AnyPublisher<Bool, Error> {
         authNumRepository.fetchMyAuthNum()
     }
 }
