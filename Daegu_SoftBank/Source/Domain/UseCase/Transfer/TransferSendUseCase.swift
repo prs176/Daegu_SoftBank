@@ -8,7 +8,7 @@
 import Combine
 
 class TransferSendUseCase: BaseParamUseCase {
-    let transferRepository: TransferRepository 
+    let transferRepository: TransferRepository
     
     init(transferRepository: TransferRepository) {
         self.transferRepository = transferRepository
