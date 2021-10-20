@@ -487,9 +487,9 @@
 			isa = PBXGroup;
 			children = (
 				CB8F17EB2719205E0052D4AE /* UserRemote.swift */,
-				CB8F17F3271940730052D4AE /* TransferRemote.swift */,
 				CB8F17EF271922F80052D4AE /* AuthNumRemote.swift */,
 				CB8F17F127193C9A0052D4AE /* AccountRemote.swift */,
+				CB8F17F3271940730052D4AE /* TransferRemote.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";

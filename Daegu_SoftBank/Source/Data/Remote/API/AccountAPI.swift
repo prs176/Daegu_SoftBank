@@ -27,8 +27,8 @@ extension AccountAPI: TargetType {
             return ""
         case let .getAccountsByPhone(phone):
             return "/\(phone)"
-        case .getAccountByAccount:
-            return "/account"
+        case let .getAccountByAccount(account):
+            return "/account/\(account)"
         }
     }
     
@@ -54,7 +54,7 @@ extension AccountAPI: TargetType {
         case .getAccountsByPhone:
             return .requestPlain
         case let .getAccountByAccount(account):
-            return .requestParameters(parameters: ["account": account], encoding: URLEncoding.queryString)
+            return .requestPlain
         }
     }
     
