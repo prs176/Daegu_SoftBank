@@ -53,7 +53,7 @@ extension AccountAPI: TargetType {
             return .requestPlain
         case .getAccountsByPhone:
             return .requestPlain
-        case let .getAccountByAccount(account):
+        case .getAccountByAccount:
             return .requestPlain
         }
     }
