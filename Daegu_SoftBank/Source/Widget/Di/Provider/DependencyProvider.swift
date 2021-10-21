@@ -16,7 +16,10 @@ class DependencyProvider {
     init() {
         Container.loggingFunction = nil
         assemblr = Assembler([
-            
+            RemoteAssembly(),
+            RepositoryAssembly(),
+            UseCaseAssembly(),
+            ViewModelAssembly()
         ], container: container)
     }
 }

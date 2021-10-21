@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct RegisterView: View {
-    @StateObject var viewModel = RegisterViewModel(registerUseCase: RegisterUseCase(userRepository: UserRepositoryImpl(userRemote: UserRemote())))
+    @StateObject var viewModel = DependencyProvider.shared.container.resolve(RegisterViewModel.self)!
     
     @State var isPresentedWebView = false
     @State var isPresentedPhotoPicker = false
