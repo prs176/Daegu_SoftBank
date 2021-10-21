@@ -74,6 +74,9 @@ struct LoginView: View {
                 viewModel.fetchPresenceOfMyAuthNum()
             }
         })
+        .onAppear {
+            viewModel.isSuccess = false
+        }
         .navigate(to: HomeView(), when: $viewModel.shouldMoveToHomeView)
         .navigate(to: RegisterAuthNumView(), when: $viewModel.shouldRegisterAuthNumView)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
