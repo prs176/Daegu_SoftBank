@@ -12,6 +12,7 @@
 		CB415499271445C800E434B3 /* SecondAddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB415498271445C800E434B3 /* SecondAddAccountView.swift */; };
 		CB41549B271445D500E434B3 /* SecondAddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41549A271445D500E434B3 /* SecondAddAccountViewModel.swift */; };
 		CB4154A0271449A700E434B3 /* SimpleAccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41549F271449A700E434B3 /* SimpleAccountRow.swift */; };
+		CB4E6F9727210FA3004EAC34 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6F9627210FA3004EAC34 /* DependencyProvider.swift */; };
 		CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEA270D23B700271A73 /* AppDelegate.swift */; };
 		CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */; };
 		CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* AuthMainView.swift */; };
@@ -148,6 +149,7 @@
 		CB415498271445C800E434B3 /* SecondAddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddAccountView.swift; sourceTree = "<group>"; };
 		CB41549A271445D500E434B3 /* SecondAddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddAccountViewModel.swift; sourceTree = "<group>"; };
 		CB41549F271449A700E434B3 /* SimpleAccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAccountRow.swift; sourceTree = "<group>"; };
+		CB4E6F9627210FA3004EAC34 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daegu_SoftBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DEA270D23B700271A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -314,8 +316,17 @@
 		CB4E6F9527210C21004EAC34 /* Di */ = {
 			isa = PBXGroup;
 			children = (
+				CB4E6F982721101E004EAC34 /* Provider */,
 			);
 			path = Di;
+			sourceTree = "<group>";
+		};
+		CB4E6F982721101E004EAC34 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				CB4E6F9627210FA3004EAC34 /* DependencyProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		CB8E9DDE270D23B700271A73 = {
@@ -1117,6 +1128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB4E6F9727210FA3004EAC34 /* DependencyProvider.swift in Sources */,
 				CB8F1818271D0E820052D4AE /* RegisterUseCase.swift in Sources */,
 				CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */,
 				CB8F17A32717F4770052D4AE /* AuthNumAPI.swift in Sources */,
