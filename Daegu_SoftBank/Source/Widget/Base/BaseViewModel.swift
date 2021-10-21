@@ -14,11 +14,15 @@ class BaseViewModel: ObservableObject {
     
     var bag = Set<AnyCancellable>()
     
-    func addCancellable<T>(publisher: AnyPublisher<T, Error>, subscriber: @escaping (T) -> Void) {
+    func addCancellable<T>(publisher: AnyPublisher<T, Error>, subscriber: @escaping (T) -> Void, onError: ((Error) -> Void)? = nil) {
         isLoading = true
         publisher
             .sink(receiveCompletion: { [weak self] completion in
                 if case let .failure(error) = completion {
+                    if let onError = onError {
+                        onError(error)
+                    }
+                    
                     if let error = error as? SoftBankError,
                        case let .error(message, _, _) = error {
                         self?.errorMessage = message
