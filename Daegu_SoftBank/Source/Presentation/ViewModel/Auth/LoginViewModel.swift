@@ -23,10 +23,28 @@ class LoginViewModel: BaseViewModel {
     
     var authNumCursor: Int = 6
     
+    let loginUseCase: LoginUseCase
+    let loginByAuthNumUseCase: LoginByAuthNumUseCase
+    
     @Published var isSuccess: Bool = false
     
+    init(loginUseCase: LoginUseCase,
+         loginByAuthNumUseCase: LoginByAuthNumUseCase) {
+        self.loginUseCase = loginUseCase
+        self.loginByAuthNumUseCase = loginByAuthNumUseCase
+    }
+    
     func login() {
-        isSuccess = true
+        if id.isEmpty, pw.isEmpty {
+            addCancellable(publisher: loginByAuthNumUseCase.buildUseCasePublisher(LoginByAuthNumUseCase.Param(pw: authNumLetters.joined()))) { [weak self] in
+                self?.isSuccess = true
+            }
+        }
+        else {
+            addCancellable(publisher: loginUseCase.buildUseCasePublisher(LoginUseCase.Param(id: id, pw: pw))) { [weak self] in
+                self?.isSuccess = true
+            }
+        }
     }
     
     func resetAuthNumLetters() {
@@ -42,7 +60,7 @@ extension LoginViewModel {
                 return false
             }
             
-            if  pw.isEmpty {
+            if pw.isEmpty {
                 return false
             }
         }
