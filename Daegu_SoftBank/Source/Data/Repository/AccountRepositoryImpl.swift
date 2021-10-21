@@ -18,15 +18,15 @@ class AccountRepositoryImpl: AccountRepository {
         accountRemote.postAccount(request)
     }
     
-    func fetchMyAccount() -> AnyPublisher<[Account], Error> {
-        accountRemote.getAccount()
+    func fetchMyAccounts() -> AnyPublisher<[Account], Error> {
+        accountRemote.getAccounts()
     }
     
-    func fetchAccountByPhone(_ phone: String) -> AnyPublisher<[Account], Error> {
-        accountRemote.getAccountByPhone(phone)
+    func fetchAccountsByPhone(_ phone: String) -> AnyPublisher<[Account], Error> {
+        accountRemote.getAccountsByPhone(phone)
     }
     
-    func fetchAccountByAccount(_ account: String) -> AnyPublisher<[Account], Error> {
+    func fetchAccountByAccount(_ account: String) -> AnyPublisher<Account, Error> {
         accountRemote.getAccountByAccount(account)
     }
 }

@@ -9,8 +9,8 @@ import Moya
 
 enum AccountAPI {
     case postAccount(_ request: AccountRequest)
-    case getAccount
-    case getAccountByPhone(_ phone: String)
+    case getAccounts
+    case getAccountsByPhone(_ phone: String)
     case getAccountByAccount(_ account: String)
 }
 
@@ -23,12 +23,12 @@ extension AccountAPI: TargetType {
         switch self {
         case .postAccount:
             return ""
-        case .getAccount:
+        case .getAccounts:
             return ""
-        case let .getAccountByPhone(phone):
+        case let .getAccountsByPhone(phone):
             return "/\(phone)"
-        case .getAccountByAccount:
-            return "/account"
+        case let .getAccountByAccount(account):
+            return "/account/\(account)"
         }
     }
     
@@ -36,9 +36,9 @@ extension AccountAPI: TargetType {
         switch self {
         case .postAccount:
             return .post
-        case .getAccount:
+        case .getAccounts:
             return .get
-        case .getAccountByPhone:
+        case .getAccountsByPhone:
             return .get
         case .getAccountByAccount:
             return .get
@@ -49,12 +49,12 @@ extension AccountAPI: TargetType {
         switch self {
         case let .postAccount(request):
             return .requestData(try! JSONEncoder().encode(request))
-        case .getAccount:
+        case .getAccounts:
             return .requestPlain
-        case .getAccountByPhone:
+        case .getAccountsByPhone:
             return .requestPlain
-        case let .getAccountByAccount(account):
-            return .requestParameters(parameters: ["account": account], encoding: URLEncoding.queryString)
+        case .getAccountByAccount:
+            return .requestPlain
         }
     }
     
@@ -68,7 +68,7 @@ extension AccountAPI: TargetType {
     
     var headers: [String : String]? {
         var headers = ["Content-Type": "application/json"]
-        headers["x-access-token"] = AuthController.getInstance().getToken()
+        headers["authorization"] = AuthController.getInstance().getToken()
         
         return headers
     }

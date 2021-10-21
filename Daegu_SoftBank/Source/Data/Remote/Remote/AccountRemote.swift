@@ -15,23 +15,23 @@ class AccountRemote: BaseRemote<AccountAPI> {
             .eraseToAnyPublisher()
     }
     
-    func getAccount() -> AnyPublisher<[Account], Error> {
-        return self.request(.getAccount)
+    func getAccounts() -> AnyPublisher<[Account], Error> {
+        return self.request(.getAccounts)
             .map(Response<[Account]>.self, using: decoder)
             .map { $0.data }
             .eraseToAnyPublisher()
     }
     
-    func getAccountByPhone(_ phone: String) -> AnyPublisher<[Account], Error> {
-        return self.request(.getAccountByPhone(phone))
+    func getAccountsByPhone(_ phone: String) -> AnyPublisher<[Account], Error> {
+        return self.request(.getAccountsByPhone(phone))
             .map(Response<[Account]>.self, using: decoder)
             .map { $0.data }
             .eraseToAnyPublisher()
     }
     
-    func getAccountByAccount(_ account: String) -> AnyPublisher<[Account], Error> {
+    func getAccountByAccount(_ account: String) -> AnyPublisher<Account, Error> {
         return self.request(.getAccountByAccount(account))
-            .map(Response<[Account]>.self, using: decoder)
+            .map(Response<Account>.self, using: decoder)
             .map { $0.data }
             .eraseToAnyPublisher()
     }

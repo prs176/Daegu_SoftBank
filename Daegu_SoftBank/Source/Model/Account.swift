@@ -14,4 +14,6 @@ class Account: Codable {
     var name: String
     var money: Int
     var userId: String
+    var send: [String]
+    var receive: [String]
 }
