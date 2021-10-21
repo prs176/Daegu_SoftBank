@@ -32,14 +32,22 @@ class RegisterAuthNumViewModel: BaseViewModel {
     @Published var curStep: Int = 0
     var authNumCursor: Int = 6
     
+    let applyAuthNumUseCase: ApplyAuthNumUseCase
+    
     @Published var isSuccess: Bool = false
+    
+    init(applyAuthNumUseCase: ApplyAuthNumUseCase) {
+        self.applyAuthNumUseCase = applyAuthNumUseCase
+    }
     
     func registerAuthNum() {
         guard validate() else {
             return
         }
         
-        isSuccess = true
+        addCancellable(publisher: applyAuthNumUseCase.buildUseCasePublisher(ApplyAuthNumUseCase.Param(pw: authNumLetters.joined()))) { [weak self] _ in
+            self?.isSuccess = true
+        }
     }
     
     func resetAuthNumLetters() {
@@ -55,10 +63,10 @@ class RegisterAuthNumViewModel: BaseViewModel {
 
 extension RegisterAuthNumViewModel {
     func validate() -> Bool {
-        if authNumLetters.map({ $0.isNumber() }).contains(false) ||
-           reAuthNumLetters.map({ $0.isNumber() }).contains(false) {
+        if !authNumLetters.joined().isNumber() ||
+           !reAuthNumLetters.joined().isNumber() {
             isErrorOcuured = true
-            errorMessage = "간편인증번호는 숫자, 6자로 입력해주세요."
+            errorMessage = "간편인증번호는 숫자로 입력해주세요."
             return false
         }
         

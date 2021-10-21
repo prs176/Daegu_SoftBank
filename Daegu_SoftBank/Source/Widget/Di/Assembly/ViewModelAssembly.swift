@@ -12,5 +12,9 @@ class ViewModelAssembly: Assembly {
         container.register(RegisterViewModel.self) { r in
             RegisterViewModel(registerUseCase: r.resolve(RegisterUseCase.self)!)
         }
+        
+        container.register(RegisterAuthNumViewModel.self) { r in
+            RegisterAuthNumViewModel(applyAuthNumUseCase: r.resolve(ApplyAuthNumUseCase.self)!)
+        }
     }
 }
