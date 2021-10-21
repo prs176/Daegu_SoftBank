@@ -13,6 +13,9 @@
 		CB41549B271445D500E434B3 /* SecondAddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41549A271445D500E434B3 /* SecondAddAccountViewModel.swift */; };
 		CB4154A0271449A700E434B3 /* SimpleAccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41549F271449A700E434B3 /* SimpleAccountRow.swift */; };
 		CB4E6F9727210FA3004EAC34 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6F9627210FA3004EAC34 /* DependencyProvider.swift */; };
+		CB4E6F9B27211145004EAC34 /* RemoteAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6F9A27211145004EAC34 /* RemoteAssembly.swift */; };
+		CB4E6F9D2721128D004EAC34 /* RepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6F9C2721128D004EAC34 /* RepositoryAssembly.swift */; };
+		CB4E6F9F2721135E004EAC34 /* UseCaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6F9E2721135E004EAC34 /* UseCaseAssembly.swift */; };
 		CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEA270D23B700271A73 /* AppDelegate.swift */; };
 		CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */; };
 		CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* AuthMainView.swift */; };
@@ -150,6 +153,9 @@
 		CB41549A271445D500E434B3 /* SecondAddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddAccountViewModel.swift; sourceTree = "<group>"; };
 		CB41549F271449A700E434B3 /* SimpleAccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAccountRow.swift; sourceTree = "<group>"; };
 		CB4E6F9627210FA3004EAC34 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
+		CB4E6F9A27211145004EAC34 /* RemoteAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAssembly.swift; sourceTree = "<group>"; };
+		CB4E6F9C2721128D004EAC34 /* RepositoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryAssembly.swift; sourceTree = "<group>"; };
+		CB4E6F9E2721135E004EAC34 /* UseCaseAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseAssembly.swift; sourceTree = "<group>"; };
 		CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daegu_SoftBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DEA270D23B700271A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -316,6 +322,7 @@
 		CB4E6F9527210C21004EAC34 /* Di */ = {
 			isa = PBXGroup;
 			children = (
+				CB4E6F992721102D004EAC34 /* Assembly */,
 				CB4E6F982721101E004EAC34 /* Provider */,
 			);
 			path = Di;
@@ -327,6 +334,16 @@
 				CB4E6F9627210FA3004EAC34 /* DependencyProvider.swift */,
 			);
 			path = Provider;
+			sourceTree = "<group>";
+		};
+		CB4E6F992721102D004EAC34 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CB4E6F9A27211145004EAC34 /* RemoteAssembly.swift */,
+				CB4E6F9C2721128D004EAC34 /* RepositoryAssembly.swift */,
+				CB4E6F9E2721135E004EAC34 /* UseCaseAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		CB8E9DDE270D23B700271A73 = {
@@ -1189,6 +1206,7 @@
 				CBA62D2A271E749F00684083 /* FetchAccountByAccountUseCase.swift in Sources */,
 				CBA62D26271E743100684083 /* FetchMyAccountsUseCase.swift in Sources */,
 				CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */,
+				CB4E6F9F2721135E004EAC34 /* UseCaseAssembly.swift in Sources */,
 				CB8F17FA271CF5DB0052D4AE /* AuthController.swift in Sources */,
 				CBAF768027153EFB00E827E1 /* SecondTransferSendViewModel.swift in Sources */,
 				CB8F1822271D118C0052D4AE /* FetchUserByNameAndBirth.swift in Sources */,
@@ -1223,8 +1241,10 @@
 				CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */,
 				CBA023462716B0DB001ED232 /* ThirdTransferGetView.swift in Sources */,
 				CB8F1804271D01900052D4AE /* AccountRepositoryImpl.swift in Sources */,
+				CB4E6F9D2721128D004EAC34 /* RepositoryAssembly.swift in Sources */,
 				CB8F1814271D05700052D4AE /* BaseParamUseCase.swift in Sources */,
 				CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */,
+				CB4E6F9B27211145004EAC34 /* RemoteAssembly.swift in Sources */,
 				CB8F17E027190CA50052D4AE /* RegisterData.swift in Sources */,
 				CB8F17B827180D2C0052D4AE /* TransferSendRequest.swift in Sources */,
 				CBD8F5DD27118C5300985ACA /* HomeView.swift in Sources */,
