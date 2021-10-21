@@ -16,6 +16,7 @@
 		CB4E6F9B27211145004EAC34 /* RemoteAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6F9A27211145004EAC34 /* RemoteAssembly.swift */; };
 		CB4E6F9D2721128D004EAC34 /* RepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6F9C2721128D004EAC34 /* RepositoryAssembly.swift */; };
 		CB4E6F9F2721135E004EAC34 /* UseCaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6F9E2721135E004EAC34 /* UseCaseAssembly.swift */; };
+		CB4E6FA12721208A004EAC34 /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6FA02721208A004EAC34 /* ViewModelAssembly.swift */; };
 		CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEA270D23B700271A73 /* AppDelegate.swift */; };
 		CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */; };
 		CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* AuthMainView.swift */; };
@@ -156,6 +157,7 @@
 		CB4E6F9A27211145004EAC34 /* RemoteAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAssembly.swift; sourceTree = "<group>"; };
 		CB4E6F9C2721128D004EAC34 /* RepositoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryAssembly.swift; sourceTree = "<group>"; };
 		CB4E6F9E2721135E004EAC34 /* UseCaseAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseAssembly.swift; sourceTree = "<group>"; };
+		CB4E6FA02721208A004EAC34 /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
 		CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daegu_SoftBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DEA270D23B700271A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				CB4E6F9A27211145004EAC34 /* RemoteAssembly.swift */,
 				CB4E6F9C2721128D004EAC34 /* RepositoryAssembly.swift */,
 				CB4E6F9E2721135E004EAC34 /* UseCaseAssembly.swift */,
+				CB4E6FA02721208A004EAC34 /* ViewModelAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -1224,6 +1227,7 @@
 				CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */,
 				CB41549B271445D500E434B3 /* SecondAddAccountViewModel.swift in Sources */,
 				CBF9E0BA2711AFBA00DDC3E8 /* EnvironmentProperties.swift in Sources */,
+				CB4E6FA12721208A004EAC34 /* ViewModelAssembly.swift in Sources */,
 				CB8F17B02717FF270052D4AE /* SoftBankError.swift in Sources */,
 				CBA023482716B11F001ED232 /* ThirdTransferGetViewModel.swift in Sources */,
 				CB8E9E43270EB2D200271A73 /* LoginView.swift in Sources */,
