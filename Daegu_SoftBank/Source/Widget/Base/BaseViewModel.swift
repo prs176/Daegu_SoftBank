@@ -14,7 +14,7 @@ class BaseViewModel: ObservableObject {
     
     var bag = Set<AnyCancellable>()
     
-    func addCancellable<T>(on publisher: AnyPublisher<T, Error>, to subscriber: @escaping (T) -> Void) {
+    func addCancellable<T>(publisher: AnyPublisher<T, Error>, subscriber: @escaping (T) -> Void) {
         isLoading = true
         publisher
             .sink(receiveCompletion: { [weak self] completion in

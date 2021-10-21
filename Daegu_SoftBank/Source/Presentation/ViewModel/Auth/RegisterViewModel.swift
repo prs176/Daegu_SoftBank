@@ -10,12 +10,11 @@ import UIKit
 
 class RegisterViewModel: BaseViewModel {
     @Published var profileImage: UIImage? = nil
-    @Published var id: String = ""
-    @Published var pw: String = ""
-    @Published var phoneNum: String = "" {
+    @Published var request = RegisterRequest()
+    @Published var phone: String = "" {
         didSet {
-            if phoneNum.filter({ $0 != "-" }).count > 11 {
-                phoneNum = oldValue
+            if phone.filter({ $0 != "-" }).count > 11 {
+                phone = oldValue
             }
         }
     }
@@ -29,26 +28,35 @@ class RegisterViewModel: BaseViewModel {
             }
         }
     }
-    @Published var name: String = ""
-    @Published var nickname: String = ""
     @Published var isAgree: Bool = false
     
     var rnnCursor: Int = 7
+    
+    let registerUseCase: RegisterUseCase
     
     @Published var isIdAvailable: Bool? = nil
     @Published var isPwAvailable: Bool? = nil
     @Published var isNicknameAvailable: Bool? = nil
     @Published var isSuccess: Bool = false
     
+    init(registerUseCase: RegisterUseCase) {
+        self.registerUseCase = registerUseCase
+    }
+    
     func register() {
         guard validate() else {
             return
         }
-        isSuccess = true
+        request.phone = phone.filter { $0 != "-" }
+        request.birth = rrnLetters.joined()
+        
+        addCancellable(publisher: registerUseCase.buildUseCasePublisher(RegisterUseCase.Param(request: request))) { [weak self] in
+            self?.isSuccess = true
+        }
     }
     
     func idDoubleCheck() {
-        if !id.isValidId() {
+        if !request.id.isValidId() {
             isErrorOcuured = true
             errorMessage = "아이디는 영문+숫자, 3~12자로 입력해주세요."
             return
@@ -58,7 +66,7 @@ class RegisterViewModel: BaseViewModel {
     }
     
     func pwDoubleCheck() {
-        if !pw.isValidPw() {
+        if !request.pw.isValidPw() {
             isErrorOcuured = true
             errorMessage = "비밀번호는 영문+숫자+특수문자 조합, 8~12자로 입력해주세요."
             return
@@ -68,7 +76,7 @@ class RegisterViewModel: BaseViewModel {
     }
     
     func nicknameDoubleCheck() {
-        if nickname.count < 2 {
+        if request.nick.count < 2 {
             isErrorOcuured = true
             errorMessage = "별명은 2자 이상으로 입력해주세요."
             return
@@ -85,15 +93,15 @@ class RegisterViewModel: BaseViewModel {
 
 extension RegisterViewModel {
     func validate() -> Bool {
-        if !phoneNum.isValidPhone() {
+        if !phone.isValidPhone() {
             isErrorOcuured = true
             errorMessage = "전화번호는 숫자, 11자로 입력해주세요."
             return false
         }
         
-        if rrnLetters.map({ $0.isNumber() }).contains(false) {
+        if rrnLetters.joined().isNumber() {
             isErrorOcuured = true
-            errorMessage = "주민등록번호는 숫자, 7자로 입력해주세요."
+            errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
         }
         
@@ -123,15 +131,15 @@ extension RegisterViewModel {
             return false
         }
         
-        if id.isEmpty {
+        if request.id.isEmpty {
             return false
         }
         
-        if pw.isEmpty {
+        if request.pw.isEmpty {
             return false
         }
         
-        if phoneNum.isEmpty {
+        if phone.isEmpty {
             return false
         }
         
@@ -139,18 +147,14 @@ extension RegisterViewModel {
             return false
         }
         
-        if name.isEmpty {
+        if request.name.isEmpty {
             return false
         }
         
-        if nickname.isEmpty {
+        if request.nick.isEmpty {
             return false
         }
         
-        if !isAgree {
-            return false
-        }
-        
-        return true
+        return isAgree
     }
 }

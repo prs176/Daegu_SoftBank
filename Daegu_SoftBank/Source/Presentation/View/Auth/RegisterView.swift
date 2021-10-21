@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct RegisterView: View {
-    @StateObject var viewModel = RegisterViewModel()
+    @StateObject var viewModel = RegisterViewModel(registerUseCase: RegisterUseCase(userRepository: UserRepositoryImpl(userRemote: UserRemote())))
     
     @State var isPresentedWebView = false
     @State var isPresentedPhotoPicker = false
@@ -54,9 +54,9 @@ struct RegisterView: View {
                         })
                     }
                     
-                    TextField("영문+숫자, 3~12자", text: $viewModel.id)
+                    TextField("영문+숫자, 3~12자", text: $viewModel.request.id)
                         .textFieldStyle(LabelTextFieldStyle())
-                        .onChange(of: viewModel.id, perform: { value in
+                        .onChange(of: viewModel.request.id, perform: { value in
                             viewModel.isIdAvailable = nil
                         })
                 }
@@ -80,9 +80,9 @@ struct RegisterView: View {
                         })
                     }
                     
-                    SecureField("영문+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.pw)
+                    SecureField("영문+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.request.pw)
                         .textFieldStyle(LabelTextFieldStyle())
-                        .onChange(of: viewModel.pw, perform: { value in
+                        .onChange(of: viewModel.request.pw, perform: { value in
                             viewModel.isPwAvailable = nil
                         })
                 }
@@ -90,14 +90,14 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("전화번호")
                     
-                    TextField("11자", text: $viewModel.phoneNum, onEditingChanged: { isEditing in
+                    TextField("11자", text: $viewModel.phone, onEditingChanged: { isEditing in
                         if isEditing {
-                            viewModel.phoneNum = ""
+                            viewModel.phone = ""
                         }
                         else {
-                            if viewModel.phoneNum.count == 11 {
-                                viewModel.phoneNum.insert("-", at: viewModel.phoneNum.index(viewModel.phoneNum.startIndex, offsetBy: 3))
-                                viewModel.phoneNum.insert("-", at: viewModel.phoneNum.index(viewModel.phoneNum.startIndex, offsetBy: 8))
+                            if viewModel.phone.count == 11 {
+                                viewModel.phone.insert("-", at: viewModel.phone.index(viewModel.phone.startIndex, offsetBy: 3))
+                                viewModel.phone.insert("-", at: viewModel.phone.index(viewModel.phone.startIndex, offsetBy: 8))
                             }
                         }
                     })
@@ -138,7 +138,7 @@ struct RegisterView: View {
                 
                 VStack(alignment: .leading) {
                     Text("이름(실명)")
-                    TextField("", text: $viewModel.name)
+                    TextField("", text: $viewModel.request.name)
                         .textFieldStyle(LabelTextFieldStyle())
                 }
                 
@@ -162,9 +162,9 @@ struct RegisterView: View {
                         
                     }
                     
-                    TextField("2자 이상", text: $viewModel.nickname)
+                    TextField("2자 이상", text: $viewModel.request.nick)
                         .textFieldStyle(LabelTextFieldStyle())
-                        .onChange(of: viewModel.nickname, perform: { value in
+                        .onChange(of: viewModel.request.nick, perform: { value in
                             viewModel.isNicknameAvailable = nil
                         })
                 }
