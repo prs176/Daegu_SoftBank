@@ -61,30 +61,18 @@ struct RegisterView: View {
                         })
                 }
                 
-                VStack {
-                    HStack {
-                        Text("비밀번호")
-                        
-                        if let available = viewModel.isPwAvailable {
-                            Text(available ? "사용 가능한 비밀번호입니다." : "사용 불가능한 비밀번호입니다.")
-                                .font(.caption)
-                                .foregroundColor(available ? .secondary : .red)
-                        }
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            viewModel.pwDoubleCheck()
-                        }, label: {
-                            Text("중복확인")
-                        })
-                    }
+                VStack(alignment: .leading) {
+                    Text("비밀번호")
                     
                     SecureField("영문+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.request.pw)
                         .textFieldStyle(LabelTextFieldStyle())
-                        .onChange(of: viewModel.request.pw, perform: { value in
-                            viewModel.isPwAvailable = nil
-                        })
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("비밀번호 재입력")
+                    
+                    SecureField("영문+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.rePw)
+                        .textFieldStyle(LabelTextFieldStyle())
                 }
                 
                 VStack(alignment: .leading) {

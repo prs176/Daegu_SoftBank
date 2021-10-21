@@ -11,6 +11,7 @@ import UIKit
 class RegisterViewModel: BaseViewModel {
     @Published var profileImage: UIImage? = nil
     @Published var request = RegisterRequest()
+    @Published var rePw: String = ""
     @Published var phone: String = "" {
         didSet {
             if phone.filter({ $0 != "-" }).count > 11 {
@@ -65,16 +66,6 @@ class RegisterViewModel: BaseViewModel {
         isIdAvailable = true
     }
     
-    func pwDoubleCheck() {
-        if !request.pw.isValidPw() {
-            isErrorOcuured = true
-            errorMessage = "비밀번호는 영문+숫자+특수문자 조합, 8~12자로 입력해주세요."
-            return
-        }
-        
-        isPwAvailable = true
-    }
-    
     func nicknameDoubleCheck() {
         if request.nick.count < 2 {
             isErrorOcuured = true
@@ -93,13 +84,25 @@ class RegisterViewModel: BaseViewModel {
 
 extension RegisterViewModel {
     func validate() -> Bool {
+        if !request.pw.isValidPw() {
+            isErrorOcuured = true
+            errorMessage = "비밀번호는 영문+숫자+특수문자 조합, 8~12자로 입력해주세요."
+            return false
+        }
+        
+        if rePw != request.pw {
+            isErrorOcuured = true
+            errorMessage = "재입력한 비밀번호가 일치하지 않습니다."
+            return false
+        }
+        
         if !phone.isValidPhone() {
             isErrorOcuured = true
             errorMessage = "전화번호는 숫자, 11자로 입력해주세요."
             return false
         }
         
-        if rrnLetters.joined().isNumber() {
+        if !rrnLetters.joined().isNumber() {
             isErrorOcuured = true
             errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
@@ -108,12 +111,6 @@ extension RegisterViewModel {
         if isIdAvailable != true {
             isErrorOcuured = true
             errorMessage = "아이디 중복확인을 진행해주세요."
-            return false
-        }
-        
-        if isPwAvailable != true {
-            isErrorOcuured = true
-            errorMessage = "비밀번호 중복확인을 진행해주세요."
             return false
         }
         
