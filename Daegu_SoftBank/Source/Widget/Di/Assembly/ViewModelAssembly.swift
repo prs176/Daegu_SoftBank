@@ -10,13 +10,15 @@ import Swinject
 class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
         container.register(RegisterViewModel.self) { r in
-            RegisterViewModel(registerUseCase: r.resolve(RegisterUseCase.self)!,
-                              fetchIdCheckUseCase: r.resolve(FetchIdCheckUseCase.self)!,
+            RegisterViewModel(fetchIdCheckUseCase: r.resolve(FetchIdCheckUseCase.self)!,
                               fetchNickCheckUseCase: r.resolve(FetchNickCheckUseCase.self)!)
         }
+        .inObjectScope(.container)
         
         container.register(RegisterAuthNumViewModel.self) { r in
-            RegisterAuthNumViewModel(applyAuthNumUseCase: r.resolve(ApplyAuthNumUseCase.self)!)
+            RegisterAuthNumViewModel(registerUseCase: r.resolve(RegisterUseCase.self)!,
+                                     applyAuthNumUseCase: r.resolve(ApplyAuthNumUseCase.self)!)
         }
+        .inObjectScope(.container)
     }
 }
