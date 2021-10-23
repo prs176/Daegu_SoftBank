@@ -29,7 +29,19 @@ struct LoginView: View {
                     .fontWeight(.thin)
                 
                 VStack(alignment: .leading) {
-                    Text("간편인증번호")
+                    HStack {
+                        Text("간편인증번호")
+                        
+                        Spacer()
+                        
+                        Menu {
+                            Text("다른 계정으로 간편인증번호 로그인을 이용하시려면, 먼저 이용할 계정으로 일반로그인(아이디, 비밀번호)을 진행해주세요.")
+                        } label: {
+                            Image(systemName: "questionmark.circle")
+                        }
+
+                    }
+                    
                     HStack {
                         ForEach(0..<6, id: \.self) { idx in
                             AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)

@@ -17,7 +17,8 @@ class ViewModelAssembly: Assembly {
         
         container.register(RegisterAuthNumViewModel.self) { r in
             RegisterAuthNumViewModel(registerUseCase: r.resolve(RegisterUseCase.self)!,
-                                     applyAuthNumUseCase: r.resolve(ApplyAuthNumUseCase.self)!)
+                                     applyAuthNumUseCase: r.resolve(ApplyAuthNumUseCase.self)!,
+                                     loginUseCase: r.resolve(LoginUseCase.self)!)
         }
         .inObjectScope(.container)
         

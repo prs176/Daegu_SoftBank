@@ -34,14 +34,18 @@ class RegisterAuthNumViewModel: BaseViewModel {
     
     let registerUseCase: RegisterUseCase
     let applyAuthNumUseCase: ApplyAuthNumUseCase
+    let loginUseCase: LoginUseCase
     
     @Published var isSuccessRegister: Bool = false
-    @Published var isSuccess: Bool = false
+    @Published var isSuccessRegisterAuthNum: Bool = false
+    @Published var isSuccessLogin: Bool = false
     
     init(registerUseCase: RegisterUseCase,
-         applyAuthNumUseCase: ApplyAuthNumUseCase) {
+         applyAuthNumUseCase: ApplyAuthNumUseCase,
+         loginUseCase: LoginUseCase) {
         self.registerUseCase = registerUseCase
         self.applyAuthNumUseCase = applyAuthNumUseCase
+        self.loginUseCase = loginUseCase
     }
     
     func register(request: RegisterRequest) {
@@ -55,12 +59,14 @@ class RegisterAuthNumViewModel: BaseViewModel {
     }
     
     func registerAuthNum() {
-        guard validate() else {
-            return
-        }
-        
         addCancellable(publisher: applyAuthNumUseCase.buildUseCasePublisher(ApplyAuthNumUseCase.Param(pw: authNumLetters.joined()))) { [weak self] _ in
-            self?.isSuccess = true
+            self?.isSuccessRegisterAuthNum = true
+        }
+    }
+    
+    func login(id: String, pw: String) {
+        addCancellable(publisher: loginUseCase.buildUseCasePublisher(LoginUseCase.Param(id: id, pw: pw))) { [weak self] in
+            self?.isSuccessLogin = true
         }
     }
     
