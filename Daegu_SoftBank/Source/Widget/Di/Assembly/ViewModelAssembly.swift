@@ -14,5 +14,9 @@ class ViewModelAssembly: Assembly {
                               fetchIdCheckUseCase: r.resolve(FetchIdCheckUseCase.self)!,
                               fetchNickCheckUseCase: r.resolve(FetchNickCheckUseCase.self)!)
         }
+        
+        container.register(RegisterAuthNumViewModel.self) { r in
+            RegisterAuthNumViewModel(applyAuthNumUseCase: r.resolve(ApplyAuthNumUseCase.self)!)
+        }
     }
 }

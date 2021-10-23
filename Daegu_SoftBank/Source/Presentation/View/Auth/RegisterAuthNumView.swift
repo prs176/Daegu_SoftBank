@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct RegisterAuthNumView: View {
-    @StateObject var viewModel = RegisterAuthNumViewModel()
+    @StateObject var viewModel = DependencyProvider.shared.container.resolve(RegisterAuthNumViewModel.self)!
     
     var body: some View {
         VStack {
             VStack {
                 Text("마지막 단계입니다")
-                    .font(.title)
+                    .font(.title2)
                 
                 Text("간편인증번호를 \(viewModel.curStep == 1 ? "재" : "")입력하세요")
                     .font(.title3)
+                    .fontWeight(.thin)
             }
             .padding(.bottom, 80)
                 
