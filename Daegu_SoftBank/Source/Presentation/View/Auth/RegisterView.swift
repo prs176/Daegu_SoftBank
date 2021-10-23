@@ -54,8 +54,9 @@ struct RegisterView: View {
                         })
                     }
                     
-                    TextField("영문+숫자, 3~12자", text: $viewModel.request.id)
+                    TextField("영소문자+숫자 조합, 3~12자", text: $viewModel.request.id)
                         .textFieldStyle(LabelTextFieldStyle())
+                        .disableAutocorrection(true)
                         .onChange(of: viewModel.request.id, perform: { value in
                             viewModel.isIdValid = nil
                         })
@@ -64,14 +65,15 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("비밀번호")
                     
-                    SecureField("영문+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.request.pw)
+                    SecureField("영문자+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.request.pw)
                         .textFieldStyle(LabelTextFieldStyle())
+                        
                 }
                 
                 VStack(alignment: .leading) {
                     Text("비밀번호 재입력")
                     
-                    SecureField("영문+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.rePw)
+                    SecureField("영문자+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.rePw)
                         .textFieldStyle(LabelTextFieldStyle())
                 }
                 

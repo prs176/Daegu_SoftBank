@@ -50,6 +50,7 @@ class RegisterViewModel: BaseViewModel {
         guard validate() else {
             return
         }
+        
         request.phone = phone.filter { $0 != "-" }
         request.birth = rrnLetters.joined()
         isSuccess = true
@@ -58,7 +59,7 @@ class RegisterViewModel: BaseViewModel {
     func checkId() {
         if !request.id.isValidId() {
             isErrorOcuured = true
-            errorMessage = "아이디는 영문+숫자, 3~12자로 입력해주세요."
+            errorMessage = "아이디는 영소문자+숫자, 3~12자로 입력해주세요."
             return
         }
         
@@ -89,7 +90,7 @@ extension RegisterViewModel {
     func validate() -> Bool {
         if !request.pw.isValidPw() {
             isErrorOcuured = true
-            errorMessage = "비밀번호는 영문+숫자+특수문자 조합, 8~12자로 입력해주세요."
+            errorMessage = "비밀번호는 영문자+숫자+특수문자 조합, 8~12자로 입력해주세요."
             return false
         }
         
@@ -101,7 +102,7 @@ extension RegisterViewModel {
         
         if !phone.isValidPhone() {
             isErrorOcuured = true
-            errorMessage = "전화번호는 숫자, 11자로 입력해주세요."
+            errorMessage = "전화번호는 숫자로 입력해주세요."
             return false
         }
         
