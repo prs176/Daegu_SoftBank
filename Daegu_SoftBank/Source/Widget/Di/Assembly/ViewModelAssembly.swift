@@ -20,5 +20,11 @@ class ViewModelAssembly: Assembly {
                                      applyAuthNumUseCase: r.resolve(ApplyAuthNumUseCase.self)!)
         }
         .inObjectScope(.container)
+        
+        container.register(LoginViewModel.self) { r in
+            LoginViewModel(loginUseCase: r.resolve(LoginUseCase.self)!,
+                           loginByAuthNumUseCase: r.resolve(LoginByAuthNumUseCase.self)!)
+        }
+        .inObjectScope(.container)
     }
 }

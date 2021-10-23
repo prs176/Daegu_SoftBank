@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewModel(loginUseCase: LoginUseCase(userRepository: UserRepositoryImpl(userRemote: UserRemote())), loginByAuthNumUseCase: LoginByAuthNumUseCase(authNumRepository: AuthNumRepositoryImpl(authNumRemote: AuthNumRemote())))
+    @StateObject var viewModel = DependencyProvider.shared.container.resolve(LoginViewModel.self)!
     
     var body: some View {
         VStack(spacing: 15) {
