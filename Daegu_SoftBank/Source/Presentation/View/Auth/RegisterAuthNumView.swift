@@ -10,6 +10,12 @@ import SwiftUI
 struct RegisterAuthNumView: View {
     @StateObject var viewModel = DependencyProvider.shared.container.resolve(RegisterAuthNumViewModel.self)!
     
+    let request: RegisterRequest
+    
+    init(request: RegisterRequest) {
+        self.request = request
+    }
+    
     var body: some View {
         VStack {
             VStack {
@@ -71,6 +77,7 @@ struct RegisterAuthNumView: View {
                     
                     Button(action: {
                         viewModel.authNumCursor = 6
+                        viewModel.register(request: request)
                         viewModel.registerAuthNum()
                     }, label: {
                         Text("가입완료")

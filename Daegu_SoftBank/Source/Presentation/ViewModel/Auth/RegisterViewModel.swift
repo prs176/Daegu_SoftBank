@@ -33,7 +33,6 @@ class RegisterViewModel: BaseViewModel {
     
     var rnnCursor: Int = 7
     
-    let registerUseCase: RegisterUseCase
     let fetchIdCheckUseCase: FetchIdCheckUseCase
     let fetchNickCheckUseCase: FetchNickCheckUseCase
     
@@ -41,10 +40,8 @@ class RegisterViewModel: BaseViewModel {
     @Published var isNickValid: Bool? = nil
     @Published var isSuccess: Bool = false
     
-    init(registerUseCase: RegisterUseCase,
-         fetchIdCheckUseCase: FetchIdCheckUseCase,
+    init(fetchIdCheckUseCase: FetchIdCheckUseCase,
          fetchNickCheckUseCase: FetchNickCheckUseCase) {
-        self.registerUseCase = registerUseCase
         self.fetchIdCheckUseCase = fetchIdCheckUseCase
         self.fetchNickCheckUseCase = fetchNickCheckUseCase
     }
@@ -55,10 +52,7 @@ class RegisterViewModel: BaseViewModel {
         }
         request.phone = phone.filter { $0 != "-" }
         request.birth = rrnLetters.joined()
-        
-        addCancellable(publisher: registerUseCase.buildUseCasePublisher(RegisterUseCase.Param(request: request))) { [weak self] in
-            self?.isSuccess = true
-        }
+        isSuccess = true
     }
     
     func checkId() {

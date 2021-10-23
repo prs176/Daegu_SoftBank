@@ -32,12 +32,25 @@ class RegisterAuthNumViewModel: BaseViewModel {
     @Published var curStep: Int = 0
     var authNumCursor: Int = 6
     
+    let registerUseCase: RegisterUseCase
     let applyAuthNumUseCase: ApplyAuthNumUseCase
     
     @Published var isSuccess: Bool = false
     
-    init(applyAuthNumUseCase: ApplyAuthNumUseCase) {
+    init(registerUseCase: RegisterUseCase,
+         applyAuthNumUseCase: ApplyAuthNumUseCase) {
+        self.registerUseCase = registerUseCase
         self.applyAuthNumUseCase = applyAuthNumUseCase
+    }
+    
+    func register(request: RegisterRequest) {
+        guard validate() else {
+            return
+        }
+        
+        addCancellable(publisher: registerUseCase.buildUseCasePublisher(RegisterUseCase.Param(request: request))) { [weak self] in
+            self?.isSuccess = true
+        }
     }
     
     func registerAuthNum() {

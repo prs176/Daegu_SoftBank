@@ -196,7 +196,7 @@ struct RegisterView: View {
             WebView(url: "https://docs.google.com/document/d/1XrCnV4_17cBfQx_Elo6ux33biBjJQc33ebBezdCkc8c/edit")
         }
         .navigationTitle("회원가입")
-        .navigate(to: RegisterAuthNumView(), when: $viewModel.isSuccess)
+        .navigate(to: RegisterAuthNumView(request: viewModel.request), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
