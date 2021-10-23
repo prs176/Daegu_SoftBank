@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewModel(loginUseCase: LoginUseCase(userRepository: UserRepositoryImpl(userRemote: UserRemote())), loginByAuthNumUseCase: LoginByAuthNumUseCase(authNumRepository: AuthNumRepositoryImpl(authNumRemote: AuthNumRemote())), fetchMyAuthNumUseCase: FetchMyAuthNumUseCase(authNumRepository: AuthNumRepositoryImpl(authNumRemote: AuthNumRemote())))
+    @StateObject var viewModel = LoginViewModel(loginUseCase: LoginUseCase(userRepository: UserRepositoryImpl(userRemote: UserRemote())), loginByAuthNumUseCase: LoginByAuthNumUseCase(authNumRepository: AuthNumRepositoryImpl(authNumRemote: AuthNumRemote())))
     
     var body: some View {
         VStack(spacing: 15) {
@@ -70,15 +70,9 @@ struct LoginView: View {
         .onAppear {
             viewModel.isSuccess = false
         }
-        .onChange(of: viewModel.isSuccess, perform: { value in
-            if value {
-                viewModel.fetchPresenceOfMyAuthNum()
-            }
-        })
         .navigationTitle("로그인")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .navigate(to: HomeView(), when: $viewModel.shouldMoveToHomeView)
-        .navigate(to: RegisterAuthNumView(), when: $viewModel.shouldRegisterAuthNumView)
+        .navigate(to: HomeView(), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
