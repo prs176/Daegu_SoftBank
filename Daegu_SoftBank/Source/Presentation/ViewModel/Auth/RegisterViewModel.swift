@@ -33,7 +33,6 @@ class RegisterViewModel: BaseViewModel {
     
     var rnnCursor: Int = 7
     
-    let registerUseCase: RegisterUseCase
     let fetchIdCheckUseCase: FetchIdCheckUseCase
     let fetchNickCheckUseCase: FetchNickCheckUseCase
     
@@ -41,10 +40,8 @@ class RegisterViewModel: BaseViewModel {
     @Published var isNickValid: Bool? = nil
     @Published var isSuccess: Bool = false
     
-    init(registerUseCase: RegisterUseCase,
-         fetchIdCheckUseCase: FetchIdCheckUseCase,
+    init(fetchIdCheckUseCase: FetchIdCheckUseCase,
          fetchNickCheckUseCase: FetchNickCheckUseCase) {
-        self.registerUseCase = registerUseCase
         self.fetchIdCheckUseCase = fetchIdCheckUseCase
         self.fetchNickCheckUseCase = fetchNickCheckUseCase
     }
@@ -53,18 +50,16 @@ class RegisterViewModel: BaseViewModel {
         guard validate() else {
             return
         }
+        
         request.phone = phone.filter { $0 != "-" }
         request.birth = rrnLetters.joined()
-        
-        addCancellable(publisher: registerUseCase.buildUseCasePublisher(RegisterUseCase.Param(request: request))) { [weak self] in
-            self?.isSuccess = true
-        }
+        isSuccess = true
     }
     
     func checkId() {
         if !request.id.isValidId() {
             isErrorOcuured = true
-            errorMessage = "아이디는 영문+숫자, 3~12자로 입력해주세요."
+            errorMessage = "아이디는 영소문자+숫자, 3~12자로 입력해주세요."
             return
         }
         
@@ -95,7 +90,7 @@ extension RegisterViewModel {
     func validate() -> Bool {
         if !request.pw.isValidPw() {
             isErrorOcuured = true
-            errorMessage = "비밀번호는 영문+숫자+특수문자 조합, 8~12자로 입력해주세요."
+            errorMessage = "비밀번호는 영문자+숫자+특수문자 조합, 8~12자로 입력해주세요."
             return false
         }
         
@@ -107,7 +102,7 @@ extension RegisterViewModel {
         
         if !phone.isValidPhone() {
             isErrorOcuured = true
-            errorMessage = "전화번호는 숫자, 11자로 입력해주세요."
+            errorMessage = "전화번호는 010-[숫자 4자리]-[숫자 4자리]로 입력해주세요."
             return false
         }
         

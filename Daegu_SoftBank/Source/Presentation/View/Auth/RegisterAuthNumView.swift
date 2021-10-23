@@ -10,6 +10,12 @@ import SwiftUI
 struct RegisterAuthNumView: View {
     @StateObject var viewModel = DependencyProvider.shared.container.resolve(RegisterAuthNumViewModel.self)!
     
+    let request: RegisterRequest
+
+    init(request: RegisterRequest) {
+        self.request = request
+    }
+    
     var body: some View {
         VStack {
             VStack {
@@ -71,7 +77,7 @@ struct RegisterAuthNumView: View {
                     
                     Button(action: {
                         viewModel.authNumCursor = 6
-                        viewModel.registerAuthNum()
+                        viewModel.register(request: request)
                     }, label: {
                         Text("가입완료")
                             .foregroundColor(.white)
@@ -89,7 +95,21 @@ struct RegisterAuthNumView: View {
         .onTapGesture {
             viewModel.authNumCursor = 6
         }
-        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .onAppear {
+            viewModel.isSuccessRegister = false
+            viewModel.isSuccessRegisterAuthNum = false
+            viewModel.isSuccessLogin = false
+        }
+        .onChange(of: viewModel.isSuccessRegister) { isSuccessRegister in
+            if isSuccessRegister {
+                viewModel.registerAuthNum()
+            }
+        }
+        .onChange(of: viewModel.isSuccessRegisterAuthNum) { isSuccessRegisterAuthNum in
+            if isSuccessRegisterAuthNum {
+                viewModel.login(id: request.id, pw: request.pw)
+            }
+        }
         .navigationTitle("회원가입")
         .navigationBarBackButtonHidden(viewModel.curStep == 1)
         .navigationBarItems(leading:
@@ -117,7 +137,8 @@ struct RegisterAuthNumView: View {
                                     .disabled(!viewModel.enterValidate())
                                 }
                             })
-        .navigate(to: HomeView(), when: $viewModel.isSuccess)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .navigate(to: HomeView(), when: $viewModel.isSuccessLogin)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
@@ -125,6 +146,6 @@ struct RegisterAuthNumView: View {
 
 struct RegisterAuthNumView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterAuthNumView()
+        RegisterAuthNumView(request: RegisterRequest())
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     func isValidId() -> Bool {
-        let idRegEx = "[a-zA-Z0-9]{3,12}"
+        let idRegEx = "(?=.*[0-9])(?=.*[a-z])[a-z0-9]{3,12}"
         
         let idTest = NSPredicate(format:"SELF MATCHES %@", idRegEx)
         return idTest.evaluate(with: self)
@@ -23,7 +23,7 @@ extension String {
     }
     
     func isValidPhone() -> Bool {
-        let phoneRegEx = "([0-9]{3})-([0-9]{4})-([0-9]{4})"
+        let phoneRegEx = "010-([0-9]{4})-([0-9]{4})"
         
         let phoneTest = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
         return phoneTest.evaluate(with: self)

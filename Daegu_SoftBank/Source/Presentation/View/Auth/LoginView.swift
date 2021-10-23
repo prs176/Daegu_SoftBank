@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewModel(loginUseCase: LoginUseCase(userRepository: UserRepositoryImpl(userRemote: UserRemote())), loginByAuthNumUseCase: LoginByAuthNumUseCase(authNumRepository: AuthNumRepositoryImpl(authNumRemote: AuthNumRemote())), fetchMyAuthNumUseCase: FetchMyAuthNumUseCase(authNumRepository: AuthNumRepositoryImpl(authNumRemote: AuthNumRemote())))
+    @StateObject var viewModel = DependencyProvider.shared.container.resolve(LoginViewModel.self)!
     
     var body: some View {
         VStack(spacing: 15) {
             VStack(alignment: .leading) {
                 Text("아이디")
                 TextField("", text: $viewModel.id)
+                    .autocapitalization(.none)
                     .textFieldStyle(LabelTextFieldStyle())
             }
             
@@ -29,7 +30,19 @@ struct LoginView: View {
                     .fontWeight(.thin)
                 
                 VStack(alignment: .leading) {
-                    Text("간편인증번호")
+                    HStack {
+                        Text("간편인증번호")
+                        
+                        Spacer()
+                        
+                        Menu {
+                            Text("다른 계정으로 간편인증번호 로그인을 이용하시려면, 먼저 이용할 계정으로 일반로그인(아이디, 비밀번호)을 진행해주세요.")
+                        } label: {
+                            Image(systemName: "questionmark.circle")
+                        }
+
+                    }
+                    
                     HStack {
                         ForEach(0..<6, id: \.self) { idx in
                             AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
@@ -67,18 +80,12 @@ struct LoginView: View {
         .onTapGesture {
             viewModel.authNumCursor = 6
         }
-        .navigationTitle("로그인")
-        .ignoresSafeArea(.keyboard, edges: .bottom)
-        .onChange(of: viewModel.isSuccess, perform: { value in
-            if value {
-                viewModel.fetchPresenceOfMyAuthNum()
-            }
-        })
         .onAppear {
             viewModel.isSuccess = false
         }
-        .navigate(to: HomeView(), when: $viewModel.shouldMoveToHomeView)
-        .navigate(to: RegisterAuthNumView(), when: $viewModel.shouldRegisterAuthNumView)
+        .navigationTitle("로그인")
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .navigate(to: HomeView(), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

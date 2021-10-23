@@ -32,21 +32,41 @@ class RegisterAuthNumViewModel: BaseViewModel {
     @Published var curStep: Int = 0
     var authNumCursor: Int = 6
     
+    let registerUseCase: RegisterUseCase
     let applyAuthNumUseCase: ApplyAuthNumUseCase
+    let loginUseCase: LoginUseCase
     
-    @Published var isSuccess: Bool = false
+    @Published var isSuccessRegister: Bool = false
+    @Published var isSuccessRegisterAuthNum: Bool = false
+    @Published var isSuccessLogin: Bool = false
     
-    init(applyAuthNumUseCase: ApplyAuthNumUseCase) {
+    init(registerUseCase: RegisterUseCase,
+         applyAuthNumUseCase: ApplyAuthNumUseCase,
+         loginUseCase: LoginUseCase) {
+        self.registerUseCase = registerUseCase
         self.applyAuthNumUseCase = applyAuthNumUseCase
+        self.loginUseCase = loginUseCase
     }
     
-    func registerAuthNum() {
+    func register(request: RegisterRequest) {
         guard validate() else {
             return
         }
         
+        addCancellable(publisher: registerUseCase.buildUseCasePublisher(RegisterUseCase.Param(request: request))) { [weak self] in
+            self?.isSuccessRegister = true
+        }
+    }
+    
+    func registerAuthNum() {
         addCancellable(publisher: applyAuthNumUseCase.buildUseCasePublisher(ApplyAuthNumUseCase.Param(pw: authNumLetters.joined()))) { [weak self] _ in
-            self?.isSuccess = true
+            self?.isSuccessRegisterAuthNum = true
+        }
+    }
+    
+    func login(id: String, pw: String) {
+        addCancellable(publisher: loginUseCase.buildUseCasePublisher(LoginUseCase.Param(id: id, pw: pw))) { [weak self] in
+            self?.isSuccessLogin = true
         }
     }
     

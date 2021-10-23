@@ -54,8 +54,9 @@ struct RegisterView: View {
                         })
                     }
                     
-                    TextField("영문+숫자, 3~12자", text: $viewModel.request.id)
+                    TextField("영소문자+숫자 조합, 3~12자", text: $viewModel.request.id)
                         .textFieldStyle(LabelTextFieldStyle())
+                        .autocapitalization(.none)
                         .onChange(of: viewModel.request.id, perform: { value in
                             viewModel.isIdValid = nil
                         })
@@ -64,14 +65,14 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("비밀번호")
                     
-                    SecureField("영문+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.request.pw)
+                    SecureField("영문자+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.request.pw)
                         .textFieldStyle(LabelTextFieldStyle())
                 }
                 
                 VStack(alignment: .leading) {
                     Text("비밀번호 재입력")
                     
-                    SecureField("영문+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.rePw)
+                    SecureField("영문자+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.rePw)
                         .textFieldStyle(LabelTextFieldStyle())
                 }
                 
@@ -189,6 +190,9 @@ struct RegisterView: View {
         .onTapGesture {
             viewModel.rnnCursor = 7
         }
+        .onAppear {
+            viewModel.isSuccess = false
+        }
         .sheet(isPresented: $isPresentedPhotoPicker) {
             PhotoPicker(configuration: getConfiguration(), photo: $viewModel.profileImage)
         }
@@ -196,7 +200,7 @@ struct RegisterView: View {
             WebView(url: "https://docs.google.com/document/d/1XrCnV4_17cBfQx_Elo6ux33biBjJQc33ebBezdCkc8c/edit")
         }
         .navigationTitle("회원가입")
-        .navigate(to: RegisterAuthNumView(), when: $viewModel.isSuccess)
+        .navigate(to: RegisterAuthNumView(request: viewModel.request), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
