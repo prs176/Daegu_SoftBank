@@ -102,7 +102,7 @@ extension RegisterViewModel {
         
         if !phone.isValidPhone() {
             isErrorOcuured = true
-            errorMessage = "전화번호는 숫자로 입력해주세요."
+            errorMessage = "전화번호는 010-[숫자 4자리]-[숫자 4자리]로 입력해주세요."
             return false
         }
         

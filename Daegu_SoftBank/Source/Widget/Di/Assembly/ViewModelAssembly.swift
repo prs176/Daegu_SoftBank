@@ -24,6 +24,5 @@ class ViewModelAssembly: Assembly {
             LoginViewModel(loginUseCase: r.resolve(LoginUseCase.self)!,
                            loginByAuthNumUseCase: r.resolve(LoginByAuthNumUseCase.self)!)
         }
-        .inObjectScope(.container)
     }
 }

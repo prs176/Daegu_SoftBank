@@ -15,6 +15,7 @@ struct LoginView: View {
             VStack(alignment: .leading) {
                 Text("아이디")
                 TextField("", text: $viewModel.id)
+                    .autocapitalization(.none)
                     .textFieldStyle(LabelTextFieldStyle())
             }
             

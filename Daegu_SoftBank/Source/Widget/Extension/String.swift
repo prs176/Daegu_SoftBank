@@ -23,7 +23,7 @@ extension String {
     }
     
     func isValidPhone() -> Bool {
-        let phoneRegEx = "([0-9]{3})-([0-9]{4})-([0-9]{4})"
+        let phoneRegEx = "010-([0-9]{4})-([0-9]{4})"
         
         let phoneTest = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
         return phoneTest.evaluate(with: self)

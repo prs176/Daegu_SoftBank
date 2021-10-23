@@ -56,7 +56,7 @@ struct RegisterView: View {
                     
                     TextField("영소문자+숫자 조합, 3~12자", text: $viewModel.request.id)
                         .textFieldStyle(LabelTextFieldStyle())
-                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                         .onChange(of: viewModel.request.id, perform: { value in
                             viewModel.isIdValid = nil
                         })
@@ -67,7 +67,6 @@ struct RegisterView: View {
                     
                     SecureField("영문자+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.request.pw)
                         .textFieldStyle(LabelTextFieldStyle())
-                        
                 }
                 
                 VStack(alignment: .leading) {
