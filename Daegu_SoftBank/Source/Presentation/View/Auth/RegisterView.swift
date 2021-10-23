@@ -39,16 +39,16 @@ struct RegisterView: View {
                     HStack {
                         Text("아이디")
                         
-                        if let available = viewModel.isIdAvailable {
-                            Text(available ? "사용 가능한 아이디입니다." : "사용 불가능한 아이디입니다.")
+                        if let isValid = viewModel.isIdValid {
+                            Text(isValid ? "사용 가능한 아이디입니다." : "사용 불가능한 아이디입니다.")
                                 .font(.caption)
-                                .foregroundColor(available ? .secondary : .red)
+                                .foregroundColor(isValid ? .secondary : .red)
                         }
                         
                         Spacer()
                         
                         Button(action: {
-                            viewModel.idDoubleCheck()
+                            viewModel.checkId()
                         }, label: {
                             Text("중복확인")
                         })
@@ -57,7 +57,7 @@ struct RegisterView: View {
                     TextField("영문+숫자, 3~12자", text: $viewModel.request.id)
                         .textFieldStyle(LabelTextFieldStyle())
                         .onChange(of: viewModel.request.id, perform: { value in
-                            viewModel.isIdAvailable = nil
+                            viewModel.isIdValid = nil
                         })
                 }
                 
@@ -134,16 +134,16 @@ struct RegisterView: View {
                     HStack {
                         Text("별명")
                         
-                        if let available = viewModel.isNicknameAvailable {
-                            Text(available ? "사용 가능한 별명입니다." : "사용 불가능한 별명입니다.")
+                        if let isValid = viewModel.isNickValid {
+                            Text(isValid ? "사용 가능한 별명입니다." : "사용 불가능한 별명입니다.")
                                 .font(.caption)
-                                .foregroundColor(available ? .secondary : .red)
+                                .foregroundColor(isValid ? .secondary : .red)
                         }
                         
                         Spacer()
                         
                         Button(action: {
-                            viewModel.nicknameDoubleCheck()
+                            viewModel.checkNick()
                         }, label: {
                             Text("중복확인")
                         })
@@ -153,7 +153,7 @@ struct RegisterView: View {
                     TextField("2자 이상", text: $viewModel.request.nick)
                         .textFieldStyle(LabelTextFieldStyle())
                         .onChange(of: viewModel.request.nick, perform: { value in
-                            viewModel.isNicknameAvailable = nil
+                            viewModel.isNickValid = nil
                         })
                 }
                 

@@ -34,14 +34,19 @@ class RegisterViewModel: BaseViewModel {
     var rnnCursor: Int = 7
     
     let registerUseCase: RegisterUseCase
+    let fetchIdCheckUseCase: FetchIdCheckUseCase
+    let fetchNickCheckUseCase: FetchNickCheckUseCase
     
-    @Published var isIdAvailable: Bool? = nil
-    @Published var isPwAvailable: Bool? = nil
-    @Published var isNicknameAvailable: Bool? = nil
+    @Published var isIdValid: Bool? = nil
+    @Published var isNickValid: Bool? = nil
     @Published var isSuccess: Bool = false
     
-    init(registerUseCase: RegisterUseCase) {
+    init(registerUseCase: RegisterUseCase,
+         fetchIdCheckUseCase: FetchIdCheckUseCase,
+         fetchNickCheckUseCase: FetchNickCheckUseCase) {
         self.registerUseCase = registerUseCase
+        self.fetchIdCheckUseCase = fetchIdCheckUseCase
+        self.fetchNickCheckUseCase = fetchNickCheckUseCase
     }
     
     func register() {
@@ -56,24 +61,28 @@ class RegisterViewModel: BaseViewModel {
         }
     }
     
-    func idDoubleCheck() {
+    func checkId() {
         if !request.id.isValidId() {
             isErrorOcuured = true
             errorMessage = "아이디는 영문+숫자, 3~12자로 입력해주세요."
             return
         }
         
-        isIdAvailable = true
+        addCancellable(publisher: fetchIdCheckUseCase.buildUseCasePublisher(FetchIdCheckUseCase.Param(id: request.id))) { [weak self] isValid in
+            self?.isIdValid = isValid
+        }
     }
     
-    func nicknameDoubleCheck() {
+    func checkNick() {
         if request.nick.count < 2 {
             isErrorOcuured = true
             errorMessage = "별명은 2자 이상으로 입력해주세요."
             return
         }
         
-        isNicknameAvailable = true
+        addCancellable(publisher: fetchNickCheckUseCase.buildUseCasePublisher(FetchNickCheckUseCase.Param(nick: request.nick))) { [weak self] isValid in
+            self?.isNickValid = isValid
+        }
     }
     
     func resetRnnLetters() {
@@ -108,13 +117,13 @@ extension RegisterViewModel {
             return false
         }
         
-        if isIdAvailable != true {
+        if isIdValid != true {
             isErrorOcuured = true
             errorMessage = "아이디 중복확인을 진행해주세요."
             return false
         }
         
-        if isNicknameAvailable != true {
+        if isNickValid != true {
             isErrorOcuured = true
             errorMessage = "별명 중복확인을 진행해주세요."
             return false
