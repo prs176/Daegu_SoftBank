@@ -189,6 +189,9 @@ struct RegisterView: View {
         .onTapGesture {
             viewModel.rnnCursor = 7
         }
+        .onAppear {
+            viewModel.isSuccess = false
+        }
         .sheet(isPresented: $isPresentedPhotoPicker) {
             PhotoPicker(configuration: getConfiguration(), photo: $viewModel.profileImage)
         }

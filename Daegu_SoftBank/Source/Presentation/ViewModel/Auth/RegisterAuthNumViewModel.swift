@@ -35,6 +35,7 @@ class RegisterAuthNumViewModel: BaseViewModel {
     let registerUseCase: RegisterUseCase
     let applyAuthNumUseCase: ApplyAuthNumUseCase
     
+    @Published var isSuccessRegister: Bool = false
     @Published var isSuccess: Bool = false
     
     init(registerUseCase: RegisterUseCase,
@@ -49,7 +50,7 @@ class RegisterAuthNumViewModel: BaseViewModel {
         }
         
         addCancellable(publisher: registerUseCase.buildUseCasePublisher(RegisterUseCase.Param(request: request))) { [weak self] in
-            self?.isSuccess = true
+            self?.isSuccessRegister = true
         }
     }
     

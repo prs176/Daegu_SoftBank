@@ -67,16 +67,16 @@ struct LoginView: View {
         .onTapGesture {
             viewModel.authNumCursor = 6
         }
-        .navigationTitle("로그인")
-        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .onAppear {
+            viewModel.isSuccess = false
+        }
         .onChange(of: viewModel.isSuccess, perform: { value in
             if value {
                 viewModel.fetchPresenceOfMyAuthNum()
             }
         })
-        .onAppear {
-            viewModel.isSuccess = false
-        }
+        .navigationTitle("로그인")
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: HomeView(), when: $viewModel.shouldMoveToHomeView)
         .navigate(to: RegisterAuthNumView(), when: $viewModel.shouldRegisterAuthNumView)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)

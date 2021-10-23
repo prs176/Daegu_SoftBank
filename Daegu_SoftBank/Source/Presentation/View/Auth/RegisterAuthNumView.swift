@@ -80,7 +80,9 @@ struct RegisterAuthNumView: View {
                         if let request = request {
                             viewModel.register(request: request)
                         }
-                        viewModel.registerAuthNum()
+                        else {
+                            viewModel.registerAuthNum()
+                        }
                     }, label: {
                         Text("가입완료")
                             .foregroundColor(.white)
@@ -97,6 +99,14 @@ struct RegisterAuthNumView: View {
         .padding()
         .onTapGesture {
             viewModel.authNumCursor = 6
+        }
+        .onChange(of: viewModel.isSuccessRegister) { isSuccessRegister in
+            if isSuccessRegister {
+                viewModel.registerAuthNum()
+            }
+        }
+        .onAppear {
+            viewModel.isSuccess = false
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("회원가입")
