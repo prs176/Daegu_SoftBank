@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var viewModel: LoginViewModel = LoginViewModel()
+    @StateObject var viewModel = LoginViewModel(loginUseCase: LoginUseCase(userRepository: UserRepositoryImpl(userRemote: UserRemote())), loginByAuthNumUseCase: LoginByAuthNumUseCase(authNumRepository: AuthNumRepositoryImpl(authNumRemote: AuthNumRemote())), fetchMyAuthNumUseCase: FetchMyAuthNumUseCase(authNumRepository: AuthNumRepositoryImpl(authNumRemote: AuthNumRemote())))
     
     var body: some View {
         VStack(spacing: 15) {
@@ -24,25 +24,27 @@ struct LoginView: View {
                     .textFieldStyle(LabelTextFieldStyle())
             }
             
-            Text("또는")
-                .fontWeight(.thin)
-            
-            VStack(alignment: .leading) {
-                Text("간편인증번호")
-                HStack {
-                    ForEach(0..<6, id: \.self) { idx in
-                        AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
-                            .padding(.horizontal, 5)
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(5.0)
-                            .keyboardType(.numberPad)
-                            .disabled(viewModel.authNumCursor != idx)
+            if !AuthController.getInstance().getSimpleId().isEmpty {
+                Text("또는")
+                    .fontWeight(.thin)
+                
+                VStack(alignment: .leading) {
+                    Text("간편인증번호")
+                    HStack {
+                        ForEach(0..<6, id: \.self) { idx in
+                            AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
+                                .padding(.horizontal, 5)
+                                .background(Color(.secondarySystemBackground))
+                                .cornerRadius(5.0)
+                                .keyboardType(.numberPad)
+                                .disabled(viewModel.authNumCursor != idx)
+                        }
                     }
+                    .frame(height: 55)
+                    .highPriorityGesture(TapGesture().onEnded {
+                        viewModel.resetAuthNumLetters()
+                    })
                 }
-                .frame(height: 55)
-                .highPriorityGesture(TapGesture().onEnded {
-                    viewModel.resetAuthNumLetters()
-                })
             }
             
             Spacer()
@@ -67,7 +69,16 @@ struct LoginView: View {
         }
         .navigationTitle("로그인")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .navigate(to: HomeView(), when: $viewModel.isSuccess)
+        .onChange(of: viewModel.isSuccess, perform: { value in
+            if value {
+                viewModel.fetchPresenceOfMyAuthNum()
+            }
+        })
+        .onAppear {
+            viewModel.isSuccess = false
+        }
+        .navigate(to: HomeView(), when: $viewModel.shouldMoveToHomeView)
+        .navigate(to: RegisterAuthNumView(), when: $viewModel.shouldRegisterAuthNumView)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

@@ -5,7 +5,7 @@
 //  Created by 박세은 on 2021/10/07.
 //
 
-import Foundation
+import Combine
 
 class LoginViewModel: BaseViewModel {
     @Published var id: String = ""
@@ -23,10 +23,40 @@ class LoginViewModel: BaseViewModel {
     
     var authNumCursor: Int = 6
     
+    let loginUseCase: LoginUseCase
+    let loginByAuthNumUseCase: LoginByAuthNumUseCase
+    let fetchMyAuthNumUseCase: FetchMyAuthNumUseCase
+    
     @Published var isSuccess: Bool = false
+    @Published var shouldRegisterAuthNumView: Bool = false
+    @Published var shouldMoveToHomeView: Bool = false
+    
+    init(loginUseCase: LoginUseCase,
+         loginByAuthNumUseCase: LoginByAuthNumUseCase,
+         fetchMyAuthNumUseCase: FetchMyAuthNumUseCase) {
+        self.loginUseCase = loginUseCase
+        self.loginByAuthNumUseCase = loginByAuthNumUseCase
+        self.fetchMyAuthNumUseCase = fetchMyAuthNumUseCase
+    }
     
     func login() {
-        isSuccess = true
+        if id.isEmpty, pw.isEmpty {
+            addCancellable(publisher: loginByAuthNumUseCase.buildUseCasePublisher(LoginByAuthNumUseCase.Param(pw: authNumLetters.joined()))) { [weak self] in
+                self?.isSuccess = true
+            }
+        }
+        else {
+            addCancellable(publisher: loginUseCase.buildUseCasePublisher(LoginUseCase.Param(id: id, pw: pw))) { [weak self] in
+                self?.isSuccess = true
+            }
+        }
+    }
+    
+    func fetchPresenceOfMyAuthNum() {
+        addCancellable(publisher: fetchMyAuthNumUseCase.buildUseCasePublisher()) { [weak self] isHave in
+            self?.shouldRegisterAuthNumView = !isHave
+            self?.shouldMoveToHomeView = isHave
+        }
     }
     
     func resetAuthNumLetters() {
@@ -42,7 +72,7 @@ extension LoginViewModel {
                 return false
             }
             
-            if  pw.isEmpty {
+            if pw.isEmpty {
                 return false
             }
         }
