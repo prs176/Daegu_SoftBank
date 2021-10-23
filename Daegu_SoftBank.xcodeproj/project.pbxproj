@@ -17,6 +17,8 @@
 		CB4E6F9D2721128D004EAC34 /* RepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6F9C2721128D004EAC34 /* RepositoryAssembly.swift */; };
 		CB4E6F9F2721135E004EAC34 /* UseCaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6F9E2721135E004EAC34 /* UseCaseAssembly.swift */; };
 		CB4E6FA12721208A004EAC34 /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E6FA02721208A004EAC34 /* ViewModelAssembly.swift */; };
+		CB811EED27238250002CF71A /* FetchIdCheckUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB811EEC27238250002CF71A /* FetchIdCheckUseCase.swift */; };
+		CB811EEF272382A9002CF71A /* FetchNickCheckUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB811EEE272382A9002CF71A /* FetchNickCheckUseCase.swift */; };
 		CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEA270D23B700271A73 /* AppDelegate.swift */; };
 		CB8E9DED270D23B700271A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */; };
 		CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E9DEE270D23B700271A73 /* AuthMainView.swift */; };
@@ -159,6 +161,8 @@
 		CB4E6F9E2721135E004EAC34 /* UseCaseAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseAssembly.swift; sourceTree = "<group>"; };
 		CB4E6FA02721208A004EAC34 /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
 		CB52F4AF9B36EF9B2011B6D5 /* Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daegu_SoftBank_Daegu_SoftBankUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB811EEC27238250002CF71A /* FetchIdCheckUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchIdCheckUseCase.swift; sourceTree = "<group>"; };
+		CB811EEE272382A9002CF71A /* FetchNickCheckUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNickCheckUseCase.swift; sourceTree = "<group>"; };
 		CB8E9DE7270D23B700271A73 /* Daegu_SoftBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daegu_SoftBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8E9DEA270D23B700271A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB8E9DEC270D23B700271A73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -698,6 +702,8 @@
 				CB8F181B271D10AD0052D4AE /* LoginUseCase.swift */,
 				CB8F181F271D112C0052D4AE /* FetchMyUserUseCase.swift */,
 				CB8F1821271D118C0052D4AE /* FetchUserByNameAndBirth.swift */,
+				CB811EEC27238250002CF71A /* FetchIdCheckUseCase.swift */,
+				CB811EEE272382A9002CF71A /* FetchNickCheckUseCase.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1154,6 +1160,7 @@
 				CB8F17A32717F4770052D4AE /* AuthNumAPI.swift in Sources */,
 				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
 				CBA0234A27170835001ED232 /* FirstTransferGetViewModel.swift in Sources */,
+				CB811EED27238250002CF71A /* FetchIdCheckUseCase.swift in Sources */,
 				CB8F17DB271879840052D4AE /* Account.swift in Sources */,
 				CBA023572717ED95001ED232 /* UserAPI.swift in Sources */,
 				CB8F1827271D13430052D4AE /* FetchMyAuthNumUseCase.swift in Sources */,
@@ -1246,6 +1253,7 @@
 				CBA023462716B0DB001ED232 /* ThirdTransferGetView.swift in Sources */,
 				CB8F1804271D01900052D4AE /* AccountRepositoryImpl.swift in Sources */,
 				CB4E6F9D2721128D004EAC34 /* RepositoryAssembly.swift in Sources */,
+				CB811EEF272382A9002CF71A /* FetchNickCheckUseCase.swift in Sources */,
 				CB8F1814271D05700052D4AE /* BaseParamUseCase.swift in Sources */,
 				CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */,
 				CB4E6F9B27211145004EAC34 /* RemoteAssembly.swift in Sources */,

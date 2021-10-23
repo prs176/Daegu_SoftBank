@@ -11,6 +11,7 @@ import UIKit
 class RegisterViewModel: BaseViewModel {
     @Published var profileImage: UIImage? = nil
     @Published var request = RegisterRequest()
+    @Published var rePw: String = ""
     @Published var phone: String = "" {
         didSet {
             if phone.filter({ $0 != "-" }).count > 11 {
@@ -33,14 +34,19 @@ class RegisterViewModel: BaseViewModel {
     var rnnCursor: Int = 7
     
     let registerUseCase: RegisterUseCase
+    let fetchIdCheckUseCase: FetchIdCheckUseCase
+    let fetchNickCheckUseCase: FetchNickCheckUseCase
     
-    @Published var isIdAvailable: Bool? = nil
-    @Published var isPwAvailable: Bool? = nil
-    @Published var isNicknameAvailable: Bool? = nil
+    @Published var isIdValid: Bool? = nil
+    @Published var isNickValid: Bool? = nil
     @Published var isSuccess: Bool = false
     
-    init(registerUseCase: RegisterUseCase) {
+    init(registerUseCase: RegisterUseCase,
+         fetchIdCheckUseCase: FetchIdCheckUseCase,
+         fetchNickCheckUseCase: FetchNickCheckUseCase) {
         self.registerUseCase = registerUseCase
+        self.fetchIdCheckUseCase = fetchIdCheckUseCase
+        self.fetchNickCheckUseCase = fetchNickCheckUseCase
     }
     
     func register() {
@@ -55,34 +61,28 @@ class RegisterViewModel: BaseViewModel {
         }
     }
     
-    func idDoubleCheck() {
+    func checkId() {
         if !request.id.isValidId() {
             isErrorOcuured = true
             errorMessage = "아이디는 영문+숫자, 3~12자로 입력해주세요."
             return
         }
         
-        isIdAvailable = true
-    }
-    
-    func pwDoubleCheck() {
-        if !request.pw.isValidPw() {
-            isErrorOcuured = true
-            errorMessage = "비밀번호는 영문+숫자+특수문자 조합, 8~12자로 입력해주세요."
-            return
+        addCancellable(publisher: fetchIdCheckUseCase.buildUseCasePublisher(FetchIdCheckUseCase.Param(id: request.id))) { [weak self] isValid in
+            self?.isIdValid = isValid
         }
-        
-        isPwAvailable = true
     }
     
-    func nicknameDoubleCheck() {
+    func checkNick() {
         if request.nick.count < 2 {
             isErrorOcuured = true
             errorMessage = "별명은 2자 이상으로 입력해주세요."
             return
         }
         
-        isNicknameAvailable = true
+        addCancellable(publisher: fetchNickCheckUseCase.buildUseCasePublisher(FetchNickCheckUseCase.Param(nick: request.nick))) { [weak self] isValid in
+            self?.isNickValid = isValid
+        }
     }
     
     func resetRnnLetters() {
@@ -93,31 +93,37 @@ class RegisterViewModel: BaseViewModel {
 
 extension RegisterViewModel {
     func validate() -> Bool {
+        if !request.pw.isValidPw() {
+            isErrorOcuured = true
+            errorMessage = "비밀번호는 영문+숫자+특수문자 조합, 8~12자로 입력해주세요."
+            return false
+        }
+        
+        if rePw != request.pw {
+            isErrorOcuured = true
+            errorMessage = "재입력한 비밀번호가 일치하지 않습니다."
+            return false
+        }
+        
         if !phone.isValidPhone() {
             isErrorOcuured = true
             errorMessage = "전화번호는 숫자, 11자로 입력해주세요."
             return false
         }
         
-        if rrnLetters.joined().isNumber() {
+        if !rrnLetters.joined().isNumber() {
             isErrorOcuured = true
             errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
         }
         
-        if isIdAvailable != true {
+        if isIdValid != true {
             isErrorOcuured = true
             errorMessage = "아이디 중복확인을 진행해주세요."
             return false
         }
         
-        if isPwAvailable != true {
-            isErrorOcuured = true
-            errorMessage = "비밀번호 중복확인을 진행해주세요."
-            return false
-        }
-        
-        if isNicknameAvailable != true {
+        if isNickValid != true {
             isErrorOcuured = true
             errorMessage = "별명 중복확인을 진행해주세요."
             return false

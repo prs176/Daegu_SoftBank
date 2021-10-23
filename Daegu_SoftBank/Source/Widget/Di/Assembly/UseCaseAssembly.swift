@@ -26,6 +26,14 @@ class UseCaseAssembly: Assembly {
             FetchUserByNameAndBirth(userRepository: r.resolve(UserRepository.self)!)
         }
         
+        container.register(FetchIdCheckUseCase.self) { r in
+            FetchIdCheckUseCase(userRepository: r.resolve(UserRepository.self)!)
+        }
+        
+        container.register(FetchNickCheckUseCase.self) { r in
+            FetchNickCheckUseCase(userRepository: r.resolve(UserRepository.self)!)
+        }
+        
         // MARK: AuthNum
         container.register(ApplyAuthNumUseCase.self) { r in
             ApplyAuthNumUseCase(authNumRepository: r.resolve(AuthNumRepository.self)!)
