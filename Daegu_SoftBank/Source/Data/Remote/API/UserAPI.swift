@@ -12,6 +12,8 @@ enum UserAPI {
     case postLogin(_ request: LoginRequest)
     case getUser
     case getUserByNameAndBirth(_ name: String, _ birth: String)
+    case getIdCheck(_ id: String)
+    case getNickCheck(_ nick: String)
 }
 
 extension UserAPI: TargetType {
@@ -29,6 +31,10 @@ extension UserAPI: TargetType {
             return ""
         case .getUserByNameAndBirth:
             return "/get"
+        case .getIdCheck:
+            return "/check-id"
+        case .getNickCheck:
+            return "/check-nick"
         }
     }
     
@@ -41,6 +47,10 @@ extension UserAPI: TargetType {
         case .getUser:
             return .get
         case .getUserByNameAndBirth:
+            return .get
+        case .getIdCheck:
+            return .get
+        case .getNickCheck:
             return .get
         }
     }
@@ -55,6 +65,10 @@ extension UserAPI: TargetType {
             return .requestPlain
         case let .getUserByNameAndBirth(name, birth):
             return .requestParameters(parameters: ["name": name, "birth": birth], encoding: URLEncoding.queryString)
+        case let .getIdCheck(id):
+            return .requestParameters(parameters: ["id": id], encoding: URLEncoding.queryString)
+        case let .getNickCheck(nick):
+            return .requestParameters(parameters: ["nick": nick], encoding: URLEncoding.queryString)
         }
     }
     

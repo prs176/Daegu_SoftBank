@@ -37,4 +37,12 @@ class UserRepositoryImpl: UserRepository {
     func fetchUserByNameAndBirth(_ name: String, _ birth: String) -> AnyPublisher<User, Error> {
         userRemote.getUserByNameAndBirth(name, birth)
     }
+    
+    func fetchIdCheck(_ id: String) -> AnyPublisher<Bool, Error> {
+        userRemote.getIdCheck(id)
+    }
+    
+    func fetchNickCheck(_ nick: String) -> AnyPublisher<Bool, Error> {
+        userRemote.getNickCheck(nick)
+    }
 }
