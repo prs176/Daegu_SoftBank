@@ -10,8 +10,8 @@ import SwiftUI
 struct FirstTransferGetView: View {
     @ObservedObject var viewModel: FirstTransferGetViewModel
     
-    init(depositAccount: TempAccount, accounts: [TempAccount]) {
-        viewModel = FirstTransferGetViewModel(accounts: accounts, depositAccount: depositAccount)
+    init(depositAccount: Account, accounts: [Account], temp: TempAccount = TempAccount(), tempAccounts: [TempAccount] = []) {
+        viewModel = FirstTransferGetViewModel(accounts: tempAccounts, depositAccount: temp)
         
         if let idx = accounts.map({ $0.idx }).firstIndex(of: depositAccount.idx) {
             viewModel.accounts.remove(at: idx)
@@ -48,6 +48,6 @@ struct FirstTransferGetView: View {
 
 struct FirstTransferGetView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstTransferGetView(depositAccount: TempAccount(), accounts: [])
+        FirstTransferGetView(depositAccount: Account(), accounts: [])
     }
 }

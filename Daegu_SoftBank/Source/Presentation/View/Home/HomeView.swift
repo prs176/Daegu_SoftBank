@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel: HomeViewModel = HomeViewModel()
+    @StateObject var viewModel: HomeViewModel = DependencyProvider.shared.container.resolve(HomeViewModel.self)!
     @Environment(\.loginViewRootPresentation) var loginViewRootPresentation: Binding<Bool>
     @Environment(\.registerViewRootPresentation) var registerViewRootPresentation: Binding<Bool>
     
     @State var isActiveBringView: Bool = false
-    @State var selectedAccount: TempAccount = TempAccount()
+    @State var selectedAccount: Account = Account()
     
     var body: some View {
         ScrollView {
@@ -52,9 +52,13 @@ struct HomeView: View {
                     })
                 
                 VStack(alignment: .leading) {
-                    Text("계좌")
-                        .font(.title2)
-                        .bold()
+                    HStack {
+                        Text("계좌")
+                            .font(.title2)
+                            .bold()
+                        
+                        Spacer()
+                    }
                     
                     ForEach(viewModel.accounts, id: \.self) { account in
                         Divider()

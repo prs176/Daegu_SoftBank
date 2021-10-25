@@ -17,8 +17,8 @@ struct FirstTransferSendView: View {
         return formatter
     } ()
     
-    init(withdrawAccount: TempAccount) {
-        viewModel = FirstTransferSendViewModel(withdrawAccount: withdrawAccount)
+    init(withdrawAccount: Account, temp: TempAccount = TempAccount()) {
+        viewModel = FirstTransferSendViewModel(withdrawAccount: temp)
     }
     
     var body: some View {
@@ -102,6 +102,6 @@ struct FirstTransferSendView: View {
 
 struct FirstTransferSendView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstTransferSendView(withdrawAccount: TempAccount())
+        FirstTransferSendView(withdrawAccount: Account())
     }
 }
