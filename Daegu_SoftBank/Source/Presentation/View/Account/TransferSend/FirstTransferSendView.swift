@@ -28,6 +28,7 @@ struct FirstTransferSendView: View {
             let filtered = Int(value.filter { "0123456789".contains($0) }) ?? 0
             
             guard filtered <= 10000000 else {
+                viewModel.request.money = 10000000
                 return
             }
             
