@@ -10,9 +10,7 @@ import SwiftUI
 struct FourthTransferSendView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    var bank: String
-    var accountNum: String
-    var price: Int
+    var request: TransferSendRequest
     var fees: Int
     
     var body: some View {
@@ -34,10 +32,11 @@ struct FourthTransferSendView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text(bank)
+//                    Text(request.bank)
+                    Text("은행")
                         .font(.title3)
                     
-                    Text(accountNum)
+                    Text(request.receiveAccountId)
                         .font(.title3)
                 }
             }
@@ -50,7 +49,7 @@ struct FourthTransferSendView: View {
                 Spacer()
                 
                 
-                Text("\(price) 원")
+                Text("\(request.money) 원")
                     .font(.title3)
             }
             
@@ -87,6 +86,6 @@ struct FourthTransferSendView: View {
 
 struct FourthTransferSendView_Previews: PreviewProvider {
     static var previews: some View {
-        FourthTransferSendView(bank: "", accountNum: "", price: 0, fees: 0)
+        FourthTransferSendView(request: TransferSendRequest(), fees: 0)
     }
 }

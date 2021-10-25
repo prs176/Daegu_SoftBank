@@ -17,33 +17,32 @@ struct FirstTransferSendView: View {
         return formatter
     } ()
     
-    init(withdrawAccount: Account, temp: TempAccount = TempAccount()) {
-        viewModel = FirstTransferSendViewModel(withdrawAccount: temp)
+    init(sendAccount: Account) {
+        viewModel = FirstTransferSendViewModel(sendAccount: sendAccount)
     }
     
     var body: some View {
-        let price = Binding<String> {
-            viewModel.price
+        let money = Binding<String> {
+            formatter.string(from: NSNumber(value: viewModel.request.money)) ?? "0"
         } set: { value in
             let filtered = Int(value.filter { "0123456789".contains($0) }) ?? 0
             
-            if filtered > 10000000 {
-                viewModel.price = "10,000,000"
+            guard filtered <= 10000000 else {
                 return
             }
             
-            viewModel.price = formatter.string(from: NSNumber(value: filtered)) ?? "0"
+            viewModel.request.money = filtered
         }
         
         VStack(alignment: .leading, spacing: 15) {
-            Text("잔액: \(viewModel.withdrawAccount.balance) 원")
+            Text("잔액: \(viewModel.sendAccount.money) 원")
                 .font(.title3)
         
             VStack(alignment: .leading) {
                 Text("금액")
                 
                 HStack {
-                    TextField("", text: price)
+                    TextField("", text: money)
                         .font(.title3)
                         .keyboardType(.numberPad)
                     
@@ -64,7 +63,7 @@ struct FirstTransferSendView: View {
                 VStack(alignment: .leading) {
                     Text("계좌번호")
                     
-                    TextField("", text: $viewModel.accountNum)
+                    TextField("", text: $viewModel.request.receiveAccountId)
                         .textFieldStyle(LabelTextFieldStyle())
                 }
             }
@@ -94,7 +93,7 @@ struct FirstTransferSendView: View {
         }
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .notDetailLinkNavigate(to: SecondTransferSendView(name: viewModel.name, withdrawAccount: viewModel.withdrawAccount, request: viewModel.request), when: $viewModel.isAgree)
+        .notDetailLinkNavigate(to: SecondTransferSendView(name: viewModel.name, request: viewModel.request), when: $viewModel.isAgree)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
@@ -102,6 +101,6 @@ struct FirstTransferSendView: View {
 
 struct FirstTransferSendView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstTransferSendView(withdrawAccount: Account())
+        FirstTransferSendView(sendAccount: Account())
     }
 }

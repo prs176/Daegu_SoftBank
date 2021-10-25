@@ -21,11 +21,11 @@ class ThirdTransferSendViewModel: BaseViewModel {
     
     var pwCursor: Int = 4
     
-    var request: TransferRequest
+    var request: TransferSendRequest
     
     @Published var isSuccess: Bool = false
     
-    init(request: TransferRequest) {
+    init(request: TransferSendRequest) {
         self.request = request
     }
     
@@ -34,7 +34,7 @@ class ThirdTransferSendViewModel: BaseViewModel {
             return
         }
         
-        request.pw = Int(pwLetters.joined())!
+        request.sendAccountPw = pwLetters.joined()
         isSuccess = true
     }
     

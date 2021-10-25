@@ -12,7 +12,7 @@ struct ThirdTransferSendView: View {
     
     var fees: Int
     
-    init(fees: Int, request: TransferRequest) {
+    init(fees: Int, request: TransferSendRequest) {
         self.fees = fees
         viewModel = ThirdTransferSendViewModel(request: request)
     }
@@ -58,7 +58,7 @@ struct ThirdTransferSendView: View {
         }
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .notDetailLinkNavigate(to: FourthTransferSendView(bank: viewModel.request.bank, accountNum: viewModel.request.accountNum, price: viewModel.request.price, fees: fees), when: $viewModel.isSuccess)
+        .notDetailLinkNavigate(to: FourthTransferSendView(request: viewModel.request, fees: fees), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
@@ -66,6 +66,6 @@ struct ThirdTransferSendView: View {
 
 struct ThirdTransferSendView_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdTransferSendView(fees: 0, request: TransferRequest())
+        ThirdTransferSendView(fees: 0, request: TransferSendRequest())
     }
 }

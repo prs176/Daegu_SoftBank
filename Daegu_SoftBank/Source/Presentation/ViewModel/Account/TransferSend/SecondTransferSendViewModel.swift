@@ -9,15 +9,13 @@ import Foundation
 
 class SecondTransferSendViewModel: BaseViewModel {
     var name: String
-    var withdrawAccount: TempAccount
     
-    var request: TransferRequest
+    var request: TransferSendRequest
     
     @Published var fees: Int = 0
     
-    init(name: String, withdrawAccount: TempAccount, request: TransferRequest) {
+    init(name: String, request: TransferSendRequest) {
         self.name = name
-        self.withdrawAccount = withdrawAccount
         self.request = request
         
         super.init()
