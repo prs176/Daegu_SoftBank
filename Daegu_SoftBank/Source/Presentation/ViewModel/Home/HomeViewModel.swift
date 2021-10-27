@@ -9,10 +9,23 @@ import SwiftUI
 
 class HomeViewModel: BaseViewModel {
     @Published var profileImage: UIImage? = nil
-    @Published var name = "User"
-    @Published var accounts = [TempAccount(idx: 0, accountNum: "4321-4321", bank: "fh로", name: "미로", balance: 3214), TempAccount(idx: 1, accountNum: "1234-1234", bank: "로미", name: "로미", balance: 1234)]
+    @Published var name: String = ""
+    @Published var accounts: [Account] = []
+    
+    let fetchMyUserUseCase: FetchMyUserUseCase
+    
+    init(fetchMyUserUseCase: FetchMyUserUseCase) {
+        self.fetchMyUserUseCase = fetchMyUserUseCase
+        
+        super.init()
+        
+        refresh()
+    }
     
     func refresh() {
-        
+        addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] user in
+            self?.name = user.name
+            self?.accounts = user.account
+        }
     }
 }

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AccountRow: View {
-    var account: TempAccount
-    @Binding var selectedAccount: TempAccount
+    var account: Account
+    @Binding var selectedAccount: Account
     @Binding var isActiveBringView: Bool
     
     var body: some View {
@@ -23,13 +23,13 @@ struct AccountRow: View {
                 VStack(alignment: .leading) {
                     Text(account.name)
                     
-                    Text(account.accountNum)
+                    Text(account.account)
                         .fontWeight(.thin)
                 }
                 
                 Spacer()
                 
-                Text("\(account.balance) 원")
+                Text("\(account.money) 원")
                     .font(.title3)
                     .bold()
             }
@@ -51,7 +51,7 @@ struct AccountRow: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: FirstTransferSendView(withdrawAccount: account), label: {
+                NavigationLink(destination: FirstTransferSendView(sendAccount: account), label: {
                     Text("이체")
                         .foregroundColor(Color(.secondaryLabel))
                         .padding(.horizontal, 12)
@@ -68,6 +68,6 @@ struct AccountRow: View {
 
 struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        AccountRow(account: TempAccount(), selectedAccount: .constant(TempAccount()), isActiveBringView: .constant(false))
+        AccountRow(account: Account(), selectedAccount: .constant(Account()), isActiveBringView: .constant(false))
     }
 }

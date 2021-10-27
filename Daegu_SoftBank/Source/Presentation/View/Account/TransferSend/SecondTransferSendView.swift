@@ -11,8 +11,8 @@ struct SecondTransferSendView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: SecondTransferSendViewModel
     
-    init(name: String, withdrawAccount: TempAccount, request: TransferRequest) {
-        viewModel = SecondTransferSendViewModel(name: name, withdrawAccount: withdrawAccount, request: request)
+    init(name: String, request: TransferSendRequest) {
+        viewModel = SecondTransferSendViewModel(name: name, request: request)
     }
     
     var body: some View {
@@ -31,7 +31,7 @@ struct SecondTransferSendView: View {
                 
                 Spacer()
                 
-                Text(viewModel.withdrawAccount.accountNum)
+                Text(viewModel.request.sendAccountId)
                     .font(.title3)
             }
             
@@ -42,10 +42,11 @@ struct SecondTransferSendView: View {
                 
                 Spacer()
                 
-                Text(viewModel.request.bank)
+//                Text(viewModel.request.bank)
+                Text("은행")
                     .font(.title3)
                 
-                Text(viewModel.request.accountNum)
+                Text(viewModel.request.receiveAccountId)
                     .font(.title3)
             }
             
@@ -56,7 +57,7 @@ struct SecondTransferSendView: View {
                 
                 Spacer()
                 
-                Text("\(viewModel.request.price) 원")
+                Text("\(viewModel.request.money) 원")
                     .font(.title3)
             }
             
@@ -102,13 +103,12 @@ struct SecondTransferSendView: View {
             }
         }
         .padding()
-        .notDetailLinkNavigate(to: ThirdTransferSendView(fees: viewModel.fees, request: viewModel.request), when: .constant(false))
         .navigationBarHidden(true)
     }
 }
 
 struct SecondTransferSendView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondTransferSendView(name: "로미", withdrawAccount: TempAccount(), request: TransferRequest())
+        SecondTransferSendView(name: "로미", request: TransferSendRequest())
     }
 }
