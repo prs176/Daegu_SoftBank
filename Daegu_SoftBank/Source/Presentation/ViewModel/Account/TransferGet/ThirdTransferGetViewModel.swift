@@ -18,16 +18,16 @@ class ThirdTransferGetViewModel: BaseViewModel {
             }
         }
     }
-    var depositAccount: TempAccount
+    var receiveAccount: Account
     
     var pwCursor: Int = 4
     
-    var request: BringRequest
+    var request: TransferSendRequest
     
     @Published var isSuccess: Bool = false
     
-    init(depositAccount: TempAccount, request: BringRequest) {
-        self.depositAccount = depositAccount
+    init(receiveAccount: Account, request: TransferSendRequest) {
+        self.receiveAccount = receiveAccount
         self.request = request
     }
     
@@ -36,7 +36,7 @@ class ThirdTransferGetViewModel: BaseViewModel {
             return
         }
         
-        request.pw = Int(pwLetters.joined())!
+        request.sendAccountPw = pwLetters.joined()
         isSuccess = true
     }
     

@@ -17,8 +17,8 @@ struct SecondTransferGetView: View {
         return formatter
     } ()
     
-    init(depositAccount: TempAccount, withdrawAccount: TempAccount, request: BringRequest) {
-        viewModel = SecondTransferGetViewModel(depositAccount: depositAccount, withdrawAccount: withdrawAccount, request: request)
+    init(receiveAccount: Account, sendAccount: Account, request: TransferSendRequest) {
+        viewModel = SecondTransferGetViewModel(receiveAccount: receiveAccount, sendAccount: sendAccount, request: request)
     }
     
     var body: some View {
@@ -43,10 +43,11 @@ struct SecondTransferGetView: View {
                     .cornerRadius(10.0)
                 
                 VStack(alignment: .leading) {
-                    Text(viewModel.withdrawAccount.bank)
+//                    Text(viewModel.sendAccount.bank)
+                    Text("은행")
                         .font(.title3)
                     
-                    Text(viewModel.withdrawAccount.accountNum)
+                    Text(viewModel.sendAccount.account)
                         .font(.title3)
                         .fontWeight(.thin)
                 }
@@ -55,7 +56,7 @@ struct SecondTransferGetView: View {
             HStack {
                 Text("출금가능금액: ")
                 
-                Text("\(viewModel.withdrawAccount.balance) 원")
+                Text("\(viewModel.sendAccount.money) 원")
                     .underline()
             }
             .padding(8)
@@ -98,7 +99,7 @@ struct SecondTransferGetView: View {
         .padding()
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("가져오기")
-        .notDetailLinkNavigate(to: ThirdTransferGetView(depositAccount: viewModel.depositAccount, request: viewModel.request), when: $viewModel.isSuccess)
+        .notDetailLinkNavigate(to: ThirdTransferGetView(receiveAccount: viewModel.receiveAccount, request: viewModel.request), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
@@ -106,6 +107,6 @@ struct SecondTransferGetView: View {
 
 struct SecondTransferGetView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondTransferGetView(depositAccount: TempAccount(), withdrawAccount: TempAccount(), request: BringRequest())
+        SecondTransferGetView(receiveAccount: Account(), sendAccount: Account(), request: TransferSendRequest())
     }
 }

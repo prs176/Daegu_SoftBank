@@ -9,16 +9,16 @@ import Foundation
 
 class SecondTransferGetViewModel: BaseViewModel {
     @Published var price: String = "0"
-    var depositAccount: TempAccount
-    var withdrawAccount: TempAccount
+    var receiveAccount: Account
+    var sendAccount: Account
     
-    var request: BringRequest
+    var request: TransferSendRequest
     
     @Published var isSuccess: Bool = false
     
-    init(depositAccount: TempAccount, withdrawAccount: TempAccount, request: BringRequest) {
-        self.depositAccount = depositAccount
-        self.withdrawAccount = withdrawAccount
+    init(receiveAccount: Account, sendAccount: Account, request: TransferSendRequest) {
+        self.receiveAccount = receiveAccount
+        self.sendAccount = sendAccount
         self.request = request
     }
 }
@@ -27,13 +27,13 @@ extension SecondTransferGetViewModel {
     func validate() {
         let price = Int(price.components(separatedBy: ",").joined())!
         
-        if withdrawAccount.balance < price {
+        if sendAccount.money < price {
             isErrorOcuured = true
             errorMessage = "가져오기할 금액이 출금가능금액보다 큽니다."
             return
         }
         
-        request.price = price
+        request.money = price
         
         isSuccess = true
     }

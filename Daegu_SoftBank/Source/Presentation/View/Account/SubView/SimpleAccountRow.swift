@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct SimpleAccountRow: View {
-    var account: TempAccount
+    var account: Account
     var isChecked: Bool
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(account.bank)
+//                Text(account.bank)
+                Text("은행")
                     .foregroundColor(.secondary)
                 
-                Text("\(account.name) \(account.accountNum)")
+                Text("\(account.name) \(account.account)")
                     .fontWeight(.thin)
                     .foregroundColor(.secondary)
                 
-                Text("\(account.balance) 원")
+                Text("\(account.money) 원")
                     
                     .foregroundColor(.primary)
             }
@@ -37,6 +38,6 @@ struct SimpleAccountRow: View {
 
 struct SimpleAccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        SimpleAccountRow(account: TempAccount(), isChecked: false)
+        SimpleAccountRow(account: Account(), isChecked: false)
     }
 }

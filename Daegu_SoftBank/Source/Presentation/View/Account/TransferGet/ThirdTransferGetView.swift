@@ -11,8 +11,8 @@ struct ThirdTransferGetView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: ThirdTransferGetViewModel
     
-    init(depositAccount: TempAccount, request: BringRequest) {
-        viewModel = ThirdTransferGetViewModel(depositAccount: depositAccount, request: request)
+    init(receiveAccount: Account, request: TransferSendRequest) {
+        viewModel = ThirdTransferGetViewModel(receiveAccount: receiveAccount, request: request)
     }
     
     var body: some View {
@@ -53,7 +53,7 @@ struct ThirdTransferGetView: View {
         .padding()
         .alert(isPresented: $viewModel.isSuccess) {
             Alert(title: Text("가져오기 완료"),
-                  message: Text("\(viewModel.depositAccount.name)(으)로\n\(viewModel.request.price) 원을 가져왔습니다."),
+                  message: Text("\(viewModel.receiveAccount.name)(으)로\n\(viewModel.request.money) 원을 가져왔습니다."),
                   dismissButton: .cancel(Text("확인")) { presentationMode.wrappedValue.dismiss() })
         }
         .navigationTitle("이체")
@@ -65,6 +65,6 @@ struct ThirdTransferGetView: View {
 
 struct ThirdTransferGetView_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdTransferGetView(depositAccount: TempAccount(), request: BringRequest())
+        ThirdTransferGetView(receiveAccount: Account(), request: TransferSendRequest())
     }
 }
