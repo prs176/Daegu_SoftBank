@@ -34,13 +34,6 @@ struct LoginView: View {
                         Text("간편인증번호")
                         
                         Spacer()
-                        
-                        Menu {
-                            Text("다른 계정으로 간편인증번호 로그인을 이용하시려면, 먼저 이용할 계정으로 일반로그인(아이디, 비밀번호)을 진행해주세요.")
-                        } label: {
-                            Image(systemName: "questionmark.circle")
-                        }
-
                     }
                     
                     HStack {
@@ -57,6 +50,10 @@ struct LoginView: View {
                     .highPriorityGesture(TapGesture().onEnded {
                         viewModel.resetAuthNumLetters()
                     })
+                    
+                    Text("간편인증번호 로그인을 이용하시려면,\n 먼저 이용할 계정으로 일반로그인을 진행해주세요.")
+                        .font(.callout)
+                        .foregroundColor(.secondary)
                 }
             }
             
