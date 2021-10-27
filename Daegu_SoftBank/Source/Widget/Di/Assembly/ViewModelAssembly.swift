@@ -29,5 +29,9 @@ class ViewModelAssembly: Assembly {
             HomeViewModel(fetchMyUserUseCase: r.resolve(FetchMyUserUseCase.self)!)
         }
         .inObjectScope(.container)
+        
+        container.register(FirstCreateAccountViewModel.self) { r in
+            FirstCreateAccountViewModel(fetchUserByNameAndBirthUseCase: r.resolve(FetchUserByNameAndBirthUseCase.self)!)
+        }
     }
 }

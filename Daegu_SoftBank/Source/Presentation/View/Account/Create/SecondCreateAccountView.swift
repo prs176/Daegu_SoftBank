@@ -12,8 +12,8 @@ struct SecondCreateAccountView: View {
     
     @State var isActiveThirdCreateAccountView: Bool = false
     
-    init(phoneNum: String, request: CreateAccountRequest) {
-        viewModel = SecondCreateAccountViewModel(phoneNum: phoneNum, request: request)
+    init(user: User, request: AccountRequest, phoneNum: String = "", tempRequest: CreateAccountRequest = CreateAccountRequest()) {
+        viewModel = SecondCreateAccountViewModel(phoneNum: phoneNum, request: tempRequest)
     }
     
     var body: some View {
@@ -93,6 +93,6 @@ struct SecondCreateAccountView: View {
 
 struct SecondCreateAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondCreateAccountView(phoneNum: "", request: CreateAccountRequest())
+        SecondCreateAccountView(user: User(), request: AccountRequest())
     }
 }

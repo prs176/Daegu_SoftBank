@@ -22,10 +22,16 @@ class FirstCreateAccountViewModel: BaseViewModel {
     
     var rnnCursor: Int = 7
     
-    var request: CreateAccountRequest = CreateAccountRequest()
+    var request: AccountRequest = AccountRequest()
+    
+    let fetchUserByNameAndBirthUseCase: FetchUserByNameAndBirthUseCase
     
     @Published var isSuccess: Bool = false
-    var phoneNum: String = ""
+    var user: User = User()
+    
+    init(fetchUserByNameAndBirthUseCase: FetchUserByNameAndBirthUseCase) {
+        self.fetchUserByNameAndBirthUseCase = fetchUserByNameAndBirthUseCase
+    }
     
     func fetch() {
         guard validate() else {
@@ -33,10 +39,12 @@ class FirstCreateAccountViewModel: BaseViewModel {
         }
         
         request.name = name
-        request.rrn = Int(rrnLetters.joined())!
+        request.birth = rrnLetters.joined()
         
-        phoneNum = "010-1234-1234"
-        isSuccess = true
+        addCancellable(publisher: fetchUserByNameAndBirthUseCase.buildUseCasePublisher(FetchUserByNameAndBirthUseCase.Param(name: name, birth: rrnLetters.joined()))) { [weak self] in
+            self?.user = $0
+            self?.isSuccess = true
+        }
     }
     
     func resetRnnLetters() {
