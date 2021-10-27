@@ -102,6 +102,7 @@ struct SecondTransferSendView: View {
                     .isDetailLink(false)
             }
         }
+        .notDetailLinkNavigate(to: ThirdTransferSendView(fees: viewModel.fees, request: viewModel.request), when: .constant(false))
         .padding()
         .navigationBarHidden(true)
     }

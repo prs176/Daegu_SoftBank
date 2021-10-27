@@ -23,15 +23,17 @@ struct FirstTransferSendView: View {
     
     var body: some View {
         let money = Binding<String> {
-            formatter.string(from: NSNumber(value: viewModel.request.money)) ?? "0"
+            viewModel.money
         } set: { value in
             let filtered = Int(value.filter { "0123456789".contains($0) }) ?? 0
             
-            guard filtered <= 10000000 else {
+            if filtered > 10000000 {
+                viewModel.money = "10,000,000"
                 viewModel.request.money = 10000000
                 return
             }
             
+            viewModel.money = formatter.string(from: NSNumber(value: filtered)) ?? "0"
             viewModel.request.money = filtered
         }
         
