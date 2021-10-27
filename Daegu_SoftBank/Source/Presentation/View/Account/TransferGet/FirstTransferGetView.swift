@@ -14,7 +14,7 @@ struct FirstTransferGetView: View {
         viewModel = FirstTransferGetViewModel(accounts: tempAccounts, depositAccount: temp)
         
         if let idx = accounts.map({ $0.idx }).firstIndex(of: depositAccount.idx) {
-            viewModel.accounts.remove(at: idx)
+            viewModel.accounts.removeFirst(idx)
         }
     }
     
