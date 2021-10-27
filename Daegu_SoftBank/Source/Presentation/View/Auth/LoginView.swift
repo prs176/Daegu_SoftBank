@@ -51,7 +51,7 @@ struct LoginView: View {
                         viewModel.resetAuthNumLetters()
                     })
                     
-                    Text("간편인증번호 로그인을 이용하시려면,\n 먼저 이용할 계정으로 일반로그인을 진행해주세요.")
+                    Text("다른 계정으로 간편인증번호 로그인을 이용하시려면,\n먼저 이용할 계정으로 일반로그인을 진행해주세요.")
                         .font(.callout)
                         .foregroundColor(.secondary)
                 }
