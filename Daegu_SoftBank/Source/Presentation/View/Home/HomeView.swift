@@ -23,6 +23,7 @@ struct HomeView: View {
                     
                     Menu(content: {
                         Button(action: {
+                            AuthController.getInstance().logout()
                             loginViewRootPresentation.wrappedValue = false
                             registerViewRootPresentation.wrappedValue = false
                         }, label: {
