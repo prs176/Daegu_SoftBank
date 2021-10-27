@@ -12,8 +12,8 @@ struct SecondCreateAccountView: View {
     
     @State var isActiveThirdCreateAccountView: Bool = false
     
-    init(user: User, request: AccountRequest, phoneNum: String = "", tempRequest: CreateAccountRequest = CreateAccountRequest()) {
-        viewModel = SecondCreateAccountViewModel(phoneNum: phoneNum, request: tempRequest)
+    init(user: User, request: AccountRequest) {
+        viewModel = DependencyProvider.shared.container.resolve(SecondCreateAccountViewModel.self, arguments: user, request)!
     }
     
     var body: some View {
@@ -40,7 +40,7 @@ struct SecondCreateAccountView: View {
                     
                     Spacer()
                     
-                    Text(viewModel.rrn)
+                    Text(viewModel.birth)
                         .font(.title3)
                 }
                 
@@ -51,7 +51,7 @@ struct SecondCreateAccountView: View {
                     
                     Spacer()
                     
-                    Text(viewModel.phoneNum)
+                    Text(viewModel.user.phone)
                         .font(.title3)
                 }
             }
@@ -60,14 +60,14 @@ struct SecondCreateAccountView: View {
             VStack(alignment: .leading) {
                 Text("통장별명")
                 
-                TextField("", text: $viewModel.accountName)
+                TextField("", text: $viewModel.name)
                     .textFieldStyle(LabelTextFieldStyle())
             }
             
             Spacer()
             
             Button {
-                viewModel.request.accountName = viewModel.accountName
+                viewModel.request.name = viewModel.name
                 isActiveThirdCreateAccountView = true
             } label: {
                 Text("확인")
