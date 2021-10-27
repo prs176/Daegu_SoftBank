@@ -25,8 +25,8 @@ class UseCaseAssembly: Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(FetchUserByNameAndBirth.self) { r in
-            FetchUserByNameAndBirth(userRepository: r.resolve(UserRepository.self)!)
+        container.register(FetchUserByNameAndBirthUseCase.self) { r in
+            FetchUserByNameAndBirthUseCase(userRepository: r.resolve(UserRepository.self)!)
         }
         .inObjectScope(.container)
         
