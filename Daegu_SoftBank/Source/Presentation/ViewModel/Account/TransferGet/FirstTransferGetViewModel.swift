@@ -8,16 +8,16 @@
 import Foundation
 
 class FirstTransferGetViewModel: BaseViewModel {
-    @Published var isActiveSecondBringView: Bool = false
-    @Published var selectedAccount: TempAccount = TempAccount()
+    @Published var selectedAccount: Account = Account()
     
-    var accounts: [TempAccount]
+    var accounts: [Account]
     
-    var depositAccount: TempAccount
-    var request: BringRequest = BringRequest()
+    var receiveAccount: Account
+    var request: TransferSendRequest = TransferSendRequest()
     
-    init(accounts: [TempAccount], depositAccount: TempAccount) {
+    init(accounts: [Account], receiveAccount: Account) {
         self.accounts = accounts
-        self.depositAccount = depositAccount
+        self.receiveAccount = receiveAccount
+        self.request.receiveAccountId = receiveAccount.account
     }
 }

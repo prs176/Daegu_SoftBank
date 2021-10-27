@@ -10,10 +10,12 @@ import SwiftUI
 struct FirstTransferGetView: View {
     @ObservedObject var viewModel: FirstTransferGetViewModel
     
-    init(depositAccount: Account, accounts: [Account], temp: TempAccount = TempAccount(), tempAccounts: [TempAccount] = []) {
-        viewModel = FirstTransferGetViewModel(accounts: tempAccounts, depositAccount: temp)
+    @State var isActiveSecondBringView: Bool = false
+    
+    init(accounts: [Account], receiveAccount: Account) {
+        viewModel = FirstTransferGetViewModel(accounts: accounts, receiveAccount: receiveAccount)
         
-        if let idx = accounts.map({ $0.idx }).firstIndex(of: depositAccount.idx) {
+        if let idx = accounts.firstIndex(of: receiveAccount) {
             viewModel.accounts.remove(at: idx)
         }
     }
@@ -29,8 +31,8 @@ struct FirstTransferGetView: View {
                     
                     Button {
                         viewModel.selectedAccount = account
-                        viewModel.request.withdrawAccountIdx = account.idx
-                        viewModel.isActiveSecondBringView = true
+                        viewModel.request.sendAccountId = account.account
+                        isActiveSecondBringView = true
                     } label: {
                         SimpleAccountRow(account: account, isChecked: false)
                     }
@@ -39,15 +41,15 @@ struct FirstTransferGetView: View {
         }
         .padding()
         .onAppear {
-            viewModel.isActiveSecondBringView = false
+            isActiveSecondBringView = false
         }
         .navigationTitle("가져오기")
-        .notDetailLinkNavigate(to: SecondTransferGetView(depositAccount: viewModel.depositAccount, withdrawAccount: viewModel.selectedAccount, request: viewModel.request), when: $viewModel.isActiveSecondBringView)
+        .notDetailLinkNavigate(to: SecondTransferGetView(receiveAccount: viewModel.receiveAccount, sendAccount: viewModel.selectedAccount, request: viewModel.request), when: $isActiveSecondBringView)
     }
 }
 
 struct FirstTransferGetView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstTransferGetView(depositAccount: Account(), accounts: [])
+        FirstTransferGetView(accounts: [], receiveAccount: Account())
     }
 }

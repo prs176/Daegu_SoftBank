@@ -97,7 +97,7 @@ struct HomeView: View {
             Color(.secondarySystemBackground).ignoresSafeArea()
         )
         .navigationBarHidden(true)
-        .navigate(to: FirstTransferGetView(depositAccount: selectedAccount, accounts: viewModel.accounts), when: $isActiveBringView)
+        .navigate(to: FirstTransferGetView(accounts: viewModel.accounts, receiveAccount: selectedAccount), when: $isActiveBringView)
     }
 }
 
