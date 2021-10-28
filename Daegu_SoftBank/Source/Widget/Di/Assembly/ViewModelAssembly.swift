@@ -37,5 +37,10 @@ class ViewModelAssembly: Assembly {
         container.register(SecondCreateAccountViewModel.self) { (r, user, request) in
             SecondCreateAccountViewModel(user: user, request: request)
         }
+        
+        container.register(ThirdCreateAccountViewModel.self) { (r, request) in
+            ThirdCreateAccountViewModel(applyAccountUseCase: r.resolve(ApplyAccountUseCase.self)!,
+                                        request: request)
+        }
     }
 }
