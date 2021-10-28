@@ -24,12 +24,15 @@ class FirstCreateAccountViewModel: BaseViewModel {
     
     var request: AccountRequest = AccountRequest()
     
+    let fetchMyUserUseCasefetchUser: FetchMyUserUseCase
     let fetchUserByNameAndBirthUseCase: FetchUserByNameAndBirthUseCase
     
     @Published var isSuccess: Bool = false
     var user: User = User()
     
-    init(fetchUserByNameAndBirthUseCase: FetchUserByNameAndBirthUseCase) {
+    init(fetchMyUserUseCasefetchUser: FetchMyUserUseCase,
+         fetchUserByNameAndBirthUseCase: FetchUserByNameAndBirthUseCase) {
+        self.fetchMyUserUseCasefetchUser = fetchMyUserUseCasefetchUser
         self.fetchUserByNameAndBirthUseCase = fetchUserByNameAndBirthUseCase
     }
     
@@ -40,9 +43,17 @@ class FirstCreateAccountViewModel: BaseViewModel {
         
         request.birth = rrnLetters.joined()
         
-        addCancellable(publisher: fetchUserByNameAndBirthUseCase.buildUseCasePublisher(FetchUserByNameAndBirthUseCase.Param(name: name, birth: rrnLetters.joined()))) { [weak self] in
-            self?.user = $0
-            self?.isSuccess = true
+        addCancellable(publisher: fetchMyUserUseCasefetchUser.buildUseCasePublisher()
+                        .zip(fetchUserByNameAndBirthUseCase.buildUseCasePublisher(FetchUserByNameAndBirthUseCase.Param(name: name, birth: rrnLetters.joined())))
+                        .eraseToAnyPublisher()) { [weak self] myUser, user in
+            if user.id == myUser.id {
+                self?.user = user
+                self?.isSuccess = true
+            }
+            else {
+                self?.errorMessage = "정보를 잘못 입력하셨습니다."
+                self?.isErrorOcuured = true
+            }
         }
     }
     
