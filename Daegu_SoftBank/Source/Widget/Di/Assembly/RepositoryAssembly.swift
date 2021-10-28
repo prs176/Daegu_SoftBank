@@ -28,5 +28,10 @@ class RepositoryAssembly: Assembly {
             TransferRepositoryImpl(transferRemote: r.resolve(TransferRemote.self)!)
         }
         .inObjectScope(.container)
+        
+        container.register(UploadRepository.self) { r in
+            UploadRepositoryImpl(uploadRemote: r.resolve(UploadRemote.self)!)
+        }
+        .inObjectScope(.container)
     }
 }

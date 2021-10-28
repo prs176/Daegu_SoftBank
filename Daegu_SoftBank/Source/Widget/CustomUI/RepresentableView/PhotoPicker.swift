@@ -11,6 +11,8 @@ import PhotosUI
 struct PhotoPicker: UIViewControllerRepresentable {
     let configuration: PHPickerConfiguration
     @Binding var photo: UIImage?
+    @Binding var name: String
+    @Binding var type: ImageType
 
     func makeUIViewController(context: Context) -> PHPickerViewController {
         let controller = PHPickerViewController(configuration: configuration)
@@ -32,16 +34,23 @@ struct PhotoPicker: UIViewControllerRepresentable {
         }
 
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            picker.dismiss(animated: true)
-
-            if let itemProvider = results.first?.itemProvider,
-               itemProvider.canLoadObject(ofClass: UIImage.self) {
-                itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+            if let itemProvider = results.first?.itemProvider {
+                if itemProvider.canLoadObject(ofClass: UIImage.self) {
+                    itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                        DispatchQueue.main.async { [weak self] in
+                            self?.parent.photo = image as? UIImage
+                        }
+                    }
+                }
+                itemProvider.loadFileRepresentation(forTypeIdentifier: "public.item") { url, error in
                     DispatchQueue.main.async { [weak self] in
-                        self?.parent.photo = image as? UIImage
+                        self?.parent.name = url?.lastPathComponent ?? ""
+                        self?.parent.type = ImageType(rawValue: url?.pathExtension ?? "") ?? ImageType.UNKNOWN
                     }
                 }
             }
+            
+            picker.dismiss(animated: true)
         }
     }
 }

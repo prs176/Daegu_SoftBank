@@ -13,5 +13,6 @@ class User: Codable {
     var name: String = ""
     var phone: String = ""
     var birth: String = ""
+    var profileImage: String = ""
     var account: [Account] = []
 }

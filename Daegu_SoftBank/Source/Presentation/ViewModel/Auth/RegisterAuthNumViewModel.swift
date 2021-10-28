@@ -32,28 +32,47 @@ class RegisterAuthNumViewModel: BaseViewModel {
     @Published var curStep: Int = 0
     var authNumCursor: Int = 6
     
+    var uploadRequest: UploadRequest
+    var registerRequest: RegisterRequest
+    
+    let uploadUseCase: UploadUseCase
     let registerUseCase: RegisterUseCase
     let applyAuthNumUseCase: ApplyAuthNumUseCase
     let loginUseCase: LoginUseCase
     
+    @Published var isSuccessUpload: Bool = false
     @Published var isSuccessRegister: Bool = false
     @Published var isSuccessRegisterAuthNum: Bool = false
     @Published var isSuccessLogin: Bool = false
     
-    init(registerUseCase: RegisterUseCase,
+    init(uploadUseCase: UploadUseCase,
+         registerUseCase: RegisterUseCase,
          applyAuthNumUseCase: ApplyAuthNumUseCase,
-         loginUseCase: LoginUseCase) {
+         loginUseCase: LoginUseCase,
+         uploadRequest: UploadRequest,
+         registerRequest: RegisterRequest) {
+        self.uploadUseCase = uploadUseCase
         self.registerUseCase = registerUseCase
         self.applyAuthNumUseCase = applyAuthNumUseCase
         self.loginUseCase = loginUseCase
+        
+        self.uploadRequest = uploadRequest
+        self.registerRequest = registerRequest
     }
     
-    func register(request: RegisterRequest) {
+    func uploadImage() {
         guard validate() else {
             return
         }
         
-        addCancellable(publisher: registerUseCase.buildUseCasePublisher(RegisterUseCase.Param(request: request))) { [weak self] in
+        addCancellable(publisher: uploadUseCase.buildUseCasePublisher(UploadUseCase.Param(request: uploadRequest))) { [weak self] in
+            self?.registerRequest.profileImage = $0
+            self?.isSuccessUpload = true
+        }
+    }
+    
+    func register() {
+        addCancellable(publisher: registerUseCase.buildUseCasePublisher(RegisterUseCase.Param(request: registerRequest))) { [weak self] in
             self?.isSuccessRegister = true
         }
     }
@@ -64,8 +83,8 @@ class RegisterAuthNumViewModel: BaseViewModel {
         }
     }
     
-    func login(id: String, pw: String) {
-        addCancellable(publisher: loginUseCase.buildUseCasePublisher(LoginUseCase.Param(id: id, pw: pw))) { [weak self] in
+    func login() {
+        addCancellable(publisher: loginUseCase.buildUseCasePublisher(LoginUseCase.Param(id: registerRequest.id, pw: registerRequest.pw))) { [weak self] in
             self?.isSuccessLogin = true
         }
     }

@@ -8,8 +8,7 @@
 import SwiftUI
 
 class HomeViewModel: BaseViewModel {
-    @Published var profileImage: UIImage? = nil
-    @Published var name: String = ""
+    @Published var user: User = User()
     @Published var accounts: [Account] = []
     
     let fetchMyUserUseCase: FetchMyUserUseCase
@@ -24,7 +23,7 @@ class HomeViewModel: BaseViewModel {
     
     func refresh() {
         addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] user in
-            self?.name = user.name
+            self?.user = user
             self?.accounts = user.account
         }
     }

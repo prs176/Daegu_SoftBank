@@ -19,7 +19,7 @@ struct HomeView: View {
         ScrollView {
             VStack(spacing: 20) {
                 HStack {
-                    UserInfoView(profileImage: viewModel.profileImage, name: viewModel.name)
+                    UserInfoView(profileImage: viewModel.user.profileImage, name: viewModel.user.name)
                     
                     Menu(content: {
                         Button(action: {

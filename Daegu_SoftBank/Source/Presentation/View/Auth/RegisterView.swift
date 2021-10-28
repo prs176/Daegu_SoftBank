@@ -18,7 +18,7 @@ struct RegisterView: View {
         ScrollView {
             VStack(spacing: 20) {
                 ZStack {
-                    if let image = viewModel.profileImage {
+                    if let image = viewModel.uploadRequest.image {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFill()
@@ -54,10 +54,10 @@ struct RegisterView: View {
                         })
                     }
                     
-                    TextField("영소문자+숫자 조합, 3~12자", text: $viewModel.request.id)
+                    TextField("영소문자+숫자 조합, 3~12자", text: $viewModel.registerRequest.id)
                         .textFieldStyle(LabelTextFieldStyle())
                         .autocapitalization(.none)
-                        .onChange(of: viewModel.request.id, perform: { value in
+                        .onChange(of: viewModel.registerRequest.id, perform: { value in
                             viewModel.isIdValid = nil
                         })
                 }
@@ -65,7 +65,7 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("비밀번호")
                     
-                    SecureField("영문자+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.request.pw)
+                    SecureField("영문자+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.registerRequest.pw)
                         .textFieldStyle(LabelTextFieldStyle())
                 }
                 
@@ -127,7 +127,7 @@ struct RegisterView: View {
                 
                 VStack(alignment: .leading) {
                     Text("이름(실명)")
-                    TextField("", text: $viewModel.request.name)
+                    TextField("", text: $viewModel.registerRequest.name)
                         .textFieldStyle(LabelTextFieldStyle())
                 }
                 
@@ -151,9 +151,9 @@ struct RegisterView: View {
                         
                     }
                     
-                    TextField("2자 이상", text: $viewModel.request.nick)
+                    TextField("2자 이상", text: $viewModel.registerRequest.nick)
                         .textFieldStyle(LabelTextFieldStyle())
-                        .onChange(of: viewModel.request.nick, perform: { value in
+                        .onChange(of: viewModel.registerRequest.nick, perform: { value in
                             viewModel.isNickValid = nil
                         })
                 }
@@ -194,13 +194,13 @@ struct RegisterView: View {
             viewModel.isSuccess = false
         }
         .sheet(isPresented: $isPresentedPhotoPicker) {
-            PhotoPicker(configuration: getConfiguration(), photo: $viewModel.profileImage)
+            PhotoPicker(configuration: getConfiguration(), photo: $viewModel.uploadRequest.image, name: $viewModel.uploadRequest.name, type: $viewModel.uploadRequest.type)
         }
         .sheet(isPresented: $isPresentedWebView) {
             WebView(url: "https://docs.google.com/document/d/1XrCnV4_17cBfQx_Elo6ux33biBjJQc33ebBezdCkc8c/edit")
         }
         .navigationTitle("회원가입")
-        .navigate(to: RegisterAuthNumView(request: viewModel.request), when: $viewModel.isSuccess)
+        .navigate(to: RegisterAuthNumView(uploadRequest: viewModel.uploadRequest, registerRequest: viewModel.registerRequest), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

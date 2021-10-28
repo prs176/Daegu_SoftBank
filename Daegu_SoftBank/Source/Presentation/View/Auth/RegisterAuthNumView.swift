@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct RegisterAuthNumView: View {
-    @StateObject var viewModel = DependencyProvider.shared.container.resolve(RegisterAuthNumViewModel.self)!
-    
-    let request: RegisterRequest
+    @ObservedObject var viewModel: RegisterAuthNumViewModel
 
-    init(request: RegisterRequest) {
-        self.request = request
+    init(uploadRequest: UploadRequest, registerRequest: RegisterRequest) {
+        self.viewModel = DependencyProvider.shared.container.resolve(RegisterAuthNumViewModel.self, arguments: uploadRequest, registerRequest)!
     }
     
     var body: some View {
@@ -77,7 +75,7 @@ struct RegisterAuthNumView: View {
                     
                     Button(action: {
                         viewModel.authNumCursor = 6
-                        viewModel.register(request: request)
+                        viewModel.uploadImage()
                     }, label: {
                         Text("가입완료")
                             .foregroundColor(.white)
@@ -100,6 +98,11 @@ struct RegisterAuthNumView: View {
             viewModel.isSuccessRegisterAuthNum = false
             viewModel.isSuccessLogin = false
         }
+        .onChange(of: viewModel.isSuccessUpload, perform: { isSuccessUpload in
+            if isSuccessUpload {
+                viewModel.register()
+            }
+        })
         .onChange(of: viewModel.isSuccessRegister) { isSuccessRegister in
             if isSuccessRegister {
                 viewModel.registerAuthNum()
@@ -107,7 +110,7 @@ struct RegisterAuthNumView: View {
         }
         .onChange(of: viewModel.isSuccessRegisterAuthNum) { isSuccessRegisterAuthNum in
             if isSuccessRegisterAuthNum {
-                viewModel.login(id: request.id, pw: request.pw)
+                viewModel.login()
             }
         }
         .navigationTitle("회원가입")
@@ -146,6 +149,6 @@ struct RegisterAuthNumView: View {
 
 struct RegisterAuthNumView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterAuthNumView(request: RegisterRequest())
+        RegisterAuthNumView(uploadRequest: UploadRequest(), registerRequest: RegisterRequest())
     }
 }

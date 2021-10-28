@@ -14,10 +14,13 @@ class ViewModelAssembly: Assembly {
                               fetchNickCheckUseCase: r.resolve(FetchNickCheckUseCase.self)!)
         }
         
-        container.register(RegisterAuthNumViewModel.self) { r in
-            RegisterAuthNumViewModel(registerUseCase: r.resolve(RegisterUseCase.self)!,
+        container.register(RegisterAuthNumViewModel.self) { (r, uploadRequest, registerRequest) in
+            RegisterAuthNumViewModel(uploadUseCase: r.resolve(UploadUseCase.self)!,
+                                     registerUseCase: r.resolve(RegisterUseCase.self)!,
                                      applyAuthNumUseCase: r.resolve(ApplyAuthNumUseCase.self)!,
-                                     loginUseCase: r.resolve(LoginUseCase.self)!)
+                                     loginUseCase: r.resolve(LoginUseCase.self)!,
+                                     uploadRequest: uploadRequest,
+                                     registerRequest: registerRequest)
         }
         
         container.register(LoginViewModel.self) { r in

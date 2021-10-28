@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct UserInfoView: View {
-    var profileImage: UIImage?
+    var profileImage: String?
     var name: String
     
     var body: some View {
         HStack {
             if let profileImage = profileImage {
-                Image(uiImage: profileImage)
-                    .font(.system(size: 50))
-                    .foregroundColor(Color(.secondarySystemFill))
+                URLImage(withURL: profileImage)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 50, height: 50, alignment: .center)
+                    .clipped()
+                    .clipShape(Circle())
             }
             else {
                 Image(systemName: "person.circle.fill")

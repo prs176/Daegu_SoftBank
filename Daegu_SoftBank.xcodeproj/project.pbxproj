@@ -91,6 +91,15 @@
 		CBA023522717ECB3001ED232 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023512717ECB3001ED232 /* LoginRequest.swift */; };
 		CBA023572717ED95001ED232 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023562717ED95001ED232 /* UserAPI.swift */; };
 		CBA023592717EDD3001ED232 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023582717EDD3001ED232 /* Constants.swift */; };
+		CBA60CC9272A68E600FF3ABB /* UploadAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CC8272A68E600FF3ABB /* UploadAPI.swift */; };
+		CBA60CCB272A696600FF3ABB /* UploadRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CCA272A696600FF3ABB /* UploadRemote.swift */; };
+		CBA60CCD272A698C00FF3ABB /* UploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CCC272A698C00FF3ABB /* UploadRequest.swift */; };
+		CBA60CCF272A6E8E00FF3ABB /* UploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CCE272A6E8E00FF3ABB /* UploadResponse.swift */; };
+		CBA60CD1272A6EEF00FF3ABB /* UploadRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CD0272A6EEF00FF3ABB /* UploadRepositoryImpl.swift */; };
+		CBA60CD3272A6EF400FF3ABB /* UploadRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CD2272A6EF400FF3ABB /* UploadRepository.swift */; };
+		CBA60CD7272A6F6E00FF3ABB /* UploadUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CD6272A6F6E00FF3ABB /* UploadUseCase.swift */; };
+		CBA60CD9272A847900FF3ABB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CD8272A847900FF3ABB /* ImageLoader.swift */; };
+		CBA60CDD272A858D00FF3ABB /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CDC272A858D00FF3ABB /* URLImage.swift */; };
 		CBA62D20271E719100684083 /* TransferSendUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA62D1F271E719100684083 /* TransferSendUseCase.swift */; };
 		CBA62D24271E73A300684083 /* ApplyAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA62D23271E73A300684083 /* ApplyAccountUseCase.swift */; };
 		CBA62D26271E743100684083 /* FetchMyAccountsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA62D25271E743100684083 /* FetchMyAccountsUseCase.swift */; };
@@ -241,6 +250,15 @@
 		CBA023512717ECB3001ED232 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		CBA023562717ED95001ED232 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		CBA023582717EDD3001ED232 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CBA60CC8272A68E600FF3ABB /* UploadAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadAPI.swift; sourceTree = "<group>"; };
+		CBA60CCA272A696600FF3ABB /* UploadRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRemote.swift; sourceTree = "<group>"; };
+		CBA60CCC272A698C00FF3ABB /* UploadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRequest.swift; sourceTree = "<group>"; };
+		CBA60CCE272A6E8E00FF3ABB /* UploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadResponse.swift; sourceTree = "<group>"; };
+		CBA60CD0272A6EEF00FF3ABB /* UploadRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRepositoryImpl.swift; sourceTree = "<group>"; };
+		CBA60CD2272A6EF400FF3ABB /* UploadRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRepository.swift; sourceTree = "<group>"; };
+		CBA60CD6272A6F6E00FF3ABB /* UploadUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUseCase.swift; sourceTree = "<group>"; };
+		CBA60CD8272A847900FF3ABB /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		CBA60CDC272A858D00FF3ABB /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		CBA62D1F271E719100684083 /* TransferSendUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSendUseCase.swift; sourceTree = "<group>"; };
 		CBA62D23271E73A300684083 /* ApplyAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyAccountUseCase.swift; sourceTree = "<group>"; };
 		CBA62D25271E743100684083 /* FetchMyAccountsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyAccountsUseCase.swift; sourceTree = "<group>"; };
@@ -495,6 +513,7 @@
 		CB8E9E23270D262E00271A73 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				CBA60CD5272A6F6500FF3ABB /* Upload */,
 				CB8F1816271D0E740052D4AE /* User */,
 				CB8F1823271D126F0052D4AE /* AuthNum */,
 				CBA62D22271E738B00684083 /* Account */,
@@ -510,6 +529,7 @@
 				CB8F17FD271CFDD00052D4AE /* AuthNumRepository.swift */,
 				CB8F1801271CFF0B0052D4AE /* AccountRepository.swift */,
 				CB8F1805271D02C30052D4AE /* TransferRepository.swift */,
+				CBA60CD2272A6EF400FF3ABB /* UploadRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -521,6 +541,7 @@
 				CB8F17FF271CFE600052D4AE /* AuthNumRepositoryImpl.swift */,
 				CB8F1803271D01900052D4AE /* AccountRepositoryImpl.swift */,
 				CB8F1807271D03000052D4AE /* TransferRepositoryImpl.swift */,
+				CBA60CD0272A6EEF00FF3ABB /* UploadRepositoryImpl.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -532,6 +553,7 @@
 				CB8F17EF271922F80052D4AE /* AuthNumRemote.swift */,
 				CB8F17F127193C9A0052D4AE /* AccountRemote.swift */,
 				CB8F17F3271940730052D4AE /* TransferRemote.swift */,
+				CBA60CCA272A696600FF3ABB /* UploadRemote.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -554,6 +576,7 @@
 				CB8F17A22717F4770052D4AE /* AuthNumAPI.swift */,
 				CB8F17B127180A470052D4AE /* AccountAPI.swift */,
 				CB8F17B527180CDD0052D4AE /* TransferAPI.swift */,
+				CBA60CC8272A68E600FF3ABB /* UploadAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -567,6 +590,7 @@
 				CB8F17A42717F5720052D4AE /* AuthNumRequest.swift */,
 				CB8F17B327180BDE0052D4AE /* AccountRequest.swift */,
 				CB8F17B727180D2C0052D4AE /* TransferSendRequest.swift */,
+				CBA60CCC272A698C00FF3ABB /* UploadRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -647,6 +671,8 @@
 		CB8E9E3A270D915000271A73 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CBA60CD8272A847900FF3ABB /* ImageLoader.swift */,
+				CBA60CDC272A858D00FF3ABB /* URLImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -680,6 +706,7 @@
 				CB8F17E32719110F0052D4AE /* AuthNumData.swift */,
 				CB8F17E52719116E0052D4AE /* AuthNumLoginData.swift */,
 				CB8F17E72719130C0052D4AE /* AccountData.swift */,
+				CBA60CCE272A6E8E00FF3ABB /* UploadResponse.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -745,6 +772,14 @@
 				CB8F17F9271CF5DB0052D4AE /* AuthController.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		CBA60CD5272A6F6500FF3ABB /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				CBA60CD6272A6F6E00FF3ABB /* UploadUseCase.swift */,
+			);
+			path = Upload;
 			sourceTree = "<group>";
 		};
 		CBA62D1E271E715700684083 /* Transfer */ = {
@@ -1182,8 +1217,10 @@
 				CB8F17AD2717FEC00052D4AE /* MoyaProvider.swift in Sources */,
 				CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */,
 				CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */,
+				CBA60CD9272A847900FF3ABB /* ImageLoader.swift in Sources */,
 				CB8F17F0271922F80052D4AE /* AuthNumRemote.swift in Sources */,
 				CBAF767A271506E200E827E1 /* PickerTextField.swift in Sources */,
+				CBA60CCD272A698C00FF3ABB /* UploadRequest.swift in Sources */,
 				CB8F17B227180A470052D4AE /* AccountAPI.swift in Sources */,
 				CB8F17D9271877FA0052D4AE /* User.swift in Sources */,
 				CBD8F5C7271143E600985ACA /* AutoFocusTextField.swift in Sources */,
@@ -1217,8 +1254,10 @@
 				CBA62D26271E743100684083 /* FetchMyAccountsUseCase.swift in Sources */,
 				CB8E9E2E270D2C8B00271A73 /* RegisterView.swift in Sources */,
 				CB4E6F9F2721135E004EAC34 /* UseCaseAssembly.swift in Sources */,
+				CBA60CD1272A6EEF00FF3ABB /* UploadRepositoryImpl.swift in Sources */,
 				CB8F17FA271CF5DB0052D4AE /* AuthController.swift in Sources */,
 				CBAF768027153EFB00E827E1 /* SecondTransferSendViewModel.swift in Sources */,
+				CBA60CD3272A6EF400FF3ABB /* UploadRepository.swift in Sources */,
 				CB8F1822271D118C0052D4AE /* FetchUserByNameAndBirthUseCase.swift in Sources */,
 				CB8F17F4271940730052D4AE /* TransferRemote.swift in Sources */,
 				CBA62D24271E73A300684083 /* ApplyAccountUseCase.swift in Sources */,
@@ -1241,8 +1280,11 @@
 				CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */,
 				CBA0234C271728AD001ED232 /* Runtime.swift in Sources */,
 				CB8F1800271CFE600052D4AE /* AuthNumRepositoryImpl.swift in Sources */,
+				CBA60CD7272A6F6E00FF3ABB /* UploadUseCase.swift in Sources */,
 				CBA023402715A63B001ED232 /* BringRequest.swift in Sources */,
 				CBA0233C2715A2E4001ED232 /* FirstTransferGetView.swift in Sources */,
+				CBA60CCF272A6E8E00FF3ABB /* UploadResponse.swift in Sources */,
+				CBA60CC9272A68E600FF3ABB /* UploadAPI.swift in Sources */,
 				CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */,
 				CBD8F5D52711731000985ACA /* String.swift in Sources */,
 				CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */,
@@ -1250,6 +1292,7 @@
 				CBD8F5DB27118C3300985ACA /* HomeViewModel.swift in Sources */,
 				CBA023442715B7BF001ED232 /* SecondTransferGetViewModel.swift in Sources */,
 				CB8E9E45270EB2F800271A73 /* LoginViewModel.swift in Sources */,
+				CBA60CDD272A858D00FF3ABB /* URLImage.swift in Sources */,
 				CBA023462716B0DB001ED232 /* ThirdTransferGetView.swift in Sources */,
 				CB8F1804271D01900052D4AE /* AccountRepositoryImpl.swift in Sources */,
 				CB4E6F9D2721128D004EAC34 /* RepositoryAssembly.swift in Sources */,
@@ -1257,6 +1300,7 @@
 				CB8F1814271D05700052D4AE /* BaseParamUseCase.swift in Sources */,
 				CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */,
 				CB4E6F9B27211145004EAC34 /* RemoteAssembly.swift in Sources */,
+				CBA60CCB272A696600FF3ABB /* UploadRemote.swift in Sources */,
 				CB8F17E027190CA50052D4AE /* RegisterData.swift in Sources */,
 				CB8F17B827180D2C0052D4AE /* TransferSendRequest.swift in Sources */,
 				CBD8F5DD27118C5300985ACA /* HomeView.swift in Sources */,
