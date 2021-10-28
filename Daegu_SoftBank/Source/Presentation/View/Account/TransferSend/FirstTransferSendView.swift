@@ -74,7 +74,7 @@ struct FirstTransferSendView: View {
             Spacer()
             
             Button(action: viewModel.fetch, label: {
-                Text("개설완료")
+                Text("확인")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()

@@ -38,7 +38,6 @@ class FirstCreateAccountViewModel: BaseViewModel {
             return
         }
         
-        request.name = name
         request.birth = rrnLetters.joined()
         
         addCancellable(publisher: fetchUserByNameAndBirthUseCase.buildUseCasePublisher(FetchUserByNameAndBirthUseCase.Param(name: name, birth: rrnLetters.joined()))) { [weak self] in

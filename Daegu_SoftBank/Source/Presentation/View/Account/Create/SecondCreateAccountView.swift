@@ -29,7 +29,7 @@ struct SecondCreateAccountView: View {
                     
                     Spacer()
                     
-                    Text(viewModel.request.name)
+                    Text(viewModel.user.name)
                         .font(.title3)
                 }
                 
