@@ -34,8 +34,7 @@ class ViewModelAssembly: Assembly {
         .inObjectScope(.container)
         
         container.register(FirstCreateAccountViewModel.self) { r in
-            FirstCreateAccountViewModel(fetchMyUserUseCasefetchUser: r.resolve(FetchMyUserUseCase.self)!,
-                                        fetchUserByNameAndBirthUseCase: r.resolve(FetchUserByNameAndBirthUseCase.self)!)
+            FirstCreateAccountViewModel(fetchMyUserUseCase: r.resolve(FetchMyUserUseCase.self)!)
         }
         
         container.register(SecondCreateAccountViewModel.self) { (r, user, request) in
