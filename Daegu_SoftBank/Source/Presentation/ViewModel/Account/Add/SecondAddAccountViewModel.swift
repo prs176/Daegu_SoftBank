@@ -11,13 +11,12 @@ class SecondAddAccountViewModel: BaseViewModel {
     var accounts: [Account]
     @Published var selectedAccounts: [Int] = []
     
-    var request: AddAccountRequest
+    var request: AddAccountsRequest = AddAccountsRequest()
     
     @Published var isSuccess: Bool = false
     
-    init(accounts: [Account], request: AddAccountRequest) {
+    init(accounts: [Account]) {
         self.accounts = accounts
-        self.request = request
     }
     
     func apply() {

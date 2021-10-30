@@ -22,18 +22,19 @@ class FirstAddAccountViewModel: BaseViewModel {
     
     var rnnCursor: Int = 7
     
-    var request: AddAccountRequest = AddAccountRequest()
+    let fetchOtherAccountsUseCase: FetchOtherAccountsUseCase
     
     @Published var isSuccess: Bool = false
     var accounts: [Account] = []
+    
+    init(fetchOtherAccountsUseCase: FetchOtherAccountsUseCase) {
+        self.fetchOtherAccountsUseCase = fetchOtherAccountsUseCase
+    }
     
     func refresh() {
         guard validate() else {
             return
         }
-        
-        request.name = name
-        request.rrn = Int(rrnLetters.joined())!
         
         isSuccess = true
     }

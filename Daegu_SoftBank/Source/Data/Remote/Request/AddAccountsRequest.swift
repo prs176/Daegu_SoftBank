@@ -9,4 +9,8 @@ import Foundation
 
 class AddAccountsRequest: Codable {
     var account: [String]
+    
+    internal init(account: [String] = []) {
+        self.account = account
+    }
 }

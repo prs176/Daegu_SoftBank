@@ -11,8 +11,8 @@ struct SecondAddAccountView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: SecondAddAccountViewModel
     
-    init(request: AddAccountRequest, accounts: [Account]) {
-        viewModel = SecondAddAccountViewModel(accounts: accounts, request: request)
+    init(accounts: [Account]) {
+        viewModel = SecondAddAccountViewModel(accounts: accounts)
     }
     
     var body: some View {
@@ -68,6 +68,6 @@ struct SecondAddAccountView: View {
 
 struct SecondAddAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondAddAccountView(request: AddAccountRequest(), accounts: [])
+        SecondAddAccountView(accounts: [])
     }
 }
