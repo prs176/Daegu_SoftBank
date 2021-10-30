@@ -14,7 +14,7 @@ class ApplyAddAccountsUseCase: BaseParamUseCase {
         self.accountRepository = accountRepository
     }
     
-    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<[String], Error> {
+    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<String, Error> {
         accountRepository.applyAddAccounts(param.request)
     }
     
