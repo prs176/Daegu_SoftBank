@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FirstAddAccountView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel: FirstAddAccountViewModel = DependencyProvider.shared.container.resolve(FirstAddAccountViewModel.self)!
     
     var body: some View {
@@ -59,7 +60,7 @@ struct FirstAddAccountView: View {
             
             Spacer()
             
-            Button(action: viewModel.refresh, label: {
+            Button(action: viewModel.fetch, label: {
                 Text("조회하기")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -76,6 +77,11 @@ struct FirstAddAccountView: View {
         }
         .onTapGesture {
             viewModel.rnnCursor = 7
+        }
+        .alert(isPresented: $viewModel.isFailure) {
+            Alert(title: Text("유저정보 조회에 실패했습니다."), dismissButton: .destructive(Text("뒤로"), action: {
+                presentationMode.wrappedValue.dismiss()
+            }))
         }
         .navigationTitle("계좌추가")
         .ignoresSafeArea(.keyboard, edges: .bottom)
