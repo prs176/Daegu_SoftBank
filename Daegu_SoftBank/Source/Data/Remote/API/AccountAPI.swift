@@ -11,7 +11,7 @@ enum AccountAPI {
     case postAccount(_ request: AccountRequest)
     case getAccounts
     case getOtherAccounts(_ birth: String, _ name: String)
-    case postAddAccounts(_ request: AddAccountRequest)
+    case postAddAccounts(_ request: AddAccountsRequest)
     case getAccountsByPhone(_ phone: String)
     case getAccountByAccount(_ account: String)
 }
