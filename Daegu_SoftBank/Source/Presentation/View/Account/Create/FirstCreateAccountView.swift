@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FirstCreateAccountView: View {
-    @StateObject var viewModel: FirstCreateAccountViewModel = FirstCreateAccountViewModel()
+    @StateObject var viewModel: FirstCreateAccountViewModel = DependencyProvider.shared.container.resolve(FirstCreateAccountViewModel.self)!
     
     var body: some View {
         VStack(spacing: 15) {
@@ -80,7 +80,7 @@ struct FirstCreateAccountView: View {
         }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .notDetailLinkNavigate(to: SecondCreateAccountView(phoneNum: viewModel.phoneNum, request: viewModel.request), when: $viewModel.isSuccess)
+        .notDetailLinkNavigate(to: SecondCreateAccountView(user: viewModel.user, request: viewModel.request), when: $viewModel.isSuccess)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

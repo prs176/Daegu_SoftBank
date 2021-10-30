@@ -10,8 +10,8 @@ import SwiftUI
 struct ThirdCreateAccountView: View {
     @ObservedObject var viewModel: ThirdCreateAccountViewModel
     
-    init(request: CreateAccountRequest) {
-        viewModel = ThirdCreateAccountViewModel(request: request)
+    init(request: AccountRequest) {
+        viewModel = DependencyProvider.shared.container.resolve(ThirdCreateAccountViewModel.self, argument: request)!
     }
     
     var body: some View {
@@ -60,6 +60,6 @@ struct ThirdCreateAccountView: View {
 
 struct ThirdCreateAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdCreateAccountView(request: CreateAccountRequest())
+        ThirdCreateAccountView(request: AccountRequest())
     }
 }

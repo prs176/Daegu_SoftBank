@@ -22,6 +22,20 @@ class AccountRemote: BaseRemote<AccountAPI> {
             .eraseToAnyPublisher()
     }
     
+    func getOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[String], Error> {
+        return self.request(.getOtherAccounts(birth, name))
+            .map(Response<[String]>.self, using: decoder)
+            .map { $0.data }
+            .eraseToAnyPublisher()
+    }
+    
+    func postAddAccounts(_ request: AddAccountRequest) -> AnyPublisher<[String], Error> {
+        return self.request(.postAddAccounts(request))
+            .map(Response<AddAccountsData>.self, using: decoder)
+            .map { $0.data.account }
+            .eraseToAnyPublisher()
+    }
+    
     func getAccountsByPhone(_ phone: String) -> AnyPublisher<[Account], Error> {
         return self.request(.getAccountsByPhone(phone))
             .map(Response<[Account]>.self, using: decoder)

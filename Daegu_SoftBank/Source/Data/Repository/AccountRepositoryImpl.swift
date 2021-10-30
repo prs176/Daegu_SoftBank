@@ -22,6 +22,14 @@ class AccountRepositoryImpl: AccountRepository {
         accountRemote.getAccounts()
     }
     
+    func fetchOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[String], Error> {
+        accountRemote.getOtherAccounts(birth, name)
+    }
+    
+    func applyAddAccounts(_ request: AddAccountRequest) -> AnyPublisher<[String], Error> {
+        accountRemote.postAddAccounts(request)
+    }
+    
     func fetchAccountsByPhone(_ phone: String) -> AnyPublisher<[Account], Error> {
         accountRemote.getAccountsByPhone(phone)
     }

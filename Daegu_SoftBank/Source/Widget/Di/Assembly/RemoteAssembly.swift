@@ -28,5 +28,10 @@ class RemoteAssembly: Assembly {
             TransferRemote()
         }
         .inObjectScope(.container)
+        
+        container.register(UploadRemote.self) { _ in
+            UploadRemote()
+        }
+        .inObjectScope(.container)
     }
 }

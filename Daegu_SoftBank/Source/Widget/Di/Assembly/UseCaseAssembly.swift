@@ -25,8 +25,8 @@ class UseCaseAssembly: Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(FetchUserByNameAndBirth.self) { r in
-            FetchUserByNameAndBirth(userRepository: r.resolve(UserRepository.self)!)
+        container.register(FetchUserByNameAndBirthUseCase.self) { r in
+            FetchUserByNameAndBirthUseCase(userRepository: r.resolve(UserRepository.self)!)
         }
         .inObjectScope(.container)
         
@@ -80,6 +80,12 @@ class UseCaseAssembly: Assembly {
         // MARK: Transfer
         container.register(TransferSendUseCase.self) { r in
             TransferSendUseCase(transferRepository: r.resolve(TransferRepository.self)!)
+        }
+        .inObjectScope(.container)
+        
+        // MARK: Upload
+        container.register(UploadUseCase.self) { r in
+            UploadUseCase(uploadRepository: r.resolve(UploadRepository.self)!)
         }
         .inObjectScope(.container)
     }

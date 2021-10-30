@@ -16,10 +16,13 @@ struct HomeView: View {
     @State var selectedAccount: Account = Account()
     
     var body: some View {
-        ScrollView {
+        RefreshableScrollView(onRefresh: { control in
+            viewModel.refresh()
+            control.endRefreshing()
+        }) {
             VStack(spacing: 20) {
                 HStack {
-                    UserInfoView(profileImage: viewModel.profileImage, name: viewModel.name)
+                    UserInfoView(profileImage: viewModel.user.profileImage, name: viewModel.user.name)
                     
                     Menu(content: {
                         Button(action: {
@@ -92,10 +95,14 @@ struct HomeView: View {
                     })
             }
             .padding()
+            .background(
+                Color(.secondarySystemBackground).ignoresSafeArea()
+            )
         }
         .background(
             Color(.secondarySystemBackground).ignoresSafeArea()
         )
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarHidden(true)
         .navigate(to: FirstTransferGetView(accounts: viewModel.accounts, receiveAccount: selectedAccount), when: $isActiveBringView)
     }

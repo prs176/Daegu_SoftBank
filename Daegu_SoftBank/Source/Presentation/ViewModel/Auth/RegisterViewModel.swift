@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 class RegisterViewModel: BaseViewModel {
-    @Published var profileImage: UIImage? = nil
-    @Published var request = RegisterRequest()
+    @Published var uploadRequest = UploadRequest()
+    @Published var registerRequest = RegisterRequest()
     @Published var rePw: String = ""
     @Published var phone: String = "" {
         didSet {
@@ -51,31 +51,31 @@ class RegisterViewModel: BaseViewModel {
             return
         }
         
-        request.phone = phone.filter { $0 != "-" }
-        request.birth = rrnLetters.joined()
+        registerRequest.phone = phone.filter { $0 != "-" }
+        registerRequest.birth = rrnLetters.joined()
         isSuccess = true
     }
     
     func checkId() {
-        if !request.id.isValidId() {
+        if !registerRequest.id.isValidId() {
             isErrorOcuured = true
             errorMessage = "아이디는 영소문자+숫자, 3~12자로 입력해주세요."
             return
         }
         
-        addCancellable(publisher: fetchIdCheckUseCase.buildUseCasePublisher(FetchIdCheckUseCase.Param(id: request.id))) { [weak self] isValid in
+        addCancellable(publisher: fetchIdCheckUseCase.buildUseCasePublisher(FetchIdCheckUseCase.Param(id: registerRequest.id))) { [weak self] isValid in
             self?.isIdValid = isValid
         }
     }
     
     func checkNick() {
-        if request.nick.count < 2 {
+        if registerRequest.nick.count < 2 {
             isErrorOcuured = true
             errorMessage = "별명은 2자 이상으로 입력해주세요."
             return
         }
         
-        addCancellable(publisher: fetchNickCheckUseCase.buildUseCasePublisher(FetchNickCheckUseCase.Param(nick: request.nick))) { [weak self] isValid in
+        addCancellable(publisher: fetchNickCheckUseCase.buildUseCasePublisher(FetchNickCheckUseCase.Param(nick: registerRequest.nick))) { [weak self] isValid in
             self?.isNickValid = isValid
         }
     }
@@ -88,13 +88,13 @@ class RegisterViewModel: BaseViewModel {
 
 extension RegisterViewModel {
     func validate() -> Bool {
-        if !request.pw.isValidPw() {
+        if !registerRequest.pw.isValidPw() {
             isErrorOcuured = true
             errorMessage = "비밀번호는 영문자+숫자+특수문자 조합, 8~12자로 입력해주세요."
             return false
         }
         
-        if rePw != request.pw {
+        if rePw != registerRequest.pw {
             isErrorOcuured = true
             errorMessage = "재입력한 비밀번호가 일치하지 않습니다."
             return false
@@ -128,15 +128,15 @@ extension RegisterViewModel {
     }
     
     func enterValidate() -> Bool {
-        if profileImage == nil {
+        if uploadRequest.image == nil {
             return false
         }
         
-        if request.id.isEmpty {
+        if registerRequest.id.isEmpty {
             return false
         }
         
-        if request.pw.isEmpty {
+        if registerRequest.pw.isEmpty {
             return false
         }
         
@@ -148,11 +148,11 @@ extension RegisterViewModel {
             return false
         }
         
-        if request.name.isEmpty {
+        if registerRequest.name.isEmpty {
             return false
         }
         
-        if request.nick.isEmpty {
+        if registerRequest.nick.isEmpty {
             return false
         }
         

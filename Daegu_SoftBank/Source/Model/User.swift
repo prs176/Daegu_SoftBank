@@ -8,10 +8,11 @@
 import Foundation
 
 class User: Codable {
-    var id: String
-    var nick: String
-    var name: String
-    var phone: String
-    var birth: String
-    var account: [Account]
+    var id: String = ""
+    var nick: String = ""
+    var name: String = ""
+    var phone: String = ""
+    var birth: String = ""
+    var profileImage: String = ""
+    var account: [Account] = []
 }

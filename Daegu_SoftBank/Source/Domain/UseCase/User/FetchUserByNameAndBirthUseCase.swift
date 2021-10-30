@@ -1,5 +1,5 @@
 //
-//  FetchUserByNameAndBirth.swift
+//  FetchUserByNameAndBirthUseCase.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/10/18.
@@ -7,7 +7,7 @@
 
 import Combine
 
-class FetchUserByNameAndBirth: BaseParamUseCase {
+class FetchUserByNameAndBirthUseCase: BaseParamUseCase {
     let userRepository: UserRepository
     
     init(userRepository: UserRepository) {

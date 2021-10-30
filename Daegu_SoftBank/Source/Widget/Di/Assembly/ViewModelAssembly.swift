@@ -14,10 +14,13 @@ class ViewModelAssembly: Assembly {
                               fetchNickCheckUseCase: r.resolve(FetchNickCheckUseCase.self)!)
         }
         
-        container.register(RegisterAuthNumViewModel.self) { r in
-            RegisterAuthNumViewModel(registerUseCase: r.resolve(RegisterUseCase.self)!,
+        container.register(RegisterAuthNumViewModel.self) { (r, uploadRequest, registerRequest) in
+            RegisterAuthNumViewModel(uploadUseCase: r.resolve(UploadUseCase.self)!,
+                                     registerUseCase: r.resolve(RegisterUseCase.self)!,
                                      applyAuthNumUseCase: r.resolve(ApplyAuthNumUseCase.self)!,
-                                     loginUseCase: r.resolve(LoginUseCase.self)!)
+                                     loginUseCase: r.resolve(LoginUseCase.self)!,
+                                     uploadRequest: uploadRequest,
+                                     registerRequest: registerRequest)
         }
         
         container.register(LoginViewModel.self) { r in
@@ -29,5 +32,19 @@ class ViewModelAssembly: Assembly {
             HomeViewModel(fetchMyUserUseCase: r.resolve(FetchMyUserUseCase.self)!)
         }
         .inObjectScope(.container)
+        
+        container.register(FirstCreateAccountViewModel.self) { r in
+            FirstCreateAccountViewModel(fetchMyUserUseCasefetchUser: r.resolve(FetchMyUserUseCase.self)!,
+                                        fetchUserByNameAndBirthUseCase: r.resolve(FetchUserByNameAndBirthUseCase.self)!)
+        }
+        
+        container.register(SecondCreateAccountViewModel.self) { (r, user, request) in
+            SecondCreateAccountViewModel(user: user, request: request)
+        }
+        
+        container.register(ThirdCreateAccountViewModel.self) { (r, request) in
+            ThirdCreateAccountViewModel(applyAccountUseCase: r.resolve(ApplyAccountUseCase.self)!,
+                                        request: request)
+        }
     }
 }

@@ -21,12 +21,16 @@ class ThirdCreateAccountViewModel: BaseViewModel {
     
     var pwCursor: Int = 4
     
-    var request: CreateAccountRequest
+    var request: AccountRequest
+    
+    let applyAccountUseCase: ApplyAccountUseCase
     
     @Published var isSuccess: Bool = false
     var accountInfo: AccountInfo = AccountInfo()
     
-    init(request: CreateAccountRequest) {
+    init(applyAccountUseCase: ApplyAccountUseCase,
+         request: AccountRequest) {
+        self.applyAccountUseCase = applyAccountUseCase
         self.request = request
     }
     
@@ -35,8 +39,11 @@ class ThirdCreateAccountViewModel: BaseViewModel {
             return
         }
         
-        accountInfo = AccountInfo()
-        isSuccess = true
+        request.accountPW = pwLetters.joined()
+        addCancellable(publisher: applyAccountUseCase.buildUseCasePublisher(ApplyAccountUseCase.Param(request: request))) { [weak self] _ in
+            self?.accountInfo = AccountInfo() // 임시
+            self?.isSuccess = true
+        }
     }
     
     func resetPwLetters() {

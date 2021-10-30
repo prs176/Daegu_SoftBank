@@ -8,24 +8,26 @@
 import Foundation
 
 class SecondCreateAccountViewModel: BaseViewModel {
-    @Published var accountName: String = ""
-    var rrn: String
-    var phoneNum: String
+    @Published var name: String = ""
+    var birth: String
+    var user: User
     
-    var request: CreateAccountRequest
+    var request: AccountRequest
     
-    init(phoneNum: String, request: CreateAccountRequest) {
-        self.phoneNum = phoneNum
+    init(user: User, request: AccountRequest) {
+        self.user = user
         self.request = request
+        self.birth = request.birth
         
-        let temp = String(request.rrn)
-        self.rrn = String(temp[temp.startIndex..<temp.index(temp.endIndex, offsetBy: -1)]) + "-" + String(temp.last!)
+        if birth.count > 0 {
+            birth.insert("-", at: birth.index(before: birth.endIndex))
+        }
     }
 }
 
 extension SecondCreateAccountViewModel {
     func enterValidate() -> Bool {
-        if accountName.isEmpty {
+        if name.isEmpty {
             return false
         }
         
