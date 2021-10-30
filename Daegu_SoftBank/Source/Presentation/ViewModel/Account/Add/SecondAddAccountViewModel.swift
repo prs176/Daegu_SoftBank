@@ -9,18 +9,24 @@ import Foundation
 
 class SecondAddAccountViewModel: BaseViewModel {
     var accounts: [Account]
-    @Published var selectedAccounts: [Int] = []
+    @Published var selectedAccounts: [String] = []
     
     var request: AddAccountsRequest = AddAccountsRequest()
     
+    let applyAddAccountsUseCase: ApplyAddAccountsUseCase
+    
     @Published var isSuccess: Bool = false
     
-    init(accounts: [Account]) {
+    init(applyAddAccountsUseCase: ApplyAddAccountsUseCase,
+         accounts: [Account]) {
+        self.applyAddAccountsUseCase = applyAddAccountsUseCase
         self.accounts = accounts
     }
     
     func apply() {
-        isSuccess = true
+        addCancellable(publisher: applyAddAccountsUseCase.buildUseCasePublisher(ApplyAddAccountsUseCase.Param(accounts: selectedAccounts))) { [weak self] _ in
+            self?.isSuccess = true
+        }
     }
 }
 

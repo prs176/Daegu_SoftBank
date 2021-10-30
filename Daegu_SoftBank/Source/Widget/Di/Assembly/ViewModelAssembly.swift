@@ -52,5 +52,10 @@ class ViewModelAssembly: Assembly {
                                      fetchOtherAccountsUseCase: r.resolve(FetchOtherAccountsUseCase.self)!,
                                      fetchAccountByAccountUseCase: r.resolve(FetchAccountByAccountUseCase.self)!)
         }
+        
+        container.register(SecondAddAccountViewModel.self) { (r, accounts) in
+            SecondAddAccountViewModel(applyAddAccountsUseCase: r.resolve(ApplyAddAccountsUseCase.self)!,
+                                      accounts: accounts)
+        }
     }
 }

@@ -12,7 +12,7 @@ struct SecondAddAccountView: View {
     @ObservedObject var viewModel: SecondAddAccountViewModel
     
     init(accounts: [Account]) {
-        viewModel = SecondAddAccountViewModel(accounts: accounts)
+        viewModel = DependencyProvider.shared.container.resolve(SecondAddAccountViewModel.self, argument: accounts)!
     }
     
     var body: some View {
@@ -30,14 +30,14 @@ struct SecondAddAccountView: View {
                     Divider()
                     
                     Button(action: {
-                        if viewModel.selectedAccounts.contains(account.idx) {
-                            viewModel.selectedAccounts.remove(at: viewModel.selectedAccounts.firstIndex(of: account.idx)!)
+                        if viewModel.selectedAccounts.contains(account.account) {
+                            viewModel.selectedAccounts.remove(at: viewModel.selectedAccounts.firstIndex(of: account.account)!)
                         }
                         else {
-                            viewModel.selectedAccounts.append(account.idx)
+                            viewModel.selectedAccounts.append(account.account)
                         }
                     }, label: {
-                        SimpleAccountRow(account: account, isChecked: viewModel.selectedAccounts.contains(account.idx))
+                        SimpleAccountRow(account: account, isChecked: viewModel.selectedAccounts.contains(account.account))
                     })
                 }
             }

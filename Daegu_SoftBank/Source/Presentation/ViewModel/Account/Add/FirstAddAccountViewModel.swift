@@ -72,6 +72,13 @@ class FirstAddAccountViewModel: BaseViewModel {
                         .eraseToAnyPublisher()
                     }
                     
+                    if accounts.count == 0 {
+                        return Future<[Account], Error> {
+                            $0(.failure(SoftBankError.error(message: "조회되는 계좌가 없습니다.")))
+                        }
+                        .eraseToAnyPublisher()
+                    }
+                    
                     return Publishers.MergeMany(accounts.map {
                         self.fetchAccountByAccountUseCase.buildUseCasePublisher(FetchAccountByAccountUseCase.Param(account: $0))
                     })
