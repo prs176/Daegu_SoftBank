@@ -22,10 +22,14 @@ struct AutoFocusTextField: UIViewRepresentable {
     func updateUIView(_ uiView: UITextField, context: UIViewRepresentableContext<AutoFocusTextField>) {
         uiView.text = text
         if isFirstResponder {
-            uiView.becomeFirstResponder()
+            DispatchQueue.main.async {
+                uiView.becomeFirstResponder()
+            }
         }
         else {
-            uiView.resignFirstResponder()
+            DispatchQueue.main.async {
+                uiView.resignFirstResponder()
+            }
         }
     }
     
