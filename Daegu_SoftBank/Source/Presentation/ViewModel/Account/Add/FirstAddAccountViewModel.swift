@@ -27,7 +27,7 @@ class FirstAddAccountViewModel: BaseViewModel {
     @Published var isSuccess: Bool = false
     var accounts: [Account] = []
     
-    func fetch() {
+    func refresh() {
         guard validate() else {
             return
         }

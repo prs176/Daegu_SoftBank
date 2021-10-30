@@ -10,7 +10,7 @@ import Moya
 enum AccountAPI {
     case postAccount(_ request: AccountRequest)
     case getAccounts
-    case getOtherAccounts
+    case getOtherAccounts(_ birth: String, _ name: String)
     case postAddAccounts(_ request: AddAccountRequest)
     case getAccountsByPhone(_ phone: String)
     case getAccountByAccount(_ account: String)
@@ -61,8 +61,8 @@ extension AccountAPI: TargetType {
             return .requestData(try! JSONEncoder().encode(request))
         case .getAccounts:
             return .requestPlain
-        case .getOtherAccounts:
-            return .requestPlain
+        case let .getOtherAccounts(birth, name):
+            return .requestParameters(parameters: ["birth": birth, "name": name], encoding: URLEncoding.queryString)
         case let .postAddAccounts(request):
             return .requestData(try! JSONEncoder().encode(request))
         case .getAccountsByPhone:

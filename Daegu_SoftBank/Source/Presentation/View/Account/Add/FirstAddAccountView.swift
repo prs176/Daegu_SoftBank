@@ -59,7 +59,7 @@ struct FirstAddAccountView: View {
             
             Spacer()
             
-            Button(action: viewModel.fetch, label: {
+            Button(action: viewModel.refresh, label: {
                 Text("조회하기")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)

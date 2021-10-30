@@ -12,7 +12,7 @@ protocol AccountRepository {
     
     func fetchMyAccounts() -> AnyPublisher<[Account], Error>
     
-    func fetchOtherAccounts() -> AnyPublisher<[String], Error>
+    func fetchOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[String], Error>
     
     func applyAddAccounts(_ request: AddAccountRequest) -> AnyPublisher<[String], Error>
     
