@@ -6,22 +6,12 @@
 //
 
 import Combine
+import SwiftUI
 
 class LoginViewModel: BaseViewModel {
     @Published var id: String = ""
     @Published var pw: String = ""
-    @Published var authNumLetters: [String] = ["", "", "", "", "", ""] {
-        didSet {
-            if authNumLetters.filter({ $0.count > 1 }).count != 0 {
-                authNumLetters = oldValue
-            }
-            if authNumCursor <= 5, authNumLetters[authNumCursor].count > 0 {
-                authNumCursor += 1
-            }
-        }
-    }
-    
-    var authNumCursor: Int = 6
+    @Published var authNumLetters: [String] = ["", "", "", "", "", ""]
     
     let loginUseCase: LoginUseCase
     let loginByAuthNumUseCase: LoginByAuthNumUseCase
@@ -45,11 +35,6 @@ class LoginViewModel: BaseViewModel {
                 self?.isSuccess = true
             }
         }
-    }
-    
-    func resetAuthNumLetters() {
-        authNumLetters = ["", "", "", "", "", ""]
-        authNumCursor = 0
     }
 }
 

@@ -14,7 +14,7 @@ struct UserInfoView: View {
     var body: some View {
         HStack {
             if let profileImage = profileImage {
-                URLImage(withURL: profileImage)
+                AsyncImage(url: URL(string: profileImage))
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 50, height: 50, alignment: .center)
                     .clipped()

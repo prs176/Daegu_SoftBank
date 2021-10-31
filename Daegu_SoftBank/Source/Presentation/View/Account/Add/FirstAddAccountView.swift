@@ -31,31 +31,7 @@ struct FirstAddAccountView: View {
             VStack(alignment: .leading) {
                 Text("주민등록번호")
                 
-                HStack {
-                    ForEach(0..<6, id: \.self) { idx in
-                        AutoFocusTextField(text: $viewModel.rrnLetters[idx], isFirstResponder: viewModel.rnnCursor == idx)
-                            .padding(.horizontal, 5)
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(5.0)
-                            .keyboardType(.numberPad)
-                            .disabled(viewModel.rnnCursor != idx)
-                    }
-                
-                    Image(systemName: "minus")
-                        .font(.caption)
-                    
-                    AutoFocusTextField(text: $viewModel.rrnLetters[6], isFirstResponder: viewModel.rnnCursor == 6)
-                        .padding(.vertical)
-                        .padding(.horizontal, 5)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(5.0)
-                        .keyboardType(.numberPad)
-                        .disabled(viewModel.rnnCursor != 6)
-                }
-                .frame(height: 55)
-                .highPriorityGesture(TapGesture().onEnded {
-                    viewModel.resetRnnLetters()
-                })
+                AutoFocusTextFields(texts: $viewModel.rrnLetters)
             }
             
             Spacer()
@@ -74,9 +50,6 @@ struct FirstAddAccountView: View {
         .padding()
         .onAppear {
             viewModel.isSuccess = false
-        }
-        .onTapGesture {
-            viewModel.rnnCursor = 7
         }
         .alert(isPresented: $viewModel.isFailure) {
             Alert(title: Text("유저정보 조회에 실패했습니다."), dismissButton: .destructive(Text("뒤로"), action: {

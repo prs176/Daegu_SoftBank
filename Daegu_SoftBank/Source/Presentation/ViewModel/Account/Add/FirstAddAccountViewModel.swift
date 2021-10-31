@@ -9,18 +9,7 @@ import Combine
 
 class FirstAddAccountViewModel: BaseViewModel {
     @Published var name: String = ""
-    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""] {
-        didSet {
-            if rrnLetters.filter({ $0.count > 1 }).count != 0 {
-                rrnLetters = oldValue
-            }
-            if rnnCursor <= 6, rrnLetters[rnnCursor].count > 0 {
-                rnnCursor += 1
-            }
-        }
-    }
-    
-    var rnnCursor: Int = 7
+    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""]
     
     let fetchMyUserUseCase: FetchMyUserUseCase
     let fetchOtherAccountsUseCase: FetchOtherAccountsUseCase
@@ -84,11 +73,6 @@ class FirstAddAccountViewModel: BaseViewModel {
                     self?.accounts = $0
                     self?.isSuccess = true
                 }
-    }
-    
-    func resetRnnLetters() {
-        rrnLetters = ["", "", "", "", "", "", ""]
-        rnnCursor = 0
     }
 }
 

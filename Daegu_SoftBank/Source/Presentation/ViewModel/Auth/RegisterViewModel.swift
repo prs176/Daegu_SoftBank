@@ -19,19 +19,8 @@ class RegisterViewModel: BaseViewModel {
             }
         }
     }
-    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""] {
-        didSet {
-            if rrnLetters.filter({ $0.count > 1 }).count != 0 {
-                rrnLetters = oldValue
-            }
-            if rnnCursor <= 6, rrnLetters[rnnCursor].count > 0 {
-                rnnCursor += 1
-            }
-        }
-    }
+    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""]
     @Published var isAgree: Bool = false
-    
-    var rnnCursor: Int = 7
     
     let fetchIdCheckUseCase: FetchIdCheckUseCase
     let fetchNickCheckUseCase: FetchNickCheckUseCase
@@ -78,11 +67,6 @@ class RegisterViewModel: BaseViewModel {
         addCancellable(publisher: fetchNickCheckUseCase.buildUseCasePublisher(FetchNickCheckUseCase.Param(nick: registerRequest.nick))) { [weak self] isValid in
             self?.isNickValid = isValid
         }
-    }
-    
-    func resetRnnLetters() {
-        rrnLetters = ["", "", "", "", "", "", ""]
-        rnnCursor = 0
     }
 }
 

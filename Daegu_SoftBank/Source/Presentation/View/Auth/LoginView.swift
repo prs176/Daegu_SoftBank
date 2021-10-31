@@ -36,20 +36,7 @@ struct LoginView: View {
                         Spacer()
                     }
                     
-                    HStack {
-                        ForEach(0..<6, id: \.self) { idx in
-                            AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
-                                .padding(.horizontal, 5)
-                                .background(Color(.secondarySystemBackground))
-                                .cornerRadius(5.0)
-                                .keyboardType(.numberPad)
-                                .disabled(viewModel.authNumCursor != idx)
-                        }
-                    }
-                    .frame(height: 55)
-                    .highPriorityGesture(TapGesture().onEnded {
-                        viewModel.resetAuthNumLetters()
-                    })
+                    AutoFocusTextFields(texts: $viewModel.authNumLetters)
                     
                     Text("다른 계정으로 간편인증번호 로그인을 이용하시려면,\n먼저 이용할 계정으로 일반로그인을 진행해주세요.")
                         .font(.callout)
@@ -59,10 +46,7 @@ struct LoginView: View {
             
             Spacer()
             
-            Button(action: {
-                viewModel.authNumCursor = 6
-                viewModel.login()
-            }, label: {
+            Button(action: viewModel.login, label: {
                 Text("로그인")
                     .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: .infinity)
@@ -74,9 +58,6 @@ struct LoginView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
-        .onTapGesture {
-            viewModel.authNumCursor = 6
-        }
         .onAppear {
             viewModel.isSuccess = false
         }

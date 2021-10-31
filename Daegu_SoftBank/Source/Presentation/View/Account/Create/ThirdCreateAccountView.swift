@@ -20,21 +20,7 @@ struct ThirdCreateAccountView: View {
                 .font(.title2)
                 .padding(.bottom)
             
-            HStack {
-                ForEach(0..<4, id: \.self) { idx in
-                    AutoFocusTextField(text: $viewModel.pwLetters[idx], isFirstResponder: viewModel.pwCursor == idx)
-                        .padding(.horizontal, 5)
-                        .frame(width: 55)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(5.0)
-                        .keyboardType(.numberPad)
-                        .disabled(viewModel.pwCursor != idx)
-                }
-            }
-            .frame(height: 55)
-            .highPriorityGesture(TapGesture().onEnded {
-                viewModel.resetPwLetters()
-            })
+            AutoFocusTextFields(texts: $viewModel.pwLetters)
             
             Spacer()
             

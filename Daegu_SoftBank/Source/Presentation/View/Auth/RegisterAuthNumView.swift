@@ -29,20 +29,7 @@ struct RegisterAuthNumView: View {
             
             if viewModel.curStep == 0 {
                 VStack {
-                    HStack {
-                        ForEach(0..<6, id: \.self) { idx in
-                            AutoFocusTextField(text: $viewModel.authNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
-                                .padding(.horizontal, 5)
-                                .background(Color(.secondarySystemBackground))
-                                .cornerRadius(5.0)
-                                .keyboardType(.numberPad)
-                                .disabled(viewModel.authNumCursor != idx)
-                        }
-                    }
-                    .frame(height: 55)
-                    .highPriorityGesture(TapGesture().onEnded {
-                        viewModel.resetAuthNumLetters()
-                    })
+                    AutoFocusTextFields(texts: $viewModel.authNumLetters)
                     
                     Text("6자리 숫자를 입력하세요")
                         .fontWeight(.thin)
@@ -53,30 +40,14 @@ struct RegisterAuthNumView: View {
             }
             else {
                 VStack {
-                    HStack {
-                        ForEach(0..<6, id: \.self) { idx in
-                            AutoFocusTextField(text: $viewModel.reAuthNumLetters[idx], isFirstResponder: viewModel.authNumCursor == idx)
-                                .padding(.horizontal, 5)
-                                .background(Color(.secondarySystemBackground))
-                                .cornerRadius(5.0)
-                                .keyboardType(.numberPad)
-                                .disabled(viewModel.authNumCursor != idx)
-                        }
-                    }
-                    .frame(height: 50)
-                    .highPriorityGesture(TapGesture().onEnded {
-                        viewModel.resetAuthNumLetters()
-                    })
+                    AutoFocusTextFields(texts: $viewModel.reAuthNumLetters)
                     
                     Text("6자리 숫자를 입력하세요")
                         .fontWeight(.thin)
                     
                     Spacer()
                     
-                    Button(action: {
-                        viewModel.authNumCursor = 6
-                        viewModel.uploadImage()
-                    }, label: {
+                    Button(action: viewModel.uploadImage, label: {
                         Text("가입완료")
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
@@ -90,9 +61,6 @@ struct RegisterAuthNumView: View {
             }
         }
         .padding()
-        .onTapGesture {
-            viewModel.authNumCursor = 6
-        }
         .onAppear {
             viewModel.isSuccessRegister = false
             viewModel.isSuccessRegisterAuthNum = false
@@ -130,7 +98,6 @@ struct RegisterAuthNumView: View {
                             trailing: HStack {
                                 if viewModel.curStep == 0 {
                                     Button(action: {
-                                        viewModel.authNumCursor = 6
                                         withAnimation {
                                             viewModel.curStep += 1
                                         }

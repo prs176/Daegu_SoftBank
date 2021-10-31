@@ -9,18 +9,7 @@ import Foundation
 
 class FirstCreateAccountViewModel: BaseViewModel {
     @Published var name: String = ""
-    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""] {
-        didSet {
-            if rrnLetters.filter({ $0.count > 1 }).count != 0 {
-                rrnLetters = oldValue
-            }
-            if rnnCursor <= 6, rrnLetters[rnnCursor].count > 0 {
-                rnnCursor += 1
-            }
-        }
-    }
-    
-    var rnnCursor: Int = 7
+    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""]
     
     var request: AccountRequest = AccountRequest()
     
@@ -59,11 +48,6 @@ class FirstCreateAccountViewModel: BaseViewModel {
         
         request.birth = rrnLetters.joined()
         isSuccess = true
-    }
-    
-    func resetRnnLetters() {
-        rrnLetters = ["", "", "", "", "", "", ""]
-        rnnCursor = 0
     }
 }
 

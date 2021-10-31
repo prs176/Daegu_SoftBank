@@ -8,18 +8,7 @@
 import Foundation
 
 class ThirdTransferSendViewModel: BaseViewModel {
-    @Published var pwLetters: [String] = ["", "", "", ""] {
-        didSet {
-            if pwLetters.filter({ $0.count > 1 }).count != 0 {
-                pwLetters = oldValue
-            }
-            if pwCursor <= 3, pwLetters[pwCursor].count > 0 {
-                pwCursor += 1
-            }
-        }
-    }
-    
-    var pwCursor: Int = 4
+    @Published var pwLetters: [String] = ["", "", "", ""]
     
     var request: TransferSendRequest
     
@@ -36,11 +25,6 @@ class ThirdTransferSendViewModel: BaseViewModel {
         
         request.sendAccountPw = pwLetters.joined()
         isSuccess = true
-    }
-    
-    func resetPwLetters() {
-        pwLetters = ["", "", "", ""]
-        pwCursor = 0
     }
 }
 
