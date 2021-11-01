@@ -10,7 +10,8 @@ import SwiftUI
 struct AccountRow: View {
     var account: Account
     @Binding var selectedAccount: Account
-    @Binding var isActiveBringView: Bool
+    @Binding var transferSendPresenting: Bool
+    @Binding var transferGetPresenting: Bool
     
     var body: some View {
         VStack {
@@ -37,7 +38,7 @@ struct AccountRow: View {
             HStack {
                 Button {
                     selectedAccount = account
-                    isActiveBringView = true
+                    transferGetPresenting = true
                 } label: {
                     Text("가져오기")
                         .foregroundColor(Color(.secondaryLabel))
@@ -51,7 +52,10 @@ struct AccountRow: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: FirstTransferSendView(sendAccount: account), label: {
+                Button {
+                    selectedAccount = account
+                    transferSendPresenting = true
+                } label: {
                     Text("이체")
                         .foregroundColor(Color(.secondaryLabel))
                         .padding(.horizontal, 12)
@@ -60,7 +64,7 @@ struct AccountRow: View {
                             RoundedRectangle(cornerRadius: 5)
                                 .foregroundColor(Color(.secondarySystemBackground))
                         )
-                })
+                }
             }
         }
     }
@@ -68,6 +72,6 @@ struct AccountRow: View {
 
 struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        AccountRow(account: Account(), selectedAccount: .constant(Account()), isActiveBringView: .constant(false))
+        AccountRow(account: Account(), selectedAccount: .constant(Account()), transferSendPresenting: .constant(false), transferGetPresenting: .constant(false))
     }
 }

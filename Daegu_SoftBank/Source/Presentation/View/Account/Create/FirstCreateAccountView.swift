@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FirstCreateAccountView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.dismiss) var dismiss: DismissAction
     @StateObject var viewModel: FirstCreateAccountViewModel = DependencyProvider.shared.container.resolve(FirstCreateAccountViewModel.self)!
     
     var body: some View {
@@ -53,9 +53,12 @@ struct FirstCreateAccountView: View {
             viewModel.isSuccess = false
         }
         .alert(isPresented: $viewModel.isFailure) {
-            Alert(title: Text("유저정보 조회에 실패했습니다."), dismissButton: .destructive(Text("뒤로"), action: {
-                presentationMode.wrappedValue.dismiss()
-            }))
+            Alert(
+                title: Text("유저정보 조회에 실패했습니다."),
+                dismissButton: .destructive(Text("뒤로")) {
+                    dismiss()
+                }
+            )
         }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)

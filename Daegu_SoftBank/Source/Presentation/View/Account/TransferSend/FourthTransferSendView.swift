@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FourthTransferSendView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.dismiss) var dismiss: DismissAction
     
     var request: TransferSendRequest
     var fees: Int
@@ -68,7 +68,7 @@ struct FourthTransferSendView: View {
             Spacer()
             
             Button(action: {
-                presentationMode.wrappedValue.dismiss()
+                dismiss()
             }, label: {
                 Text("확인")
                     .foregroundColor(.white)

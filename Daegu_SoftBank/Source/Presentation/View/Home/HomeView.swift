@@ -12,7 +12,8 @@ struct HomeView: View {
     @Environment(\.loginViewRootPresentation) var loginViewRootPresentation: Binding<Bool>
     @Environment(\.registerViewRootPresentation) var registerViewRootPresentation: Binding<Bool>
     
-    @State var isActiveBringView: Bool = false
+    @State var transferSendPresenting: Bool = false
+    @State var transferGetPresenting: Bool = false
     @State var selectedAccount: Account = Account()
     
     var body: some View {
@@ -39,7 +40,7 @@ struct HomeView: View {
                 }
                 
                 NavigationLink(
-                    destination: FirstCreateAccountView(),
+                    destination: { FirstCreateAccountView() },
                     label: {
                         VStack(alignment: .center) {
                             Text("계좌 개설하기")
@@ -67,7 +68,7 @@ struct HomeView: View {
                     ForEach(viewModel.accounts, id: \.self) { account in
                         Divider()
                         
-                        AccountRow(account: account, selectedAccount: $selectedAccount, isActiveBringView: $isActiveBringView)
+                        AccountRow(account: account, selectedAccount: $selectedAccount, transferSendPresenting: $transferSendPresenting, transferGetPresenting: $transferGetPresenting)
                             .padding(.vertical, 5)
                     }
                 }
@@ -80,7 +81,7 @@ struct HomeView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: FirstAddAccountView(),
+                    destination: { FirstAddAccountView() },
                     label: {
                         HStack {
                             Image(systemName: "plus")
@@ -104,7 +105,8 @@ struct HomeView: View {
         )
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarHidden(true)
-        .navigate(to: FirstTransferGetView(accounts: viewModel.accounts, receiveAccount: selectedAccount), when: $isActiveBringView)
+        .navigate(to: FirstTransferSendView(sendAccount: selectedAccount), when: $transferSendPresenting)
+        .navigate(to: FirstTransferGetView(accounts: viewModel.accounts, receiveAccount: selectedAccount), when: $transferGetPresenting)
     }
 }
 
