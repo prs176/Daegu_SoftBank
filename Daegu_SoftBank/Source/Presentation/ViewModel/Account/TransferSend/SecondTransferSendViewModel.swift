@@ -12,18 +12,10 @@ class SecondTransferSendViewModel: BaseViewModel {
     
     var request: TransferSendRequest
     
-    @Published var fees: Int = 0
+    @Published var fees: Int = 500
     
     init(name: String, request: TransferSendRequest) {
         self.name = name
         self.request = request
-        
-        super.init()
-        
-        getFees()
-    }
-    
-    func getFees() {
-        self.fees = 500
     }
 }

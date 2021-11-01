@@ -70,6 +70,11 @@ class ViewModelAssembly: Assembly {
                                        sendAccount: sendAccount)
         }
         
+        container.register(ThirdTransferSendViewModel.self) { (r, request) in
+            ThirdTransferSendViewModel(transferSendUseCase: r.resolve(TransferSendUseCase.self)!,
+                                       request: request)
+        }
+        
         // transfer get account
         container.register(ThirdTransferGetViewModel.self) { (r, receiveAccount, request) in
             ThirdTransferGetViewModel(transferSendUseCase: r.resolve(TransferSendUseCase.self)!,

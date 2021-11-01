@@ -51,6 +51,12 @@ extension FirstTransferSendViewModel {
             return false
         }
         
+        if request.receiveAccountId == request.sendAccountId {
+            isErrorOcuured = true
+            errorMessage = "보낼 계좌의 계좌번호와 받을 계좌의 계좌번호가 달라야합니다."
+            return false
+        }
+        
         if sendAccount.money < request.money {
             isErrorOcuured = true
             errorMessage = "이체할 금액이 잔액보다 큽니다."
