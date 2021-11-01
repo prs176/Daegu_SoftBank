@@ -9,6 +9,7 @@ import Swinject
 
 class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
+        // MARK: Auth
         container.register(RegisterViewModel.self) { r in
             RegisterViewModel(fetchIdCheckUseCase: r.resolve(FetchIdCheckUseCase.self)!,
                               fetchNickCheckUseCase: r.resolve(FetchNickCheckUseCase.self)!)
@@ -28,11 +29,16 @@ class ViewModelAssembly: Assembly {
                            loginByAuthNumUseCase: r.resolve(LoginByAuthNumUseCase.self)!)
         }
         
+        
+        // MARK: Home
         container.register(HomeViewModel.self) { r in
             HomeViewModel(fetchMyUserUseCase: r.resolve(FetchMyUserUseCase.self)!)
         }
         .inObjectScope(.container)
         
+        
+        // MARK: Account
+        // create account
         container.register(FirstCreateAccountViewModel.self) { r in
             FirstCreateAccountViewModel(fetchMyUserUseCase: r.resolve(FetchMyUserUseCase.self)!)
         }
@@ -46,6 +52,7 @@ class ViewModelAssembly: Assembly {
                                         request: request)
         }
         
+        // add account
         container.register(FirstAddAccountViewModel.self) { r in
             FirstAddAccountViewModel(fetchMyUserUseCase: r.resolve(FetchMyUserUseCase.self)!,
                                      fetchOtherAccountsUseCase: r.resolve(FetchOtherAccountsUseCase.self)!,
@@ -55,6 +62,13 @@ class ViewModelAssembly: Assembly {
         container.register(SecondAddAccountViewModel.self) { (r, accounts) in
             SecondAddAccountViewModel(applyAddAccountsUseCase: r.resolve(ApplyAddAccountsUseCase.self)!,
                                       accounts: accounts)
+        }
+        
+        // transfer get account
+        container.register(ThirdTransferGetViewModel.self) { (r, receiveAccount, request) in
+            ThirdTransferGetViewModel(transferSendUseCase: r.resolve(TransferSendUseCase.self)!,
+                                      receiveAccount: receiveAccount,
+                                      request: request)
         }
     }
 }

@@ -22,19 +22,6 @@ struct SecondTransferGetView: View {
     }
     
     var body: some View {
-        let price = Binding<String> {
-            viewModel.price
-        } set: { value in
-            let filtered = Int(value.filter { "0123456789".contains($0) }) ?? 0
-            
-            if filtered > 10000000 {
-                viewModel.price = "10,000,000"
-                return
-            }
-            
-            viewModel.price = formatter.string(from: NSNumber(value: filtered)) ?? "0"
-        }
-        
         VStack(alignment: .center) {
             HStack {
                 Image("TemporaryImage")
@@ -68,7 +55,19 @@ struct SecondTransferGetView: View {
             .padding(.bottom)
             
             HStack {
-                TextField("", text: price)
+                TextField("", text: $viewModel.money)
+                    .onReceive(viewModel.money.publisher) { _ in
+                        let filtered = formatter.string(from: NSNumber(value: Int(viewModel.money.filter({ "0123456789".contains($0) })) ?? 0)) ?? "0"
+                        
+                        if Int(filtered.filter { $0 != "," }) ?? 0 > 10000000 {
+                            viewModel.money = "10,000,000"
+                            viewModel.request.money = 10000000
+                        }
+                        else if filtered != viewModel.money {
+                            viewModel.money = filtered
+                            viewModel.request.money = Int(filtered.filter { $0 != "," }) ?? 0
+                        }
+                    }
                     .font(.largeTitle)
                     .fixedSize(horizontal: true, vertical: false)
                     .keyboardType(.numberPad)
@@ -77,7 +76,7 @@ struct SecondTransferGetView: View {
                     .font(.largeTitle)
             }
             
-            Text("\(viewModel.price.components(separatedBy: [","]).joined().numberToKorean() ?? "영") 원")
+            Text("\(viewModel.money.components(separatedBy: [","]).joined().numberToKorean() ?? "영") 원")
                 .foregroundColor(.secondary)
             
             Spacer()

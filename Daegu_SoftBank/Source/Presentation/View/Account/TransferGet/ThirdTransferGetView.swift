@@ -12,7 +12,7 @@ struct ThirdTransferGetView: View {
     @ObservedObject var viewModel: ThirdTransferGetViewModel
     
     init(receiveAccount: Account, request: TransferSendRequest) {
-        viewModel = ThirdTransferGetViewModel(receiveAccount: receiveAccount, request: request)
+        viewModel = DependencyProvider.shared.container.resolve(ThirdTransferGetViewModel.self, arguments: receiveAccount, request)!
     }
     
     var body: some View {
