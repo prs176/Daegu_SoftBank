@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FirstAddAccountView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var navigationState: NavigationState
     @StateObject var viewModel: FirstAddAccountViewModel = DependencyProvider.shared.container.resolve(FirstAddAccountViewModel.self)!
     
     var body: some View {
@@ -52,13 +52,16 @@ struct FirstAddAccountView: View {
             viewModel.isSuccess = false
         }
         .alert(isPresented: $viewModel.isFailure) {
-            Alert(title: Text("유저정보 조회에 실패했습니다."), dismissButton: .destructive(Text("뒤로"), action: {
-                presentationMode.wrappedValue.dismiss()
-            }))
+            Alert(
+                title: Text("유저정보 조회에 실패했습니다."),
+                dismissButton: .destructive(Text("뒤로")) {
+                    navigationState.moveToHome = true
+                }
+            )
         }
         .navigationTitle("계좌추가")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .notDetailLinkNavigate(to: SecondAddAccountView(accounts: viewModel.accounts), when: $viewModel.isSuccess)
+        .navigate(to: SecondAddAccountView(accounts: viewModel.accounts), when: $viewModel.isSuccess, isDetailLink: false)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

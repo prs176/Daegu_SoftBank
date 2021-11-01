@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FourthCreateAccountView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var navigationState: NavigationState
     
     var accountInfo: AccountInfo
     
@@ -53,7 +53,7 @@ struct FourthCreateAccountView: View {
             Spacer()
             
             Button(action: {
-                presentationMode.wrappedValue.dismiss()
+                navigationState.moveToHome = true
             }, label: {
                 Text("완료")
                     .foregroundColor(.white)

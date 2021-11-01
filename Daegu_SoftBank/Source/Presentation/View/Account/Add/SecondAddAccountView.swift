@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SecondAddAccountView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var navigationState: NavigationState
     @ObservedObject var viewModel: SecondAddAccountViewModel
     
     init(accounts: [Account]) {
@@ -58,7 +58,7 @@ struct SecondAddAccountView: View {
         .padding()
         .onChange(of: viewModel.isSuccess, perform: { value in
             if value {
-                presentationMode.wrappedValue.dismiss()
+                navigationState.moveToHome = true
             }
         })
         .navigationTitle("계좌추가")

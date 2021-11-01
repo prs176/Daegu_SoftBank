@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FourthTransferSendView: View {
-    @Environment(\.dismiss) var dismiss: DismissAction
+    @EnvironmentObject var navigationState: NavigationState
     
     var request: TransferSendRequest
     var fees: Int
@@ -68,7 +68,7 @@ struct FourthTransferSendView: View {
             Spacer()
             
             Button(action: {
-                dismiss()
+                navigationState.moveToHome = true
             }, label: {
                 Text("확인")
                     .foregroundColor(.white)

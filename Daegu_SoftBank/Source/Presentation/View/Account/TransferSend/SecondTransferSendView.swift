@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SecondTransferSendView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var navigationState: NavigationState
     @ObservedObject var viewModel: SecondTransferSendViewModel
     
     init(name: String, request: TransferSendRequest) {
@@ -76,7 +76,7 @@ struct SecondTransferSendView: View {
             
             HStack {
                 Button(action: {
-                    presentationMode.wrappedValue.dismiss()
+                    navigationState.moveToHome = true
                 }, label: {
                     Text("아니요")
                         .foregroundColor(.white)

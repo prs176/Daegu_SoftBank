@@ -56,6 +56,7 @@ struct AuthMainView: View {
         }
         .environment(\.loginViewRootPresentation, $loginPresenting)
         .environment(\.registerViewRootPresentation, $registerPresenting)
+        .navigationViewStyle(.stack)
     }
 }
 

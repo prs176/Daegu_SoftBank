@@ -10,6 +10,7 @@
 		108AD46BE10D5F6597864830 /* Pods_Daegu_SoftBankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5D93350B161C8B18373F46 /* Pods_Daegu_SoftBankTests.framework */; };
 		2D4D2C08ACC599A76C27FF28 /* Pods_Daegu_SoftBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F00E37D9231BB8E8C2CC186 /* Pods_Daegu_SoftBank.framework */; };
 		CB0CBC98272EC30A004D09FA /* AutoFocusTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0CBC97272EC30A004D09FA /* AutoFocusTextFields.swift */; };
+		CB0CBC9C272F8603004D09FA /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0CBC9B272F8603004D09FA /* NavigationState.swift */; };
 		CB415499271445C800E434B3 /* SecondAddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB415498271445C800E434B3 /* SecondAddAccountView.swift */; };
 		CB41549B271445D500E434B3 /* SecondAddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41549A271445D500E434B3 /* SecondAddAccountViewModel.swift */; };
 		CB4154A0271449A700E434B3 /* SimpleAccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41549F271449A700E434B3 /* SimpleAccountRow.swift */; };
@@ -165,6 +166,7 @@
 		6B2B83C9B72BFC9F1095699E /* Pods-Daegu_SoftBankTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBankTests.debug.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBankTests/Pods-Daegu_SoftBankTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B598EAF4CFFF0F63C440BA6F /* Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig"; path = "Target Support Files/Pods-Daegu_SoftBank-Daegu_SoftBankUITests/Pods-Daegu_SoftBank-Daegu_SoftBankUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB0CBC97272EC30A004D09FA /* AutoFocusTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextFields.swift; sourceTree = "<group>"; };
+		CB0CBC9B272F8603004D09FA /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
 		CB415498271445C800E434B3 /* SecondAddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddAccountView.swift; sourceTree = "<group>"; };
 		CB41549A271445D500E434B3 /* SecondAddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddAccountViewModel.swift; sourceTree = "<group>"; };
 		CB41549F271449A700E434B3 /* SimpleAccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAccountRow.swift; sourceTree = "<group>"; };
@@ -943,6 +945,7 @@
 			isa = PBXGroup;
 			children = (
 				CBF9E0B92711AFBA00DDC3E8 /* EnvironmentProperties.swift */,
+				CB0CBC9B272F8603004D09FA /* NavigationState.swift */,
 			);
 			path = Environmnet;
 			sourceTree = "<group>";
@@ -1295,6 +1298,7 @@
 				CBA60CD7272A6F6E00FF3ABB /* UploadUseCase.swift in Sources */,
 				CBA023402715A63B001ED232 /* BringRequest.swift in Sources */,
 				CBA0233C2715A2E4001ED232 /* FirstTransferGetView.swift in Sources */,
+				CB0CBC9C272F8603004D09FA /* NavigationState.swift in Sources */,
 				CBA60CCF272A6E8E00FF3ABB /* UploadResponse.swift in Sources */,
 				CBA60CC9272A68E600FF3ABB /* UploadAPI.swift in Sources */,
 				CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */,
