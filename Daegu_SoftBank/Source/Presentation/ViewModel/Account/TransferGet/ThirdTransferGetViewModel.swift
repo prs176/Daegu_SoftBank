@@ -8,25 +8,20 @@
 import Foundation
 
 class ThirdTransferGetViewModel: BaseViewModel {
-    @Published var pwLetters: [String] = ["", "", "", ""] {
-        didSet {
-            if pwLetters.filter({ $0.count > 1 }).count != 0 {
-                pwLetters = oldValue
-            }
-            if pwCursor <= 3, pwLetters[pwCursor].count > 0 {
-                pwCursor += 1
-            }
-        }
-    }
+    @Published var pwLetters: [String] = ["", "", "", ""]
     var receiveAccount: Account
-    
-    var pwCursor: Int = 4
     
     var request: TransferSendRequest
     
+    let transferSendUseCase: TransferSendUseCase
+    
     @Published var isSuccess: Bool = false
     
-    init(receiveAccount: Account, request: TransferSendRequest) {
+    init(transferSendUseCase: TransferSendUseCase,
+         receiveAccount: Account,
+         request: TransferSendRequest) {
+        self.transferSendUseCase = transferSendUseCase
+        
         self.receiveAccount = receiveAccount
         self.request = request
     }
@@ -37,12 +32,10 @@ class ThirdTransferGetViewModel: BaseViewModel {
         }
         
         request.sendAccountPw = pwLetters.joined()
-        isSuccess = true
-    }
-    
-    func resetPwLetters() {
-        pwLetters = ["", "", "", ""]
-        pwCursor = 0
+        
+        addCancellable(publisher: transferSendUseCase.buildUseCasePublisher(TransferSendUseCase.Param(request: request))) { [weak self] _ in
+            self?.isSuccess = true
+        }
     }
 }
 

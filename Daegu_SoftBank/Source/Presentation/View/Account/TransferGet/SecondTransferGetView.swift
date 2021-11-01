@@ -55,16 +55,16 @@ struct SecondTransferGetView: View {
             .padding(.bottom)
             
             HStack {
-                TextField("", text: $viewModel.price)
-                    .onReceive(viewModel.price.publisher) { _ in
-                        let filtered = formatter.string(from: NSNumber(value: Int(viewModel.price.filter({ "0123456789".contains($0) })) ?? 0)) ?? "0"
+                TextField("", text: $viewModel.money)
+                    .onReceive(viewModel.money.publisher) { _ in
+                        let filtered = formatter.string(from: NSNumber(value: Int(viewModel.money.filter({ "0123456789".contains($0) })) ?? 0)) ?? "0"
                         
                         if Int(filtered.filter { $0 != "," }) ?? 0 > 10000000 {
-                            viewModel.price = "10,000,000"
+                            viewModel.money = "10,000,000"
                             viewModel.request.money = 10000000
                         }
-                        else if String(filtered) != viewModel.price {
-                            viewModel.price = filtered
+                        else if filtered != viewModel.money {
+                            viewModel.money = filtered
                             viewModel.request.money = Int(filtered.filter { $0 != "," }) ?? 0
                         }
                     }
@@ -76,7 +76,7 @@ struct SecondTransferGetView: View {
                     .font(.largeTitle)
             }
             
-            Text("\(viewModel.price.components(separatedBy: [","]).joined().numberToKorean() ?? "영") 원")
+            Text("\(viewModel.money.components(separatedBy: [","]).joined().numberToKorean() ?? "영") 원")
                 .foregroundColor(.secondary)
             
             Spacer()

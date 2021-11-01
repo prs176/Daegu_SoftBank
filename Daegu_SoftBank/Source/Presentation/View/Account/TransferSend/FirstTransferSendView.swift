@@ -22,30 +22,27 @@ struct FirstTransferSendView: View {
     }
     
     var body: some View {
-        let money = Binding<String> {
-            viewModel.money
-        } set: { value in
-            let filtered = Int(value.filter { "0123456789".contains($0) }) ?? 0
-            
-            if filtered > 10000000 {
-                viewModel.money = "10,000,000"
-                viewModel.request.money = 10000000
-                return
-            }
-            
-            viewModel.money = formatter.string(from: NSNumber(value: filtered)) ?? "0"
-            viewModel.request.money = filtered
-        }
-        
         VStack(alignment: .leading, spacing: 15) {
             Text("잔액: \(viewModel.sendAccount.money) 원")
                 .font(.title3)
         
-            VStack(alignment: .leading) {
-                Text("금액")
+            HStack {
+                Text("금액: ")
                 
                 HStack {
-                    TextField("", text: money)
+                    TextField("", text: $viewModel.money)
+                        .onReceive(viewModel.money.publisher) { _ in
+                            let filtered = formatter.string(from: NSNumber(value: Int(viewModel.money.filter({ "0123456789".contains($0) })) ?? 0)) ?? "0"
+                            
+                            if Int(filtered.filter { $0 != "," }) ?? 0 > 10000000 {
+                                viewModel.money = "10,000,000"
+                                viewModel.request.money = 10000000
+                            }
+                            else if filtered != viewModel.money {
+                                viewModel.money = filtered
+                                viewModel.request.money = Int(filtered.filter { $0 != "," }) ?? 0
+                            }
+                        }
                         .font(.title3)
                         .keyboardType(.numberPad)
                     
@@ -55,20 +52,22 @@ struct FirstTransferSendView: View {
             }
             
             HStack {
-                VStack(alignment: .leading) {
-                    Text("은행")
+                HStack {
+                    Picker("은행", selection: $viewModel.bank) {
+                        ForEach(0..<["부산", "토스", "대구"].count) {
+                            Text(["부산", "토스", "대구"][$0])
+                        }
+                    }
+                    .frame(height: 55)
+                    .fixedSize()
                     
-                    PickerTextField(data: ["부산", "토스", "대구"], placeHolder: "", lastSelectedIdx: $viewModel.bank)
-                        .frame(height: 55)
-                        .fixedSize()
+                    Image(systemName: "chevron.down")
+                        .foregroundColor(.secondary)
                 }
+                .padding(.trailing)
                 
-                VStack(alignment: .leading) {
-                    Text("계좌번호")
-                    
-                    TextField("", text: $viewModel.request.receiveAccountId)
-                        .textFieldStyle(LabelTextFieldStyle())
-                }
+                TextField("계좌번호", text: $viewModel.request.receiveAccountId)
+                    .textFieldStyle(LabelTextFieldStyle())
             }
             
             Spacer()

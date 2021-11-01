@@ -8,8 +8,8 @@
 import Foundation
 
 class FirstTransferSendViewModel: BaseViewModel {
-    @Published var money: String = ""
-    @Published var bank: Int = 0 // 임시
+    @Published var money: String = "0"
+    @Published var bank: String = "" // 임시
     @Published var isAgree: Bool = false
     
     var sendAccount: Account

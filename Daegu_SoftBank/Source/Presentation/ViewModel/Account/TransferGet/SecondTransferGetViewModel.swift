@@ -8,7 +8,7 @@
 import Foundation
 
 class SecondTransferGetViewModel: BaseViewModel {
-    @Published var price: String = "0"
+    @Published var money: String = "0"
     var receiveAccount: Account
     var sendAccount: Account
     
@@ -25,9 +25,7 @@ class SecondTransferGetViewModel: BaseViewModel {
 
 extension SecondTransferGetViewModel {
     func validate() {
-        let price = Int(price.components(separatedBy: ",").joined())!
-        
-        if sendAccount.money < price {
+        if sendAccount.money < Int(money.components(separatedBy: ",").joined())! {
             isErrorOcuured = true
             errorMessage = "가져오기할 금액이 출금가능금액보다 큽니다."
             return
@@ -37,7 +35,7 @@ extension SecondTransferGetViewModel {
     }
     
     func enterValidate() -> Bool {
-        if Int(price.components(separatedBy: ",").joined()) ?? 0 <= 0 {
+        if Int(money.components(separatedBy: ",").joined()) ?? 0 <= 0 {
             return false
         }
         
