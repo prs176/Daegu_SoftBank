@@ -33,8 +33,8 @@ extension AccountAPI: TargetType {
             return "/add"
         case let .getAccountsByPhone(phone):
             return "/\(phone)"
-        case .getAccountByAccount:
-            return "/account/"
+        case let .getAccountByAccount(account):
+            return "/\(account)"
         }
     }
     
@@ -67,8 +67,8 @@ extension AccountAPI: TargetType {
             return .requestData(try! JSONEncoder().encode(request))
         case .getAccountsByPhone:
             return .requestPlain
-        case let .getAccountByAccount(account):
-            return .requestParameters(parameters: ["account": account], encoding: URLEncoding.queryString)
+        case .getAccountByAccount:
+            return .requestPlain
         }
     }
     
