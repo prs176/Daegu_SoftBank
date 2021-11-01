@@ -8,5 +8,5 @@
 import Foundation
 
 class AddAccountsData: Codable {
-    var account: [String]
+    var accounts: [String]
 }

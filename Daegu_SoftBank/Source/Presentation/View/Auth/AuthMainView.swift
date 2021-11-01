@@ -25,8 +25,8 @@ struct AuthMainView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: LoginView(),
                     isActive: $loginPresenting,
+                    destination: { LoginView() },
                     label: {
                         Text("로그인")
                             .foregroundColor(.white)
@@ -38,8 +38,8 @@ struct AuthMainView: View {
                     })
                 
                 NavigationLink(
-                    destination: RegisterView(),
                     isActive: $registerPresenting,
+                    destination: { RegisterView() },
                     label: {
                         Text("회원가입")
                             .foregroundColor(.white)
@@ -56,6 +56,7 @@ struct AuthMainView: View {
         }
         .environment(\.loginViewRootPresentation, $loginPresenting)
         .environment(\.registerViewRootPresentation, $registerPresenting)
+        .navigationViewStyle(.stack)
     }
 }
 

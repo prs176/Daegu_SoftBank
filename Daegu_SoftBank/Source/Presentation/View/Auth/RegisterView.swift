@@ -97,32 +97,7 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("주민등록번호")
                     
-                    HStack {
-                        ForEach(0..<6, id: \.self) { idx in
-                            AutoFocusTextField(text: $viewModel.rrnLetters[idx], isFirstResponder: viewModel.rnnCursor == idx)
-                                .padding(.vertical)
-                                .padding(.horizontal, 5)
-                                .background(Color(.secondarySystemBackground))
-                                .cornerRadius(5.0)
-                                .keyboardType(.numberPad)
-                                .disabled(viewModel.rnnCursor != idx)
-                        }
-                    
-                        Image(systemName: "minus")
-                            .font(.caption)
-                        
-                        AutoFocusTextField(text: $viewModel.rrnLetters[6], isFirstResponder: viewModel.rnnCursor == 6)
-                            .padding(.vertical)
-                            .padding(.horizontal, 5)
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(5.0)
-                            .keyboardType(.numberPad)
-                            .disabled(viewModel.rnnCursor != 6)
-                    }
-                    .frame(height: 55)
-                    .highPriorityGesture(TapGesture().onEnded {
-                        viewModel.resetRnnLetters()
-                    })
+                    AutoFocusTextFields(texts: $viewModel.rrnLetters)
                 }
                 
                 VStack(alignment: .leading) {
@@ -186,9 +161,6 @@ struct RegisterView: View {
                 .disabled(!viewModel.enterValidate())
             }
             .padding()
-        }
-        .onTapGesture {
-            viewModel.rnnCursor = 7
         }
         .onAppear {
             viewModel.isSuccess = false

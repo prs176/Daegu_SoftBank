@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ThirdTransferGetView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var navigationState: NavigationState
     @ObservedObject var viewModel: ThirdTransferGetViewModel
     
     init(receiveAccount: Account, request: TransferSendRequest) {
@@ -21,21 +21,7 @@ struct ThirdTransferGetView: View {
                 .font(.title)
                 .padding(.bottom, 80)
             
-            HStack {
-                ForEach(0..<4, id: \.self) { idx in
-                    AutoFocusTextField(text: $viewModel.pwLetters[idx], isFirstResponder: viewModel.pwCursor == idx)
-                        .padding(.horizontal, 5)
-                        .frame(width: 55)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(5.0)
-                        .keyboardType(.numberPad)
-                        .disabled(viewModel.pwCursor != idx)
-                }
-            }
-            .frame(height: 55)
-            .highPriorityGesture(TapGesture().onEnded {
-                viewModel.resetPwLetters()
-            })
+            AutoFocusTextFields(texts: $viewModel.pwLetters)
             
             Spacer()
             
@@ -52,9 +38,13 @@ struct ThirdTransferGetView: View {
         }
         .padding()
         .alert(isPresented: $viewModel.isSuccess) {
-            Alert(title: Text("가져오기 완료"),
-                  message: Text("\(viewModel.receiveAccount.name)(으)로\n\(viewModel.request.money) 원을 가져왔습니다."),
-                  dismissButton: .cancel(Text("확인")) { presentationMode.wrappedValue.dismiss() })
+            Alert(
+                title: Text("가져오기 완료"),
+                message: Text("\(viewModel.receiveAccount.name)(으)로\n\(viewModel.request.money) 원을 가져왔습니다."),
+                dismissButton: .cancel(Text("확인")) {
+                    navigationState.moveToHome = true
+                }
+            )
         }
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)

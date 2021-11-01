@@ -44,7 +44,7 @@ struct FirstTransferGetView: View {
             isActiveSecondBringView = false
         }
         .navigationTitle("가져오기")
-        .notDetailLinkNavigate(to: SecondTransferGetView(receiveAccount: viewModel.receiveAccount, sendAccount: viewModel.selectedAccount, request: viewModel.request), when: $isActiveSecondBringView)
+        .navigate(to: SecondTransferGetView(receiveAccount: viewModel.receiveAccount, sendAccount: viewModel.selectedAccount, request: viewModel.request), when: $isActiveSecondBringView, isDetailLink: false)
     }
 }
 

@@ -77,6 +77,14 @@ class UseCaseAssembly: Assembly {
         }
         .inObjectScope(.container)
         
+        container.register(FetchOtherAccountsUseCase.self) { r in
+            FetchOtherAccountsUseCase(accountRepository: r.resolve(AccountRepository.self)!)
+        }
+        
+        container.register(ApplyAddAccountsUseCase.self) { r in
+            ApplyAddAccountsUseCase(accountRepository: r.resolve(AccountRepository.self)!)
+        }
+        
         // MARK: Transfer
         container.register(TransferSendUseCase.self) { r in
             TransferSendUseCase(transferRepository: r.resolve(TransferRepository.self)!)

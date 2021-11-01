@@ -10,20 +10,12 @@ import UIKit
 import AlertToast
 
 extension View {
-    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
+    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>, isDetailLink: Bool = false) -> some View {
         self.background(
-            NavigationLink(destination: view, isActive: binding) {
+            NavigationLink(isActive: binding, destination: { view }) {
                 EmptyView()
             }
-        )
-    }
-    
-    func notDetailLinkNavigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
-        self.background(
-            NavigationLink(destination: view, isActive: binding) {
-                EmptyView()
-            }
-            .isDetailLink(false)
+            .isDetailLink(isDetailLink)
         )
     }
     

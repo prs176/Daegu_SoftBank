@@ -14,14 +14,18 @@ class ApplyAddAccountsUseCase: BaseParamUseCase {
         self.accountRepository = accountRepository
     }
     
-    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<[String], Error> {
+    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<String, Error> {
         accountRepository.applyAddAccounts(param.request)
     }
     
     class Param {
-        let request: AddAccountRequest
+        let request: AddAccountsRequest
         
-        init(request: AddAccountRequest) {
+        init(accounts: [String]) {
+            self.request = AddAccountsRequest(account: accounts)
+        }
+        
+        init(request: AddAccountsRequest) {
             self.request = request
         }
     }

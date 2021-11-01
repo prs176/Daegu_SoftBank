@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct FirstAddAccountView: View {
-    @StateObject var viewModel: FirstAddAccountViewModel = FirstAddAccountViewModel()
+    @EnvironmentObject var navigationState: NavigationState
+    @StateObject var viewModel: FirstAddAccountViewModel = DependencyProvider.shared.container.resolve(FirstAddAccountViewModel.self)!
     
     var body: some View {
         VStack {
@@ -30,36 +31,12 @@ struct FirstAddAccountView: View {
             VStack(alignment: .leading) {
                 Text("주민등록번호")
                 
-                HStack {
-                    ForEach(0..<6, id: \.self) { idx in
-                        AutoFocusTextField(text: $viewModel.rrnLetters[idx], isFirstResponder: viewModel.rnnCursor == idx)
-                            .padding(.horizontal, 5)
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(5.0)
-                            .keyboardType(.numberPad)
-                            .disabled(viewModel.rnnCursor != idx)
-                    }
-                
-                    Image(systemName: "minus")
-                        .font(.caption)
-                    
-                    AutoFocusTextField(text: $viewModel.rrnLetters[6], isFirstResponder: viewModel.rnnCursor == 6)
-                        .padding(.vertical)
-                        .padding(.horizontal, 5)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(5.0)
-                        .keyboardType(.numberPad)
-                        .disabled(viewModel.rnnCursor != 6)
-                }
-                .frame(height: 55)
-                .highPriorityGesture(TapGesture().onEnded {
-                    viewModel.resetRnnLetters()
-                })
+                AutoFocusTextFields(texts: $viewModel.rrnLetters)
             }
             
             Spacer()
             
-            Button(action: viewModel.refresh, label: {
+            Button(action: viewModel.fetch, label: {
                 Text("조회하기")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -74,12 +51,17 @@ struct FirstAddAccountView: View {
         .onAppear {
             viewModel.isSuccess = false
         }
-        .onTapGesture {
-            viewModel.rnnCursor = 7
+        .alert(isPresented: $viewModel.isFailure) {
+            Alert(
+                title: Text("유저정보 조회에 실패했습니다."),
+                dismissButton: .destructive(Text("뒤로")) {
+                    navigationState.moveToHome = true
+                }
+            )
         }
         .navigationTitle("계좌추가")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .notDetailLinkNavigate(to: SecondAddAccountView(request: viewModel.request, accounts: viewModel.accounts), when: $viewModel.isSuccess)
+        .navigate(to: SecondAddAccountView(accounts: viewModel.accounts), when: $viewModel.isSuccess, isDetailLink: false)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

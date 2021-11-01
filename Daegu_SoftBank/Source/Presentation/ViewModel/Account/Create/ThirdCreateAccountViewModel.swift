@@ -8,18 +8,7 @@
 import Foundation
 
 class ThirdCreateAccountViewModel: BaseViewModel {
-    @Published var pwLetters: [String] = ["", "", "", ""] {
-        didSet {
-            if pwLetters.filter({ $0.count > 1 }).count != 0 {
-                pwLetters = oldValue
-            }
-            if pwCursor <= 3, pwLetters[pwCursor].count > 0 {
-                pwCursor += 1
-            }
-        }
-    }
-    
-    var pwCursor: Int = 4
+    @Published var pwLetters: [String] = ["", "", "", ""]
     
     var request: AccountRequest
     
@@ -44,11 +33,6 @@ class ThirdCreateAccountViewModel: BaseViewModel {
             self?.accountInfo = AccountInfo() // 임시
             self?.isSuccess = true
         }
-    }
-    
-    func resetPwLetters() {
-        pwLetters = ["", "", "", ""]
-        pwCursor = 0
     }
 }
 

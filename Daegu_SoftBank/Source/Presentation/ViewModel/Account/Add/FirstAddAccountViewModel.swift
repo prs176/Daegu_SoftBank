@@ -5,42 +5,74 @@
 //  Created by 박세은 on 2021/10/10.
 //
 
-import Foundation
+import Combine
 
 class FirstAddAccountViewModel: BaseViewModel {
     @Published var name: String = ""
-    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""] {
-        didSet {
-            if rrnLetters.filter({ $0.count > 1 }).count != 0 {
-                rrnLetters = oldValue
-            }
-            if rnnCursor <= 6, rrnLetters[rnnCursor].count > 0 {
-                rnnCursor += 1
-            }
+    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""]
+    
+    let fetchMyUserUseCase: FetchMyUserUseCase
+    let fetchOtherAccountsUseCase: FetchOtherAccountsUseCase
+    let fetchAccountByAccountUseCase: FetchAccountByAccountUseCase
+    
+    @Published var isSuccess: Bool = false
+    @Published var isFailure: Bool = false
+    var user: User = User()
+    var accounts: [Account] = []
+    
+    init(fetchMyUserUseCase: FetchMyUserUseCase,
+         fetchOtherAccountsUseCase: FetchOtherAccountsUseCase,
+         fetchAccountByAccountUseCase: FetchAccountByAccountUseCase) {
+        self.fetchMyUserUseCase = fetchMyUserUseCase
+        self.fetchOtherAccountsUseCase = fetchOtherAccountsUseCase
+        self.fetchAccountByAccountUseCase = fetchAccountByAccountUseCase
+        
+        super.init()
+        
+        refresh()
+    }
+    
+    func refresh() {
+        addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
+            self?.user = $0
+        } onError: { [weak self] _ in
+            self?.isFailure = true
         }
     }
     
-    var rnnCursor: Int = 7
-    
-    var request: AddAccountRequest = AddAccountRequest()
-    
-    @Published var isSuccess: Bool = false
-    var accounts: [Account] = []
-    
-    func refresh() {
-        guard validate() else {
+    func fetch() {
+        guard name == user.name, rrnLetters.joined() == user.birth else {
+            isErrorOcuured = true
+            errorMessage = "이름, 주민등록번호가 일치하지 않습니다."
             return
         }
         
-        request.name = name
-        request.rrn = Int(rrnLetters.joined())!
-        
-        isSuccess = true
-    }
-    
-    func resetRnnLetters() {
-        rrnLetters = ["", "", "", "", "", "", ""]
-        rnnCursor = 0
+        addCancellable(
+            publisher: fetchOtherAccountsUseCase.buildUseCasePublisher(FetchOtherAccountsUseCase.Param(birth: rrnLetters.joined(), name: name))
+                .flatMap { [weak self] accounts -> AnyPublisher<[Account], Error> in
+                    guard let self = self else {
+                        return Future<[Account], Error> {
+                            $0(.failure(SoftBankError.error(message: "계좌 조회에 실패했습니다.")))
+                        }
+                        .eraseToAnyPublisher()
+                    }
+                    
+                    if accounts.count == 0 {
+                        return Future<[Account], Error> {
+                            $0(.failure(SoftBankError.error(message: "조회되는 계좌가 없습니다.")))
+                        }
+                        .eraseToAnyPublisher()
+                    }
+                    
+                    return Publishers.MergeMany(accounts.map {
+                        self.fetchAccountByAccountUseCase.buildUseCasePublisher(FetchAccountByAccountUseCase.Param(account: $0))
+                    })
+                    .collect(accounts.count)
+                    .eraseToAnyPublisher()
+                }.eraseToAnyPublisher()) { [weak self] in
+                    self?.accounts = $0
+                    self?.isSuccess = true
+                }
     }
 }
 

@@ -8,29 +8,10 @@
 import Foundation
 
 class RegisterAuthNumViewModel: BaseViewModel {
-    @Published var authNumLetters: [String] = ["", "", "", "", "", ""] {
-        didSet {
-            if authNumLetters.filter({ $0.count > 1 }).count != 0 {
-                authNumLetters = oldValue
-            }
-            if authNumCursor <= 5, authNumLetters[authNumCursor].count > 0 {
-                authNumCursor += 1
-            }
-        }
-    }
-    @Published var reAuthNumLetters: [String] = ["", "", "", "", "", ""] {
-        didSet {
-            if reAuthNumLetters.filter({ $0.count > 1 }).count != 0 {
-                reAuthNumLetters = oldValue
-            }
-            if authNumCursor <= 5, reAuthNumLetters[authNumCursor].count > 0 {
-                authNumCursor += 1
-            }
-        }
-    }
+    @Published var authNumLetters: [String] = ["", "", "", "", "", ""]
+    @Published var reAuthNumLetters: [String] = ["", "", "", "", "", ""]
     
     @Published var curStep: Int = 0
-    var authNumCursor: Int = 6
     
     var uploadRequest: UploadRequest
     var registerRequest: RegisterRequest
@@ -87,16 +68,6 @@ class RegisterAuthNumViewModel: BaseViewModel {
         addCancellable(publisher: loginUseCase.buildUseCasePublisher(LoginUseCase.Param(id: registerRequest.id, pw: registerRequest.pw))) { [weak self] in
             self?.isSuccessLogin = true
         }
-    }
-    
-    func resetAuthNumLetters() {
-        if curStep == 0 {
-            authNumLetters = ["", "", "", "", "", ""]
-        }
-        else {
-            reAuthNumLetters = ["", "", "", "", "", ""]
-        }
-        authNumCursor = 0
     }
 }
 

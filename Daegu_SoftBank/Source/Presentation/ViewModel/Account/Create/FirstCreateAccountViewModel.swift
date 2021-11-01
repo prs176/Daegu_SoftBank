@@ -9,31 +9,30 @@ import Foundation
 
 class FirstCreateAccountViewModel: BaseViewModel {
     @Published var name: String = ""
-    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""] {
-        didSet {
-            if rrnLetters.filter({ $0.count > 1 }).count != 0 {
-                rrnLetters = oldValue
-            }
-            if rnnCursor <= 6, rrnLetters[rnnCursor].count > 0 {
-                rnnCursor += 1
-            }
-        }
-    }
-    
-    var rnnCursor: Int = 7
+    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""]
     
     var request: AccountRequest = AccountRequest()
     
-    let fetchMyUserUseCasefetchUser: FetchMyUserUseCase
-    let fetchUserByNameAndBirthUseCase: FetchUserByNameAndBirthUseCase
+    let fetchMyUserUseCase: FetchMyUserUseCase
     
     @Published var isSuccess: Bool = false
+    @Published var isFailure: Bool = false
     var user: User = User()
     
-    init(fetchMyUserUseCasefetchUser: FetchMyUserUseCase,
-         fetchUserByNameAndBirthUseCase: FetchUserByNameAndBirthUseCase) {
-        self.fetchMyUserUseCasefetchUser = fetchMyUserUseCasefetchUser
-        self.fetchUserByNameAndBirthUseCase = fetchUserByNameAndBirthUseCase
+    init(fetchMyUserUseCase: FetchMyUserUseCase) {
+        self.fetchMyUserUseCase = fetchMyUserUseCase
+        
+        super.init()
+        
+        refresh()
+    }
+    
+    func refresh() {
+        addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
+            self?.user = $0
+        } onError: { [weak self] _ in
+            self?.isFailure = true
+        }
     }
     
     func fetch() {
@@ -41,25 +40,14 @@ class FirstCreateAccountViewModel: BaseViewModel {
             return
         }
         
-        request.birth = rrnLetters.joined()
-        
-        addCancellable(publisher: fetchMyUserUseCasefetchUser.buildUseCasePublisher()
-                        .zip(fetchUserByNameAndBirthUseCase.buildUseCasePublisher(FetchUserByNameAndBirthUseCase.Param(name: name, birth: rrnLetters.joined())))
-                        .eraseToAnyPublisher()) { [weak self] myUser, user in
-            if user.id == myUser.id {
-                self?.user = user
-                self?.isSuccess = true
-            }
-            else {
-                self?.errorMessage = "정보를 잘못 입력하셨습니다."
-                self?.isErrorOcuured = true
-            }
+        guard name == user.name, rrnLetters.joined() == user.birth else {
+            isErrorOcuured = true
+            errorMessage = "이름, 주민등록번호가 일치하지 않습니다."
+            return
         }
-    }
-    
-    func resetRnnLetters() {
-        rrnLetters = ["", "", "", "", "", "", ""]
-        rnnCursor = 0
+        
+        request.birth = rrnLetters.joined()
+        isSuccess = true
     }
 }
 

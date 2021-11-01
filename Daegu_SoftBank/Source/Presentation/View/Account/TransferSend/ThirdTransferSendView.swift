@@ -23,21 +23,7 @@ struct ThirdTransferSendView: View {
                 .font(.title2)
                 .padding(.bottom, 80)
             
-            HStack {
-                ForEach(0..<4, id: \.self) { idx in
-                    AutoFocusTextField(text: $viewModel.pwLetters[idx], isFirstResponder: viewModel.pwCursor == idx)
-                        .padding(.horizontal, 5)
-                        .frame(width: 55)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(5.0)
-                        .keyboardType(.numberPad)
-                        .disabled(viewModel.pwCursor != idx)
-                }
-            }
-            .frame(height: 55)
-            .highPriorityGesture(TapGesture().onEnded {
-                viewModel.resetPwLetters()
-            })
+            AutoFocusTextFields(texts: $viewModel.pwLetters)
             
             Spacer()
             
@@ -58,7 +44,7 @@ struct ThirdTransferSendView: View {
         }
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .notDetailLinkNavigate(to: FourthTransferSendView(request: viewModel.request, fees: fees), when: $viewModel.isSuccess)
+        .navigate(to: FourthTransferSendView(request: viewModel.request, fees: fees), when: $viewModel.isSuccess, isDetailLink: false)
         .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

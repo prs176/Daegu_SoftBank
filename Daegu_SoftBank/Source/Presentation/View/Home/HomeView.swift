@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel: HomeViewModel = DependencyProvider.shared.container.resolve(HomeViewModel.self)!
+    @EnvironmentObject var navigationState: NavigationState
     @Environment(\.loginViewRootPresentation) var loginViewRootPresentation: Binding<Bool>
     @Environment(\.registerViewRootPresentation) var registerViewRootPresentation: Binding<Bool>
+    @StateObject var viewModel: HomeViewModel = DependencyProvider.shared.container.resolve(HomeViewModel.self)!
     
-    @State var isActiveBringView: Bool = false
+    @State var createAccountPresenting: Bool = false
+    @State var addAccountPresenting: Bool = false
+    @State var transferSendPresenting: Bool = false
+    @State var transferGetPresenting: Bool = false
+    
     @State var selectedAccount: Account = Account()
     
     var body: some View {
@@ -39,7 +44,8 @@ struct HomeView: View {
                 }
                 
                 NavigationLink(
-                    destination: FirstCreateAccountView(),
+                    isActive: $createAccountPresenting,
+                    destination: { FirstCreateAccountView() },
                     label: {
                         VStack(alignment: .center) {
                             Text("계좌 개설하기")
@@ -67,7 +73,7 @@ struct HomeView: View {
                     ForEach(viewModel.accounts, id: \.self) { account in
                         Divider()
                         
-                        AccountRow(account: account, selectedAccount: $selectedAccount, isActiveBringView: $isActiveBringView)
+                        AccountRow(account: account, selectedAccount: $selectedAccount, transferSendPresenting: $transferSendPresenting, transferGetPresenting: $transferGetPresenting)
                             .padding(.vertical, 5)
                     }
                 }
@@ -80,7 +86,8 @@ struct HomeView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: FirstAddAccountView(),
+                    isActive: $addAccountPresenting,
+                    destination: { FirstAddAccountView() },
                     label: {
                         HStack {
                             Image(systemName: "plus")
@@ -102,9 +109,19 @@ struct HomeView: View {
         .background(
             Color(.secondarySystemBackground).ignoresSafeArea()
         )
+        .onReceive(navigationState.$moveToHome) { moveToHome in
+            if moveToHome {
+                createAccountPresenting = false
+                addAccountPresenting = false
+                transferSendPresenting = false
+                transferGetPresenting = false
+                navigationState.moveToHome = false
+            }
+        }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarHidden(true)
-        .navigate(to: FirstTransferGetView(accounts: viewModel.accounts, receiveAccount: selectedAccount), when: $isActiveBringView)
+        .navigate(to: FirstTransferSendView(sendAccount: selectedAccount), when: $transferSendPresenting, isDetailLink: false)
+        .navigate(to: FirstTransferGetView(accounts: viewModel.accounts, receiveAccount: selectedAccount), when: $transferGetPresenting, isDetailLink: false)
     }
 }
 

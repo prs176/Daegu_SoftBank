@@ -86,7 +86,7 @@ struct SecondCreateAccountView: View {
         }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .notDetailLinkNavigate(to: ThirdCreateAccountView(request: viewModel.request), when: $isActiveThirdCreateAccountView)
+        .navigate(to: ThirdCreateAccountView(request: viewModel.request), when: $isActiveThirdCreateAccountView, isDetailLink: false)
         .resignKeyboardOnDragGesture()
     }
 }
