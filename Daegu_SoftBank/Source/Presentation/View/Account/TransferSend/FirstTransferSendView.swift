@@ -18,7 +18,7 @@ struct FirstTransferSendView: View {
     } ()
     
     init(sendAccount: Account) {
-        viewModel = FirstTransferSendViewModel(sendAccount: sendAccount)
+        viewModel = DependencyProvider.shared.container.resolve(FirstTransferSendViewModel.self, argument: sendAccount)!
     }
     
     var body: some View {

@@ -15,10 +15,14 @@ class FirstTransferSendViewModel: BaseViewModel {
     var sendAccount: Account
     @Published var request: TransferSendRequest = TransferSendRequest()
     
+    let fetchAccountByAccountUseCase: FetchAccountByAccountUseCase
+    
     @Published var isSuccess: Bool = false
     @Published var name: String = ""
     
-    init(sendAccount: Account) {
+    init(fetchAccountByAccountUseCase: FetchAccountByAccountUseCase,
+         sendAccount: Account) {
+        self.fetchAccountByAccountUseCase = fetchAccountByAccountUseCase
         self.sendAccount = sendAccount
         
         super.init()
@@ -31,8 +35,11 @@ class FirstTransferSendViewModel: BaseViewModel {
             return
         }
         
-        name = "로미"
-        isSuccess = true
+        addCancellable(publisher: fetchAccountByAccountUseCase.buildUseCasePublisher(FetchAccountByAccountUseCase.Param(account: request.receiveAccountId))) { [weak self] in
+            self?.name = $0.userId
+            self?.request.receiveAccountId = $0.account
+            self?.isSuccess = true
+        }
     }
 }
 

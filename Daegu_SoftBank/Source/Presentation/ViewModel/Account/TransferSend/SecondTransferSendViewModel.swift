@@ -24,6 +24,6 @@ class SecondTransferSendViewModel: BaseViewModel {
     }
     
     func getFees() {
-        self.fees = 300
+        self.fees = 500
     }
 }
