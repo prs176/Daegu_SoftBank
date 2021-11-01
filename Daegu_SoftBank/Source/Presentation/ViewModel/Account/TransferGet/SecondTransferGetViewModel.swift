@@ -33,13 +33,11 @@ extension SecondTransferGetViewModel {
             return
         }
         
-        request.money = price
-        
         isSuccess = true
     }
     
     func enterValidate() -> Bool {
-        if Int(price.components(separatedBy: ",").joined())! <= 0 {
+        if Int(price.components(separatedBy: ",").joined()) ?? 0 <= 0 {
             return false
         }
         
