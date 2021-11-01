@@ -12,9 +12,13 @@ class ThirdTransferSendViewModel: BaseViewModel {
     
     var request: TransferSendRequest
     
+    let transferSendUseCase: TransferSendUseCase
+    
     @Published var isSuccess: Bool = false
     
-    init(request: TransferSendRequest) {
+    init(transferSendUseCase: TransferSendUseCase,
+         request: TransferSendRequest) {
+        self.transferSendUseCase = transferSendUseCase
         self.request = request
     }
     
@@ -24,7 +28,9 @@ class ThirdTransferSendViewModel: BaseViewModel {
         }
         
         request.sendAccountPw = pwLetters.joined()
-        isSuccess = true
+        addCancellable(publisher: transferSendUseCase.buildUseCasePublisher(TransferSendUseCase.Param(request: request))) { [weak self] _ in
+            self?.isSuccess = true
+        }
     }
 }
 

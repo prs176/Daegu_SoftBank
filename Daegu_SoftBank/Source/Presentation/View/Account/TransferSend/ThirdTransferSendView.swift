@@ -14,7 +14,7 @@ struct ThirdTransferSendView: View {
     
     init(fees: Int, request: TransferSendRequest) {
         self.fees = fees
-        viewModel = ThirdTransferSendViewModel(request: request)
+        viewModel = DependencyProvider.shared.container.resolve(ThirdTransferSendViewModel.self, argument: request)!
     }
     
     var body: some View {

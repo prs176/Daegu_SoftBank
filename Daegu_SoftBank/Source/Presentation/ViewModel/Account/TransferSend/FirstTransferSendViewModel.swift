@@ -15,10 +15,14 @@ class FirstTransferSendViewModel: BaseViewModel {
     var sendAccount: Account
     @Published var request: TransferSendRequest = TransferSendRequest()
     
+    let fetchAccountByAccountUseCase: FetchAccountByAccountUseCase
+    
     @Published var isSuccess: Bool = false
     @Published var name: String = ""
     
-    init(sendAccount: Account) {
+    init(fetchAccountByAccountUseCase: FetchAccountByAccountUseCase,
+         sendAccount: Account) {
+        self.fetchAccountByAccountUseCase = fetchAccountByAccountUseCase
         self.sendAccount = sendAccount
         
         super.init()
@@ -31,8 +35,11 @@ class FirstTransferSendViewModel: BaseViewModel {
             return
         }
         
-        name = "로미"
-        isSuccess = true
+        addCancellable(publisher: fetchAccountByAccountUseCase.buildUseCasePublisher(FetchAccountByAccountUseCase.Param(account: request.receiveAccountId))) { [weak self] in
+            self?.name = $0.userId
+            self?.request.receiveAccountId = $0.account
+            self?.isSuccess = true
+        }
     }
 }
 
@@ -41,6 +48,12 @@ extension FirstTransferSendViewModel {
         if !request.receiveAccountId.components(separatedBy: "-").joined().isNumber() {
             isErrorOcuured = true
             errorMessage = "계좌번호는 숫자로 입력해주세요."
+            return false
+        }
+        
+        if request.receiveAccountId == request.sendAccountId {
+            isErrorOcuured = true
+            errorMessage = "보낼 계좌의 계좌번호와 받을 계좌의 계좌번호가 달라야합니다."
             return false
         }
         

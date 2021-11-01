@@ -34,7 +34,7 @@ extension AccountAPI: TargetType {
         case let .getAccountsByPhone(phone):
             return "/\(phone)"
         case let .getAccountByAccount(account):
-            return "/account/\(account)"
+            return "/\(account)"
         }
     }
     
