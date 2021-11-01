@@ -23,11 +23,17 @@ struct FirstTransferSendView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
-            Text("잔액: \(viewModel.sendAccount.money) 원")
-                .font(.title3)
+            VStack(alignment: .leading) {
+                Text("계좌번호로 보내기")
+                    .font(.title2)
+                
+                Text("잔액: \(viewModel.sendAccount.money) 원")
+                    .foregroundColor(.secondary)
+            }
         
             HStack {
                 Text("금액: ")
+                    .font(.title3)
                 
                 HStack {
                     TextField("", text: $viewModel.money)
@@ -50,25 +56,26 @@ struct FirstTransferSendView: View {
                         .font(.title3)
                 }
             }
+            .padding(.top)
             
             HStack {
                 HStack {
-                    Picker("은행", selection: $viewModel.bank) {
-                        ForEach(0..<["부산", "토스", "대구"].count) {
-                            Text(["부산", "토스", "대구"][$0])
+                    Picker(
+                        "",
+                        selection: $viewModel.bank,
+                        content: {
+                            ForEach(0..<["부산", "토스", "대구"].count) {
+                                Text(["부산", "토스", "대구"][$0])
+                            }
                         }
-                    }
-                    .frame(height: 55)
-                    .fixedSize()
-                    
-                    Image(systemName: "chevron.down")
-                        .foregroundColor(.secondary)
+                    )
+                    .foregroundColor(.secondary)
                 }
                 .padding(.trailing)
                 
                 TextField("계좌번호", text: $viewModel.request.receiveAccountId)
-                    .textFieldStyle(LabelTextFieldStyle())
             }
+            .padding(.top)
             
             Spacer()
             
