@@ -9,11 +9,10 @@ import SwiftUI
 
 struct SecondTransferSendView: View {
     @EnvironmentObject var navigationState: NavigationState
-    @ObservedObject var viewModel: SecondTransferSendViewModel
+    @StateObject var viewModel: SecondTransferSendViewModel = DependencyProvider.shared.container.resolve(SecondTransferSendViewModel.self)!
     
-    init(name: String, request: TransferSendRequest) {
-        viewModel = SecondTransferSendViewModel(name: name, request: request)
-    }
+    var name: String
+    var request: TransferSendRequest
     
     var body: some View {
         VStack(spacing: 15) {
@@ -103,6 +102,12 @@ struct SecondTransferSendView: View {
             }
         }
         .padding()
+        .onAppear {
+            viewModel.update(
+                name: name,
+                request: request
+            )
+        }
         .navigationBarHidden(true)
     }
 }

@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct ThirdTransferSendView: View {
-    @ObservedObject var viewModel: ThirdTransferSendViewModel
+    @StateObject var viewModel: ThirdTransferSendViewModel = DependencyProvider.shared.container.resolve(ThirdTransferSendViewModel.self)!
     
     var fees: Int
-    
-    init(fees: Int, request: TransferSendRequest) {
-        self.fees = fees
-        viewModel = DependencyProvider.shared.container.resolve(ThirdTransferSendViewModel.self, argument: request)!
-    }
+    var request: TransferSendRequest
     
     var body: some View {
         VStack {
@@ -40,7 +36,7 @@ struct ThirdTransferSendView: View {
         }
         .padding()
         .onAppear {
-            viewModel.isSuccess = false
+            viewModel.update(request: request)
         }
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)

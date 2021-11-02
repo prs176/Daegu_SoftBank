@@ -49,7 +49,7 @@ struct FirstAddAccountView: View {
         }
         .padding()
         .onAppear {
-            viewModel.isSuccess = false
+            viewModel.update()
         }
         .alert(isPresented: $viewModel.isFailure) {
             Alert(

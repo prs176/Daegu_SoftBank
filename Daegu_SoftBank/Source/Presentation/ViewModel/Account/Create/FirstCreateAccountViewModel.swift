@@ -16,7 +16,6 @@ class FirstCreateAccountViewModel: BaseViewModel {
     let fetchMyUserUseCase: FetchMyUserUseCase
     
     @Published var isSuccess: Bool = false
-    @Published var isFailure: Bool = false
     var user: User = User()
     
     init(fetchMyUserUseCase: FetchMyUserUseCase) {
@@ -27,11 +26,14 @@ class FirstCreateAccountViewModel: BaseViewModel {
         refresh()
     }
     
+    func update() {
+        self.isSuccess = false
+        self.user = User()
+    }
+    
     func refresh() {
         addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
             self?.user = $0
-        } onError: { [weak self] _ in
-            self?.isFailure = true
         }
     }
     

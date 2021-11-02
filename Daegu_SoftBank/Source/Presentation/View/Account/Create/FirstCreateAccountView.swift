@@ -50,9 +50,9 @@ struct FirstCreateAccountView: View {
         }
         .padding()
         .onAppear {
-            viewModel.isSuccess = false
+            viewModel.update()
         }
-        .alert(isPresented: $viewModel.isFailure) {
+        .alert(isPresented: $viewModel.isErrorOcuured) {
             Alert(
                 title: Text("유저정보 조회에 실패했습니다."),
                 dismissButton: .destructive(Text("뒤로")) {
@@ -63,7 +63,6 @@ struct FirstCreateAccountView: View {
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: SecondCreateAccountView(user: viewModel.user, request: viewModel.request), when: $viewModel.isSuccess, isDetailLink: false)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

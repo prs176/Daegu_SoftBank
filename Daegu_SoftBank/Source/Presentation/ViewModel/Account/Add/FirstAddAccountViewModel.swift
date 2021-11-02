@@ -32,6 +32,12 @@ class FirstAddAccountViewModel: BaseViewModel {
         refresh()
     }
     
+    func update() {
+        self.isSuccess = false
+        self.user = User()
+        self.accounts = []
+    }
+    
     func refresh() {
         addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
             self?.user = $0

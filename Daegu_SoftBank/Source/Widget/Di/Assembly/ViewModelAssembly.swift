@@ -18,14 +18,12 @@ class ViewModelAssembly: Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(RegisterAuthNumViewModel.self) { (r, uploadRequest, registerRequest) in
+        container.register(RegisterAuthNumViewModel.self) { r in
             RegisterAuthNumViewModel(
                 uploadUseCase: r.resolve(UploadUseCase.self)!,
                 registerUseCase: r.resolve(RegisterUseCase.self)!,
                 applyAuthNumUseCase: r.resolve(ApplyAuthNumUseCase.self)!,
-                loginUseCase: r.resolve(LoginUseCase.self)!,
-                uploadRequest: uploadRequest,
-                registerRequest: registerRequest
+                loginUseCase: r.resolve(LoginUseCase.self)!
             )
         }
         .inObjectScope(.container)
@@ -53,19 +51,13 @@ class ViewModelAssembly: Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(SecondCreateAccountViewModel.self) { (r, user, request) in
-            SecondCreateAccountViewModel(
-                user: user,
-                request: request
-            )
+        container.register(SecondCreateAccountViewModel.self) { r in
+            SecondCreateAccountViewModel()
         }
         .inObjectScope(.container)
         
-        container.register(ThirdCreateAccountViewModel.self) { (r, request) in
-            ThirdCreateAccountViewModel(
-                applyAccountUseCase: r.resolve(ApplyAccountUseCase.self)!,
-                request: request
-            )
+        container.register(ThirdCreateAccountViewModel.self) { r in
+            ThirdCreateAccountViewModel(applyAccountUseCase: r.resolve(ApplyAccountUseCase.self)!)
         }
         .inObjectScope(.container)
         
@@ -79,38 +71,35 @@ class ViewModelAssembly: Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(SecondAddAccountViewModel.self) { (r, accounts) in
-            SecondAddAccountViewModel(
-                applyAddAccountsUseCase: r.resolve(ApplyAddAccountsUseCase.self)!,
-                accounts: accounts
-            )
+        container.register(SecondAddAccountViewModel.self) { r in
+            SecondAddAccountViewModel(applyAddAccountsUseCase: r.resolve(ApplyAddAccountsUseCase.self)!)
         }
         .inObjectScope(.container)
         
         // transfer send account
-        container.register(FirstTransferSendViewModel.self) { (r, sendAccount) in
-            FirstTransferSendViewModel(
-                fetchAccountByAccountUseCase: r.resolve(FetchAccountByAccountUseCase.self)!,
-                sendAccount: sendAccount
-            )
+        container.register(FirstTransferSendViewModel.self) { r in
+            FirstTransferSendViewModel(fetchAccountByAccountUseCase: r.resolve(FetchAccountByAccountUseCase.self)!)
         }
         .inObjectScope(.container)
         
-        container.register(ThirdTransferSendViewModel.self) { (r, request) in
-            ThirdTransferSendViewModel(
-                transferSendUseCase: r.resolve(TransferSendUseCase.self)!,
-                request: request
-            )
+        container.register(SecondTransferSendViewModel.self) { r in
+            SecondTransferSendViewModel()
+        }
+        .inObjectScope(.container)
+        
+        container.register(ThirdTransferSendViewModel.self) { r in
+            ThirdTransferSendViewModel(transferSendUseCase: r.resolve(TransferSendUseCase.self)!)
         }
         .inObjectScope(.container)
         
         // transfer get account
-        container.register(ThirdTransferGetViewModel.self) { (r, receiveAccount, request) in
-            ThirdTransferGetViewModel(
-                transferSendUseCase: r.resolve(TransferSendUseCase.self)!,
-                receiveAccount: receiveAccount,
-                request: request
-            )
+        container.register(SecondTransferGetViewModel.self) { r in
+            SecondTransferGetViewModel()
+        }
+        .inObjectScope(.container)
+        
+        container.register(ThirdTransferGetViewModel.self) { r in
+            ThirdTransferGetViewModel(transferSendUseCase: r.resolve(TransferSendUseCase.self)!)
         }
         .inObjectScope(.container)
     }

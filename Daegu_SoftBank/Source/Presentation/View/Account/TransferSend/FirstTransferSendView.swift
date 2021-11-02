@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct FirstTransferSendView: View {
-    @ObservedObject var viewModel: FirstTransferSendViewModel
+    @StateObject var viewModel: FirstTransferSendViewModel = DependencyProvider.shared.container.resolve(FirstTransferSendViewModel.self)!
+    
+    var sendAccount: Account
     
     var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -16,10 +18,6 @@ struct FirstTransferSendView: View {
 
         return formatter
     } ()
-    
-    init(sendAccount: Account) {
-        viewModel = DependencyProvider.shared.container.resolve(FirstTransferSendViewModel.self, argument: sendAccount)!
-    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -92,7 +90,7 @@ struct FirstTransferSendView: View {
         }
         .padding()
         .onAppear {
-            viewModel.isAgree = false
+            viewModel.update(sendAccount: sendAccount)
         }
         .alert(isPresented: $viewModel.isSuccess) {
             Alert(title: Text("받는 사람이 맞나요?"),

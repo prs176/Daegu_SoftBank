@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct ThirdCreateAccountView: View {
-    @ObservedObject var viewModel: ThirdCreateAccountViewModel
+    @StateObject var viewModel: ThirdCreateAccountViewModel = DependencyProvider.shared.container.resolve(ThirdCreateAccountViewModel.self)!
     
-    init(request: AccountRequest) {
-        viewModel = DependencyProvider.shared.container.resolve(ThirdCreateAccountViewModel.self, argument: request)!
-    }
+    var request: AccountRequest
     
     var body: some View {
         VStack {
@@ -36,6 +34,7 @@ struct ThirdCreateAccountView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
+        .onAppear { viewModel.update(request: request) }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: FourthCreateAccountView(accountInfo: viewModel.accountInfo), when: $viewModel.isSuccess, isDetailLink: false)

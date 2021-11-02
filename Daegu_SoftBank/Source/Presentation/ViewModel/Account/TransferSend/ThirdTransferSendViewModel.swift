@@ -10,16 +10,19 @@ import Foundation
 class ThirdTransferSendViewModel: BaseViewModel {
     @Published var pwLetters: [String] = ["", "", "", ""]
     
-    var request: TransferSendRequest
+    var request: TransferSendRequest = TransferSendRequest()
     
     let transferSendUseCase: TransferSendUseCase
     
     @Published var isSuccess: Bool = false
     
-    init(transferSendUseCase: TransferSendUseCase,
-         request: TransferSendRequest) {
+    init(transferSendUseCase: TransferSendUseCase) {
         self.transferSendUseCase = transferSendUseCase
+    }
+    
+    func update(request: TransferSendRequest) {
         self.request = request
+        self.isSuccess = false
     }
     
     func apply() {

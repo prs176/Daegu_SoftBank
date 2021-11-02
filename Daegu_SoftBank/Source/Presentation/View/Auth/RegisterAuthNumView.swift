@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct RegisterAuthNumView: View {
-    @ObservedObject var viewModel: RegisterAuthNumViewModel
+    @ObservedObject var viewModel: RegisterAuthNumViewModel = DependencyProvider.shared.container.resolve(RegisterAuthNumViewModel.self)!
 
-    init(uploadRequest: UploadRequest, registerRequest: RegisterRequest) {
-        self.viewModel = DependencyProvider.shared.container.resolve(RegisterAuthNumViewModel.self, arguments: uploadRequest, registerRequest)!
-    }
+    var uploadRequest: UploadRequest
+    var registerRequest: RegisterRequest
     
     var body: some View {
         VStack {
@@ -62,9 +61,10 @@ struct RegisterAuthNumView: View {
         }
         .padding()
         .onAppear {
-            viewModel.isSuccessRegister = false
-            viewModel.isSuccessRegisterAuthNum = false
-            viewModel.isSuccessLogin = false
+            viewModel.update(
+                uploadRequest: uploadRequest,
+                registerRequest: registerRequest
+            )
         }
         .onChange(of: viewModel.isSuccessUpload, perform: { isSuccessUpload in
             if isSuccessUpload {

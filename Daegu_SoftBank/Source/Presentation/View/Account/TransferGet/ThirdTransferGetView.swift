@@ -9,11 +9,10 @@ import SwiftUI
 
 struct ThirdTransferGetView: View {
     @EnvironmentObject var navigationState: NavigationState
-    @ObservedObject var viewModel: ThirdTransferGetViewModel
+    @StateObject var viewModel: ThirdTransferGetViewModel = DependencyProvider.shared.container.resolve(ThirdTransferGetViewModel.self)!
     
-    init(receiveAccount: Account, request: TransferSendRequest) {
-        viewModel = DependencyProvider.shared.container.resolve(ThirdTransferGetViewModel.self, arguments: receiveAccount, request)!
-    }
+    var receiveAccount: Account
+    var request: TransferSendRequest
     
     var body: some View {
         VStack {
@@ -37,10 +36,11 @@ struct ThirdTransferGetView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
+        .onAppear { viewModel.update(request: request) }
         .alert(isPresented: $viewModel.isSuccess) {
             Alert(
                 title: Text("가져오기 완료"),
-                message: Text("\(viewModel.receiveAccount.name)(으)로\n\(viewModel.request.money) 원을 가져왔습니다."),
+                message: Text("\(receiveAccount.name)(으)로\n\(viewModel.request.money) 원을 가져왔습니다."),
                 dismissButton: .cancel(Text("확인")) {
                     navigationState.moveToHome = true
                 }

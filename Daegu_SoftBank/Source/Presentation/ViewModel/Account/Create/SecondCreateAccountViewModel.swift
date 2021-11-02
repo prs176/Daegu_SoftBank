@@ -9,19 +9,17 @@ import Foundation
 
 class SecondCreateAccountViewModel: BaseViewModel {
     @Published var name: String = ""
-    var birth: String
-    var user: User
+    var birth: String = ""
+    var user: User = User()
     
-    var request: AccountRequest
+    var request: AccountRequest = AccountRequest()
     
-    init(user: User, request: AccountRequest) {
+    func update(user: User, request: AccountRequest) {
         self.user = user
         self.request = request
-        self.birth = request.birth
         
-        if birth.count > 0 {
-            birth.insert("-", at: birth.index(before: birth.endIndex))
-        }
+        self.birth = request.birth
+        birth.insert("-", at: birth.index(before: birth.endIndex))
     }
 }
 
@@ -30,6 +28,8 @@ extension SecondCreateAccountViewModel {
         if name.isEmpty {
             return false
         }
+        
+        request.name = name
         
         return true
     }

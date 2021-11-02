@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct SecondTransferGetView: View {
-    @ObservedObject var viewModel: SecondTransferGetViewModel
+    @StateObject var viewModel: SecondTransferGetViewModel = DependencyProvider.shared.container.resolve(SecondTransferGetViewModel.self)!
+    
+    var receiveAccount: Account
+    var sendAccount: Account
+    var request: TransferSendRequest
     
     var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -16,10 +20,6 @@ struct SecondTransferGetView: View {
 
         return formatter
     } ()
-    
-    init(receiveAccount: Account, sendAccount: Account, request: TransferSendRequest) {
-        viewModel = SecondTransferGetViewModel(receiveAccount: receiveAccount, sendAccount: sendAccount, request: request)
-    }
     
     var body: some View {
         VStack(alignment: .center) {
@@ -93,7 +93,11 @@ struct SecondTransferGetView: View {
             .disabled(!viewModel.enterValidate())
         }
         .onAppear {
-            viewModel.isSuccess = false
+            viewModel.update(
+                receiveAccount: receiveAccount,
+                sendAccount: sendAccount,
+                request: request
+            )
         }
         .padding()
         .ignoresSafeArea(.keyboard, edges: .bottom)

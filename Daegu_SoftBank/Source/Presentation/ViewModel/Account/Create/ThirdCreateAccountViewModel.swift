@@ -10,17 +10,21 @@ import Foundation
 class ThirdCreateAccountViewModel: BaseViewModel {
     @Published var pwLetters: [String] = ["", "", "", ""]
     
-    var request: AccountRequest
+    var request: AccountRequest = AccountRequest()
     
     let applyAccountUseCase: ApplyAccountUseCase
     
     @Published var isSuccess: Bool = false
     var accountInfo: AccountInfo = AccountInfo()
     
-    init(applyAccountUseCase: ApplyAccountUseCase,
-         request: AccountRequest) {
+    init(applyAccountUseCase: ApplyAccountUseCase) {
         self.applyAccountUseCase = applyAccountUseCase
+    }
+    
+    func update(request: AccountRequest) {
         self.request = request
+        self.isSuccess = false
+        self.accountInfo = AccountInfo()
     }
     
     func apply() {
