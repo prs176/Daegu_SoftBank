@@ -16,6 +16,10 @@ class SecondTransferGetViewModel: BaseViewModel {
     
     @Published var isSuccess: Bool = false
     
+    func initProps() {
+        money = "0"
+    }
+    
     func update(
         receiveAccount: Account,
         sendAccount: Account,

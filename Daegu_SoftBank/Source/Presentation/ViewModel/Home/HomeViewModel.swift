@@ -21,6 +21,10 @@ class HomeViewModel: BaseViewModel {
         refresh()
     }
     
+    func initProps() {
+        refresh()
+    }
+    
     func refresh() {
         addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] user in
             self?.user = user

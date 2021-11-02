@@ -10,6 +10,8 @@ import SwiftUI
 struct SecondCreateAccountView: View {
     @StateObject var viewModel: SecondCreateAccountViewModel = DependencyProvider.shared.container.resolve(SecondCreateAccountViewModel.self)!
     
+    @State var isLoaded: Bool = true
+    
     var user: User
     var request: AccountRequest
     
@@ -78,7 +80,13 @@ struct SecondCreateAccountView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
-        .onAppear { viewModel.update(user: user, request: request) }
+        .onAppear {
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
+            }
+            viewModel.update(user: user, request: request)
+        }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .resignKeyboardOnDragGesture()

@@ -36,7 +36,10 @@ struct ThirdTransferGetView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
-        .onAppear { viewModel.update(request: request) }
+        .onAppear {
+            viewModel.initProps()
+            viewModel.update(request: request)
+        }
         .alert(isPresented: $viewModel.isSuccess) {
             Alert(
                 title: Text("가져오기 완료"),

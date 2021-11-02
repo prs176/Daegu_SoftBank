@@ -21,10 +21,13 @@ class ThirdCreateAccountViewModel: BaseViewModel {
         self.applyAccountUseCase = applyAccountUseCase
     }
     
+    func initProps() {
+        pwLetters = ["", "", "", ""]
+    }
+    
     func update(request: AccountRequest) {
         self.request = request
         self.isSuccess = false
-        self.accountInfo = AccountInfo()
     }
     
     func apply() {

@@ -12,6 +12,8 @@ struct FirstTransferSendView: View {
     
     var sendAccount: Account
     
+    @State var isLoaded = true
+    
     var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -90,6 +92,10 @@ struct FirstTransferSendView: View {
         }
         .padding()
         .onAppear {
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
+            }
             viewModel.update(sendAccount: sendAccount)
         }
         .alert(isPresented: $viewModel.isSuccess) {

@@ -23,6 +23,8 @@ class SecondAddAccountViewModel: BaseViewModel {
     
     func update(accounts: [Account]) {
         self.accounts = accounts
+        isSuccess = false
+        selectedAccounts = []
     }
     
     func apply() {

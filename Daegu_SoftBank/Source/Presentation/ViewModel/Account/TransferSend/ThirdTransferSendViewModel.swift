@@ -20,6 +20,10 @@ class ThirdTransferSendViewModel: BaseViewModel {
         self.transferSendUseCase = transferSendUseCase
     }
     
+    func initProps() {
+        pwLetters = ["", "", "", ""]
+    }
+    
     func update(request: TransferSendRequest) {
         self.request = request
         self.isSuccess = false

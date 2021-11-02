@@ -11,6 +11,8 @@ struct FirstCreateAccountView: View {
     @EnvironmentObject var navigationState: NavigationState
     @StateObject var viewModel: FirstCreateAccountViewModel = DependencyProvider.shared.container.resolve(FirstCreateAccountViewModel.self)!
     
+    @State var isLoaded: Bool = true
+    
     var body: some View {
         VStack(spacing: 15) {
             VStack {
@@ -50,9 +52,13 @@ struct FirstCreateAccountView: View {
         }
         .padding()
         .onAppear {
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
+            }
             viewModel.update()
         }
-        .alert(isPresented: $viewModel.isErrorOcuured) {
+        .alert(isPresented: $viewModel.isFailure) {
             Alert(
                 title: Text("유저정보 조회에 실패했습니다."),
                 dismissButton: .destructive(Text("뒤로")) {

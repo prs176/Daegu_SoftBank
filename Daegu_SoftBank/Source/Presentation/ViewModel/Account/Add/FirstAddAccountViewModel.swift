@@ -32,10 +32,14 @@ class FirstAddAccountViewModel: BaseViewModel {
         refresh()
     }
     
+    func initProps() {
+        name = ""
+        rrnLetters = ["", "", "", "", "", "", ""]
+    }
+    
     func update() {
         self.isSuccess = false
-        self.user = User()
-        self.accounts = []
+        self.isFailure = false
     }
     
     func refresh() {

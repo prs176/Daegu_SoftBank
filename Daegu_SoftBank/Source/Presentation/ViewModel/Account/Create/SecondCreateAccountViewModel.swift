@@ -14,6 +14,10 @@ class SecondCreateAccountViewModel: BaseViewModel {
     
     var request: AccountRequest = AccountRequest()
     
+    func initProps() {
+        name = ""
+    }
+    
     func update(user: User, request: AccountRequest) {
         self.user = user
         self.request = request

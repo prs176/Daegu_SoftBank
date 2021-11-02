@@ -61,6 +61,7 @@ struct RegisterAuthNumView: View {
         }
         .padding()
         .onAppear {
+            viewModel.initProps()
             viewModel.update(
                 uploadRequest: uploadRequest,
                 registerRequest: registerRequest

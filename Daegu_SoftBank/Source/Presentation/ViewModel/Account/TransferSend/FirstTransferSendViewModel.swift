@@ -24,11 +24,17 @@ class FirstTransferSendViewModel: BaseViewModel {
         self.fetchAccountByAccountUseCase = fetchAccountByAccountUseCase
     }
     
+    func initProps() {
+        money = "0"
+        bank = ""
+        request = TransferSendRequest()
+    }
+    
     func update(sendAccount: Account) {
         self.sendAccount = sendAccount
         self.request.sendAccountId = sendAccount.account
-        self.isAgree = false
-        self.name = ""
+        isSuccess = false
+        isAgree = false
     }
     
     func fetch() {

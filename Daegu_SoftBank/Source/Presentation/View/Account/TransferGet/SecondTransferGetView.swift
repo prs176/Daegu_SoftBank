@@ -14,6 +14,8 @@ struct SecondTransferGetView: View {
     var sendAccount: Account
     var request: TransferSendRequest
     
+    @State var isLoaded: Bool = true
+    
     var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -93,6 +95,10 @@ struct SecondTransferGetView: View {
             .disabled(!viewModel.enterValidate())
         }
         .onAppear {
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
+            }
             viewModel.update(
                 receiveAccount: receiveAccount,
                 sendAccount: sendAccount,

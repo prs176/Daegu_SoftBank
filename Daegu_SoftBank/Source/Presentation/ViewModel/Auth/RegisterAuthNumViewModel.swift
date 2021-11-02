@@ -36,6 +36,11 @@ class RegisterAuthNumViewModel: BaseViewModel {
         self.loginUseCase = loginUseCase
     }
     
+    func initProps() {
+        authNumLetters = ["", "", "", "", "", ""]
+        reAuthNumLetters = ["", "", "", "", "", ""]
+    }
+    
     func update(uploadRequest: UploadRequest,
                 registerRequest: RegisterRequest) {
         self.uploadRequest = uploadRequest

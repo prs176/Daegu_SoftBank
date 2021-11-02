@@ -13,6 +13,8 @@ struct ThirdTransferSendView: View {
     var fees: Int
     var request: TransferSendRequest
     
+    @State var isLoaded: Bool = true
+    
     var body: some View {
         VStack {
             Text("계좌비밀번호를 입력하세요.")
@@ -36,6 +38,10 @@ struct ThirdTransferSendView: View {
         }
         .padding()
         .onAppear {
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
+            }
             viewModel.update(request: request)
         }
         .navigationTitle("이체")
