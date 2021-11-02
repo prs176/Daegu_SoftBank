@@ -20,6 +20,8 @@ struct HomeView: View {
     
     @State var selectedAccount: Account = Account()
     
+    @State var isLoaded: Bool = true
+    
     var body: some View {
         RefreshableScrollView(onRefresh: { control in
             viewModel.refresh()
@@ -116,6 +118,12 @@ struct HomeView: View {
                 transferSendPresenting = false
                 transferGetPresenting = false
                 navigationState.moveToHome = false
+            }
+        }
+        .onAppear {
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
             }
         }
         .navigationBarTitleDisplayMode(.inline)

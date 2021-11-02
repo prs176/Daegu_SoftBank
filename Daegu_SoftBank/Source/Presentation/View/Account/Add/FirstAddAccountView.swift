@@ -11,6 +11,8 @@ struct FirstAddAccountView: View {
     @EnvironmentObject var navigationState: NavigationState
     @StateObject var viewModel: FirstAddAccountViewModel = DependencyProvider.shared.container.resolve(FirstAddAccountViewModel.self)!
     
+    @State var isLoaded: Bool = true
+    
     var body: some View {
         VStack {
             Text("추가할 은행 확인")
@@ -49,7 +51,11 @@ struct FirstAddAccountView: View {
         }
         .padding()
         .onAppear {
-            viewModel.isSuccess = false
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
+            }
+            viewModel.update()
         }
         .alert(isPresented: $viewModel.isFailure) {
             Alert(

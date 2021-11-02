@@ -8,7 +8,7 @@
 import Foundation
 
 class SecondAddAccountViewModel: BaseViewModel {
-    var accounts: [Account]
+    var accounts: [Account] = []
     @Published var selectedAccounts: [String] = []
     
     var request: AddAccountsRequest = AddAccountsRequest()
@@ -17,10 +17,14 @@ class SecondAddAccountViewModel: BaseViewModel {
     
     @Published var isSuccess: Bool = false
     
-    init(applyAddAccountsUseCase: ApplyAddAccountsUseCase,
-         accounts: [Account]) {
+    init(applyAddAccountsUseCase: ApplyAddAccountsUseCase) {
         self.applyAddAccountsUseCase = applyAddAccountsUseCase
+    }
+    
+    func update(accounts: [Account]) {
         self.accounts = accounts
+        isSuccess = false
+        selectedAccounts = []
     }
     
     func apply() {

@@ -9,11 +9,9 @@ import SwiftUI
 
 struct SecondAddAccountView: View {
     @EnvironmentObject var navigationState: NavigationState
-    @ObservedObject var viewModel: SecondAddAccountViewModel
+    @StateObject var viewModel: SecondAddAccountViewModel = DependencyProvider.shared.container.resolve(SecondAddAccountViewModel.self)!
     
-    init(accounts: [Account]) {
-        viewModel = DependencyProvider.shared.container.resolve(SecondAddAccountViewModel.self, argument: accounts)!
-    }
+    var accounts: [Account]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -56,6 +54,9 @@ struct SecondAddAccountView: View {
             .disabled(!viewModel.enterValidate())
         }
         .padding()
+        .onAppear {
+            viewModel.update(accounts: accounts)
+        }
         .onChange(of: viewModel.isSuccess, perform: { value in
             if value {
                 navigationState.moveToHome = true

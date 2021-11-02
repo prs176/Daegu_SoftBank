@@ -9,17 +9,27 @@ import Foundation
 
 class SecondTransferGetViewModel: BaseViewModel {
     @Published var money: String = "0"
-    var receiveAccount: Account
-    var sendAccount: Account
+    var receiveAccount: Account = Account()
+    var sendAccount: Account = Account()
     
-    var request: TransferSendRequest
+    var request: TransferSendRequest = TransferSendRequest()
     
     @Published var isSuccess: Bool = false
     
-    init(receiveAccount: Account, sendAccount: Account, request: TransferSendRequest) {
+    func initProps() {
+        money = "0"
+    }
+    
+    func update(
+        receiveAccount: Account,
+        sendAccount: Account,
+        request: TransferSendRequest
+    ) {
         self.receiveAccount = receiveAccount
         self.sendAccount = sendAccount
         self.request = request
+        
+        self.isSuccess = false
     }
 }
 

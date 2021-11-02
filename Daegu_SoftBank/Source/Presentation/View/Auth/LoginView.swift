@@ -59,7 +59,8 @@ struct LoginView: View {
         }
         .padding()
         .onAppear {
-            viewModel.isSuccess = false
+            viewModel.update()
+            viewModel.initProps()
         }
         .navigationTitle("로그인")
         .ignoresSafeArea(.keyboard, edges: .bottom)

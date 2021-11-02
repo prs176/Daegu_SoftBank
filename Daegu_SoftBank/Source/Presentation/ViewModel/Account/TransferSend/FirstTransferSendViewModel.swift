@@ -12,7 +12,7 @@ class FirstTransferSendViewModel: BaseViewModel {
     @Published var bank: String = "" // 임시
     @Published var isAgree: Bool = false
     
-    var sendAccount: Account
+    var sendAccount: Account = Account()
     @Published var request: TransferSendRequest = TransferSendRequest()
     
     let fetchAccountByAccountUseCase: FetchAccountByAccountUseCase
@@ -20,14 +20,21 @@ class FirstTransferSendViewModel: BaseViewModel {
     @Published var isSuccess: Bool = false
     @Published var name: String = ""
     
-    init(fetchAccountByAccountUseCase: FetchAccountByAccountUseCase,
-         sendAccount: Account) {
+    init(fetchAccountByAccountUseCase: FetchAccountByAccountUseCase) {
         self.fetchAccountByAccountUseCase = fetchAccountByAccountUseCase
+    }
+    
+    func initProps() {
+        money = "0"
+        bank = ""
+        request = TransferSendRequest()
+    }
+    
+    func update(sendAccount: Account) {
         self.sendAccount = sendAccount
-        
-        super.init()
-        
-        request.sendAccountId = sendAccount.account
+        self.request.sendAccountId = sendAccount.account
+        isSuccess = false
+        isAgree = false
     }
     
     func fetch() {

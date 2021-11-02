@@ -24,6 +24,17 @@ class LoginViewModel: BaseViewModel {
         self.loginByAuthNumUseCase = loginByAuthNumUseCase
     }
     
+    func initProps() {
+        id = ""
+        pw =  ""
+        authNumLetters = ["", "", "", "", "", ""]
+        isSuccess = false
+    }
+    
+    func update() {
+        isSuccess = false
+    }
+    
     func login() {
         if id.isEmpty, pw.isEmpty {
             addCancellable(publisher: loginByAuthNumUseCase.buildUseCasePublisher(LoginByAuthNumUseCase.Param(pw: authNumLetters.joined()))) { [weak self] in

@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct FirstTransferGetView: View {
-    @ObservedObject var viewModel: FirstTransferGetViewModel
-    
-    @State var isActiveSecondBringView: Bool = false
+    var accounts: [Account]
+    var receiveAccount: Account
+    var request: TransferSendRequest = TransferSendRequest()
     
     init(accounts: [Account], receiveAccount: Account) {
-        viewModel = FirstTransferGetViewModel(accounts: accounts, receiveAccount: receiveAccount)
+        self.accounts = accounts
+        self.receiveAccount = receiveAccount
         
-        if let idx = accounts.firstIndex(of: receiveAccount) {
-            viewModel.accounts.remove(at: idx)
+        if let idx = self.accounts.firstIndex(of: self.receiveAccount) {
+            self.accounts.remove(at: idx)
         }
     }
     
@@ -26,22 +27,23 @@ struct FirstTransferGetView: View {
                 .font(.title2)
             
             ScrollView {
-                ForEach(viewModel.accounts, id: \.self) { account in
+                ForEach(accounts, id: \.self) { account in
                     Divider()
                     
-                    Button {
-                        viewModel.selectedAccount = account
-                        viewModel.request.sendAccountId = account.account
-                        isActiveSecondBringView = true
-                    } label: {
+                    NavigationLink(
+                        destination: SecondTransferGetView(receiveAccount: receiveAccount, sendAccount: account, request: request)
+                    ) {
                         SimpleAccountRow(account: account, isChecked: false)
                     }
+                    .simultaneousGesture(TapGesture().onEnded { _ in
+                        request.sendAccountId = account.account
+                        print(request.sendAccountId )
+                    })
                 }
             }
         }
         .padding()
         .navigationTitle("가져오기")
-        .navigate(to: SecondTransferGetView(receiveAccount: viewModel.receiveAccount, sendAccount: viewModel.selectedAccount, request: viewModel.request), when: $isActiveSecondBringView, isDetailLink: false)
     }
 }
 

@@ -27,6 +27,15 @@ class FirstCreateAccountViewModel: BaseViewModel {
         refresh()
     }
     
+    func initProps() {
+        name = ""
+        rrnLetters = ["", "", "", "", "", "", ""]
+    }
+    
+    func update() {
+        self.isSuccess = false
+    }
+    
     func refresh() {
         addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
             self?.user = $0

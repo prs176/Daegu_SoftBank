@@ -14,6 +14,8 @@ struct RegisterView: View {
     @State var isPresentedWebView = false
     @State var isPresentedPhotoPicker = false
     
+    @State var isLoaded: Bool = true
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -163,7 +165,11 @@ struct RegisterView: View {
             .padding()
         }
         .onAppear {
-            viewModel.isSuccess = false
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
+            }
+            viewModel.update()
         }
         .sheet(isPresented: $isPresentedPhotoPicker) {
             PhotoPicker(configuration: getConfiguration(), photo: $viewModel.uploadRequest.image, name: $viewModel.uploadRequest.name, type: $viewModel.uploadRequest.type)

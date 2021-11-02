@@ -11,6 +11,8 @@ struct FirstCreateAccountView: View {
     @EnvironmentObject var navigationState: NavigationState
     @StateObject var viewModel: FirstCreateAccountViewModel = DependencyProvider.shared.container.resolve(FirstCreateAccountViewModel.self)!
     
+    @State var isLoaded: Bool = true
+    
     var body: some View {
         VStack(spacing: 15) {
             VStack {
@@ -50,7 +52,11 @@ struct FirstCreateAccountView: View {
         }
         .padding()
         .onAppear {
-            viewModel.isSuccess = false
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
+            }
+            viewModel.update()
         }
         .alert(isPresented: $viewModel.isFailure) {
             Alert(
@@ -63,7 +69,6 @@ struct FirstCreateAccountView: View {
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: SecondCreateAccountView(user: viewModel.user, request: viewModel.request), when: $viewModel.isSuccess, isDetailLink: false)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

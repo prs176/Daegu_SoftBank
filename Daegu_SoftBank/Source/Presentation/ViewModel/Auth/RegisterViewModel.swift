@@ -35,6 +35,21 @@ class RegisterViewModel: BaseViewModel {
         self.fetchNickCheckUseCase = fetchNickCheckUseCase
     }
     
+    func initProps() {
+        uploadRequest = UploadRequest()
+        registerRequest = RegisterRequest()
+        rePw = ""
+        phone = ""
+        rrnLetters = ["", "", "", "", "", "", ""]
+        isAgree = false
+        isIdValid = nil
+        isNickValid = nil
+    }
+    
+    func update() {
+        isSuccess = false
+    }
+    
     func register() {
         guard validate() else {
             return

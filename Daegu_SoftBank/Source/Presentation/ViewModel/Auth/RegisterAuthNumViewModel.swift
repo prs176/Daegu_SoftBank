@@ -13,8 +13,8 @@ class RegisterAuthNumViewModel: BaseViewModel {
     
     @Published var curStep: Int = 0
     
-    var uploadRequest: UploadRequest
-    var registerRequest: RegisterRequest
+    var uploadRequest: UploadRequest = UploadRequest()
+    var registerRequest: RegisterRequest = RegisterRequest()
     
     let uploadUseCase: UploadUseCase
     let registerUseCase: RegisterUseCase
@@ -29,16 +29,26 @@ class RegisterAuthNumViewModel: BaseViewModel {
     init(uploadUseCase: UploadUseCase,
          registerUseCase: RegisterUseCase,
          applyAuthNumUseCase: ApplyAuthNumUseCase,
-         loginUseCase: LoginUseCase,
-         uploadRequest: UploadRequest,
-         registerRequest: RegisterRequest) {
+         loginUseCase: LoginUseCase) {
         self.uploadUseCase = uploadUseCase
         self.registerUseCase = registerUseCase
         self.applyAuthNumUseCase = applyAuthNumUseCase
         self.loginUseCase = loginUseCase
-        
+    }
+    
+    func initProps() {
+        authNumLetters = ["", "", "", "", "", ""]
+        reAuthNumLetters = ["", "", "", "", "", ""]
+    }
+    
+    func update(uploadRequest: UploadRequest,
+                registerRequest: RegisterRequest) {
         self.uploadRequest = uploadRequest
         self.registerRequest = registerRequest
+        self.isSuccessUpload = false
+        self.isSuccessRegister = false
+        self.isSuccessRegisterAuthNum = false
+        self.isSuccessLogin = false
     }
     
     func uploadImage() {

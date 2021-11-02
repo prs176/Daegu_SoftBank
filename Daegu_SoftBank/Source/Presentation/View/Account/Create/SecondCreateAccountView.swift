@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct SecondCreateAccountView: View {
-    @ObservedObject var viewModel: SecondCreateAccountViewModel
+    @StateObject var viewModel: SecondCreateAccountViewModel = DependencyProvider.shared.container.resolve(SecondCreateAccountViewModel.self)!
     
-    @State var isActiveThirdCreateAccountView: Bool = false
+    @State var isLoaded: Bool = true
     
-    init(user: User, request: AccountRequest) {
-        viewModel = DependencyProvider.shared.container.resolve(SecondCreateAccountViewModel.self, arguments: user, request)!
-    }
+    var user: User
+    var request: AccountRequest
     
     var body: some View {
         VStack {
@@ -66,10 +65,9 @@ struct SecondCreateAccountView: View {
             
             Spacer()
             
-            Button {
-                viewModel.request.name = viewModel.name
-                isActiveThirdCreateAccountView = true
-            } label: {
+            NavigationLink(
+                destination: { ThirdCreateAccountView(request: viewModel.request) }
+            ) {
                 Text("확인")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -78,15 +76,19 @@ struct SecondCreateAccountView: View {
                         RoundedRectangle(cornerRadius: 12.0)
                     )
             }
+            .isDetailLink(false)
             .disabled(!viewModel.enterValidate())
         }
         .padding()
         .onAppear {
-            isActiveThirdCreateAccountView = false
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
+            }
+            viewModel.update(user: user, request: request)
         }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .navigate(to: ThirdCreateAccountView(request: viewModel.request), when: $isActiveThirdCreateAccountView, isDetailLink: false)
         .resignKeyboardOnDragGesture()
     }
 }
