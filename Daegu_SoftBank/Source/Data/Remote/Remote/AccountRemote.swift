@@ -22,6 +22,13 @@ class AccountRemote: BaseRemote<AccountAPI> {
             .eraseToAnyPublisher()
     }
     
+    func getAccountByBankAndAccount(_ bank: Int, _ account: String) -> AnyPublisher<String, Error> {
+        return self.request(.getAccountByBankAndAccount(bank, account))
+            .map(Response<String>.self, using: decoder)
+            .map { $0.data }
+            .eraseToAnyPublisher()
+    }
+    
     func getOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[String], Error> {
         return self.request(.getOtherAccounts(birth, name))
             .map(Response<[String]>.self, using: decoder)

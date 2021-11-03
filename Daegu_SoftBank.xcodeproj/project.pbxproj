@@ -124,6 +124,7 @@
 		CBBAC82C2712ED14003EB1A2 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */; };
 		CBBAC82F271331EB003EB1A2 /* FirstAddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC82E271331EB003EB1A2 /* FirstAddAccountView.swift */; };
 		CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8312713320D003EB1A2 /* FirstAddAccountViewModel.swift */; };
+		CBC307972732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC307962732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift */; };
 		CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C4271143E600985ACA /* PhotoPicker.swift */; };
 		CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C92711444000985ACA /* BaseViewModel.swift */; };
 		CBD8F5D327116E8600985ACA /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5D227116E8600985ACA /* WebView.swift */; };
@@ -282,6 +283,7 @@
 		CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
 		CBBAC82E271331EB003EB1A2 /* FirstAddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAddAccountView.swift; sourceTree = "<group>"; };
 		CBBAC8312713320D003EB1A2 /* FirstAddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAddAccountViewModel.swift; sourceTree = "<group>"; };
+		CBC307962732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAccountByBankAndAccountUseCase.swift; sourceTree = "<group>"; };
 		CBD8F5C4271143E600985ACA /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPicker.swift; path = Daegu_SoftBank/Source/Widget/CustomUI/RepresentableView/PhotoPicker.swift; sourceTree = SOURCE_ROOT; };
 		CBD8F5C92711444000985ACA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		CBD8F5D227116E8600985ACA /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -794,6 +796,7 @@
 				CBA62D29271E749F00684083 /* FetchAccountByAccountUseCase.swift */,
 				CBA60CEC272ABF9C00FF3ABB /* ApplyAddAccountsUseCase.swift */,
 				CBA60CEE272ABFD100FF3ABB /* FetchOtherAccountsUseCase.swift */,
+				CBC307962732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1189,6 +1192,7 @@
 				CB4E6F9727210FA3004EAC34 /* DependencyProvider.swift in Sources */,
 				CB8F1818271D0E820052D4AE /* RegisterUseCase.swift in Sources */,
 				CBBAC81F2712C9C5003EB1A2 /* SecondCreateAccountView.swift in Sources */,
+				CBC307972732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift in Sources */,
 				CB8F17A32717F4770052D4AE /* AuthNumAPI.swift in Sources */,
 				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
 				CB811EED27238250002CF71A /* FetchIdCheckUseCase.swift in Sources */,
