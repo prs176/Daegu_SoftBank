@@ -66,7 +66,7 @@ extension AccountAPI: TargetType {
             return .requestData(try! JSONEncoder().encode(request))
         case .getAccounts:
             return .requestPlain
-        case .getAccountByBankAndAccount(let account, _):
+        case .getAccountByBankAndAccount(_, let account):
             return .requestParameters(parameters: ["account": account], encoding: URLEncoding.queryString)
         case let .getOtherAccounts(birth, name):
             return .requestParameters(parameters: ["birth": birth, "name": name], encoding: URLEncoding.queryString)
