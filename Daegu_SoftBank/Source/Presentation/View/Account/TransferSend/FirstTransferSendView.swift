@@ -62,10 +62,10 @@ struct FirstTransferSendView: View {
                 HStack {
                     Picker(
                         "",
-                        selection: $viewModel.bank,
+                        selection: $viewModel.request.bank,
                         content: {
-                            ForEach(0..<["부산", "토스", "대구"].count) {
-                                Text(["부산", "토스", "대구"][$0])
+                            ForEach(BankType.allCases) { type in
+                                Text(type.description)
                             }
                         }
                     )

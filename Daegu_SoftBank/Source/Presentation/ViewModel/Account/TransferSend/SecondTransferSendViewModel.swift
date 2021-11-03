@@ -8,9 +8,8 @@
 import Foundation
 
 class SecondTransferSendViewModel: BaseViewModel {
-    var name: String = ""
-    
-    var request: TransferSendRequest = TransferSendRequest()
+    @Published var name: String = ""
+    @Published var request: TransferSendRequest = TransferSendRequest()
     
     var fees: Int = 500
     

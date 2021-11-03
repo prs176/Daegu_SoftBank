@@ -32,8 +32,7 @@ struct FourthTransferSendView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-//                    Text(request.bank)
-                    Text("은행")
+                    Text(BankType(rawValue: request.bank)!.description)
                         .font(.title3)
                     
                     Text(request.receiveAccountId)
