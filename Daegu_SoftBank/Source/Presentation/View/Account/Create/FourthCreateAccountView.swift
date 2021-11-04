@@ -53,7 +53,7 @@ struct FourthCreateAccountView: View {
             Spacer()
             
             Button(action: {
-                navigationState.moveToHome = true
+                navigationState.shouldDismissToHome = true
             }, label: {
                 Text("완료")
                     .foregroundColor(.white)

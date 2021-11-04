@@ -22,7 +22,7 @@ extension MoyaProvider {
             .mapError { error -> Error in
                 let errorBody = (try? error.response?.mapJSON() as? Dictionary<String, Any>) ?? Dictionary()
                 
-                return SoftBankError.error(message: errorBody["message"] as? String ?? "네트워크 오류가 발생했습니다.", errorBody: ["status":error.response?.statusCode ?? 0])
+                return SoftBankError.error(message: errorBody["message"] as? String ?? "네트워크 오류가 발생했습니다.", errorBody: ["status": error.response?.statusCode ?? 0])
             }
             .timeout(120, scheduler: DispatchQueue.main, customError: { SoftBankError.error(message: "요청시간이 만료되었습니다.") })
             .eraseToAnyPublisher()

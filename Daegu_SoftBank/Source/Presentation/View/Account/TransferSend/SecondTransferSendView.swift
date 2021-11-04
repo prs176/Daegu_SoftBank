@@ -74,7 +74,7 @@ struct SecondTransferSendView: View {
             
             HStack {
                 Button(action: {
-                    navigationState.moveToHome = true
+                    navigationState.shouldDismissToHome = true
                 }, label: {
                     Text("아니요")
                         .foregroundColor(.white)

@@ -59,7 +59,7 @@ struct SecondAddAccountView: View {
         }
         .onChange(of: viewModel.isSuccess, perform: { value in
             if value {
-                navigationState.moveToHome = true
+                navigationState.shouldDismissToHome = true
             }
         })
         .navigationTitle("계좌추가")

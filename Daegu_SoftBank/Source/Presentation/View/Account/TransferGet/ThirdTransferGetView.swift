@@ -45,7 +45,7 @@ struct ThirdTransferGetView: View {
                 title: Text("가져오기 완료"),
                 message: Text("\(receiveAccount.name)(으)로\n\(viewModel.request.money) 원을 가져왔습니다."),
                 dismissButton: .cancel(Text("확인")) {
-                    navigationState.moveToHome = true
+                    navigationState.shouldDismissToHome = true
                 }
             )
         }

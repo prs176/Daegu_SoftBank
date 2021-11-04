@@ -62,7 +62,7 @@ struct FirstCreateAccountView: View {
             Alert(
                 title: Text("유저정보 조회에 실패했습니다."),
                 dismissButton: .destructive(Text("뒤로")) {
-                    navigationState.moveToHome = true
+                    navigationState.shouldDismissToHome = true
                 }
             )
         }

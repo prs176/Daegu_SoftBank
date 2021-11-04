@@ -67,7 +67,7 @@ struct FourthTransferSendView: View {
             Spacer()
             
             Button(action: {
-                navigationState.moveToHome = true
+                navigationState.shouldDismissToHome = true
             }, label: {
                 Text("확인")
                     .foregroundColor(.white)

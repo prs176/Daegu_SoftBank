@@ -111,13 +111,13 @@ struct HomeView: View {
         .background(
             Color(.secondarySystemBackground).ignoresSafeArea()
         )
-        .onReceive(navigationState.$moveToHome) { moveToHome in
+        .onReceive(navigationState.$shouldDismissToHome) { moveToHome in
             if moveToHome {
                 createAccountPresenting = false
                 addAccountPresenting = false
                 transferSendPresenting = false
                 transferGetPresenting = false
-                navigationState.moveToHome = false
+                navigationState.shouldDismissToHome = false
             }
         }
         .onAppear {
