@@ -15,7 +15,6 @@ extension MoyaProvider {
             return Future<Moya.Response, Error> { result in
                 result(.failure(SoftBankError.error(message: "서버에 접속할 수 없습니다.")))
             }
-            .timeout(120, scheduler: DispatchQueue.main, customError: { SoftBankError.error(message: "요청시간이 만료되었습니다.") })
             .eraseToAnyPublisher()
         }
         
