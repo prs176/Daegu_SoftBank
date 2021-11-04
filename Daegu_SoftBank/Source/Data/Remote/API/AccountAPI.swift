@@ -10,6 +10,7 @@ import Moya
 enum AccountAPI {
     case postAccount(_ request: AccountRequest)
     case getAccounts
+    case getAccountByBankAndAccount(_ bank: Int, _ account: String)
     case getOtherAccounts(_ birth: String, _ name: String)
     case postAddAccounts(_ request: AddAccountsRequest)
     case getAccountsByPhone(_ phone: String)
@@ -27,6 +28,8 @@ extension AccountAPI: TargetType {
             return ""
         case .getAccounts:
             return ""
+        case .getAccountByBankAndAccount(let bank, _):
+            return "/other2/\(bank)"
         case .getOtherAccounts:
             return "/other"
         case .postAddAccounts:
@@ -44,6 +47,8 @@ extension AccountAPI: TargetType {
             return .post
         case .getAccounts:
             return .get
+        case .getAccountByBankAndAccount:
+            return . get
         case .getOtherAccounts:
             return .get
         case .postAddAccounts:
@@ -61,6 +66,8 @@ extension AccountAPI: TargetType {
             return .requestData(try! JSONEncoder().encode(request))
         case .getAccounts:
             return .requestPlain
+        case .getAccountByBankAndAccount(_, let account):
+            return .requestParameters(parameters: ["account": account], encoding: URLEncoding.queryString)
         case let .getOtherAccounts(birth, name):
             return .requestParameters(parameters: ["birth": birth, "name": name], encoding: URLEncoding.queryString)
         case let .postAddAccounts(request):

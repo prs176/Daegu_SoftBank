@@ -41,8 +41,7 @@ struct SecondTransferSendView: View {
                 
                 Spacer()
                 
-//                Text(viewModel.request.bank)
-                Text("은행")
+                Text(BankType(rawValue: viewModel.request.bank)!.description)
                     .font(.title3)
                 
                 Text(viewModel.request.receiveAccountId)

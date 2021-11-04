@@ -5,28 +5,29 @@
 //  Created by 박세은 on 2021/10/12.
 //
 
-import Foundation
+import Combine
 
 class FirstTransferSendViewModel: BaseViewModel {
     @Published var money: String = "0"
-    @Published var bank: String = "" // 임시
     @Published var isAgree: Bool = false
     
     var sendAccount: Account = Account()
     @Published var request: TransferSendRequest = TransferSendRequest()
     
+    let fetchAccountByBankAndAccountUseCase: FetchAccountByBankAndAccountUseCase
     let fetchAccountByAccountUseCase: FetchAccountByAccountUseCase
     
     @Published var isSuccess: Bool = false
     @Published var name: String = ""
     
-    init(fetchAccountByAccountUseCase: FetchAccountByAccountUseCase) {
+    init(fetchAccountByBankAndAccountUseCase: FetchAccountByBankAndAccountUseCase,
+         fetchAccountByAccountUseCase: FetchAccountByAccountUseCase) {
+        self.fetchAccountByBankAndAccountUseCase = fetchAccountByBankAndAccountUseCase
         self.fetchAccountByAccountUseCase = fetchAccountByAccountUseCase
     }
     
     func initProps() {
         money = "0"
-        bank = ""
         request = TransferSendRequest()
     }
     
@@ -42,7 +43,19 @@ class FirstTransferSendViewModel: BaseViewModel {
             return
         }
         
-        addCancellable(publisher: fetchAccountByAccountUseCase.buildUseCasePublisher(FetchAccountByAccountUseCase.Param(account: request.receiveAccountId))) { [weak self] in
+        addCancellable(
+            publisher: fetchAccountByBankAndAccountUseCase.buildUseCasePublisher(FetchAccountByBankAndAccountUseCase.Param(bank: request.bank, account: request.receiveAccountId))
+                .flatMap{ [weak self] accountId -> AnyPublisher<Account, Error> in
+                    guard let self = self else {
+                        return Future<Account, Error> {
+                            $0(.failure(SoftBankError.error(message: "계좌조회에 실패했습니다.")))
+                        }
+                        .eraseToAnyPublisher()
+                    }
+                    return self.fetchAccountByAccountUseCase.buildUseCasePublisher(FetchAccountByAccountUseCase.Param(account: accountId))
+                }
+                .eraseToAnyPublisher()
+        ) { [weak self] in
             self?.name = $0.userId
             self?.request.receiveAccountId = $0.account
             self?.isSuccess = true
