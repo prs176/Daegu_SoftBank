@@ -67,6 +67,11 @@ class UseCaseAssembly: Assembly {
         }
         .inObjectScope(.container)
         
+        container.register(FetchAccountByBankAndAccountUseCase.self) { r in
+            FetchAccountByBankAndAccountUseCase(accountRepository: r.resolve(AccountRepository.self)!)
+        }
+        .inObjectScope(.container)
+        
         container.register(FetchAccountsByPhoneUseCase.self) { r in
             FetchAccountsByPhoneUseCase(accountRepository: r.resolve(AccountRepository.self)!)
         }

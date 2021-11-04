@@ -78,7 +78,8 @@ class ViewModelAssembly: Assembly {
         
         // transfer send account
         container.register(FirstTransferSendViewModel.self) { r in
-            FirstTransferSendViewModel(fetchAccountByAccountUseCase: r.resolve(FetchAccountByAccountUseCase.self)!)
+            FirstTransferSendViewModel(fetchAccountByBankAndAccountUseCase: r.resolve(FetchAccountByBankAndAccountUseCase.self)!,
+                                       fetchAccountByAccountUseCase: r.resolve(FetchAccountByAccountUseCase.self)!)
         }
         .inObjectScope(.container)
         

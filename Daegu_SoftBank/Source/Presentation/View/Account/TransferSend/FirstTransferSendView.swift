@@ -66,6 +66,7 @@ struct FirstTransferSendView: View {
                         content: {
                             ForEach(BankType.allCases) { type in
                                 Text(type.description)
+                                    .tag(type.rawValue)
                             }
                         }
                     )
