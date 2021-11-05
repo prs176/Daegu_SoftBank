@@ -87,7 +87,7 @@ extension FirstTransferSendViewModel {
     }
     
     func enterValidate() -> Bool {
-        if request.money <= 0 {
+        if money.isEmpty {
             return false
         }
         
