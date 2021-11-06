@@ -47,7 +47,7 @@ struct ThirdTransferSendView: View {
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: FourthTransferSendView(request: viewModel.request, fees: fees), when: $viewModel.isSuccess, isDetailLink: false)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

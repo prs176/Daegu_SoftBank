@@ -46,7 +46,7 @@ struct ThirdCreateAccountView: View {
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: FourthCreateAccountView(accountInfo: viewModel.accountInfo), when: $viewModel.isSuccess, isDetailLink: false)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

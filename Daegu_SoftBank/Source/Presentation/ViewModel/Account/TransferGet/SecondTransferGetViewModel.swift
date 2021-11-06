@@ -36,7 +36,7 @@ class SecondTransferGetViewModel: BaseViewModel {
 extension SecondTransferGetViewModel {
     func validate() {
         if sendAccount.money < Int(money.components(separatedBy: ",").joined())! {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "가져오기할 금액이 출금가능금액보다 큽니다."
             return
         }

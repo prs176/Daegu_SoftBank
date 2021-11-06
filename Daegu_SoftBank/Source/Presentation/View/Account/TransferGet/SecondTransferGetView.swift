@@ -109,7 +109,7 @@ struct SecondTransferGetView: View {
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationTitle("가져오기")
         .navigate(to: ThirdTransferGetView(receiveAccount: viewModel.receiveAccount, request: viewModel.request), when: $viewModel.isSuccess, isDetailLink: false)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

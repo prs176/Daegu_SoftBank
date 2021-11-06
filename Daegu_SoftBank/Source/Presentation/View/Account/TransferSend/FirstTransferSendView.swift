@@ -108,7 +108,7 @@ struct FirstTransferSendView: View {
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: SecondTransferSendView(name: viewModel.name, request: viewModel.request), when: $viewModel.isAgree, isDetailLink: false)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

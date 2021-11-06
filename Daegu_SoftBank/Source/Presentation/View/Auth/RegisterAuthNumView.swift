@@ -110,7 +110,7 @@ struct RegisterAuthNumView: View {
                             })
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: HomeView(), when: $viewModel.isSuccessLogin)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

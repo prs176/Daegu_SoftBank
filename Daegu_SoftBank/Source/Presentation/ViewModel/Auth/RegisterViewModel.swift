@@ -62,7 +62,7 @@ class RegisterViewModel: BaseViewModel {
     
     func checkId() {
         if !registerRequest.id.isValidId() {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "아이디는 영소문자+숫자, 3~12자로 입력해주세요."
             return
         }
@@ -74,7 +74,7 @@ class RegisterViewModel: BaseViewModel {
     
     func checkNick() {
         if registerRequest.nick.count < 2 {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "별명은 2자 이상으로 입력해주세요."
             return
         }
@@ -88,37 +88,37 @@ class RegisterViewModel: BaseViewModel {
 extension RegisterViewModel {
     func validate() -> Bool {
         if !registerRequest.pw.isValidPw() {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "비밀번호는 영문자+숫자+특수문자 조합, 8~12자로 입력해주세요."
             return false
         }
         
         if rePw != registerRequest.pw {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "재입력한 비밀번호가 일치하지 않습니다."
             return false
         }
         
         if !phone.isValidPhone() {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "전화번호는 010-[숫자 4자리]-[숫자 4자리]로 입력해주세요."
             return false
         }
         
         if !rrnLetters.joined().isNumber() {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
         }
         
         if isIdValid != true {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "아이디 중복확인을 진행해주세요."
             return false
         }
         
         if isNickValid != true {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "별명 중복확인을 진행해주세요."
             return false
         }

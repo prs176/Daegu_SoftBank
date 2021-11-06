@@ -66,19 +66,19 @@ class FirstTransferSendViewModel: BaseViewModel {
 extension FirstTransferSendViewModel {
     func validate() -> Bool {
         if !request.receiveAccountId.components(separatedBy: "-").joined().isNumber() {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "계좌번호는 숫자로 입력해주세요."
             return false
         }
         
         if request.receiveAccountId == request.sendAccountId {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "보낼 계좌의 계좌번호와 받을 계좌의 계좌번호가 달라야합니다."
             return false
         }
         
         if sendAccount.money < request.money {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "이체할 금액이 잔액보다 큽니다."
             return false
         }

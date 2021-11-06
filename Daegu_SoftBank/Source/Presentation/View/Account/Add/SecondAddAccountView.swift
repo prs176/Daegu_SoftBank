@@ -63,7 +63,7 @@ struct SecondAddAccountView: View {
             }
         })
         .navigationTitle("계좌추가")
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
     }
 }
 

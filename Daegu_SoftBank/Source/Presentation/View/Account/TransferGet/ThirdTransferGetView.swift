@@ -51,7 +51,7 @@ struct ThirdTransferGetView: View {
         }
         .navigationTitle("가져오기")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

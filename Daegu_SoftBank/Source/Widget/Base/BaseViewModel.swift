@@ -10,7 +10,7 @@ import Combine
 class BaseViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage = ""
-    @Published var isErrorOcuured = false
+    @Published var isErrorOccurred = false
     
     var bag = Set<AnyCancellable>()
     
@@ -36,7 +36,7 @@ class BaseViewModel: ObservableObject {
                             self?.errorMessage = "알 수 없는 오류가 발생했습니다."
                         }
                         
-                        self?.isErrorOcuured = true
+                        self?.isErrorOccurred = true
                     }
                     self?.isLoading = false
                 },

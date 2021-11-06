@@ -85,13 +85,13 @@ extension RegisterAuthNumViewModel {
     func validate() -> Bool {
         if !authNumLetters.joined().isNumber() ||
            !reAuthNumLetters.joined().isNumber() {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "간편인증번호는 숫자로 입력해주세요."
             return false
         }
         
         if authNumLetters != reAuthNumLetters {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "재입력한 번호가 일치하지 않습니다."
             return false
         }

@@ -52,7 +52,7 @@ class FirstAddAccountViewModel: BaseViewModel {
     
     func fetch() {
         guard name == user.name, rrnLetters.joined() == user.birth else {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "이름, 주민등록번호가 일치하지 않습니다."
             return
         }
@@ -89,7 +89,7 @@ class FirstAddAccountViewModel: BaseViewModel {
 extension FirstAddAccountViewModel {
     func validate() -> Bool {
         if !rrnLetters.joined().isNumber() {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
         }

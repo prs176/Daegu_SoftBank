@@ -184,7 +184,7 @@ struct RegisterView: View {
         .sheet(isPresented: $isPresentedPhotoPicker, onDismiss: {
             if viewModel.uploadRequest.type == .UNKNOWN {
                 viewModel.errorMessage = "지원하지 않는 사진 형식입니다."
-                viewModel.isErrorOcuured = true
+                viewModel.isErrorOccurred = true
             }
         }) {
             PhotoPicker(configuration: getConfiguration(), photo: $viewModel.uploadRequest.image, name: $viewModel.uploadRequest.name, type: $viewModel.uploadRequest.type)
@@ -194,7 +194,7 @@ struct RegisterView: View {
         }
         .navigationTitle("회원가입")
         .navigate(to: RegisterAuthNumView(uploadRequest: viewModel.uploadRequest, registerRequest: viewModel.registerRequest), when: $viewModel.isSuccess)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
     

@@ -47,7 +47,7 @@ class ThirdTransferGetViewModel: BaseViewModel {
 extension ThirdTransferGetViewModel {
     func validate() -> Bool {
         if !pwLetters.joined().isNumber() {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "입출금통장 비밀번호는 숫자로 입력해주세요."
             return false
         }

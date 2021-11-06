@@ -68,7 +68,7 @@ struct FirstAddAccountView: View {
         .navigationTitle("계좌추가")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: SecondAddAccountView(accounts: viewModel.accounts), when: $viewModel.isSuccess, isDetailLink: false)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }
