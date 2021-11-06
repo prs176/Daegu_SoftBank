@@ -77,15 +77,15 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("전화번호")
                     
-                    TextField("숫자, 11자", text: $viewModel.phone, onEditingChanged: { isEditing in
+                    TextField("숫자, 11자", text: $viewModel.registerRequest.phone, onEditingChanged: { isEditing in
                         if isEditing {
-                            viewModel.phone = ""
+                            viewModel.registerRequest.phone = ""
                         }
                         else {
-                            if viewModel.phone.count > 11 {
-                                viewModel.phone = String(viewModel.phone.prefix(11))
-                                viewModel.phone.insert("-", at: viewModel.phone.index(viewModel.phone.startIndex, offsetBy: 3))
-                                viewModel.phone.insert("-", at: viewModel.phone.index(viewModel.phone.startIndex, offsetBy: 8))
+                            if viewModel.registerRequest.phone.count > 11 {
+                                viewModel.registerRequest.phone = String(viewModel.registerRequest.phone.prefix(11))
+                                viewModel.registerRequest.phone.insert("-", at: viewModel.registerRequest.phone.index(viewModel.registerRequest.phone.startIndex, offsetBy: 3))
+                                viewModel.registerRequest.phone.insert("-", at: viewModel.registerRequest.phone.index(viewModel.registerRequest.phone.startIndex, offsetBy: 8))
                             }
                         }
                     })
@@ -96,7 +96,7 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("주민등록번호")
                     
-                    AutoFocusTextFields(count: 7, text: $viewModel.birth)
+                    AutoFocusTextFields(count: 7, text: $viewModel.registerRequest.birth)
                 }
                 
                 VStack(alignment: .leading) {

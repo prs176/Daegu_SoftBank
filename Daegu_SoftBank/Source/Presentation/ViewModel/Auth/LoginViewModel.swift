@@ -52,7 +52,7 @@ extension LoginViewModel {
                 return false
             }
             
-            if pw.isEmpty {
+            if pw.count < 6 {
                 return false
             }
         }

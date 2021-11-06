@@ -12,8 +12,6 @@ class RegisterViewModel: BaseViewModel {
     @Published var uploadRequest = UploadRequest()
     @Published var registerRequest = RegisterRequest()
     @Published var rePw = ""
-    @Published var phone = ""
-    @Published var birth = ""
     @Published var isAgree = false
     
     let fetchIdCheckUseCase: FetchIdCheckUseCase
@@ -33,8 +31,6 @@ class RegisterViewModel: BaseViewModel {
         uploadRequest = UploadRequest()
         registerRequest = RegisterRequest()
         rePw = ""
-        phone = ""
-        birth = ""
         isAgree = false
         isIdValid = nil
         isNickValid = nil
@@ -49,8 +45,7 @@ class RegisterViewModel: BaseViewModel {
             return
         }
         
-        registerRequest.phone = phone.filter { $0 != "-" }
-        registerRequest.birth = birth
+        registerRequest.phone = registerRequest.phone.filter { "-" != $0 }
         isSuccess = true
     }
     
@@ -93,13 +88,13 @@ extension RegisterViewModel {
             return false
         }
         
-        if !phone.isValidPhone() {
+        if !registerRequest.phone.isValidPhone() {
             isErrorOccurred = true
             errorMessage = "전화번호는 010-[숫자 4자리]-[숫자 4자리]로 입력해주세요."
             return false
         }
         
-        if !birth.isNumber() {
+        if !registerRequest.birth.isNumber() {
             isErrorOccurred = true
             errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
@@ -133,11 +128,11 @@ extension RegisterViewModel {
             return false
         }
         
-        if phone.isEmpty {
+        if registerRequest.phone.isEmpty {
             return false
         }
         
-        if birth.isEmpty{
+        if registerRequest.birth.isEmpty{
             return false
         }
         
