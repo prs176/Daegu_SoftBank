@@ -56,7 +56,7 @@ extension ThirdTransferGetViewModel {
     }
     
     func enterValidate() -> Bool {
-        if pw.isEmpty {
+        if pw.count < 4 {
             return false
         }
         

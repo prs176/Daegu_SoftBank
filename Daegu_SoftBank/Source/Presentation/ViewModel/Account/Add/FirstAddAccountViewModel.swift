@@ -102,7 +102,7 @@ extension FirstAddAccountViewModel {
             return false
         }
         
-        if birth.isEmpty {
+        if birth.count < 7 {
             return false
         }
         
