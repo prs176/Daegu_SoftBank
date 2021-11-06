@@ -81,7 +81,7 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("전화번호")
                     
-                    TextField("11자", text: $viewModel.phone, onEditingChanged: { isEditing in
+                    TextField("010-[숫자 4자리]-[숫자 4자리]", text: $viewModel.phone, onEditingChanged: { isEditing in
                         if isEditing {
                             viewModel.phone = ""
                         }
@@ -92,6 +92,16 @@ struct RegisterView: View {
                             }
                         }
                     })
+                    .onChange(of: viewModel.phone) { _ in
+                        if viewModel.phone.filter({ $0 != "-" }).count > 11 {
+                            if viewModel.phone.count < 13 {
+                                viewModel.phone = String(viewModel.phone.prefix(11))
+                            }
+                            else {
+                                viewModel.phone = String(viewModel.phone.prefix(13))
+                            }
+                        }
+                    }
                     .textFieldStyle(LabelTextFieldStyle())
                     .keyboardType(.numberPad)
                 }
