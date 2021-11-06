@@ -8,7 +8,7 @@
 import Combine
 
 protocol AccountRepository {
-    func applyAccount(_ request: AccountRequest) -> AnyPublisher<String, Error>
+    func applyAccount(_ request: AccountRequest) -> AnyPublisher<AccountInfo, Error>
     
     func fetchMyAccounts() -> AnyPublisher<[Account], Error>
     

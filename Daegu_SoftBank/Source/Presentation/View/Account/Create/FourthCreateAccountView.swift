@@ -34,7 +34,7 @@ struct FourthCreateAccountView: View {
                 
                 Spacer()
                 
-                Text(accountInfo.accountType)
+                Text(accountInfo.type)
                     .font(.title3)
             }
             
@@ -45,9 +45,8 @@ struct FourthCreateAccountView: View {
                 
                 Spacer()
                 
-                Text(accountInfo.transferLimit)
+                Text("1일 최대 \(accountInfo.limit)원")
                     .font(.title3)
-                    .fontWeight(.thin)
             }
             
             Spacer()

@@ -36,8 +36,8 @@ class ThirdCreateAccountViewModel: BaseViewModel {
         }
         
         request.accountPW = pw
-        addCancellable(publisher: applyAccountUseCase.buildUseCasePublisher(ApplyAccountUseCase.Param(request: request))) { [weak self] _ in
-            self?.accountInfo = AccountInfo() // 임시
+        addCancellable(publisher: applyAccountUseCase.buildUseCasePublisher(ApplyAccountUseCase.Param(request: request))) { [weak self] in
+            self?.accountInfo = $0
             self?.isSuccess = true
         }
     }

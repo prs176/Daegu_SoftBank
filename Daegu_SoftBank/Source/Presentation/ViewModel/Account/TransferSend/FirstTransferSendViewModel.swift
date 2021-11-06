@@ -43,7 +43,7 @@ class FirstTransferSendViewModel: BaseViewModel {
             return
         }
         
-        request.money = Int(money) ?? 0
+        request.money = Int(money.filter({ $0 != "," })) ?? 0
         
         addCancellable(
             publisher: fetchAccountByBankAndAccountUseCase.buildUseCasePublisher(FetchAccountByBankAndAccountUseCase.Param(bank: request.bank, account: request.receiveAccountId))) { [weak self] in
@@ -78,7 +78,7 @@ extension FirstTransferSendViewModel {
     }
     
     func enterValidate() -> Bool {
-        if Int(money) ?? 0 <= 0 {
+        if Int(money.filter({ $0 != "," })) ?? 0 <= 0 {
             return false
         }
         

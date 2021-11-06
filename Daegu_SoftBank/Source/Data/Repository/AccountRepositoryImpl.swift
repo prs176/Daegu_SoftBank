@@ -14,7 +14,7 @@ class AccountRepositoryImpl: AccountRepository {
         self.accountRemote = accountRemote
     }
     
-    func applyAccount(_ request: AccountRequest) -> AnyPublisher<String, Error> {
+    func applyAccount(_ request: AccountRequest) -> AnyPublisher<AccountInfo, Error> {
         accountRemote.postAccount(request)
     }
     
