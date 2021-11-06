@@ -25,8 +25,20 @@ class RegisterUseCase: BaseParamUseCase {
             self.request = request
         }
         
-        init(id: String, pw: String, nick: String, phone: String, birth: String) {
-            self.request = RegisterRequest(id: id, pw: pw, nick: nick, phone: phone, birth: birth)
+        init(
+            id: String,
+            pw: String,
+            nick: String,
+            phone: String,
+            birth: String
+        ) {
+            self.request = RegisterRequest(
+                id: id,
+                pw: pw,
+                nick: nick,
+                phone: phone,
+                birth: birth
+            )
         }
     }
 }

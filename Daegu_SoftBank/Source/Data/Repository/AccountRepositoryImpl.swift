@@ -14,7 +14,7 @@ class AccountRepositoryImpl: AccountRepository {
         self.accountRemote = accountRemote
     }
     
-    func applyAccount(_ request: AccountRequest) -> AnyPublisher<String, Error> {
+    func applyAccount(_ request: AccountRequest) -> AnyPublisher<AccountInfo, Error> {
         accountRemote.postAccount(request)
     }
     
@@ -22,7 +22,7 @@ class AccountRepositoryImpl: AccountRepository {
         accountRemote.getAccounts()
     }
     
-    func fetchAccountByBankAndAccount(_ bank: Int, _ account: String) -> AnyPublisher<String, Error> {
+    func fetchAccountByBankAndAccount(_ bank: Int, _ account: String) -> AnyPublisher<Account, Error> {
         accountRemote.getAccountByBankAndAccount(bank, account)
     }
     

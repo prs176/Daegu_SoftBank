@@ -22,5 +22,5 @@ struct WebView: UIViewRepresentable {
         return webView
     }
     
-    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<WebView>) { }
+    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<WebView>) {}
 }

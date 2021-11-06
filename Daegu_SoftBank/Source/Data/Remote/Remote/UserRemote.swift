@@ -44,7 +44,7 @@ class UserRemote: BaseRemote<UserAPI> {
     }
     
     func getNickCheck(_ nick: String) -> AnyPublisher<Bool, Error> {
-        return self.request(.getIdCheck(nick))
+        return self.request(.getNickCheck(nick))
             .map(Response<Bool>.self, using: decoder)
             .map { $0.data }
             .eraseToAnyPublisher()

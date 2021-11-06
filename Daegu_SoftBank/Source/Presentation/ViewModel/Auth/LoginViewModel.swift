@@ -9,9 +9,9 @@ import Combine
 import SwiftUI
 
 class LoginViewModel: BaseViewModel {
-    @Published var id: String = ""
-    @Published var pw: String = ""
-    @Published var authNumLetters: [String] = ["", "", "", "", "", ""]
+    @Published var id = ""
+    @Published var pw = ""
+    @Published var authNum = ""
     
     let loginUseCase: LoginUseCase
     let loginByAuthNumUseCase: LoginByAuthNumUseCase
@@ -24,20 +24,17 @@ class LoginViewModel: BaseViewModel {
         self.loginByAuthNumUseCase = loginByAuthNumUseCase
     }
     
-    func initProps() {
+    func bind() {
         id = ""
         pw =  ""
-        authNumLetters = ["", "", "", "", "", ""]
-        isSuccess = false
-    }
-    
-    func update() {
+        authNum = ""
+        
         isSuccess = false
     }
     
     func login() {
         if id.isEmpty, pw.isEmpty {
-            addCancellable(publisher: loginByAuthNumUseCase.buildUseCasePublisher(LoginByAuthNumUseCase.Param(pw: authNumLetters.joined()))) { [weak self] in
+            addCancellable(publisher: loginByAuthNumUseCase.buildUseCasePublisher(LoginByAuthNumUseCase.Param(pw: authNum))) { [weak self] in
                 self?.isSuccess = true
             }
         }
@@ -51,12 +48,12 @@ class LoginViewModel: BaseViewModel {
 
 extension LoginViewModel {
     func enterValidate() -> Bool {
-        if authNumLetters.contains("") {
+        if authNum.isEmpty {
             if id.isEmpty {
                 return false
             }
             
-            if pw.isEmpty {
+            if pw.count < 6 {
                 return false
             }
         }

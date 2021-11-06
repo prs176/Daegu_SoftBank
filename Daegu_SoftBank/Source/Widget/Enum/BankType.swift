@@ -8,9 +8,9 @@
 import Foundation
 
 enum BankType: Int, CaseIterable, Identifiable, CustomStringConvertible {
-    case KAKAO = 0
-    case TOSS = 1
-    case SINHAN = 2
+    case KAKAO = 1
+    case TOSS = 2
+    case SINHAN = 3
     
     var id: BankType { self }
     

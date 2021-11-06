@@ -8,5 +8,5 @@
 import Foundation
 
 class NavigationState: ObservableObject {
-    @Published var moveToHome: Bool = false
+    @Published var shouldDismissToHome: Bool = false
 }

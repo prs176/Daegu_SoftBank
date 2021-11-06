@@ -32,7 +32,7 @@ extension UploadRemote {
         
         var imgData: Data? = nil
         switch request.type {
-        case .JPG:
+        case .JPEG:
             imgData = image.jpegData(compressionQuality: 0.2)
             break
         case .PNG:

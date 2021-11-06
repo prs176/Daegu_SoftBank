@@ -11,12 +11,12 @@ struct SecondTransferSendView: View {
     @EnvironmentObject var navigationState: NavigationState
     @StateObject var viewModel: SecondTransferSendViewModel = DependencyProvider.shared.container.resolve(SecondTransferSendViewModel.self)!
     
-    var name: String
+    var receiveAccount: Account
     var request: TransferSendRequest
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("\(viewModel.name) 에게 이체 하시겠습니까?")
+            Text("\(viewModel.receiveAccount.name) 에게 이체 하시겠습니까?")
                 .font(.title2)
                 .padding(.top, 30)
             
@@ -41,7 +41,7 @@ struct SecondTransferSendView: View {
                 
                 Spacer()
                 
-                Text(BankType(rawValue: viewModel.request.bank)!.description)
+                Text(viewModel.receiveAccount.bank)
                     .font(.title3)
                 
                 Text(viewModel.request.receiveAccountId)
@@ -74,7 +74,7 @@ struct SecondTransferSendView: View {
             
             HStack {
                 Button(action: {
-                    navigationState.moveToHome = true
+                    navigationState.shouldDismissToHome = true
                 }, label: {
                     Text("아니요")
                         .foregroundColor(.white)
@@ -103,7 +103,7 @@ struct SecondTransferSendView: View {
         .padding()
         .onAppear {
             viewModel.update(
-                name: name,
+                receiveAccount: receiveAccount,
                 request: request
             )
         }
@@ -113,6 +113,9 @@ struct SecondTransferSendView: View {
 
 struct SecondTransferSendView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondTransferSendView(name: "로미", request: TransferSendRequest())
+        SecondTransferSendView(
+            receiveAccount: Account(),
+            request: TransferSendRequest()
+        )
     }
 }

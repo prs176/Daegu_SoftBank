@@ -26,7 +26,10 @@ class LoginByAuthNumUseCase: BaseParamUseCase {
         }
         
         init(pw: String) {
-            self.request = LoginRequest(id: AuthController.getInstance().getSimpleId(), pw: pw)
+            self.request = LoginRequest(
+                id: AuthController.getInstance().getSimpleId(),
+                pw: pw
+            )
         }
     }
 }

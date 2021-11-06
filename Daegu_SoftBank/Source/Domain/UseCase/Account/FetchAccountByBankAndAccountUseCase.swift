@@ -14,7 +14,7 @@ class FetchAccountByBankAndAccountUseCase: BaseParamUseCase {
         self.accountRepository = accountRepository
     }
     
-    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<String, Error> {
+    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<Account, Error> {
         accountRepository.fetchAccountByBankAndAccount(param.bank, param.account)
     }
     
@@ -22,7 +22,10 @@ class FetchAccountByBankAndAccountUseCase: BaseParamUseCase {
         let bank: Int
         let account: String
         
-        init(bank: Int, account: String) {
+        init(
+            bank: Int,
+            account: String
+        ) {
             self.bank = bank
             self.account = account
         }

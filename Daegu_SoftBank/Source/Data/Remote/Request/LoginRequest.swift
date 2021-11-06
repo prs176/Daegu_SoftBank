@@ -11,7 +11,10 @@ class LoginRequest: Codable {
     var id: String
     var pw: String
     
-    internal init(id: String = "", pw: String = "") {
+    internal init(
+        id: String = "",
+        pw: String = ""
+    ) {
         self.id = id
         self.pw = pw
     }

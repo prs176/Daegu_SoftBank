@@ -18,7 +18,7 @@ class FirstTransferSendViewModel: BaseViewModel {
     let fetchAccountByAccountUseCase: FetchAccountByAccountUseCase
     
     @Published var isSuccess: Bool = false
-    @Published var name: String = ""
+    var receiveAccount: Account = Account()
     
     init(fetchAccountByBankAndAccountUseCase: FetchAccountByBankAndAccountUseCase,
          fetchAccountByAccountUseCase: FetchAccountByAccountUseCase) {
@@ -43,20 +43,11 @@ class FirstTransferSendViewModel: BaseViewModel {
             return
         }
         
+        request.money = Int(money.filter({ $0 != "," })) ?? 0
+        
         addCancellable(
-            publisher: fetchAccountByBankAndAccountUseCase.buildUseCasePublisher(FetchAccountByBankAndAccountUseCase.Param(bank: request.bank, account: request.receiveAccountId))
-                .flatMap{ [weak self] accountId -> AnyPublisher<Account, Error> in
-                    guard let self = self else {
-                        return Future<Account, Error> {
-                            $0(.failure(SoftBankError.error(message: "계좌조회에 실패했습니다.")))
-                        }
-                        .eraseToAnyPublisher()
-                    }
-                    return self.fetchAccountByAccountUseCase.buildUseCasePublisher(FetchAccountByAccountUseCase.Param(account: accountId))
-                }
-                .eraseToAnyPublisher()
-        ) { [weak self] in
-            self?.name = $0.userId
+            publisher: fetchAccountByBankAndAccountUseCase.buildUseCasePublisher(FetchAccountByBankAndAccountUseCase.Param(bank: request.bank, account: request.receiveAccountId))) { [weak self] in
+            self?.receiveAccount = $0
             self?.request.receiveAccountId = $0.account
             self?.isSuccess = true
         }
@@ -66,19 +57,19 @@ class FirstTransferSendViewModel: BaseViewModel {
 extension FirstTransferSendViewModel {
     func validate() -> Bool {
         if !request.receiveAccountId.components(separatedBy: "-").joined().isNumber() {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "계좌번호는 숫자로 입력해주세요."
             return false
         }
         
         if request.receiveAccountId == request.sendAccountId {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "보낼 계좌의 계좌번호와 받을 계좌의 계좌번호가 달라야합니다."
             return false
         }
         
         if sendAccount.money < request.money {
-            isErrorOcuured = true
+            isErrorOccurred = true
             errorMessage = "이체할 금액이 잔액보다 큽니다."
             return false
         }
@@ -87,7 +78,7 @@ extension FirstTransferSendViewModel {
     }
     
     func enterValidate() -> Bool {
-        if request.money <= 0 {
+        if Int(money.filter({ $0 != "," })) ?? 0 <= 0 {
             return false
         }
         

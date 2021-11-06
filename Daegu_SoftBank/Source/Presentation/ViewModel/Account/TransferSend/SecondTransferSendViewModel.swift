@@ -8,16 +8,16 @@
 import Foundation
 
 class SecondTransferSendViewModel: BaseViewModel {
-    @Published var name: String = ""
+    @Published var receiveAccount: Account = Account()
     @Published var request: TransferSendRequest = TransferSendRequest()
     
     var fees: Int = 500
     
     func update(
-        name: String,
+        receiveAccount: Account,
         request: TransferSendRequest
     ) {
-        self.name = name
+        self.receiveAccount = receiveAccount
         self.request = request
         self.fees = 500
     }

@@ -14,7 +14,7 @@ class ApplyAccountUseCase: BaseParamUseCase {
         self.accountRepository = accountRepository
     }
     
-    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<String, Error> {
+    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<AccountInfo, Error> {
         accountRepository.applyAccount(param.request)
     }
     
@@ -25,8 +25,16 @@ class ApplyAccountUseCase: BaseParamUseCase {
             self.request = request
         }
         
-        init(accountPW: String, name: String, birth: String) {
-            self.request = AccountRequest(accountPW: accountPW, name: name, birth: birth)
+        init(
+            accountPW: String,
+            name: String,
+            birth: String
+        ) {
+            self.request = AccountRequest(
+                accountPW: accountPW,
+                name: name,
+                birth: birth
+            )
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class ThirdCreateAccountViewModel: BaseViewModel {
-    @Published var pwLetters: [String] = ["", "", "", ""]
+    @Published var pw = ""
     
     var request: AccountRequest = AccountRequest()
     
@@ -22,7 +22,7 @@ class ThirdCreateAccountViewModel: BaseViewModel {
     }
     
     func initProps() {
-        pwLetters = ["", "", "", ""]
+        pw = ""
     }
     
     func update(request: AccountRequest) {
@@ -35,9 +35,9 @@ class ThirdCreateAccountViewModel: BaseViewModel {
             return
         }
         
-        request.accountPW = pwLetters.joined()
-        addCancellable(publisher: applyAccountUseCase.buildUseCasePublisher(ApplyAccountUseCase.Param(request: request))) { [weak self] _ in
-            self?.accountInfo = AccountInfo() // 임시
+        request.accountPW = pw
+        addCancellable(publisher: applyAccountUseCase.buildUseCasePublisher(ApplyAccountUseCase.Param(request: request))) { [weak self] in
+            self?.accountInfo = $0
             self?.isSuccess = true
         }
     }
@@ -45,8 +45,8 @@ class ThirdCreateAccountViewModel: BaseViewModel {
 
 extension ThirdCreateAccountViewModel {
     func validate() -> Bool {
-        if !pwLetters.joined().isNumber() {
-            isErrorOcuured = true
+        if !pw.isNumber() {
+            isErrorOccurred = true
             errorMessage = "입출금통장 비밀번호는 숫자로 입력해주세요."
             return false
         }
@@ -55,7 +55,7 @@ extension ThirdCreateAccountViewModel {
     }
     
     func enterValidate() -> Bool {
-        if pwLetters.contains("") {
+        if pw.count < 4 {
             return false
         }
         

@@ -8,10 +8,10 @@
 import Combine
 
 class AccountRemote: BaseRemote<AccountAPI> {
-    func postAccount(_ request: AccountRequest) -> AnyPublisher<String, Error> {
+    func postAccount(_ request: AccountRequest) -> AnyPublisher<AccountInfo, Error> {
         return self.request(.postAccount(request))
-            .map(Response<AccountData>.self, using: decoder)
-            .map { $0.data.account }
+            .map(Response<AccountInfo>.self, using: decoder)
+            .map { $0.data }
             .eraseToAnyPublisher()
     }
     
@@ -22,9 +22,9 @@ class AccountRemote: BaseRemote<AccountAPI> {
             .eraseToAnyPublisher()
     }
     
-    func getAccountByBankAndAccount(_ bank: Int, _ account: String) -> AnyPublisher<String, Error> {
+    func getAccountByBankAndAccount(_ bank: Int, _ account: String) -> AnyPublisher<Account, Error> {
         return self.request(.getAccountByBankAndAccount(bank, account))
-            .map(Response<String>.self, using: decoder)
+            .map(Response<Account>.self, using: decoder)
             .map { $0.data }
             .eraseToAnyPublisher()
     }

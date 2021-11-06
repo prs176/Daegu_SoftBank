@@ -36,7 +36,7 @@ struct LoginView: View {
                         Spacer()
                     }
                     
-                    AutoFocusTextFields(texts: $viewModel.authNumLetters)
+                    AutoFocusTextFields(count: 6, text: $viewModel.authNum)
                     
                     Text("다른 계정으로 간편인증번호 로그인을 이용하시려면,\n먼저 이용할 계정으로 일반로그인을 진행해주세요.")
                         .font(.callout)
@@ -59,13 +59,12 @@ struct LoginView: View {
         }
         .padding()
         .onAppear {
-            viewModel.update()
-            viewModel.initProps()
+            viewModel.bind()
         }
         .navigationTitle("로그인")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: HomeView(), when: $viewModel.isSuccess)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 class RegisterAuthNumViewModel: BaseViewModel {
-    @Published var authNumLetters: [String] = ["", "", "", "", "", ""]
-    @Published var reAuthNumLetters: [String] = ["", "", "", "", "", ""]
+    @Published var authNum = ""
+    @Published var reAuthNum = ""
     
     @Published var curStep: Int = 0
     
@@ -36,15 +36,18 @@ class RegisterAuthNumViewModel: BaseViewModel {
         self.loginUseCase = loginUseCase
     }
     
-    func initProps() {
-        authNumLetters = ["", "", "", "", "", ""]
-        reAuthNumLetters = ["", "", "", "", "", ""]
+    func initVars() {
+        authNum = ""
+        reAuthNum = ""
     }
     
-    func update(uploadRequest: UploadRequest,
-                registerRequest: RegisterRequest) {
+    func bind(
+        uploadRequest: UploadRequest,
+        registerRequest: RegisterRequest
+    ) {
         self.uploadRequest = uploadRequest
         self.registerRequest = registerRequest
+        
         self.isSuccessUpload = false
         self.isSuccessRegister = false
         self.isSuccessRegisterAuthNum = false
@@ -69,7 +72,7 @@ class RegisterAuthNumViewModel: BaseViewModel {
     }
     
     func registerAuthNum() {
-        addCancellable(publisher: applyAuthNumUseCase.buildUseCasePublisher(ApplyAuthNumUseCase.Param(pw: authNumLetters.joined()))) { [weak self] _ in
+        addCancellable(publisher: applyAuthNumUseCase.buildUseCasePublisher(ApplyAuthNumUseCase.Param(pw: authNum))) { [weak self] _ in
             self?.isSuccessRegisterAuthNum = true
         }
     }
@@ -83,15 +86,15 @@ class RegisterAuthNumViewModel: BaseViewModel {
 
 extension RegisterAuthNumViewModel {
     func validate() -> Bool {
-        if !authNumLetters.joined().isNumber() ||
-           !reAuthNumLetters.joined().isNumber() {
-            isErrorOcuured = true
+        if !authNum.isNumber() ||
+           !reAuthNum.isNumber() {
+            isErrorOccurred = true
             errorMessage = "간편인증번호는 숫자로 입력해주세요."
             return false
         }
         
-        if authNumLetters != reAuthNumLetters {
-            isErrorOcuured = true
+        if authNum != reAuthNum {
+            isErrorOccurred = true
             errorMessage = "재입력한 번호가 일치하지 않습니다."
             return false
         }
@@ -101,14 +104,14 @@ extension RegisterAuthNumViewModel {
     
     func enterValidate() -> Bool {
         if curStep == 0 {
-            if authNumLetters.contains("") {
+            if authNum.count < 6 {
                 return false
             }
             
             return true
         }
         else {
-            if reAuthNumLetters.contains("") {
+            if reAuthNum.count < 6 {
                 return false
             }
             

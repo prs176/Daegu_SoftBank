@@ -13,6 +13,7 @@ class Account: Codable, Hashable {
     var name: String
     var money: Int
     var userId: String
+    var bank: String
     
     static func == (lhs: Account, rhs: Account) -> Bool {
         lhs.idx == rhs.idx
@@ -22,11 +23,19 @@ class Account: Codable, Hashable {
         hasher.combine(idx)
     }
     
-    internal init(idx: Int = 0, account: String = "", name: String = "", money: Int = 0, userId: String = "") {
+    internal init(
+        idx: Int = 0,
+        account: String = "",
+        name: String = "",
+        money: Int = 0,
+        userId: String = "",
+        bank: String = ""
+    ) {
         self.idx = idx
         self.account = account
         self.name = name
         self.money = money
         self.userId = userId
+        self.bank = bank
     }
 }

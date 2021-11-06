@@ -14,8 +14,7 @@ struct SimpleAccountRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-//                Text(account.bank)
-                Text("은행")
+                Text(account.bank)
                     .foregroundColor(.secondary)
                 
                 Text("\(account.name) \(account.account)")

@@ -20,7 +20,7 @@ struct ThirdTransferGetView: View {
                 .font(.title)
                 .padding(.bottom, 80)
             
-            AutoFocusTextFields(texts: $viewModel.pwLetters)
+            AutoFocusTextFields(count:4, text: $viewModel.pw)
             
             Spacer()
             
@@ -45,13 +45,13 @@ struct ThirdTransferGetView: View {
                 title: Text("가져오기 완료"),
                 message: Text("\(receiveAccount.name)(으)로\n\(viewModel.request.money) 원을 가져왔습니다."),
                 dismissButton: .cancel(Text("확인")) {
-                    navigationState.moveToHome = true
+                    navigationState.shouldDismissToHome = true
                 }
             )
         }
-        .navigationTitle("이체")
+        .navigationTitle("가져오기")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

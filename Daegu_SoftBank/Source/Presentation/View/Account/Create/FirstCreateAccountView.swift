@@ -34,7 +34,7 @@ struct FirstCreateAccountView: View {
             VStack(alignment: .leading) {
                 Text("주민등록번호")
                 
-                AutoFocusTextFields(texts: $viewModel.rrnLetters)
+                AutoFocusTextFields(count: 7, text: $viewModel.birth)
             }
             
             Spacer()
@@ -62,13 +62,14 @@ struct FirstCreateAccountView: View {
             Alert(
                 title: Text("유저정보 조회에 실패했습니다."),
                 dismissButton: .destructive(Text("뒤로")) {
-                    navigationState.moveToHome = true
+                    navigationState.shouldDismissToHome = true
                 }
             )
         }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: SecondCreateAccountView(user: viewModel.user, request: viewModel.request), when: $viewModel.isSuccess, isDetailLink: false)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

@@ -13,6 +13,8 @@ struct RegisterAuthNumView: View {
     var uploadRequest: UploadRequest
     var registerRequest: RegisterRequest
     
+    @State var isLoaded = true
+    
     var body: some View {
         VStack {
             VStack {
@@ -28,7 +30,7 @@ struct RegisterAuthNumView: View {
             
             if viewModel.curStep == 0 {
                 VStack {
-                    AutoFocusTextFields(texts: $viewModel.authNumLetters)
+                    AutoFocusTextFields(count: 6, text: $viewModel.authNum)
                     
                     Text("6자리 숫자를 입력하세요")
                         .fontWeight(.thin)
@@ -39,7 +41,7 @@ struct RegisterAuthNumView: View {
             }
             else {
                 VStack {
-                    AutoFocusTextFields(texts: $viewModel.reAuthNumLetters)
+                    AutoFocusTextFields(count: 6, text: $viewModel.reAuthNum)
                     
                     Text("6자리 숫자를 입력하세요")
                         .fontWeight(.thin)
@@ -61,8 +63,11 @@ struct RegisterAuthNumView: View {
         }
         .padding()
         .onAppear {
-            viewModel.initProps()
-            viewModel.update(
+            if isLoaded {
+                viewModel.initVars()
+                isLoaded = false
+            }
+            viewModel.bind(
                 uploadRequest: uploadRequest,
                 registerRequest: registerRequest
             )
@@ -110,7 +115,7 @@ struct RegisterAuthNumView: View {
                             })
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigate(to: HomeView(), when: $viewModel.isSuccessLogin)
-        .activeErrorToastMessage(when: $viewModel.isErrorOcuured, message: viewModel.errorMessage)
+        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }
 }

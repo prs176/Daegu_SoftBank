@@ -8,7 +8,7 @@
 import Foundation
 
 class ThirdTransferSendViewModel: BaseViewModel {
-    @Published var pwLetters: [String] = ["", "", "", ""]
+    @Published var pw = ""
     
     var request: TransferSendRequest = TransferSendRequest()
     
@@ -21,7 +21,7 @@ class ThirdTransferSendViewModel: BaseViewModel {
     }
     
     func initProps() {
-        pwLetters = ["", "", "", ""]
+        pw = ""
     }
     
     func update(request: TransferSendRequest) {
@@ -34,7 +34,7 @@ class ThirdTransferSendViewModel: BaseViewModel {
             return
         }
         
-        request.sendAccountPw = pwLetters.joined()
+        request.sendAccountPw = pw
         addCancellable(publisher: transferSendUseCase.buildUseCasePublisher(TransferSendUseCase.Param(request: request))) { [weak self] _ in
             self?.isSuccess = true
         }
@@ -43,8 +43,8 @@ class ThirdTransferSendViewModel: BaseViewModel {
 
 extension ThirdTransferSendViewModel {
     func validate() -> Bool {
-        if !pwLetters.joined().isNumber() {
-            isErrorOcuured = true
+        if !pw.isNumber() {
+            isErrorOccurred = true
             errorMessage = "입출금통장 비밀번호는 숫자로 입력해주세요."
             return false
         }
@@ -53,7 +53,7 @@ extension ThirdTransferSendViewModel {
     }
     
     func enterValidate() -> Bool {
-        if pwLetters.contains("") {
+        if pw.count < 4 {
             return false
         }
         

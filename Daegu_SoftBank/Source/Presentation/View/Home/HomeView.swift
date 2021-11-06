@@ -29,7 +29,7 @@ struct HomeView: View {
         }) {
             VStack(spacing: 20) {
                 HStack {
-                    UserInfoView(profileImage: viewModel.user.profileImage, name: viewModel.user.name)
+                    UserInfoView(profileImage: viewModel.user.profileImage, name: viewModel.user.nick)
                     
                     Menu(content: {
                         Button(action: {
@@ -72,7 +72,7 @@ struct HomeView: View {
                         Spacer()
                     }
                     
-                    ForEach(viewModel.accounts, id: \.self) { account in
+                    ForEach(viewModel.user.account, id: \.self) { account in
                         Divider()
                         
                         AccountRow(account: account, selectedAccount: $selectedAccount, transferSendPresenting: $transferSendPresenting, transferGetPresenting: $transferGetPresenting)
@@ -111,25 +111,25 @@ struct HomeView: View {
         .background(
             Color(.secondarySystemBackground).ignoresSafeArea()
         )
-        .onReceive(navigationState.$moveToHome) { moveToHome in
+        .onReceive(navigationState.$shouldDismissToHome) { moveToHome in
             if moveToHome {
                 createAccountPresenting = false
                 addAccountPresenting = false
                 transferSendPresenting = false
                 transferGetPresenting = false
-                navigationState.moveToHome = false
+                navigationState.shouldDismissToHome = false
             }
         }
         .onAppear {
             if isLoaded {
-                viewModel.initProps()
+                viewModel.initVars()
                 isLoaded = false
             }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarHidden(true)
         .navigate(to: FirstTransferSendView(sendAccount: selectedAccount), when: $transferSendPresenting, isDetailLink: false)
-        .navigate(to: FirstTransferGetView(accounts: viewModel.accounts, receiveAccount: selectedAccount), when: $transferGetPresenting, isDetailLink: false)
+        .navigate(to: FirstTransferGetView(accounts: viewModel.user.account, receiveAccount: selectedAccount), when: $transferGetPresenting, isDetailLink: false)
     }
 }
 
