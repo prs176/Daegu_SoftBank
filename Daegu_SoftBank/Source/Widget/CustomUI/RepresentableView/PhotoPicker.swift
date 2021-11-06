@@ -45,7 +45,11 @@ struct PhotoPicker: UIViewControllerRepresentable {
                 itemProvider.loadFileRepresentation(forTypeIdentifier: "public.item") { url, error in
                     DispatchQueue.main.async { [weak self] in
                         self?.parent.name = url?.lastPathComponent ?? ""
+                        
                         self?.parent.type = ImageType(rawValue: url?.pathExtension ?? "") ?? ImageType.UNKNOWN
+                        if url?.pathExtension == "jpg" {
+                            self?.parent.type = ImageType.JPEG
+                        }
                     }
                 }
             }

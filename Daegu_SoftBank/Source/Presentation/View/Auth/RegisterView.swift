@@ -181,7 +181,12 @@ struct RegisterView: View {
             }
             viewModel.update()
         }
-        .sheet(isPresented: $isPresentedPhotoPicker) {
+        .sheet(isPresented: $isPresentedPhotoPicker, onDismiss: {
+            if viewModel.uploadRequest.type == .UNKNOWN {
+                viewModel.errorMessage = "지원하지 않는 사진 형식입니다."
+                viewModel.isErrorOcuured = true
+            }
+        }) {
             PhotoPicker(configuration: getConfiguration(), photo: $viewModel.uploadRequest.image, name: $viewModel.uploadRequest.name, type: $viewModel.uploadRequest.type)
         }
         .sheet(isPresented: $isPresentedWebView) {
