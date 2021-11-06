@@ -64,10 +64,10 @@ struct RegisterAuthNumView: View {
         .padding()
         .onAppear {
             if isLoaded {
-                viewModel.initProps()
+                viewModel.initVars()
                 isLoaded = false
             }
-            viewModel.update(
+            viewModel.bind(
                 uploadRequest: uploadRequest,
                 registerRequest: registerRequest
             )

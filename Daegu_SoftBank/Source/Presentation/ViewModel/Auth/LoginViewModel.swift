@@ -28,6 +28,7 @@ class LoginViewModel: BaseViewModel {
         id = ""
         pw =  ""
         authNum = ""
+        
         isSuccess = false
     }
     

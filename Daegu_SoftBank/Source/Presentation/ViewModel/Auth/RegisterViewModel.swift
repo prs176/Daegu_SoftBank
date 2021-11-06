@@ -27,16 +27,17 @@ class RegisterViewModel: BaseViewModel {
         self.fetchNickCheckUseCase = fetchNickCheckUseCase
     }
     
-    func initProps() {
+    func initVars() {
         uploadRequest = UploadRequest()
         registerRequest = RegisterRequest()
         rePw = ""
         isAgree = false
+        
         isIdValid = nil
         isNickValid = nil
     }
     
-    func update() {
+    func bind() {
         isSuccess = false
     }
     
@@ -132,7 +133,7 @@ extension RegisterViewModel {
             return false
         }
         
-        if registerRequest.birth.isEmpty{
+        if registerRequest.birth.count < 7 {
             return false
         }
         

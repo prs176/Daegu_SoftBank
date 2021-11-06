@@ -159,10 +159,10 @@ struct RegisterView: View {
         }
         .onAppear {
             if isLoaded {
-                viewModel.initProps()
+                viewModel.initVars()
                 isLoaded = false
             }
-            viewModel.update()
+            viewModel.bind()
         }
         .sheet(isPresented: $isPhotoPickerPresented, onDismiss: {
             if viewModel.uploadRequest.type == .UNKNOWN {
