@@ -24,7 +24,7 @@ class LoginViewModel: BaseViewModel {
         self.loginByAuthNumUseCase = loginByAuthNumUseCase
     }
     
-    func bind() {
+    func reset() {
         id = ""
         pw =  ""
         authNum = ""
@@ -53,7 +53,7 @@ extension LoginViewModel {
                 return false
             }
             
-            if pw.count < 6 {
+            if pw.count != 6 {
                 return false
             }
         }

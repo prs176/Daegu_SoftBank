@@ -37,7 +37,7 @@ class RegisterViewModel: BaseViewModel {
         isNickValid = nil
     }
     
-    func bind() {
+    func reset() {
         isSuccess = false
     }
     
@@ -133,7 +133,7 @@ extension RegisterViewModel {
             return false
         }
         
-        if registerRequest.birth.count < 7 {
+        if registerRequest.birth.count != 7 {
             return false
         }
         
