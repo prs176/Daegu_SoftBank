@@ -22,7 +22,7 @@ class AccountRepositoryImpl: AccountRepository {
         accountRemote.getAccounts()
     }
     
-    func fetchAccountByBankAndAccount(_ bank: Int, _ account: String) -> AnyPublisher<String, Error> {
+    func fetchAccountByBankAndAccount(_ bank: Int, _ account: String) -> AnyPublisher<Account, Error> {
         accountRemote.getAccountByBankAndAccount(bank, account)
     }
     

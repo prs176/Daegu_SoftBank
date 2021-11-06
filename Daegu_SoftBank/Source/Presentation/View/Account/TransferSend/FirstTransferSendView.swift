@@ -101,13 +101,13 @@ struct FirstTransferSendView: View {
         }
         .alert(isPresented: $viewModel.isSuccess) {
             Alert(title: Text("받는 사람이 맞나요?"),
-                  message: Text(viewModel.name),
+                  message: Text(viewModel.receiveAccount.name),
                   primaryButton: .cancel(Text("아니요")),
                   secondaryButton: .default(Text("예")) { viewModel.isAgree = true })
         }
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .navigate(to: SecondTransferSendView(name: viewModel.name, request: viewModel.request), when: $viewModel.isAgree, isDetailLink: false)
+        .navigate(to: SecondTransferSendView(receiveAccount: viewModel.receiveAccount, request: viewModel.request), when: $viewModel.isAgree, isDetailLink: false)
         .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
         .resignKeyboardOnDragGesture()
     }

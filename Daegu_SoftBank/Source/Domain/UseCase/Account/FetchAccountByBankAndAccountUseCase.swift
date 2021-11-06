@@ -14,7 +14,7 @@ class FetchAccountByBankAndAccountUseCase: BaseParamUseCase {
         self.accountRepository = accountRepository
     }
     
-    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<String, Error> {
+    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<Account, Error> {
         accountRepository.fetchAccountByBankAndAccount(param.bank, param.account)
     }
     

@@ -18,7 +18,7 @@ class FirstTransferSendViewModel: BaseViewModel {
     let fetchAccountByAccountUseCase: FetchAccountByAccountUseCase
     
     @Published var isSuccess: Bool = false
-    @Published var name: String = ""
+    var receiveAccount: Account = Account()
     
     init(fetchAccountByBankAndAccountUseCase: FetchAccountByBankAndAccountUseCase,
          fetchAccountByAccountUseCase: FetchAccountByAccountUseCase) {
@@ -43,20 +43,11 @@ class FirstTransferSendViewModel: BaseViewModel {
             return
         }
         
+        request.money = Int(money) ?? 0
+        
         addCancellable(
-            publisher: fetchAccountByBankAndAccountUseCase.buildUseCasePublisher(FetchAccountByBankAndAccountUseCase.Param(bank: request.bank, account: request.receiveAccountId))
-                .flatMap{ [weak self] accountId -> AnyPublisher<Account, Error> in
-                    guard let self = self else {
-                        return Future<Account, Error> {
-                            $0(.failure(SoftBankError.error(message: "계좌조회에 실패했습니다.")))
-                        }
-                        .eraseToAnyPublisher()
-                    }
-                    return self.fetchAccountByAccountUseCase.buildUseCasePublisher(FetchAccountByAccountUseCase.Param(account: accountId))
-                }
-                .eraseToAnyPublisher()
-        ) { [weak self] in
-            self?.name = $0.userId
+            publisher: fetchAccountByBankAndAccountUseCase.buildUseCasePublisher(FetchAccountByBankAndAccountUseCase.Param(bank: request.bank, account: request.receiveAccountId))) { [weak self] in
+            self?.receiveAccount = $0
             self?.request.receiveAccountId = $0.account
             self?.isSuccess = true
         }
