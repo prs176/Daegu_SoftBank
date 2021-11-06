@@ -24,44 +24,38 @@ struct AutoFocusTextFields: View {
     var body: some View {
         HStack {
             ForEach(0..<wrappedTexts.count, id: \.self) { idx in
-                TextField("", text: $wrappedTexts[idx])
-                    .onChange(of: wrappedTexts) { _ in
-                        if wrappedTexts.filter({ $0.count > 1 }).count != 0 {
-                            wrappedTexts = wrappedTexts.map {
-                                if let last = $0.last {
-                                    return String(last)
+                TextField(
+                    "",
+                    text: Binding(
+                        get: {
+                            wrappedTexts[idx]
+                        }, set: { newValue in
+                            if wrappedTexts[state].count > 0 {
+                                if state == wrappedTexts.count - 1 {
+                                    state = nil
                                 }
-                                return ""
+                                else {
+                                    state += 1
+                                }
                             }
+                            else {
+                                if state != 0 {
+                                    state -= 1
+                                }
+                                else {
+                                    state = nil
+                                }
+                            }
+                            
+                            wrappedTexts[idx] = newValue.last.map(String.init) ?? ""
+                            text = wrappedTexts.joined()
                         }
-                        text = wrappedTexts.joined()
-                    }
-                    .focused($state, equals: idx)
-                    .frame(maxWidth: 55)
-                    .textFieldStyle(LabelTextFieldStyle())
-                    .keyboardType(.numberPad)
-            }
-        }
-        .onChange(of: wrappedTexts) { _ in
-            guard state != nil else {
-                return
-            }
-            
-            if wrappedTexts[state].count > 0 {
-                if state == wrappedTexts.count - 1 {
-                    state = nil
-                }
-                else {
-                    state += 1
-                }
-            }
-            else {
-                if state != 0 {
-                    state -= 1
-                }
-                else {
-                    state = nil
-                }
+                    )
+                )
+                .focused($state, equals: idx)
+                .frame(maxWidth: 55)
+                .textFieldStyle(LabelTextFieldStyle())
+                .keyboardType(.numberPad)
             }
         }
     }

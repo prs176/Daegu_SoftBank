@@ -48,12 +48,12 @@ class LoginViewModel: BaseViewModel {
 
 extension LoginViewModel {
     func enterValidate() -> Bool {
-        if authNum.isEmpty {
+        if authNum.count != 6 {
             if id.isEmpty {
                 return false
             }
             
-            if pw.count != 6 {
+            if pw.isEmpty {
                 return false
             }
         }
