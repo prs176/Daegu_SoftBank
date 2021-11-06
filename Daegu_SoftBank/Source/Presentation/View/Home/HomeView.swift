@@ -29,7 +29,7 @@ struct HomeView: View {
         }) {
             VStack(spacing: 20) {
                 HStack {
-                    UserInfoView(profileImage: viewModel.user.profileImage, name: viewModel.user.name)
+                    UserInfoView(profileImage: viewModel.user.profileImage, name: viewModel.user.nick)
                     
                     Menu(content: {
                         Button(action: {

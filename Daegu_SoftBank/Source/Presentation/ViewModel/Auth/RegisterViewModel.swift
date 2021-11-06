@@ -12,13 +12,7 @@ class RegisterViewModel: BaseViewModel {
     @Published var uploadRequest = UploadRequest()
     @Published var registerRequest = RegisterRequest()
     @Published var rePw = ""
-    @Published var phone = "" {
-        didSet {
-            if phone.filter({ $0 != "-" }).count > 11 {
-                phone = oldValue
-            }
-        }
-    }
+    @Published var phone = ""
     @Published var birth = ""
     @Published var isAgree = false
     

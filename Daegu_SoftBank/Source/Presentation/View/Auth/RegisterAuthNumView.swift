@@ -13,6 +13,8 @@ struct RegisterAuthNumView: View {
     var uploadRequest: UploadRequest
     var registerRequest: RegisterRequest
     
+    @State var isLoaded = true
+    
     var body: some View {
         VStack {
             VStack {
@@ -61,7 +63,10 @@ struct RegisterAuthNumView: View {
         }
         .padding()
         .onAppear {
-            viewModel.initProps()
+            if isLoaded {
+                viewModel.initProps()
+                isLoaded = false
+            }
             viewModel.update(
                 uploadRequest: uploadRequest,
                 registerRequest: registerRequest

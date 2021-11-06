@@ -493,9 +493,9 @@
 		CB8E9E21270D261C00271A73 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CBBAC8142712A860003EB1A2 /* Account */,
-				CBD8F5D627118C1B00985ACA /* Home */,
 				CB8E9E2C270D273000271A73 /* Auth */,
+				CBD8F5D627118C1B00985ACA /* Home */,
+				CBBAC8142712A860003EB1A2 /* Account */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -503,9 +503,9 @@
 		CB8E9E22270D262800271A73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CBBAC8152712A86A003EB1A2 /* Account */,
-				CBD8F5D727118C2100985ACA /* Home */,
 				CB8E9E2F270D2CAB00271A73 /* Auth */,
+				CBD8F5D727118C2100985ACA /* Home */,
+				CBBAC8152712A86A003EB1A2 /* Account */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -633,8 +633,8 @@
 		CB8E9E2F270D2CAB00271A73 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				CB8E9E30270D2CB400271A73 /* RegisterViewModel.swift */,
 				CB8E9E44270EB2F800271A73 /* LoginViewModel.swift */,
+				CB8E9E30270D2CB400271A73 /* RegisterViewModel.swift */,
 				CB8E9E5127104E5400271A73 /* RegisterAuthNumViewModel.swift */,
 			);
 			path = Auth;

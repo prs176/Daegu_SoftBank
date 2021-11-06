@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AuthMainView: View {
-    @State var loginPresenting: Bool = false
-    @State var registerPresenting: Bool = false
+    @State var isLoginActive: Bool = false
+    @State var isRegisterActive: Bool = false
     
     var body: some View {
         NavigationView {
@@ -25,7 +25,7 @@ struct AuthMainView: View {
                 Spacer()
                 
                 NavigationLink(
-                    isActive: $loginPresenting,
+                    isActive: $isLoginActive,
                     destination: { LoginView() },
                     label: {
                         Text("로그인")
@@ -38,7 +38,7 @@ struct AuthMainView: View {
                     })
                 
                 NavigationLink(
-                    isActive: $registerPresenting,
+                    isActive: $isRegisterActive,
                     destination: { RegisterView() },
                     label: {
                         Text("회원가입")
@@ -54,8 +54,8 @@ struct AuthMainView: View {
             .navigationBarHidden(true)
             .ignoresSafeArea(.keyboard, edges: .bottom)
         }
-        .environment(\.loginViewRootPresentation, $loginPresenting)
-        .environment(\.registerViewRootPresentation, $registerPresenting)
+        .environment(\.loginViewRootPresentation, $isLoginActive)
+        .environment(\.registerViewRootPresentation, $isRegisterActive)
         .navigationViewStyle(.stack)
     }
 }

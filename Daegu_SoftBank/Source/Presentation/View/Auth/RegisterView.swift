@@ -11,8 +11,8 @@ import PhotosUI
 struct RegisterView: View {
     @StateObject var viewModel = DependencyProvider.shared.container.resolve(RegisterViewModel.self)!
     
-    @State var isPresentedWebView = false
-    @State var isPresentedPhotoPicker = false
+    @State var isWebViewPresented = false
+    @State var isPhotoPickerPresented = false
     
     @State var isLoaded: Bool = true
     
@@ -34,7 +34,7 @@ struct RegisterView: View {
                 .background(Color(.secondarySystemBackground))
                 .clipShape(Circle())
                 .onTapGesture {
-                    isPresentedPhotoPicker.toggle()
+                    isPhotoPickerPresented.toggle()
                 }
                 
                 VStack {
@@ -49,14 +49,10 @@ struct RegisterView: View {
                         
                         Spacer()
                         
-                        Button(action: {
-                            viewModel.checkId()
-                        }, label: {
-                            Text("중복확인")
-                        })
+                        Button(action: viewModel.checkId) { Text("중복확인") }
                     }
                     
-                    TextField("영소문자+숫자 조합, 3~12자", text: $viewModel.registerRequest.id)
+                    TextField("영소문자+숫자, 3~12자", text: $viewModel.registerRequest.id)
                         .textFieldStyle(LabelTextFieldStyle())
                         .autocapitalization(.none)
                         .onChange(of: viewModel.registerRequest.id, perform: { value in
@@ -67,41 +63,32 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     Text("비밀번호")
                     
-                    SecureField("영문자+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.registerRequest.pw)
+                    SecureField("영문자+숫자+특수문자(!@#$%^*+=-), 8~12자", text: $viewModel.registerRequest.pw)
                         .textFieldStyle(LabelTextFieldStyle())
                 }
                 
                 VStack(alignment: .leading) {
                     Text("비밀번호 재입력")
                     
-                    SecureField("영문자+숫자+특수문자(!@#$%^*+=-) 조합, 8~12자", text: $viewModel.rePw)
+                    SecureField("영문자+숫자+특수문자(!@#$%^*+=-), 8~12자", text: $viewModel.rePw)
                         .textFieldStyle(LabelTextFieldStyle())
                 }
                 
                 VStack(alignment: .leading) {
                     Text("전화번호")
                     
-                    TextField("010-[숫자 4자리]-[숫자 4자리]", text: $viewModel.phone, onEditingChanged: { isEditing in
+                    TextField("숫자, 11자", text: $viewModel.phone, onEditingChanged: { isEditing in
                         if isEditing {
                             viewModel.phone = ""
                         }
                         else {
-                            if viewModel.phone.count == 11 {
+                            if viewModel.phone.count > 11 {
+                                viewModel.phone = String(viewModel.phone.prefix(11))
                                 viewModel.phone.insert("-", at: viewModel.phone.index(viewModel.phone.startIndex, offsetBy: 3))
                                 viewModel.phone.insert("-", at: viewModel.phone.index(viewModel.phone.startIndex, offsetBy: 8))
                             }
                         }
                     })
-                    .onChange(of: viewModel.phone) { _ in
-                        if viewModel.phone.filter({ $0 != "-" }).count > 11 {
-                            if viewModel.phone.count < 13 {
-                                viewModel.phone = String(viewModel.phone.prefix(11))
-                            }
-                            else {
-                                viewModel.phone = String(viewModel.phone.prefix(13))
-                            }
-                        }
-                    }
                     .textFieldStyle(LabelTextFieldStyle())
                     .keyboardType(.numberPad)
                 }
@@ -146,11 +133,7 @@ struct RegisterView: View {
                 }
                 
                 HStack {
-                    Button(action: {
-                        isPresentedWebView.toggle()
-                    }, label: {
-                        Text("약관동의")
-                    })
+                    Button(action: { isWebViewPresented.toggle() }) { Text("약관동의") }
                     
                     Spacer()
                     
@@ -181,20 +164,33 @@ struct RegisterView: View {
             }
             viewModel.update()
         }
-        .sheet(isPresented: $isPresentedPhotoPicker, onDismiss: {
+        .sheet(isPresented: $isPhotoPickerPresented, onDismiss: {
             if viewModel.uploadRequest.type == .UNKNOWN {
                 viewModel.errorMessage = "지원하지 않는 사진 형식입니다."
                 viewModel.isErrorOccurred = true
             }
         }) {
-            PhotoPicker(configuration: getConfiguration(), photo: $viewModel.uploadRequest.image, name: $viewModel.uploadRequest.name, type: $viewModel.uploadRequest.type)
+            PhotoPicker(
+                configuration: getConfiguration(),
+                photo: $viewModel.uploadRequest.image,
+                name: $viewModel.uploadRequest.name,
+                type: $viewModel.uploadRequest.type
+            )
         }
-        .sheet(isPresented: $isPresentedWebView) {
-            WebView(url: "https://docs.google.com/document/d/1XrCnV4_17cBfQx_Elo6ux33biBjJQc33ebBezdCkc8c/edit")
+        .sheet(isPresented: $isWebViewPresented) {
+            WebView(
+                url: "https://docs.google.com/document/d/1XrCnV4_17cBfQx_Elo6ux33biBjJQc33ebBezdCkc8c/edit"
+            )
         }
         .navigationTitle("회원가입")
-        .navigate(to: RegisterAuthNumView(uploadRequest: viewModel.uploadRequest, registerRequest: viewModel.registerRequest), when: $viewModel.isSuccess)
-        .activeErrorToastMessage(when: $viewModel.isErrorOccurred, message: viewModel.errorMessage)
+        .navigate(
+            to:RegisterAuthNumView(uploadRequest: viewModel.uploadRequest, registerRequest: viewModel.registerRequest),
+            when: $viewModel.isSuccess
+        )
+        .activeErrorToastMessage(
+            when: $viewModel.isErrorOccurred,
+            message: viewModel.errorMessage
+        )
         .resignKeyboardOnDragGesture()
     }
     

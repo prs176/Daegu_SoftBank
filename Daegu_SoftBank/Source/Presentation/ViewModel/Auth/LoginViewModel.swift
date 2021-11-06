@@ -24,14 +24,10 @@ class LoginViewModel: BaseViewModel {
         self.loginByAuthNumUseCase = loginByAuthNumUseCase
     }
     
-    func initProps() {
+    func bind() {
         id = ""
         pw =  ""
         authNum = ""
-        isSuccess = false
-    }
-    
-    func update() {
         isSuccess = false
     }
     
