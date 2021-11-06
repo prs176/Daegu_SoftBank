@@ -22,7 +22,10 @@ class FetchUserByNameAndBirthUseCase: BaseParamUseCase {
         let name: String
         let birth: String
         
-        init(name: String, birth: String) {
+        init(
+            name: String,
+            birth: String
+        ) {
             self.name = name
             self.birth = birth
         }

@@ -22,7 +22,10 @@ class FetchAccountByBankAndAccountUseCase: BaseParamUseCase {
         let bank: Int
         let account: String
         
-        init(bank: Int, account: String) {
+        init(
+            bank: Int,
+            account: String
+        ) {
             self.bank = bank
             self.account = account
         }

@@ -108,7 +108,6 @@
 		CBA62D2A271E749F00684083 /* FetchAccountByAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA62D29271E749F00684083 /* FetchAccountByAccountUseCase.swift */; };
 		CBAF76742715040300E827E1 /* FirstTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76732715040300E827E1 /* FirstTransferSendView.swift */; };
 		CBAF76762715041200E827E1 /* FirstTransferSendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF76752715041200E827E1 /* FirstTransferSendViewModel.swift */; };
-		CBAF767A271506E200E827E1 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7679271506E200E827E1 /* PickerTextField.swift */; };
 		CBAF767E27153EF300E827E1 /* SecondTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF767D27153EF300E827E1 /* SecondTransferSendView.swift */; };
 		CBAF768027153EFB00E827E1 /* SecondTransferSendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF767F27153EFB00E827E1 /* SecondTransferSendViewModel.swift */; };
 		CBAF7682271550D200E827E1 /* ThirdTransferSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF7681271550D100E827E1 /* ThirdTransferSendView.swift */; };
@@ -125,6 +124,7 @@
 		CBBAC82F271331EB003EB1A2 /* FirstAddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC82E271331EB003EB1A2 /* FirstAddAccountView.swift */; };
 		CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8312713320D003EB1A2 /* FirstAddAccountViewModel.swift */; };
 		CBC307972732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC307962732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift */; };
+		CBC307AA2736135C008B9C9A /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC307A92736135C008B9C9A /* ImageType.swift */; };
 		CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C4271143E600985ACA /* PhotoPicker.swift */; };
 		CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C92711444000985ACA /* BaseViewModel.swift */; };
 		CBD8F5D327116E8600985ACA /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5D227116E8600985ACA /* WebView.swift */; };
@@ -267,7 +267,6 @@
 		CBA62D29271E749F00684083 /* FetchAccountByAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAccountByAccountUseCase.swift; sourceTree = "<group>"; };
 		CBAF76732715040300E827E1 /* FirstTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferSendView.swift; sourceTree = "<group>"; };
 		CBAF76752715041200E827E1 /* FirstTransferSendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTransferSendViewModel.swift; sourceTree = "<group>"; };
-		CBAF7679271506E200E827E1 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		CBAF767D27153EF300E827E1 /* SecondTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferSendView.swift; sourceTree = "<group>"; };
 		CBAF767F27153EFB00E827E1 /* SecondTransferSendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTransferSendViewModel.swift; sourceTree = "<group>"; };
 		CBAF7681271550D100E827E1 /* ThirdTransferSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTransferSendView.swift; sourceTree = "<group>"; };
@@ -284,6 +283,7 @@
 		CBBAC82E271331EB003EB1A2 /* FirstAddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAddAccountView.swift; sourceTree = "<group>"; };
 		CBBAC8312713320D003EB1A2 /* FirstAddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAddAccountViewModel.swift; sourceTree = "<group>"; };
 		CBC307962732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAccountByBankAndAccountUseCase.swift; sourceTree = "<group>"; };
+		CBC307A92736135C008B9C9A /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
 		CBD8F5C4271143E600985ACA /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPicker.swift; path = Daegu_SoftBank/Source/Widget/CustomUI/RepresentableView/PhotoPicker.swift; sourceTree = SOURCE_ROOT; };
 		CBD8F5C92711444000985ACA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		CBD8F5D227116E8600985ACA /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -645,7 +645,6 @@
 			children = (
 				CBD8F5D227116E8600985ACA /* WebView.swift */,
 				CBD8F5C4271143E600985ACA /* PhotoPicker.swift */,
-				CBAF7679271506E200E827E1 /* PickerTextField.swift */,
 				CBA60CE2272A9D1A00FF3ABB /* RefreshableScrollView.swift */,
 			);
 			path = RepresentableView;
@@ -826,6 +825,7 @@
 			isa = PBXGroup;
 			children = (
 				CBB1BEBD27315DE5002EF338 /* BankType.swift */,
+				CBC307A92736135C008B9C9A /* ImageType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1196,6 +1196,7 @@
 				CB8F17A32717F4770052D4AE /* AuthNumAPI.swift in Sources */,
 				CB8E9E50270EE7B100271A73 /* View.swift in Sources */,
 				CB811EED27238250002CF71A /* FetchIdCheckUseCase.swift in Sources */,
+				CBC307AA2736135C008B9C9A /* ImageType.swift in Sources */,
 				CB8F17DB271879840052D4AE /* Account.swift in Sources */,
 				CBA023572717ED95001ED232 /* UserAPI.swift in Sources */,
 				CB8F1827271D13430052D4AE /* FetchMyAuthNumUseCase.swift in Sources */,
@@ -1218,7 +1219,6 @@
 				CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */,
 				CB8F17F0271922F80052D4AE /* AuthNumRemote.swift in Sources */,
 				CBA60CEF272ABFD100FF3ABB /* FetchOtherAccountsUseCase.swift in Sources */,
-				CBAF767A271506E200E827E1 /* PickerTextField.swift in Sources */,
 				CBA60CCD272A698C00FF3ABB /* UploadRequest.swift in Sources */,
 				CB8F17B227180A470052D4AE /* AccountAPI.swift in Sources */,
 				CBA60CEB272ABE7100FF3ABB /* AddAccountsData.swift in Sources */,

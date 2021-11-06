@@ -25,8 +25,18 @@ class TransferSendUseCase: BaseParamUseCase {
             self.request = request
         }
         
-        init(receiveAccountId: String, sendAccountPw: String, sendAccountId: String, money: Int) {
-            self.request = TransferSendRequest(receiveAccountId: receiveAccountId, sendAccountPw: sendAccountPw, sendAccountId: sendAccountId, money: money)
+        init(
+            receiveAccountId: String,
+            sendAccountPw: String,
+            sendAccountId: String,
+            money: Int
+        ) {
+            self.request = TransferSendRequest(
+                receiveAccountId: receiveAccountId,
+                sendAccountPw: sendAccountPw,
+                sendAccountId: sendAccountId,
+                money: money
+            )
         }
     }
 }

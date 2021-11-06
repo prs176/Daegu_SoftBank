@@ -26,8 +26,16 @@ class UploadUseCase: BaseParamUseCase {
             self.request = request
         }
         
-        init(type: ImageType, name: String, image: UIImage?) {
-            self.request = UploadRequest(type: type, name: name, image: image)
+        init(
+            type: ImageType,
+            name: String,
+            image: UIImage?
+        ) {
+            self.request = UploadRequest(
+                type: type,
+                name: name,
+                image: image
+            )
         }
     }
 }

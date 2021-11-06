@@ -25,8 +25,14 @@ class LoginUseCase: BaseParamUseCase {
             self.request = request
         }
         
-        init(id: String, pw: String) {
-            self.request = LoginRequest(id: id, pw: pw)
+        init(
+            id: String,
+            pw: String
+        ) {
+            self.request = LoginRequest(
+                id: id,
+                pw: pw
+            )
         }
     }
 }

@@ -25,8 +25,16 @@ class ApplyAccountUseCase: BaseParamUseCase {
             self.request = request
         }
         
-        init(accountPW: String, name: String, birth: String) {
-            self.request = AccountRequest(accountPW: accountPW, name: name, birth: birth)
+        init(
+            accountPW: String,
+            name: String,
+            birth: String
+        ) {
+            self.request = AccountRequest(
+                accountPW: accountPW,
+                name: name,
+                birth: birth
+            )
         }
     }
 }

@@ -22,7 +22,10 @@ class FetchOtherAccountsUseCase: BaseParamUseCase {
         let birth: String
         let name: String
         
-        init(birth: String, name: String) {
+        init(
+            birth: String,
+            name: String
+        ) {
             self.birth = birth
             self.name = name
         }

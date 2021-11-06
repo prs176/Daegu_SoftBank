@@ -21,12 +21,12 @@ class ApplyAddAccountsUseCase: BaseParamUseCase {
     class Param {
         let request: AddAccountsRequest
         
-        init(accounts: [String]) {
-            self.request = AddAccountsRequest(account: accounts)
-        }
-        
         init(request: AddAccountsRequest) {
             self.request = request
+        }
+        
+        init(accounts: [String]) {
+            self.request = AddAccountsRequest(account: accounts)
         }
     }
 }
