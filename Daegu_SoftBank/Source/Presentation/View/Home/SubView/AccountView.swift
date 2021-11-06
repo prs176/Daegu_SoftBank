@@ -16,7 +16,7 @@ struct AccountRow: View {
     var body: some View {
         VStack {
             HStack(alignment: .center) {
-                Image("TemporaryImage")
+                Image(account.bank)
                     .resizable()
                     .frame(width: 60, height: 60)
                     .cornerRadius(10.0)

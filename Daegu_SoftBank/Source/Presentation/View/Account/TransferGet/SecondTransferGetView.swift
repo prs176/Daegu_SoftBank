@@ -26,14 +26,13 @@ struct SecondTransferGetView: View {
     var body: some View {
         VStack(alignment: .center) {
             HStack {
-                Image("TemporaryImage")
+                Image(viewModel.sendAccount.bank)
                     .resizable()
                     .frame(width: 50, height: 50)
                     .cornerRadius(10.0)
                 
                 VStack(alignment: .leading) {
-//                    Text(viewModel.sendAccount.bank)
-                    Text("은행")
+                    Text(viewModel.sendAccount.bank)
                         .font(.title3)
                     
                     Text(viewModel.sendAccount.account)
