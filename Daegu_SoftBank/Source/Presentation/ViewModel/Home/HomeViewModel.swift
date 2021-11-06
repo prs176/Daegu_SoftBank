@@ -9,26 +9,20 @@ import SwiftUI
 
 class HomeViewModel: BaseViewModel {
     @Published var user: User = User()
-    @Published var accounts: [Account] = []
     
     let fetchMyUserUseCase: FetchMyUserUseCase
     
     init(fetchMyUserUseCase: FetchMyUserUseCase) {
         self.fetchMyUserUseCase = fetchMyUserUseCase
-        
-        super.init()
-        
-        refresh()
     }
     
-    func initProps() {
+    func initVars() {
         refresh()
     }
     
     func refresh() {
         addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] user in
             self?.user = user
-            self?.accounts = user.account
         }
     }
 }
