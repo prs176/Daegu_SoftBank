@@ -24,38 +24,32 @@ struct AutoFocusTextFields: View {
     var body: some View {
         HStack {
             ForEach(0..<wrappedTexts.count, id: \.self) { idx in
-                TextField(
-                    "",
-                    text: Binding(
-                        get: {
-                            wrappedTexts[idx]
-                        }, set: { newValue in
-                            if wrappedTexts[state].count > 0 {
-                                if state == wrappedTexts.count - 1 {
-                                    state = nil
-                                }
-                                else {
-                                    state += 1
-                                }
+                TextField("", text: $wrappedTexts[idx])
+                    .onChange(of: wrappedTexts) { newValue in
+                        if wrappedTexts[state].count > 0 {
+                            if state == wrappedTexts.count - 1 {
+                                state = nil
                             }
                             else {
-                                if state != 0 {
-                                    state -= 1
-                                }
-                                else {
-                                    state = nil
-                                }
+                                state += 1
                             }
-                            
-                            wrappedTexts[idx] = newValue.last.map(String.init) ?? ""
-                            text = wrappedTexts.joined()
                         }
-                    )
-                )
-                .focused($state, equals: idx)
-                .frame(maxWidth: 55)
-                .textFieldStyle(LabelTextFieldStyle())
-                .keyboardType(.numberPad)
+                        else {
+                            if state != 0 {
+                                state -= 1
+                            }
+                            else {
+                                state = nil
+                            }
+                        }
+                        
+                        wrappedTexts[idx] = wrappedTexts[idx].last.map(String.init) ?? ""
+                        text = wrappedTexts.joined()
+                    }
+                    .focused($state, equals: idx)
+                    .frame(maxWidth: 55)
+                    .textFieldStyle(LabelTextFieldStyle())
+                    .keyboardType(.numberPad)
             }
         }
     }
