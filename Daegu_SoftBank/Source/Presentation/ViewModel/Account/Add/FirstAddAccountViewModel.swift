@@ -8,8 +8,8 @@
 import Combine
 
 class FirstAddAccountViewModel: BaseViewModel {
-    @Published var name: String = ""
-    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""]
+    @Published var name = ""
+    @Published var birth = ""
     
     let fetchMyUserUseCase: FetchMyUserUseCase
     let fetchOtherAccountsUseCase: FetchOtherAccountsUseCase
@@ -34,7 +34,7 @@ class FirstAddAccountViewModel: BaseViewModel {
     
     func initProps() {
         name = ""
-        rrnLetters = ["", "", "", "", "", "", ""]
+        birth = ""
     }
     
     func update() {
@@ -51,14 +51,14 @@ class FirstAddAccountViewModel: BaseViewModel {
     }
     
     func fetch() {
-        guard name == user.name, rrnLetters.joined() == user.birth else {
+        guard name == user.name, birth == user.birth else {
             isErrorOccurred = true
             errorMessage = "이름, 주민등록번호가 일치하지 않습니다."
             return
         }
         
         addCancellable(
-            publisher: fetchOtherAccountsUseCase.buildUseCasePublisher(FetchOtherAccountsUseCase.Param(birth: rrnLetters.joined(), name: name))
+            publisher: fetchOtherAccountsUseCase.buildUseCasePublisher(FetchOtherAccountsUseCase.Param(birth: birth, name: name))
                 .flatMap { [weak self] accounts -> AnyPublisher<[Account], Error> in
                     guard let self = self else {
                         return Future<[Account], Error> {
@@ -88,7 +88,7 @@ class FirstAddAccountViewModel: BaseViewModel {
 
 extension FirstAddAccountViewModel {
     func validate() -> Bool {
-        if !rrnLetters.joined().isNumber() {
+        if !birth.isNumber() {
             isErrorOccurred = true
             errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
@@ -102,7 +102,7 @@ extension FirstAddAccountViewModel {
             return false
         }
         
-        if rrnLetters.contains("") {
+        if birth.isEmpty {
             return false
         }
         

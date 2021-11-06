@@ -34,7 +34,7 @@ struct FirstCreateAccountView: View {
             VStack(alignment: .leading) {
                 Text("주민등록번호")
                 
-                AutoFocusTextFields(texts: $viewModel.rrnLetters)
+                AutoFocusTextFields(count: 7, text: $viewModel.birth)
             }
             
             Spacer()

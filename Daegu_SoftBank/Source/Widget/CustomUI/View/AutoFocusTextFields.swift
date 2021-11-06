@@ -8,23 +8,33 @@
 import SwiftUI
 
 struct AutoFocusTextFields: View {
-    @Binding var texts: [String]
+    var count: Int
+    @Binding var text: String
     
+    @State var wrappedTexts: [String]
     @FocusState var state: Int!
+    
+    init(count: Int, text: Binding<String>) {
+        self.count = count
+        self._text = text
+        
+        self.wrappedTexts = (0..<count).map { _ in "" }
+    }
     
     var body: some View {
         HStack {
-            ForEach(0..<texts.count, id: \.self) { idx in
-                TextField("", text: $texts[idx])
-                    .onChange(of: texts) { _ in
-                        if texts.filter({ $0.count > 1 }).count != 0 {
-                            texts = texts.map {
+            ForEach(0..<wrappedTexts.count, id: \.self) { idx in
+                TextField("", text: $wrappedTexts[idx])
+                    .onChange(of: wrappedTexts) { _ in
+                        if wrappedTexts.filter({ $0.count > 1 }).count != 0 {
+                            wrappedTexts = wrappedTexts.map {
                                 if let last = $0.last {
                                     return String(last)
                                 }
                                 return ""
                             }
                         }
+                        text = wrappedTexts.joined()
                     }
                     .focused($state, equals: idx)
                     .frame(maxWidth: 55)
@@ -32,13 +42,13 @@ struct AutoFocusTextFields: View {
                     .keyboardType(.numberPad)
             }
         }
-        .onChange(of: texts) { _ in
+        .onChange(of: wrappedTexts) { _ in
             guard state != nil else {
                 return
             }
             
-            if texts[state].count > 0 {
-                if state == texts.count - 1 {
+            if wrappedTexts[state].count > 0 {
+                if state == wrappedTexts.count - 1 {
                     state = nil
                 }
                 else {
@@ -59,6 +69,6 @@ struct AutoFocusTextFields: View {
 
 struct AutoFocusTextFields_Previews: PreviewProvider {
     static var previews: some View {
-        AutoFocusTextFields(texts: .constant([]))
+        AutoFocusTextFields(count: 4, text: .constant(""))
     }
 }

@@ -20,7 +20,7 @@ struct ThirdTransferGetView: View {
                 .font(.title)
                 .padding(.bottom, 80)
             
-            AutoFocusTextFields(texts: $viewModel.pwLetters)
+            AutoFocusTextFields(count:4, text: $viewModel.pw)
             
             Spacer()
             

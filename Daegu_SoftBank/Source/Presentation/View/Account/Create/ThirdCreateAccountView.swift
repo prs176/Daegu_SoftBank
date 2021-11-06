@@ -20,7 +20,7 @@ struct ThirdCreateAccountView: View {
                 .font(.title2)
                 .padding(.bottom)
             
-            AutoFocusTextFields(texts: $viewModel.pwLetters)
+            AutoFocusTextFields(count: 4, text: $viewModel.pw)
             
             Spacer()
             

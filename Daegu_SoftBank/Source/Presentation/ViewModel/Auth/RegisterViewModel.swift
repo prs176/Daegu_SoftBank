@@ -11,16 +11,16 @@ import UIKit
 class RegisterViewModel: BaseViewModel {
     @Published var uploadRequest = UploadRequest()
     @Published var registerRequest = RegisterRequest()
-    @Published var rePw: String = ""
-    @Published var phone: String = "" {
+    @Published var rePw = ""
+    @Published var phone = "" {
         didSet {
             if phone.filter({ $0 != "-" }).count > 11 {
                 phone = oldValue
             }
         }
     }
-    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""]
-    @Published var isAgree: Bool = false
+    @Published var birth = ""
+    @Published var isAgree = false
     
     let fetchIdCheckUseCase: FetchIdCheckUseCase
     let fetchNickCheckUseCase: FetchNickCheckUseCase
@@ -40,7 +40,7 @@ class RegisterViewModel: BaseViewModel {
         registerRequest = RegisterRequest()
         rePw = ""
         phone = ""
-        rrnLetters = ["", "", "", "", "", "", ""]
+        birth = ""
         isAgree = false
         isIdValid = nil
         isNickValid = nil
@@ -56,7 +56,7 @@ class RegisterViewModel: BaseViewModel {
         }
         
         registerRequest.phone = phone.filter { $0 != "-" }
-        registerRequest.birth = rrnLetters.joined()
+        registerRequest.birth = birth
         isSuccess = true
     }
     
@@ -105,7 +105,7 @@ extension RegisterViewModel {
             return false
         }
         
-        if !rrnLetters.joined().isNumber() {
+        if !birth.isNumber() {
             isErrorOccurred = true
             errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
@@ -143,7 +143,7 @@ extension RegisterViewModel {
             return false
         }
         
-        if rrnLetters.contains("") {
+        if birth.isEmpty{
             return false
         }
         

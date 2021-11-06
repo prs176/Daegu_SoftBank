@@ -8,8 +8,8 @@
 import Foundation
 
 class FirstCreateAccountViewModel: BaseViewModel {
-    @Published var name: String = ""
-    @Published var rrnLetters: [String] = ["", "", "", "", "", "", ""]
+    @Published var name = ""
+    @Published var birth = ""
     
     var request: AccountRequest = AccountRequest()
     
@@ -29,7 +29,7 @@ class FirstCreateAccountViewModel: BaseViewModel {
     
     func initProps() {
         name = ""
-        rrnLetters = ["", "", "", "", "", "", ""]
+        birth = ""
     }
     
     func update() {
@@ -49,20 +49,20 @@ class FirstCreateAccountViewModel: BaseViewModel {
             return
         }
         
-        guard name == user.name, rrnLetters.joined() == user.birth else {
+        guard name == user.name, birth == user.birth else {
             isErrorOccurred = true
             errorMessage = "이름, 주민등록번호가 일치하지 않습니다."
             return
         }
         
-        request.birth = rrnLetters.joined()
+        request.birth = birth
         isSuccess = true
     }
 }
 
 extension FirstCreateAccountViewModel {
     func validate() -> Bool {
-        if !rrnLetters.joined().isNumber() {
+        if !birth.isNumber() {
             isErrorOccurred = true
             errorMessage = "주민등록번호는 숫자로 입력해주세요."
             return false
@@ -76,7 +76,7 @@ extension FirstCreateAccountViewModel {
             return false
         }
         
-        if rrnLetters.contains("") {
+        if birth.isEmpty {
             return false
         }
         

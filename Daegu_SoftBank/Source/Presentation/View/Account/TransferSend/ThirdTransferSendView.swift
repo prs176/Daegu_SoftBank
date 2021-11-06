@@ -21,7 +21,7 @@ struct ThirdTransferSendView: View {
                 .font(.title2)
                 .padding(.bottom, 80)
             
-            AutoFocusTextFields(texts: $viewModel.pwLetters)
+            AutoFocusTextFields(count: 4, text: $viewModel.pw)
             
             Spacer()
             

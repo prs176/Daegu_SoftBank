@@ -28,7 +28,7 @@ struct RegisterAuthNumView: View {
             
             if viewModel.curStep == 0 {
                 VStack {
-                    AutoFocusTextFields(texts: $viewModel.authNumLetters)
+                    AutoFocusTextFields(count: 6, text: $viewModel.authNum)
                     
                     Text("6자리 숫자를 입력하세요")
                         .fontWeight(.thin)
@@ -39,7 +39,7 @@ struct RegisterAuthNumView: View {
             }
             else {
                 VStack {
-                    AutoFocusTextFields(texts: $viewModel.reAuthNumLetters)
+                    AutoFocusTextFields(count: 6, text: $viewModel.reAuthNum)
                     
                     Text("6자리 숫자를 입력하세요")
                         .fontWeight(.thin)
