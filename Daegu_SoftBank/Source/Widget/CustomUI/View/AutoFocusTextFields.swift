@@ -15,20 +15,21 @@ struct AutoFocusTextFields: View {
     var body: some View {
         HStack {
             ForEach(0..<texts.count, id: \.self) { idx in
-                TextField("", text: $texts[idx], onEditingChanged: { _ in
-                    if texts.filter({ $0.count > 1 }).count != 0 {
-                        texts = texts.map {
-                            if let last = $0.last {
-                                return String(last)
+                TextField("", text: $texts[idx])
+                    .onChange(of: texts) { _ in
+                        if texts.filter({ $0.count > 1 }).count != 0 {
+                            texts = texts.map {
+                                if let last = $0.last {
+                                    return String(last)
+                                }
+                                return ""
                             }
-                            return ""
                         }
                     }
-                })
-                .focused($state, equals: idx)
-                .frame(maxWidth: 55)
-                .textFieldStyle(LabelTextFieldStyle())
-                .keyboardType(.numberPad)
+                    .focused($state, equals: idx)
+                    .frame(maxWidth: 55)
+                    .textFieldStyle(LabelTextFieldStyle())
+                    .keyboardType(.numberPad)
             }
         }
         .onChange(of: texts) { _ in
