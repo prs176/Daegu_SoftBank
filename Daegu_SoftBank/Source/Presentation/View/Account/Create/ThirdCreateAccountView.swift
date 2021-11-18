@@ -20,7 +20,7 @@ struct ThirdCreateAccountView: View {
                 .font(.title2)
                 .padding(.bottom)
             
-            AutoFocusTextFields(count: 4, text: $viewModel.pw)
+            AutoFocusTextFields(count: 4, text: $viewModel.request.accountPW)
             
             Spacer()
             
@@ -38,10 +38,10 @@ struct ThirdCreateAccountView: View {
         .padding()
         .onAppear {
             if isLoaded {
-                viewModel.initProps()
+                viewModel.initProps(request: request)
                 isLoaded = false
             }
-            viewModel.update(request: request)
+            viewModel.update()
         }
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)

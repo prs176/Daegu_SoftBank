@@ -39,7 +39,7 @@ struct SecondCreateAccountView: View {
                     
                     Spacer()
                     
-                    Text(viewModel.birth)
+                    Text(formatBirth())
                         .font(.title3)
                 }
                 
@@ -59,7 +59,7 @@ struct SecondCreateAccountView: View {
             VStack(alignment: .leading) {
                 Text("통장별명")
                 
-                TextField("", text: $viewModel.name)
+                TextField("", text: $viewModel.request.name)
                     .textFieldStyle(LabelTextFieldStyle())
             }
             
@@ -90,6 +90,14 @@ struct SecondCreateAccountView: View {
         .navigationTitle("계좌개설")
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .resignKeyboardOnDragGesture()
+    }
+    
+    func formatBirth() -> String {
+        var birth = viewModel.user.birth
+        if birth.count == 7 {
+            birth.insert("-", at: birth.index(before: birth.endIndex))
+        }
+        return birth
     }
 }
 

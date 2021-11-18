@@ -21,27 +21,22 @@ class FirstCreateAccountViewModel: BaseViewModel {
     
     init(fetchMyUserUseCase: FetchMyUserUseCase) {
         self.fetchMyUserUseCase = fetchMyUserUseCase
-        
-        super.init()
-        
-        refresh()
     }
     
     func initProps() {
-        name = ""
-        birth = ""
+        if user.birth == "" {
+            addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
+                self?.user = $0
+            } onReceiveFailure: { [weak self] _ in
+                self?.isFailure = true
+            }
+        }
+        self.name = ""
+        self.birth = ""
     }
     
     func update() {
         self.isSuccess = false
-    }
-    
-    func refresh() {
-        addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
-            self?.user = $0
-        } onReceiveFailure: { [weak self] _ in
-            self?.isFailure = true
-        }
     }
     
     func fetch() {

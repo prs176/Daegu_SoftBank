@@ -162,7 +162,7 @@ struct RegisterView: View {
                 viewModel.initVars()
                 isLoaded = false
             }
-            viewModel.bind()
+            viewModel.reset()
         }
         .sheet(isPresented: $isPhotoPickerPresented) {
             PhotoPicker(

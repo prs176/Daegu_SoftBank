@@ -36,18 +36,19 @@ class RegisterAuthNumViewModel: BaseViewModel {
         self.loginUseCase = loginUseCase
     }
     
-    func initVars() {
-        authNum = ""
-        reAuthNum = ""
-    }
-    
-    func bind(
+    func initVars(
         uploadRequest: UploadRequest,
         registerRequest: RegisterRequest
     ) {
         self.uploadRequest = uploadRequest
         self.registerRequest = registerRequest
         
+        self.authNum = ""
+        self.reAuthNum = ""
+        self.curStep = 0
+    }
+    
+    func reset() {
         self.isSuccessUpload = false
         self.isSuccessRegister = false
         self.isSuccessRegisterAuthNum = false
@@ -104,14 +105,14 @@ extension RegisterAuthNumViewModel {
     
     func enterValidate() -> Bool {
         if curStep == 0 {
-            if authNum.count < 6 {
+            if authNum.count != 6 {
                 return false
             }
             
             return true
         }
         else {
-            if reAuthNum.count < 6 {
+            if reAuthNum.count != 6 {
                 return false
             }
             
