@@ -68,6 +68,6 @@ struct SecondAddAccountView: View {
 
 struct SecondAddAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondAddAccountView(accounts: [])
+        SecondAddAccountView(accounts: [Account(idx: 0, account: "123123", name: "로미은행", money: 32, userId: "asdf", bank: "카카오")])
     }
 }
