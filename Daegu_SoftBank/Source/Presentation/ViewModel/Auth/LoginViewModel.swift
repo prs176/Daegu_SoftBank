@@ -25,11 +25,11 @@ class LoginViewModel: BaseViewModel {
     }
     
     func reset() {
-        id = ""
-        pw =  ""
-        authNum = ""
+        self.id = ""
+        self.pw =  ""
+        self.authNum = ""
         
-        isSuccess = false
+        self.isSuccess = false
     }
     
     func login() {

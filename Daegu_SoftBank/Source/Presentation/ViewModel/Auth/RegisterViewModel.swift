@@ -28,17 +28,17 @@ class RegisterViewModel: BaseViewModel {
     }
     
     func initVars() {
-        uploadRequest = UploadRequest()
-        registerRequest = RegisterRequest()
-        rePw = ""
-        isAgree = false
+        self.uploadRequest = UploadRequest()
+        self.registerRequest = RegisterRequest()
+        self.rePw = ""
+        self.isAgree = false
         
-        isIdValid = nil
-        isNickValid = nil
+        self.isIdValid = nil
+        self.isNickValid = nil
     }
     
     func reset() {
-        isSuccess = false
+        self.isSuccess = false
     }
     
     func register() {
