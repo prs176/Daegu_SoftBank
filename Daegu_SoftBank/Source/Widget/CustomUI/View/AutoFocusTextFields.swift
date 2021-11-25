@@ -11,12 +11,14 @@ struct AutoFocusTextFields: View {
     var count: Int
     @Binding var text: String
     
-    @State var wrappedTexts: [String] = []
+    @State var wrappedTexts: [String]
     @FocusState var state: Int!
     
     init(count: Int, text: Binding<String>) {
         self.count = count
         self._text = text
+        
+        self.wrappedTexts = text.wrappedValue.compactMap({ String($0) }) + (text.wrappedValue.compactMap({ String($0) }).count..<count).map { _ in "" }
     }
     
     var body: some View {
@@ -24,6 +26,11 @@ struct AutoFocusTextFields: View {
             ForEach(0..<wrappedTexts.count, id: \.self) { idx in
                 TextField("", text: $wrappedTexts[idx])
                     .onChange(of: wrappedTexts) { newValue in
+                        guard state != nil else {
+                            state = 0
+                            return
+                        }
+                        
                         if wrappedTexts[state].count > 0 {
                             if state == wrappedTexts.count - 1 {
                                 state = nil
@@ -51,8 +58,8 @@ struct AutoFocusTextFields: View {
             }
         }
         .onAppear {
-            wrappedTexts = text.compactMap({ String($0) })
-            wrappedTexts.append(contentsOf: (self.wrappedTexts.count..<count).map { _ in "" })
+            state = nil
+            wrappedTexts = text.compactMap({ String($0) }) + (text.compactMap({ String($0) }).count..<count).map { _ in "" }
         }
     }
 }

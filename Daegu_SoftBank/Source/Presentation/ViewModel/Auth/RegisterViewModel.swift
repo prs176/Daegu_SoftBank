@@ -31,6 +31,7 @@ class RegisterViewModel: BaseViewModel {
     func initVars() {
         self.uploadRequest = UploadRequest()
         self.registerRequest = RegisterRequest()
+        self.phone = ""
         self.rePw = ""
         self.isAgree = false
         

@@ -100,7 +100,7 @@ class ViewModelAssembly: Assembly {
         .inObjectScope(.container)
         
         container.register(ThirdTransferGetViewModel.self) { r in
-            ThirdTransferGetViewModel(transferSendUseCase: r.resolve(TransferSendUseCase.self)!)
+            ThirdTransferGetViewModel(transferGetUseCase: r.resolve(TransferGetUseCase.self)!)
         }
         .inObjectScope(.container)
     }

@@ -9,7 +9,14 @@ import Combine
 
 class TransferRemote: BaseRemote<TransferAPI> {
     func postTransferSend(_ request: TransferSendRequest) -> AnyPublisher<String, Error> {
-        return self.request(.postSend(request))
+        return self.request(.postTransferSend(request))
+            .map(MessageResponse.self, using: decoder)
+            .map { $0.message }
+            .eraseToAnyPublisher()
+    }
+    
+    func postTransferGet(_ request: TransferGetRequest) -> AnyPublisher<String, Error> {
+        return self.request(.postTransferGet(request))
             .map(MessageResponse.self, using: decoder)
             .map { $0.message }
             .eraseToAnyPublisher()

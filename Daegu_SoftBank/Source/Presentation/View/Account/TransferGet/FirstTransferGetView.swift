@@ -10,7 +10,7 @@ import SwiftUI
 struct FirstTransferGetView: View {
     var accounts: [Account]
     var receiveAccount: Account
-    var request: TransferSendRequest = TransferSendRequest()
+    var request: TransferGetRequest = TransferGetRequest()
     
     init(accounts: [Account], receiveAccount: Account) {
         self.accounts = accounts
