@@ -14,7 +14,7 @@ protocol AccountRepository {
     
     func fetchAccountByBankAndAccount(_ bank: Int, _ account: String) -> AnyPublisher<Account, Error>
     
-    func fetchOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[String], Error>
+    func fetchOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[KakaoAccount], Error>
     
     func applyAddAccounts(_ request: AddAccountsRequest) -> AnyPublisher<String, Error>
     

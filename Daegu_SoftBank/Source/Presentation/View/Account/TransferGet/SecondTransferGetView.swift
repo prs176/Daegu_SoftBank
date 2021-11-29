@@ -62,11 +62,9 @@ struct SecondTransferGetView: View {
                         
                         if Int(filtered.filter { $0 != "," }) ?? 0 > 10000000 {
                             viewModel.money = "10,000,000"
-                            viewModel.request.money = 10000000
                         }
                         else if filtered != viewModel.money {
                             viewModel.money = filtered
-                            viewModel.request.money = Int(filtered.filter { $0 != "," }) ?? 0
                         }
                     }
                     .font(.largeTitle)

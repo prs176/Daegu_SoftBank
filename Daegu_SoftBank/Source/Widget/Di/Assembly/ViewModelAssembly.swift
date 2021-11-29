@@ -65,8 +65,8 @@ class ViewModelAssembly: Assembly {
         container.register(FirstAddAccountViewModel.self) { r in
             FirstAddAccountViewModel(
                 fetchMyUserUseCase: r.resolve(FetchMyUserUseCase.self)!,
-                fetchOtherAccountsUseCase: r.resolve(FetchOtherAccountsUseCase.self)!,
-                fetchAccountByAccountUseCase: r.resolve(FetchAccountByAccountUseCase.self)!
+                fetchMyAccountsUseCase: r.resolve(FetchMyAccountsUseCase.self)!,
+                fetchOtherAccountsUseCase: r.resolve(FetchOtherAccountsUseCase.self)!
             )
         }
         .inObjectScope(.container)

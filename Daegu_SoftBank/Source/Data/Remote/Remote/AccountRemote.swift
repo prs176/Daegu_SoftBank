@@ -29,9 +29,9 @@ class AccountRemote: BaseRemote<AccountAPI> {
             .eraseToAnyPublisher()
     }
     
-    func getOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[String], Error> {
+    func getOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[KakaoAccount], Error> {
         return self.request(.getOtherAccounts(birth, name))
-            .map(Response<[String]>.self, using: decoder)
+            .map(Response<[KakaoAccount]>.self, using: decoder)
             .map { $0.data }
             .eraseToAnyPublisher()
     }

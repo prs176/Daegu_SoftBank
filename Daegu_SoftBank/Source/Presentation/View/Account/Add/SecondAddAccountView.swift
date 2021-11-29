@@ -11,14 +11,16 @@ struct SecondAddAccountView: View {
     @EnvironmentObject var navigationState: NavigationState
     @StateObject var viewModel: SecondAddAccountViewModel = DependencyProvider.shared.container.resolve(SecondAddAccountViewModel.self)!
     
-    var accounts: [Account]
+    var accounts: [KakaoAccount]
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(Set(viewModel.accounts.map({ $0.bank })).count) 개의 은행에서\n\(viewModel.accounts.count) 개의 계좌를 찾았습니다.")
+//            Text("\(Set(viewModel.accounts.map({ $0.bank })).count) 개의 은행에서\n\(viewModel.accounts.count) 개의 계좌를 찾았습니다.")
+//                .font(.title2)
+            Text("1개의 은행에서 \(viewModel.accounts.count)개의 계좌를 찾았습니다.")
                 .font(.title2)
             
-            Text("등록할 계좌를 선택해주세요.\n등록된 계좌는 간편하게 송금 및 조회할 수 있습니다.")
+            Text("등록할 계좌를 선택해주세요. 등록된 계좌는 간편하게 송금 및 조회할 수 있습니다.")
                 .font(.title3)
                 .fontWeight(.thin)
             
@@ -27,14 +29,14 @@ struct SecondAddAccountView: View {
                     Divider()
                     
                     Button(action: {
-                        if viewModel.selectedAccounts.contains(account.account) {
-                            viewModel.selectedAccounts.remove(at: viewModel.selectedAccounts.firstIndex(of: account.account)!)
+                        if viewModel.selectedAccounts.contains(account.accountId) {
+                            viewModel.selectedAccounts.remove(at: viewModel.selectedAccounts.firstIndex(of: account.accountId)!)
                         }
                         else {
-                            viewModel.selectedAccounts.append(account.account)
+                            viewModel.selectedAccounts.append(account.accountId)
                         }
                     }, label: {
-                        SimpleAccountRow(account: account, isChecked: viewModel.selectedAccounts.contains(account.account))
+                        SimpleKakaoAccountRow(account: account, isChecked: viewModel.selectedAccounts.contains(account.accountId))
                     })
                 }
             }

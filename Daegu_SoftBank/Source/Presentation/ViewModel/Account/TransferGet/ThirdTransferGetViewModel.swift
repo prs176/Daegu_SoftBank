@@ -37,6 +37,10 @@ class ThirdTransferGetViewModel: BaseViewModel {
         }
         
         request.sendAccountPw = pw
+        print(request.sendAccountPw)
+        print(request.sendAccountId)
+        print(request.receiveAccountId)
+        print(request.money)
         
         addCancellable(publisher: transferGetUseCase.buildUseCasePublisher(TransferGetUseCase.Param(request: request))) { [weak self] _ in
             self?.isSuccess = true

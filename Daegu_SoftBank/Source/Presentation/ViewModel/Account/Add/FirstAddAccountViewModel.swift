@@ -12,20 +12,20 @@ class FirstAddAccountViewModel: BaseViewModel {
     @Published var birth = ""
     
     let fetchMyUserUseCase: FetchMyUserUseCase
+    let fetchMyAccountsUseCase: FetchMyAccountsUseCase
     let fetchOtherAccountsUseCase: FetchOtherAccountsUseCase
-    let fetchAccountByAccountUseCase: FetchAccountByAccountUseCase
     
     @Published var isSuccess: Bool = false
     @Published var isFailure: Bool = false
     var user: User = User()
-    var accounts: [Account] = []
+    var accounts: [KakaoAccount] = []
     
     init(fetchMyUserUseCase: FetchMyUserUseCase,
-         fetchOtherAccountsUseCase: FetchOtherAccountsUseCase,
-         fetchAccountByAccountUseCase: FetchAccountByAccountUseCase) {
+         fetchMyAccountsUseCase: FetchMyAccountsUseCase,
+         fetchOtherAccountsUseCase: FetchOtherAccountsUseCase) {
         self.fetchMyUserUseCase = fetchMyUserUseCase
+        self.fetchMyAccountsUseCase = fetchMyAccountsUseCase
         self.fetchOtherAccountsUseCase = fetchOtherAccountsUseCase
-        self.fetchAccountByAccountUseCase = fetchAccountByAccountUseCase
         
         super.init()
         
@@ -59,30 +59,16 @@ class FirstAddAccountViewModel: BaseViewModel {
         
         addCancellable(
             publisher: fetchOtherAccountsUseCase.buildUseCasePublisher(FetchOtherAccountsUseCase.Param(birth: birth, name: name))
-                .flatMap { [weak self] accounts -> AnyPublisher<[Account], Error> in
-                    guard let self = self else {
-                        return Future<[Account], Error> {
-                            $0(.failure(SoftBankError.error(message: "계좌 조회에 실패했습니다.")))
-                        }
-                        .eraseToAnyPublisher()
-                    }
-                    
-                    if accounts.count == 0 {
-                        return Future<[Account], Error> {
-                            $0(.failure(SoftBankError.error(message: "조회되는 계좌가 없습니다.")))
-                        }
-                        .eraseToAnyPublisher()
-                    }
-                    
-                    return Publishers.MergeMany(accounts.map {
-                        self.fetchAccountByAccountUseCase.buildUseCasePublisher(FetchAccountByAccountUseCase.Param(account: $0))
-                    })
-                    .collect(accounts.count)
-                    .eraseToAnyPublisher()
-                }.eraseToAnyPublisher()) { [weak self] in
-                    self?.accounts = $0
-                    self?.isSuccess = true
-                }
+                .zip(
+                    fetchMyAccountsUseCase.buildUseCasePublisher()
+                )
+                .eraseToAnyPublisher()
+        ) { [weak self] kakaoAccounts, accounts in
+            let myAccountIds = accounts.map({ $0.account })
+            
+            self?.accounts = kakaoAccounts.filter({ !myAccountIds.contains($0.accountId) })
+            self?.isSuccess = true
+        }
     }
 }
 

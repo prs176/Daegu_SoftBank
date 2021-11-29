@@ -14,7 +14,7 @@ class FetchOtherAccountsUseCase: BaseParamUseCase {
         self.accountRepository = accountRepository
     }
     
-    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<[String], Error> {
+    func buildUseCasePublisher(_ param: Param) -> AnyPublisher<[KakaoAccount], Error> {
         accountRepository.fetchOtherAccounts(param.birth, param.name)
     }
     
