@@ -9,4 +9,6 @@ import Combine
 
 protocol TransferRepository {
     func transferSend(_ request: TransferSendRequest) -> AnyPublisher<String, Error>
+    
+    func transferGet(_ request: TransferGetRequest) -> AnyPublisher<String, Error>
 }

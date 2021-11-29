@@ -8,5 +8,5 @@
 import Foundation
 
 class Constants {
-    static let DEFAULT_HOST = "http://34.64.79.162:8080/"
+    static let DEFAULT_HOST = "http://34.64.140.124:8080/"
 }

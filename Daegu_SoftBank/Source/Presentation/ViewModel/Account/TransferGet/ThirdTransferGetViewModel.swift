@@ -10,14 +10,14 @@ import Foundation
 class ThirdTransferGetViewModel: BaseViewModel {
     @Published var pw = ""
     
-    var request: TransferSendRequest = TransferSendRequest()
+    var request: TransferGetRequest = TransferGetRequest()
     
-    let transferSendUseCase: TransferSendUseCase
+    let transferGetUseCase: TransferGetUseCase
     
     @Published var isSuccess: Bool = false
     
-    init(transferSendUseCase: TransferSendUseCase) {
-        self.transferSendUseCase = transferSendUseCase
+    init(transferGetUseCase: TransferGetUseCase) {
+        self.transferGetUseCase = transferGetUseCase
     }
     
     func initProps() {
@@ -25,7 +25,7 @@ class ThirdTransferGetViewModel: BaseViewModel {
     }
     
     func update(
-        request: TransferSendRequest
+        request: TransferGetRequest
     ) {
         self.request = request
         self.isSuccess = false
@@ -38,7 +38,7 @@ class ThirdTransferGetViewModel: BaseViewModel {
         
         request.sendAccountPw = pw
         
-        addCancellable(publisher: transferSendUseCase.buildUseCasePublisher(TransferSendUseCase.Param(request: request))) { [weak self] _ in
+        addCancellable(publisher: transferGetUseCase.buildUseCasePublisher(TransferGetUseCase.Param(request: request))) { [weak self] _ in
             self?.isSuccess = true
         }
     }

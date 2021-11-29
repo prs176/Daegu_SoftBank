@@ -11,6 +11,7 @@ import UIKit
 class RegisterViewModel: BaseViewModel {
     @Published var uploadRequest = UploadRequest()
     @Published var registerRequest = RegisterRequest()
+    @Published var phone = ""
     @Published var rePw = ""
     @Published var isAgree = false
     
@@ -30,6 +31,7 @@ class RegisterViewModel: BaseViewModel {
     func initVars() {
         self.uploadRequest = UploadRequest()
         self.registerRequest = RegisterRequest()
+        self.phone = ""
         self.rePw = ""
         self.isAgree = false
         
@@ -46,7 +48,7 @@ class RegisterViewModel: BaseViewModel {
             return
         }
         
-        registerRequest.phone = registerRequest.phone.filter { "-" != $0 }
+        registerRequest.phone = phone.filter { "-" != $0 }
         isSuccess = true
     }
     
@@ -89,7 +91,7 @@ extension RegisterViewModel {
             return false
         }
         
-        if !registerRequest.phone.isValidPhone() {
+        if !phone.isValidPhone() {
             isErrorOccurred = true
             errorMessage = "전화번호는 010-[숫자 4자리]-[숫자 4자리]로 입력해주세요."
             return false
@@ -129,7 +131,7 @@ extension RegisterViewModel {
             return false
         }
         
-        if registerRequest.phone.isEmpty {
+        if phone.isEmpty {
             return false
         }
         

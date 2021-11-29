@@ -12,7 +12,7 @@ class SecondTransferGetViewModel: BaseViewModel {
     var receiveAccount: Account = Account()
     var sendAccount: Account = Account()
     
-    var request: TransferSendRequest = TransferSendRequest()
+    var request: TransferGetRequest = TransferGetRequest()
     
     @Published var isSuccess: Bool = false
     
@@ -23,7 +23,7 @@ class SecondTransferGetViewModel: BaseViewModel {
     func update(
         receiveAccount: Account,
         sendAccount: Account,
-        request: TransferSendRequest
+        request: TransferGetRequest
     ) {
         self.receiveAccount = receiveAccount
         self.sendAccount = sendAccount

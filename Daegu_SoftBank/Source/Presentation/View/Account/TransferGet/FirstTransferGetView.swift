@@ -10,11 +10,12 @@ import SwiftUI
 struct FirstTransferGetView: View {
     var accounts: [Account]
     var receiveAccount: Account
-    var request: TransferSendRequest = TransferSendRequest()
+    var request: TransferGetRequest = TransferGetRequest()
     
     init(accounts: [Account], receiveAccount: Account) {
         self.accounts = accounts
         self.receiveAccount = receiveAccount
+        self.request.receiveAccountId = receiveAccount.account
         
         if let idx = self.accounts.firstIndex(of: self.receiveAccount) {
             self.accounts.remove(at: idx)
@@ -37,7 +38,6 @@ struct FirstTransferGetView: View {
                     }
                     .simultaneousGesture(TapGesture().onEnded { _ in
                         request.sendAccountId = account.account
-                        print(request.sendAccountId )
                     })
                 }
             }

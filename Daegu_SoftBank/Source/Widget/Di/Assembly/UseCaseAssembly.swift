@@ -96,6 +96,11 @@ class UseCaseAssembly: Assembly {
         }
         .inObjectScope(.container)
         
+        container.register(TransferGetUseCase.self) { r in
+            TransferGetUseCase(transferRepository: r.resolve(TransferRepository.self)!)
+        }
+        .inObjectScope(.container)
+        
         // MARK: Upload
         container.register(UploadUseCase.self) { r in
             UploadUseCase(uploadRepository: r.resolve(UploadRepository.self)!)

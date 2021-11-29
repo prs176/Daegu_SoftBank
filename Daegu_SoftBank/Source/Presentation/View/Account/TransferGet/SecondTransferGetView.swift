@@ -12,7 +12,7 @@ struct SecondTransferGetView: View {
     
     var receiveAccount: Account
     var sendAccount: Account
-    var request: TransferSendRequest
+    var request: TransferGetRequest
     
     @State var isLoaded: Bool = true
     
@@ -115,6 +115,6 @@ struct SecondTransferGetView: View {
 
 struct SecondTransferGetView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondTransferGetView(receiveAccount: Account(), sendAccount: Account(), request: TransferSendRequest())
+        SecondTransferGetView(receiveAccount: Account(), sendAccount: Account(), request: TransferGetRequest())
     }
 }

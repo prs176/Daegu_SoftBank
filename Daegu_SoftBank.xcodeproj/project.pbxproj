@@ -124,6 +124,8 @@
 		CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8312713320D003EB1A2 /* FirstAddAccountViewModel.swift */; };
 		CBC307972732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC307962732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift */; };
 		CBC307AA2736135C008B9C9A /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC307A92736135C008B9C9A /* ImageType.swift */; };
+		CBD44E2E274F5A910051CDB6 /* TransferGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD44E2D274F5A910051CDB6 /* TransferGetRequest.swift */; };
+		CBD44E30274F5B8D0051CDB6 /* TransferGetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD44E2F274F5B8D0051CDB6 /* TransferGetUseCase.swift */; };
 		CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C4271143E600985ACA /* PhotoPicker.swift */; };
 		CBD8F5CA2711444000985ACA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C92711444000985ACA /* BaseViewModel.swift */; };
 		CBD8F5D327116E8600985ACA /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5D227116E8600985ACA /* WebView.swift */; };
@@ -282,6 +284,8 @@
 		CBBAC8312713320D003EB1A2 /* FirstAddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAddAccountViewModel.swift; sourceTree = "<group>"; };
 		CBC307962732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAccountByBankAndAccountUseCase.swift; sourceTree = "<group>"; };
 		CBC307A92736135C008B9C9A /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
+		CBD44E2D274F5A910051CDB6 /* TransferGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferGetRequest.swift; sourceTree = "<group>"; };
+		CBD44E2F274F5B8D0051CDB6 /* TransferGetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferGetUseCase.swift; sourceTree = "<group>"; };
 		CBD8F5C4271143E600985ACA /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPicker.swift; path = Daegu_SoftBank/Source/Widget/CustomUI/RepresentableView/PhotoPicker.swift; sourceTree = SOURCE_ROOT; };
 		CBD8F5C92711444000985ACA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		CBD8F5D227116E8600985ACA /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -582,6 +586,7 @@
 		CB8E9E29270D266400271A73 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				CBD44E2D274F5A910051CDB6 /* TransferGetRequest.swift */,
 				CBA0234F2717EC16001ED232 /* RegisterRequest.swift */,
 				CBA023512717ECB3001ED232 /* LoginRequest.swift */,
 				CB8F17A42717F5720052D4AE /* AuthNumRequest.swift */,
@@ -771,6 +776,7 @@
 			isa = PBXGroup;
 			children = (
 				CBA62D1F271E719100684083 /* TransferSendUseCase.swift */,
+				CBD44E2F274F5B8D0051CDB6 /* TransferGetUseCase.swift */,
 			);
 			path = Transfer;
 			sourceTree = "<group>";
@@ -1204,6 +1210,7 @@
 				CB8F1808271D03000052D4AE /* TransferRepositoryImpl.swift in Sources */,
 				CBAF76742715040300E827E1 /* FirstTransferSendView.swift in Sources */,
 				CB8F17AD2717FEC00052D4AE /* MoyaProvider.swift in Sources */,
+				CBD44E30274F5B8D0051CDB6 /* TransferGetUseCase.swift in Sources */,
 				CB8E9DEB270D23B700271A73 /* AppDelegate.swift in Sources */,
 				CB8E9E31270D2CB400271A73 /* RegisterViewModel.swift in Sources */,
 				CB8F17F0271922F80052D4AE /* AuthNumRemote.swift in Sources */,
@@ -1211,6 +1218,7 @@
 				CBA60CCD272A698C00FF3ABB /* UploadRequest.swift in Sources */,
 				CB8F17B227180A470052D4AE /* AccountAPI.swift in Sources */,
 				CBA60CEB272ABE7100FF3ABB /* AddAccountsData.swift in Sources */,
+				CBD44E2E274F5A910051CDB6 /* TransferGetRequest.swift in Sources */,
 				CB8F17D9271877FA0052D4AE /* User.swift in Sources */,
 				CB0CBC98272EC30A004D09FA /* AutoFocusTextFields.swift in Sources */,
 				CBB1BEBE27315DE5002EF338 /* BankType.swift in Sources */,
@@ -1514,7 +1522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FP96Y4C764;
 				INFOPLIST_FILE = Daegu_SoftBankTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1537,7 +1545,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FP96Y4C764;
 				INFOPLIST_FILE = Daegu_SoftBankTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
