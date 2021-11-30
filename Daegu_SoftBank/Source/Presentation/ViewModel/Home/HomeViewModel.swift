@@ -9,11 +9,15 @@ import SwiftUI
 
 class HomeViewModel: BaseViewModel {
     @Published var user: User = User()
+    @Published var accounts: [Account] = []
     
     let fetchMyUserUseCase: FetchMyUserUseCase
+    let fetchMyAccountsUseCase: FetchMyAccountsUseCase
     
-    init(fetchMyUserUseCase: FetchMyUserUseCase) {
+    init(fetchMyUserUseCase: FetchMyUserUseCase,
+         fetchMyAccountsUseCase: FetchMyAccountsUseCase) {
         self.fetchMyUserUseCase = fetchMyUserUseCase
+        self.fetchMyAccountsUseCase = fetchMyAccountsUseCase
     }
     
     func initVars() {
@@ -23,6 +27,10 @@ class HomeViewModel: BaseViewModel {
     func refresh() {
         addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] user in
             self?.user = user
+        }
+        
+        addCancellable(publisher: fetchMyAccountsUseCase.buildUseCasePublisher()) { [weak self] accounts in
+            self?.accounts = accounts
         }
     }
 }

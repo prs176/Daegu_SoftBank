@@ -18,7 +18,7 @@ class UploadRemote: BaseRemote<UploadAPI> {
         }
         
         return self.request(.postUpload(multipartFormData))
-            .map(Response<UploadResponse>.self, using: decoder)
+            .map(Response<UploadData>.self, using: decoder)
             .map { $0.data.files.first ?? "" }
             .eraseToAnyPublisher()
     }

@@ -35,6 +35,7 @@ struct SimpleAccountRow: View {
     }
 }
 
+
 struct SimpleAccountRow_Previews: PreviewProvider {
     static var previews: some View {
         SimpleAccountRow(account: Account(), isChecked: false)

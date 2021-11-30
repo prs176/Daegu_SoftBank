@@ -41,6 +41,7 @@ extension SecondTransferGetViewModel {
             return
         }
         
+        request.money = Int(money.filter { $0 != "," }) ?? 0
         isSuccess = true
     }
     

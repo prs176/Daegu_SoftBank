@@ -37,6 +37,7 @@ class FirstCreateAccountViewModel: BaseViewModel {
     
     func update() {
         self.isSuccess = false
+        self.isFailure = false
     }
     
     func fetch() {

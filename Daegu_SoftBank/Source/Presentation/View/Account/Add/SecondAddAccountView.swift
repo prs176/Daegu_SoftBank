@@ -15,10 +15,10 @@ struct SecondAddAccountView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(Set(viewModel.accounts.map({ $0.bank })).count) 개의 은행에서\n\(viewModel.accounts.count) 개의 계좌를 찾았습니다.")
+            Text("\(Set(viewModel.accounts.map({ $0.bank })).count)개의 은행에서 \(viewModel.accounts.count)개의 계좌를 찾았습니다.")
                 .font(.title2)
             
-            Text("등록할 계좌를 선택해주세요.\n등록된 계좌는 간편하게 송금 및 조회할 수 있습니다.")
+            Text("등록할 계좌를 선택해주세요. 등록된 계좌는 간편하게 송금 및 조회할 수 있습니다.")
                 .font(.title3)
                 .fontWeight(.thin)
             
@@ -27,8 +27,8 @@ struct SecondAddAccountView: View {
                     Divider()
                     
                     Button(action: {
-                        if viewModel.selectedAccounts.contains(account.account) {
-                            viewModel.selectedAccounts.remove(at: viewModel.selectedAccounts.firstIndex(of: account.account)!)
+                        if let idx = viewModel.selectedAccounts.firstIndex(of: account.account) {
+                            viewModel.selectedAccounts.remove(at: idx)
                         }
                         else {
                             viewModel.selectedAccounts.append(account.account)
@@ -68,6 +68,6 @@ struct SecondAddAccountView: View {
 
 struct SecondAddAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondAddAccountView(accounts: [Account(idx: 0, account: "123123", name: "로미은행", money: 32, userId: "asdf", bank: "카카오")])
+        SecondAddAccountView(accounts: [])
     }
 }
