@@ -15,7 +15,7 @@ class TransferSendRequest: Codable {
     var money: Int
     
     internal init(
-        bank: Int = 0,
+        bank: Int = 1,
         receiveAccountId: String = "",
         sendAccountPw: String = "",
         sendAccountId: String = "",

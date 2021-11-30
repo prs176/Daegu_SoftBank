@@ -42,11 +42,9 @@ struct FirstTransferSendView: View {
                             
                             if Int(filtered.filter { $0 != "," }) ?? 0 > 10000000 {
                                 viewModel.money = "10,000,000"
-                                viewModel.request.money = 10000000
                             }
                             else if filtered != viewModel.money {
                                 viewModel.money = filtered
-                                viewModel.request.money = Int(filtered.filter { $0 != "," }) ?? 0
                             }
                         }
                         .font(.title3)
@@ -101,9 +99,12 @@ struct FirstTransferSendView: View {
         }
         .alert(isPresented: $viewModel.isSuccess) {
             Alert(title: Text("받는 사람이 맞나요?"),
-                  message: Text(viewModel.receiveAccount.name),
+                  message: Text(viewModel.receiveAccount.userId),
                   primaryButton: .cancel(Text("아니요")),
-                  secondaryButton: .default(Text("예")) { viewModel.isAgree = true })
+                  secondaryButton: .default(Text("예")) {
+                viewModel.request.money = Int(viewModel.money.filter { $0 != "," }) ?? 0
+                viewModel.isAgree = true
+            })
         }
         .navigationTitle("이체")
         .ignoresSafeArea(.keyboard, edges: .bottom)

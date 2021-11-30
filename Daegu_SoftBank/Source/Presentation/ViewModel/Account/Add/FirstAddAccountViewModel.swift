@@ -26,13 +26,16 @@ class FirstAddAccountViewModel: BaseViewModel {
         self.fetchMyUserUseCase = fetchMyUserUseCase
         self.fetchMyAccountsUseCase = fetchMyAccountsUseCase
         self.fetchOtherAccountsUseCase = fetchOtherAccountsUseCase
-        
-        super.init()
-        
-        refresh()
     }
     
     func initProps() {
+        if user.birth == "" {
+            addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
+                self?.user = $0
+            } onReceiveFailure: { [weak self] _ in
+                self?.isFailure = true
+            }
+        }
         name = ""
         birth = ""
     }
@@ -40,14 +43,6 @@ class FirstAddAccountViewModel: BaseViewModel {
     func update() {
         self.isSuccess = false
         self.isFailure = false
-    }
-    
-    func refresh() {
-        addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
-            self?.user = $0
-        } onReceiveFailure: { [weak self] _ in
-            self?.isFailure = true
-        }
     }
     
     func fetch() {
@@ -64,7 +59,7 @@ class FirstAddAccountViewModel: BaseViewModel {
                 )
                 .eraseToAnyPublisher()
         ) { [weak self] otherAccounts, myAccounts in
-            var myAccountsId = myAccounts.map({ $0.account })
+            let myAccountsId = myAccounts.map({ $0.account })
             
             self?.accounts = otherAccounts.filter({ !myAccountsId.contains($0.accountId) })
             self?.isSuccess = true

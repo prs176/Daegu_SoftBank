@@ -40,11 +40,11 @@ class Account: Codable, Hashable {
     }
     
     static func == (lhs: Account, rhs: Account) -> Bool {
-        lhs.idx == rhs.idx
+        lhs.account == rhs.account
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(idx)
+        hasher.combine(account)
     }
     
     internal init(
