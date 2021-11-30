@@ -17,8 +17,4 @@ class TransferRepositoryImpl: TransferRepository {
     func transferSend(_ request: TransferSendRequest) -> AnyPublisher<String, Error> {
         transferRemote.postTransferSend(request)
     }
-    
-    func transferGet(_ request: TransferGetRequest) -> AnyPublisher<String, Error> {
-        transferRemote.postTransferGet(request)
-    }
 }

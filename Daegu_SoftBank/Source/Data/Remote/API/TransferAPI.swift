@@ -9,7 +9,6 @@ import Moya
 
 enum TransferAPI {
     case postTransferSend(_ request: TransferSendRequest)
-    case postTransferGet(_ request: TransferGetRequest)
 }
 
 extension TransferAPI: TargetType {
@@ -21,8 +20,6 @@ extension TransferAPI: TargetType {
         switch self {
         case .postTransferSend:
             return "/send"
-        case .postTransferGet:
-            return "/take"
         }
     }
     
@@ -30,16 +27,12 @@ extension TransferAPI: TargetType {
         switch self {
         case .postTransferSend:
             return .post
-        case .postTransferGet:
-            return .post
         }
     }
     
     var task: Task {
         switch self {
         case let .postTransferSend(request):
-            return .requestData(try! JSONEncoder().encode(request))
-        case let .postTransferGet(request):
             return .requestData(try! JSONEncoder().encode(request))
         }
     }
