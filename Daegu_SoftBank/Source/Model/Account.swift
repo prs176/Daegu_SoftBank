@@ -63,3 +63,26 @@ class Account: Codable, Hashable {
         self.bank = bank
     }
 }
+
+class OtherAccount: Account {
+    enum AccountKeys: String, CodingKey {
+        case idx
+        case account
+        case bank
+        case money
+        case userId
+    }
+    
+    required init(from decoder: Decoder) throws {
+        super.init()
+        
+        let container = try decoder.container(keyedBy: AccountKeys.self)
+        
+        self.idx = try container.decodeIfPresent(Int.self, forKey: .idx) ?? 0
+        self.account = try container.decodeIfPresent(String.self, forKey: .account) ?? ""
+        self.name = ""
+        self.money = Int(try container.decodeIfPresent(String.self, forKey: .money) ?? "") ?? 0
+        self.userId = try container.decodeIfPresent(String.self, forKey: .userId) ?? ""
+        self.bank = try container.decodeIfPresent(String.self, forKey: .bank) ?? ""
+    }
+}

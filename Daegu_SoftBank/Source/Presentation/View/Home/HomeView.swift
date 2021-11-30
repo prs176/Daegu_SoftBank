@@ -72,7 +72,7 @@ struct HomeView: View {
                         Spacer()
                     }
                     
-                    ForEach(viewModel.accounts.0, id: \.self) { account in
+                    ForEach(viewModel.accounts, id: \.self) { account in
                         Divider()
                         
                         AccountRow(account: account, selectedAccount: $selectedAccount, transferSendPresenting: $transferSendPresenting, transferGetPresenting: $transferGetPresenting)
@@ -130,7 +130,7 @@ struct HomeView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarHidden(true)
         .navigate(to: FirstTransferSendView(sendAccount: selectedAccount), when: $transferSendPresenting, isDetailLink: false)
-        .navigate(to: FirstTransferGetView(accounts: viewModel.accounts.0, receiveAccount: selectedAccount), when: $transferGetPresenting, isDetailLink: false)
+        .navigate(to: FirstTransferGetView(accounts: viewModel.accounts, receiveAccount: selectedAccount), when: $transferGetPresenting, isDetailLink: false)
     }
 }
 

@@ -64,8 +64,7 @@ class FirstAddAccountViewModel: BaseViewModel {
                 )
                 .eraseToAnyPublisher()
         ) { [weak self] otherAccounts, myAccounts in
-            var myAccountsId: [String] = myAccounts.0.map({ $0.account })
-            myAccountsId.append(contentsOf: myAccounts.1.map({ $0.account }))
+            var myAccountsId = myAccounts.map({ $0.account })
             
             self?.accounts = otherAccounts.filter({ !myAccountsId.contains($0.accountId) })
             self?.isSuccess = true

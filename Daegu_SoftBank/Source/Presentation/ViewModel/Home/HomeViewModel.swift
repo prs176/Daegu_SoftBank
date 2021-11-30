@@ -9,7 +9,7 @@ import SwiftUI
 
 class HomeViewModel: BaseViewModel {
     @Published var user: User = User()
-    @Published var accounts: ([Account], [OtherAccount]) = ([], [])
+    @Published var accounts: [Account] = []
     
     let fetchMyUserUseCase: FetchMyUserUseCase
     let fetchMyAccountsUseCase: FetchMyAccountsUseCase
