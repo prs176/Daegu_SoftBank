@@ -8,19 +8,9 @@
 import SwiftUI
 
 struct FirstTransferGetView: View {
-    var accounts: [Account]
+    @State var accounts: [Account]
     var receiveAccount: Account
     var request: TransferGetRequest = TransferGetRequest()
-    
-    init(accounts: [Account], receiveAccount: Account) {
-        self.accounts = accounts
-        self.receiveAccount = receiveAccount
-        self.request.receiveAccountId = receiveAccount.account
-        
-        if let idx = self.accounts.firstIndex(of: self.receiveAccount) {
-            self.accounts.remove(at: idx)
-        }
-    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -43,6 +33,13 @@ struct FirstTransferGetView: View {
             }
         }
         .padding()
+        .onAppear {
+            request.receiveAccountId = receiveAccount.account
+            
+            if let idx = accounts.firstIndex(of: receiveAccount) {
+                accounts.remove(at: idx)
+            }
+        }
         .navigationTitle("가져오기")
     }
 }

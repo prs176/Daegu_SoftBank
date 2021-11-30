@@ -125,6 +125,14 @@
 		CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8312713320D003EB1A2 /* FirstAddAccountViewModel.swift */; };
 		CBC307972732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC307962732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift */; };
 		CBC307AA2736135C008B9C9A /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC307A92736135C008B9C9A /* ImageType.swift */; };
+		CBCEAEE22756053E0031AC5E /* KakaoTransferAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEAEE12756053E0031AC5E /* KakaoTransferAPI.swift */; };
+		CBCEAEE4275605670031AC5E /* KakaoTransferSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEAEE3275605670031AC5E /* KakaoTransferSendRequest.swift */; };
+		CBCEAEE6275605730031AC5E /* KakaoTransferGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEAEE5275605730031AC5E /* KakaoTransferGetRequest.swift */; };
+		CBCEAEE82756066D0031AC5E /* KakaoTransferRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEAEE72756066D0031AC5E /* KakaoTransferRemote.swift */; };
+		CBCEAEEA275606A10031AC5E /* KakaoTransferRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEAEE9275606A10031AC5E /* KakaoTransferRepositoryImpl.swift */; };
+		CBCEAEEC275609210031AC5E /* KakaoTransferRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEAEEB275609210031AC5E /* KakaoTransferRepository.swift */; };
+		CBCEAEEF275609630031AC5E /* KakaoTransferSendUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEAEEE275609630031AC5E /* KakaoTransferSendUseCase.swift */; };
+		CBCEAEF12756096A0031AC5E /* KakaoTransferGetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEAEF02756096A0031AC5E /* KakaoTransferGetUseCase.swift */; };
 		CBD44E2E274F5A910051CDB6 /* TransferGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD44E2D274F5A910051CDB6 /* TransferGetRequest.swift */; };
 		CBD44E30274F5B8D0051CDB6 /* TransferGetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD44E2F274F5B8D0051CDB6 /* TransferGetUseCase.swift */; };
 		CBD8F5C6271143E600985ACA /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8F5C4271143E600985ACA /* PhotoPicker.swift */; };
@@ -286,6 +294,14 @@
 		CBBAC8312713320D003EB1A2 /* FirstAddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAddAccountViewModel.swift; sourceTree = "<group>"; };
 		CBC307962732A49B008B9C9A /* FetchAccountByBankAndAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAccountByBankAndAccountUseCase.swift; sourceTree = "<group>"; };
 		CBC307A92736135C008B9C9A /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
+		CBCEAEE12756053E0031AC5E /* KakaoTransferAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTransferAPI.swift; sourceTree = "<group>"; };
+		CBCEAEE3275605670031AC5E /* KakaoTransferSendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTransferSendRequest.swift; sourceTree = "<group>"; };
+		CBCEAEE5275605730031AC5E /* KakaoTransferGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTransferGetRequest.swift; sourceTree = "<group>"; };
+		CBCEAEE72756066D0031AC5E /* KakaoTransferRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTransferRemote.swift; sourceTree = "<group>"; };
+		CBCEAEE9275606A10031AC5E /* KakaoTransferRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTransferRepositoryImpl.swift; sourceTree = "<group>"; };
+		CBCEAEEB275609210031AC5E /* KakaoTransferRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTransferRepository.swift; sourceTree = "<group>"; };
+		CBCEAEEE275609630031AC5E /* KakaoTransferSendUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTransferSendUseCase.swift; sourceTree = "<group>"; };
+		CBCEAEF02756096A0031AC5E /* KakaoTransferGetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTransferGetUseCase.swift; sourceTree = "<group>"; };
 		CBD44E2D274F5A910051CDB6 /* TransferGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferGetRequest.swift; sourceTree = "<group>"; };
 		CBD44E2F274F5B8D0051CDB6 /* TransferGetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferGetUseCase.swift; sourceTree = "<group>"; };
 		CBD8F5C4271143E600985ACA /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPicker.swift; path = Daegu_SoftBank/Source/Widget/CustomUI/RepresentableView/PhotoPicker.swift; sourceTree = SOURCE_ROOT; };
@@ -517,6 +533,7 @@
 		CB8E9E23270D262E00271A73 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				CBCEAEED275609530031AC5E /* KakaoTransfer */,
 				CBA60CD5272A6F6500FF3ABB /* Upload */,
 				CB8F1816271D0E740052D4AE /* User */,
 				CB8F1823271D126F0052D4AE /* AuthNum */,
@@ -534,6 +551,7 @@
 				CB8F1801271CFF0B0052D4AE /* AccountRepository.swift */,
 				CB8F1805271D02C30052D4AE /* TransferRepository.swift */,
 				CBA60CD2272A6EF400FF3ABB /* UploadRepository.swift */,
+				CBCEAEEB275609210031AC5E /* KakaoTransferRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -546,6 +564,7 @@
 				CB8F1803271D01900052D4AE /* AccountRepositoryImpl.swift */,
 				CB8F1807271D03000052D4AE /* TransferRepositoryImpl.swift */,
 				CBA60CD0272A6EEF00FF3ABB /* UploadRepositoryImpl.swift */,
+				CBCEAEE9275606A10031AC5E /* KakaoTransferRepositoryImpl.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -558,6 +577,7 @@
 				CB8F17F127193C9A0052D4AE /* AccountRemote.swift */,
 				CB8F17F3271940730052D4AE /* TransferRemote.swift */,
 				CBA60CCA272A696600FF3ABB /* UploadRemote.swift */,
+				CBCEAEE72756066D0031AC5E /* KakaoTransferRemote.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -581,6 +601,7 @@
 				CB8F17B127180A470052D4AE /* AccountAPI.swift */,
 				CB8F17B527180CDD0052D4AE /* TransferAPI.swift */,
 				CBA60CC8272A68E600FF3ABB /* UploadAPI.swift */,
+				CBCEAEE12756053E0031AC5E /* KakaoTransferAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -596,6 +617,8 @@
 				CB8F17B727180D2C0052D4AE /* TransferSendRequest.swift */,
 				CBA60CCC272A698C00FF3ABB /* UploadRequest.swift */,
 				CBA60CE8272ABD7000FF3ABB /* AddAccountsRequest.swift */,
+				CBCEAEE3275605670031AC5E /* KakaoTransferSendRequest.swift */,
+				CBCEAEE5275605730031AC5E /* KakaoTransferGetRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -888,6 +911,15 @@
 				CB41549A271445D500E434B3 /* SecondAddAccountViewModel.swift */,
 			);
 			path = Add;
+			sourceTree = "<group>";
+		};
+		CBCEAEED275609530031AC5E /* KakaoTransfer */ = {
+			isa = PBXGroup;
+			children = (
+				CBCEAEEE275609630031AC5E /* KakaoTransferSendUseCase.swift */,
+				CBCEAEF02756096A0031AC5E /* KakaoTransferGetUseCase.swift */,
+			);
+			path = KakaoTransfer;
 			sourceTree = "<group>";
 		};
 		CBD8F5C82711441A00985ACA /* Base */ = {
@@ -1200,9 +1232,11 @@
 				CB8F1827271D13430052D4AE /* FetchMyAuthNumUseCase.swift in Sources */,
 				CB4154A0271449A700E434B3 /* SimpleAccountRow.swift in Sources */,
 				CB8F1829271D13530052D4AE /* LoginByAuthNumUseCase.swift in Sources */,
+				CBCEAEE6275605730031AC5E /* KakaoTransferGetRequest.swift in Sources */,
 				CBD8F5D327116E8600985ACA /* WebView.swift in Sources */,
 				CBBAC8322713320D003EB1A2 /* FirstAddAccountViewModel.swift in Sources */,
 				CBA60CE9272ABD7000FF3ABB /* AddAccountsRequest.swift in Sources */,
+				CBCEAEE4275605670031AC5E /* KakaoTransferSendRequest.swift in Sources */,
 				CB8F1806271D02C30052D4AE /* TransferRepository.swift in Sources */,
 				CB8F17E227190D1C0052D4AE /* LoginData.swift in Sources */,
 				CBAF7684271550DD00E827E1 /* ThirdTransferSendViewModel.swift in Sources */,
@@ -1236,6 +1270,7 @@
 				CBA023592717EDD3001ED232 /* Constants.swift in Sources */,
 				CBA203E32754F6C600DC23FA /* OtherAccountData.swift in Sources */,
 				CBA02338271588BC001ED232 /* FourthTransferSendView.swift in Sources */,
+				CBCEAEEF275609630031AC5E /* KakaoTransferSendUseCase.swift in Sources */,
 				CBBAC81A2712AB99003EB1A2 /* FirstCreateAccountView.swift in Sources */,
 				CBAF7682271550D200E827E1 /* ThirdTransferSendView.swift in Sources */,
 				CB8F17EC2719205E0052D4AE /* UserRemote.swift in Sources */,
@@ -1285,8 +1320,12 @@
 				CB0CBC9C272F8603004D09FA /* NavigationState.swift in Sources */,
 				CBA60CCF272A6E8E00FF3ABB /* UploadData.swift in Sources */,
 				CBA60CC9272A68E600FF3ABB /* UploadAPI.swift in Sources */,
+				CBCEAEEC275609210031AC5E /* KakaoTransferRepository.swift in Sources */,
+				CBCEAEEA275606A10031AC5E /* KakaoTransferRepositoryImpl.swift in Sources */,
 				CB8E9DEF270D23B700271A73 /* AuthMainView.swift in Sources */,
 				CBD8F5D52711731000985ACA /* String.swift in Sources */,
+				CBCEAEF12756096A0031AC5E /* KakaoTransferGetUseCase.swift in Sources */,
+				CBCEAEE82756066D0031AC5E /* KakaoTransferRemote.swift in Sources */,
 				CBA60CE3272A9D1A00FF3ABB /* RefreshableScrollView.swift in Sources */,
 				CB8E9E5227104E5400271A73 /* RegisterAuthNumViewModel.swift in Sources */,
 				CB8F1812271D05610052D4AE /* BaseUseCase.swift in Sources */,
@@ -1297,6 +1336,7 @@
 				CB8F1804271D01900052D4AE /* AccountRepositoryImpl.swift in Sources */,
 				CB4E6F9D2721128D004EAC34 /* RepositoryAssembly.swift in Sources */,
 				CB811EEF272382A9002CF71A /* FetchNickCheckUseCase.swift in Sources */,
+				CBCEAEE22756053E0031AC5E /* KakaoTransferAPI.swift in Sources */,
 				CB8F1814271D05700052D4AE /* BaseParamUseCase.swift in Sources */,
 				CBD8F5E227118D0200985ACA /* AccountView.swift in Sources */,
 				CB4E6F9B27211145004EAC34 /* RemoteAssembly.swift in Sources */,
