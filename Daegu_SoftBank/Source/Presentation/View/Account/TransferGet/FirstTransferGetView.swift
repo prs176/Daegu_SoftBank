@@ -12,6 +12,8 @@ struct FirstTransferGetView: View {
     var receiveAccount: Account
     var request: TransferSendRequest = TransferSendRequest()
     
+    @State var isAccountsEmpty = false
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("돈을 가져올 계좌를 선택하세요")
@@ -40,7 +42,12 @@ struct FirstTransferGetView: View {
             if let idx = accounts.firstIndex(of: receiveAccount) {
                 accounts.remove(at: idx)
             }
+            
+            if accounts.count == 0 {
+                isAccountsEmpty = true
+            }
         }
+        .activeErrorToastMessage(when: $isAccountsEmpty, message: "가져오기 할 수 있는 계좌가 없습니다.")
         .navigationTitle("가져오기")
     }
 }
