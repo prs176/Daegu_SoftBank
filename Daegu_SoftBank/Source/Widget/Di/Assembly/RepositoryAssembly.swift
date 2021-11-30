@@ -29,6 +29,11 @@ class RepositoryAssembly: Assembly {
         }
         .inObjectScope(.container)
         
+        container.register(KakaoTransferRepository.self) { r in
+            KakaoTransferRepositoryImpl(kakaoTransferRemote: r.resolve(KakaoTransferRemote.self)!)
+        }
+        .inObjectScope(.container)
+        
         container.register(UploadRepository.self) { r in
             UploadRepositoryImpl(uploadRemote: r.resolve(UploadRemote.self)!)
         }

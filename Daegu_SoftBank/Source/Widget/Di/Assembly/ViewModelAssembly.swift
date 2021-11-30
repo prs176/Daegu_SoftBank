@@ -90,7 +90,10 @@ class ViewModelAssembly: Assembly {
         .inObjectScope(.container)
         
         container.register(ThirdTransferSendViewModel.self) { r in
-            ThirdTransferSendViewModel(transferSendUseCase: r.resolve(TransferSendUseCase.self)!)
+            ThirdTransferSendViewModel(
+                kakaoTransferSendUseCase: r.resolve(KakaoTransferSendUseCase.self)!,
+                transferSendUseCase: r.resolve(TransferSendUseCase.self)!
+            )
         }
         .inObjectScope(.container)
         
