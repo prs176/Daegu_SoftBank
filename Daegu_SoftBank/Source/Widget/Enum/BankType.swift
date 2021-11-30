@@ -17,11 +17,22 @@ enum BankType: Int, CaseIterable, Identifiable, CustomStringConvertible {
     var description: String {
         switch self {
         case .KAKAO:
-            return "카카오"
+            return "KaKao"
         case .TOSS:
-            return "토스"
+            return "Toss"
         case .SINHAN:
-            return "신한"
+            return "Sinhan"
+        }
+    }
+    
+    var idPrefix: String {
+        switch (self) {
+        case .KAKAO:
+            return "001"
+        case .TOSS:
+            return "002"
+        case .SINHAN:
+            return "003"
         }
     }
 }

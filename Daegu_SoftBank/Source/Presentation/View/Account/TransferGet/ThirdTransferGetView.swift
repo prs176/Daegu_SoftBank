@@ -12,7 +12,7 @@ struct ThirdTransferGetView: View {
     @StateObject var viewModel: ThirdTransferGetViewModel = DependencyProvider.shared.container.resolve(ThirdTransferGetViewModel.self)!
     
     var receiveAccount: Account
-    var request: TransferGetRequest
+    var request: TransferSendRequest
     
     var body: some View {
         VStack {
@@ -58,6 +58,6 @@ struct ThirdTransferGetView: View {
 
 struct ThirdTransferGetView_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdTransferGetView(receiveAccount: Account(), request: TransferGetRequest())
+        ThirdTransferGetView(receiveAccount: Account(), request: TransferSendRequest())
     }
 }

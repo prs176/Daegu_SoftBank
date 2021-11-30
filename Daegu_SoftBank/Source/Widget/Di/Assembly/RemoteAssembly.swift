@@ -29,6 +29,11 @@ class RemoteAssembly: Assembly {
         }
         .inObjectScope(.container)
         
+        container.register(KakaoTransferRemote.self) { _ in
+            KakaoTransferRemote()
+        }
+        .inObjectScope(.container)
+        
         container.register(UploadRemote.self) { _ in
             UploadRemote()
         }

@@ -85,8 +85,6 @@ struct HomeView: View {
                         .foregroundColor(Color(.tertiarySystemBackground))
                 )
                 
-                Spacer()
-                
                 NavigationLink(
                     isActive: $addAccountPresenting,
                     destination: { FirstAddAccountView() },
@@ -102,15 +100,20 @@ struct HomeView: View {
                             RoundedRectangle(cornerRadius: 12.0)
                         )
                     })
+                    .padding(.top)
             }
             .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .background(
-                Color(.secondarySystemBackground).ignoresSafeArea()
+                Color(.secondarySystemBackground)
+                    .ignoresSafeArea()
             )
             .activeErrorToastMessage(when: $viewModel.isLoading, message: viewModel.errorMessage)
         }
         .background(
-            Color(.secondarySystemBackground).ignoresSafeArea()
+            Color(.secondarySystemBackground)
+                .ignoresSafeArea()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         )
         .onReceive(navigationState.$shouldDismissToHome) { moveToHome in
             if moveToHome {

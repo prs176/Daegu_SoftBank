@@ -50,7 +50,7 @@ struct SecondCreateAccountView: View {
                     
                     Spacer()
                     
-                    Text(viewModel.user.phone)
+                    Text(formatPhone())
                         .font(.title3)
                 }
             }
@@ -98,6 +98,15 @@ struct SecondCreateAccountView: View {
             birth.insert("-", at: birth.index(before: birth.endIndex))
         }
         return birth
+    }
+    
+    func formatPhone() -> String {
+        var phone = viewModel.user.phone
+        if phone.count == 11 {
+            phone.insert("-", at: phone.index(phone.startIndex, offsetBy: 3))
+            phone.insert("-", at: phone.index(phone.startIndex, offsetBy: 8))
+        }
+        return phone
     }
 }
 

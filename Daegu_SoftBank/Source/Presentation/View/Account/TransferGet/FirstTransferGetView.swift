@@ -8,19 +8,11 @@
 import SwiftUI
 
 struct FirstTransferGetView: View {
-    var accounts: [Account]
+    @State var accounts: [Account]
     var receiveAccount: Account
-    var request: TransferGetRequest = TransferGetRequest()
+    var request: TransferSendRequest = TransferSendRequest()
     
-    init(accounts: [Account], receiveAccount: Account) {
-        self.accounts = accounts
-        self.receiveAccount = receiveAccount
-        self.request.receiveAccountId = receiveAccount.account
-        
-        if let idx = self.accounts.firstIndex(of: self.receiveAccount) {
-            self.accounts.remove(at: idx)
-        }
-    }
+    @State var isAccountsEmpty = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -43,6 +35,19 @@ struct FirstTransferGetView: View {
             }
         }
         .padding()
+        .onAppear {
+            request.receiveAccountId = receiveAccount.account
+            request.bank = BankType.allCases.filter({ $0.description == receiveAccount.bank }).first?.rawValue ?? 0
+            
+            if let idx = accounts.firstIndex(of: receiveAccount) {
+                accounts.remove(at: idx)
+            }
+            
+            if accounts.count == 0 {
+                isAccountsEmpty = true
+            }
+        }
+        .activeErrorToastMessage(when: $isAccountsEmpty, message: "가져오기 할 수 있는 계좌가 없습니다.")
         .navigationTitle("가져오기")
     }
 }

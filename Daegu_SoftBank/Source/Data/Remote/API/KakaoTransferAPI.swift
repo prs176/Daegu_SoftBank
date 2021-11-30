@@ -1,19 +1,19 @@
 //
-//  TransferAPI.swift
+//  KakaoTransferAPI.swift
 //  Daegu_SoftBank
 //
-//  Created by 박세은 on 2021/10/14.
+//  Created by 박세은 on 2021/11/30.
 //
 
 import Moya
 
-enum TransferAPI {
-    case postTransferSend(_ request: TransferSendRequest)
+enum KakaoTransferAPI {
+    case postTransferSend(_ request: KakaoTransferSendRequest)
 }
 
-extension TransferAPI: TargetType {
+extension KakaoTransferAPI: TargetType {
     var baseURL: URL {
-        return URL(string: Constants.DEFAULT_HOST + "transfer")!
+        return URL(string: Constants.KAKAO_HOST + "remittance")!
     }
     
     var path: String {
@@ -46,9 +46,10 @@ extension TransferAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        var headers = ["Content-Type": "application/json"]
-        headers["authorization"] = AuthController.getInstance().getToken()
+        let headers = ["Content-Type": "application/json"]
         
         return headers
     }
 }
+
+

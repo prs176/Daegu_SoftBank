@@ -24,12 +24,10 @@ class FirstCreateAccountViewModel: BaseViewModel {
     }
     
     func initProps() {
-        if user.birth == "" {
-            addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
-                self?.user = $0
-            } onReceiveFailure: { [weak self] _ in
-                self?.isFailure = true
-            }
+        addCancellable(publisher: fetchMyUserUseCase.buildUseCasePublisher()) { [weak self] in
+            self?.user = $0
+        } onReceiveFailure: { [weak self] _ in
+            self?.isFailure = true
         }
         self.name = ""
         self.birth = ""
@@ -37,7 +35,6 @@ class FirstCreateAccountViewModel: BaseViewModel {
     
     func update() {
         self.isSuccess = false
-        self.isFailure = false
     }
     
     func fetch() {

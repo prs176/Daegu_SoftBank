@@ -39,11 +39,11 @@ class FirstTransferSendViewModel: BaseViewModel {
     }
     
     func fetch() {
+        request.money = Int(money.filter({ $0 != "," })) ?? 0
+        
         guard validate() else {
             return
         }
-        
-        request.money = Int(money.filter({ $0 != "," })) ?? 0
         
         addCancellable(
             publisher: fetchAccountByBankAndAccountUseCase.buildUseCasePublisher(FetchAccountByBankAndAccountUseCase.Param(bank: request.bank, account: request.receiveAccountId))) { [weak self] in

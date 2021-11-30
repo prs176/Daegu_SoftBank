@@ -96,8 +96,9 @@ class UseCaseAssembly: Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(TransferGetUseCase.self) { r in
-            TransferGetUseCase(transferRepository: r.resolve(TransferRepository.self)!)
+        // MARK: KakaoTransfer
+        container.register(KakaoTransferSendUseCase.self) { r in
+            KakaoTransferSendUseCase(kakaoTransferRepository: r.resolve(KakaoTransferRepository.self)!)
         }
         .inObjectScope(.container)
         
