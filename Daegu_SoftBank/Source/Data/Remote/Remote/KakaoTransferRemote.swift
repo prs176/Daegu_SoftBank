@@ -14,11 +14,4 @@ class KakaoTransferRemote: BaseRemote<KakaoTransferAPI> {
             .map { $0.message }
             .eraseToAnyPublisher()
     }
-    
-    func postTransferGet(_ request: KakaoTransferGetRequest) -> AnyPublisher<String, Error> {
-        return self.request(.postTransferGet(request))
-            .map(MessageResponse.self, using: decoder)
-            .map { $0.message }
-            .eraseToAnyPublisher()
-    }
 }

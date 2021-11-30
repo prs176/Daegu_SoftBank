@@ -104,7 +104,10 @@ class ViewModelAssembly: Assembly {
         .inObjectScope(.container)
         
         container.register(ThirdTransferGetViewModel.self) { r in
-            ThirdTransferGetViewModel(transferGetUseCase: r.resolve(TransferGetUseCase.self)!)
+            ThirdTransferGetViewModel(
+                transferSendUseCase: r.resolve(TransferSendUseCase.self)!,
+                kakaoTransferSendUseCase: r.resolve(KakaoTransferSendUseCase.self)!
+            )
         }
         .inObjectScope(.container)
     }

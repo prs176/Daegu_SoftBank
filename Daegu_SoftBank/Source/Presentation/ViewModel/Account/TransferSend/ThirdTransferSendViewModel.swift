@@ -12,11 +12,16 @@ class ThirdTransferSendViewModel: BaseViewModel {
     
     var request: TransferSendRequest = TransferSendRequest()
     
+    let kakaoTransferSendUseCase: KakaoTransferSendUseCase
     let transferSendUseCase: TransferSendUseCase
     
     @Published var isSuccess: Bool = false
     
-    init(transferSendUseCase: TransferSendUseCase) {
+    init(
+        kakaoTransferSendUseCase: KakaoTransferSendUseCase,
+        transferSendUseCase: TransferSendUseCase
+    ) {
+        self.kakaoTransferSendUseCase = kakaoTransferSendUseCase
         self.transferSendUseCase = transferSendUseCase
     }
     
@@ -35,8 +40,27 @@ class ThirdTransferSendViewModel: BaseViewModel {
         }
         
         request.sendAccountPw = pw
-        addCancellable(publisher: transferSendUseCase.buildUseCasePublisher(TransferSendUseCase.Param(request: request))) { [weak self] _ in
-            self?.isSuccess = true
+        
+        if request.sendAccountId.hasPrefix(BankType.KAKAO.idPrefix) {
+            addCancellable(
+                publisher: kakaoTransferSendUseCase.buildUseCasePublisher(
+                    KakaoTransferSendUseCase.Param(
+                        request: KakaoTransferSendRequest(
+                            receiveAccountId: request.receiveAccountId,
+                            sendAccountPw: request.sendAccountPw,
+                            sendAccountId: request.sendAccountId,
+                            money: request.money
+                        )
+                    )
+                )
+            ) { [weak self] _ in
+                self?.isSuccess = true
+            }
+        }
+        else {
+            addCancellable(publisher: transferSendUseCase.buildUseCasePublisher(TransferSendUseCase.Param(request: request))) { [weak self] _ in
+                self?.isSuccess = true
+            }
         }
     }
 }

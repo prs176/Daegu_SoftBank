@@ -10,23 +10,26 @@ import Foundation
 class ThirdTransferGetViewModel: BaseViewModel {
     @Published var pw = ""
     
-    var request: TransferGetRequest = TransferGetRequest()
+    var request: TransferSendRequest = TransferSendRequest()
     
-    let transferGetUseCase: TransferGetUseCase
+    let transferSendUseCase: TransferSendUseCase
+    let kakaoTransferSendUseCase: KakaoTransferSendUseCase
     
     @Published var isSuccess: Bool = false
     
-    init(transferGetUseCase: TransferGetUseCase) {
-        self.transferGetUseCase = transferGetUseCase
+    init(
+        transferSendUseCase: TransferSendUseCase,
+        kakaoTransferSendUseCase: KakaoTransferSendUseCase
+    ) {
+        self.transferSendUseCase = transferSendUseCase
+        self.kakaoTransferSendUseCase = kakaoTransferSendUseCase
     }
     
     func initProps() {
         pw = ""
     }
     
-    func update(
-        request: TransferGetRequest
-    ) {
+    func update(request: TransferSendRequest) {
         self.request = request
         self.isSuccess = false
     }
@@ -38,8 +41,31 @@ class ThirdTransferGetViewModel: BaseViewModel {
         
         request.sendAccountPw = pw
         
-        addCancellable(publisher: transferGetUseCase.buildUseCasePublisher(TransferGetUseCase.Param(request: request))) { [weak self] _ in
-            self?.isSuccess = true
+        if request.sendAccountId.hasPrefix(BankType.KAKAO.idPrefix) {
+            addCancellable(
+                publisher: kakaoTransferSendUseCase.buildUseCasePublisher(
+                    KakaoTransferSendUseCase.Param(
+                        request: KakaoTransferSendRequest(
+                            receiveAccountId: request.receiveAccountId,
+                            sendAccountPw: request.sendAccountPw,
+                            sendAccountId: request.sendAccountId,
+                            money: request.money
+                        )
+                    )
+                )
+            ) { [weak self] _ in
+                self?.isSuccess = true
+            }
+        }
+        else {
+            print(request.bank)
+            print(request.receiveAccountId)
+            print(request.sendAccountId)
+            print(request.sendAccountPw)
+            print(request.money)
+            addCancellable(publisher: transferSendUseCase.buildUseCasePublisher(TransferSendUseCase.Param(request: request))) { [weak self] _ in
+                self?.isSuccess = true
+            }
         }
     }
 }

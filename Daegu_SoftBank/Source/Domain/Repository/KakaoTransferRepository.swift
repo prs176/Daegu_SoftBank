@@ -9,7 +9,5 @@ import Combine
 
 protocol KakaoTransferRepository {
     func transferSend(_ request: KakaoTransferSendRequest) -> AnyPublisher<String, Error>
-    
-    func transferGet(_ request: KakaoTransferGetRequest) -> AnyPublisher<String, Error>
 }
 

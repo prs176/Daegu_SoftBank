@@ -17,8 +17,4 @@ class KakaoTransferRepositoryImpl: KakaoTransferRepository {
     func transferSend(_ request: KakaoTransferSendRequest) -> AnyPublisher<String, Error> {
         kakaoTransferRemote.postTransferSend(request)
     }
-    
-    func transferGet(_ request: KakaoTransferGetRequest) -> AnyPublisher<String, Error> {
-        kakaoTransferRemote.postTransferGet(request)
-    }
 }

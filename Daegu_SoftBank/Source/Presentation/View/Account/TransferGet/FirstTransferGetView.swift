@@ -10,7 +10,7 @@ import SwiftUI
 struct FirstTransferGetView: View {
     @State var accounts: [Account]
     var receiveAccount: Account
-    var request: TransferGetRequest = TransferGetRequest()
+    var request: TransferSendRequest = TransferSendRequest()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -35,6 +35,7 @@ struct FirstTransferGetView: View {
         .padding()
         .onAppear {
             request.receiveAccountId = receiveAccount.account
+            request.bank = BankType.allCases.filter({ $0.description == receiveAccount.bank }).first?.rawValue ?? 0
             
             if let idx = accounts.firstIndex(of: receiveAccount) {
                 accounts.remove(at: idx)

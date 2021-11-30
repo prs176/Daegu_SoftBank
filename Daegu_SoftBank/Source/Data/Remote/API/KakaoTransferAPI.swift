@@ -9,7 +9,6 @@ import Moya
 
 enum KakaoTransferAPI {
     case postTransferSend(_ request: KakaoTransferSendRequest)
-    case postTransferGet(_ request: KakaoTransferGetRequest)
 }
 
 extension KakaoTransferAPI: TargetType {
@@ -21,8 +20,6 @@ extension KakaoTransferAPI: TargetType {
         switch self {
         case .postTransferSend:
             return "/send"
-        case .postTransferGet:
-            return "/recieve"
         }
     }
     
@@ -30,16 +27,12 @@ extension KakaoTransferAPI: TargetType {
         switch self {
         case .postTransferSend:
             return .post
-        case .postTransferGet:
-            return .post
         }
     }
     
     var task: Task {
         switch self {
         case let .postTransferSend(request):
-            return .requestData(try! JSONEncoder().encode(request))
-        case let .postTransferGet(request):
             return .requestData(try! JSONEncoder().encode(request))
         }
     }
@@ -53,8 +46,7 @@ extension KakaoTransferAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        var headers = ["Content-Type": "multipart/form-data"]
-        headers["authorization"] = AuthController.getInstance().getToken()
+        let headers = ["Content-Type": "application/json"]
         
         return headers
     }
