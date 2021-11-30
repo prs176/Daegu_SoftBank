@@ -35,34 +35,6 @@ struct SimpleAccountRow: View {
     }
 }
 
-struct SimpleKakaoAccountRow: View {
-    var account: KakaoAccount
-    var isChecked: Bool
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text("카카오")
-                    .foregroundColor(.secondary)
-                
-                Text("\(account.accountId)")
-                    .fontWeight(.thin)
-                    .foregroundColor(.secondary)
-                
-                Text("\(account.money) 원")
-                    
-                    .foregroundColor(.primary)
-            }
-            
-            Spacer()
-            
-            if isChecked {
-                Image(systemName: "checkmark")
-            }
-        }
-    }
-}
-
 
 struct SimpleAccountRow_Previews: PreviewProvider {
     static var previews: some View {

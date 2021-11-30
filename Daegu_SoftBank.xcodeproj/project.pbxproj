@@ -88,7 +88,7 @@
 		CBA023522717ECB3001ED232 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023512717ECB3001ED232 /* LoginRequest.swift */; };
 		CBA023572717ED95001ED232 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023562717ED95001ED232 /* UserAPI.swift */; };
 		CBA023592717EDD3001ED232 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA023582717EDD3001ED232 /* Constants.swift */; };
-		CBA203E32754F6C600DC23FA /* KakaoAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA203E22754F6C600DC23FA /* KakaoAccount.swift */; };
+		CBA203E32754F6C600DC23FA /* OtherAccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA203E22754F6C600DC23FA /* OtherAccountData.swift */; };
 		CBA203E927550C0E00DC23FA /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA203E827550C0E00DC23FA /* AccountData.swift */; };
 		CBA60CC9272A68E600FF3ABB /* UploadAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CC8272A68E600FF3ABB /* UploadAPI.swift */; };
 		CBA60CCB272A696600FF3ABB /* UploadRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA60CCA272A696600FF3ABB /* UploadRemote.swift */; };
@@ -249,7 +249,7 @@
 		CBA023512717ECB3001ED232 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		CBA023562717ED95001ED232 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		CBA023582717EDD3001ED232 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CBA203E22754F6C600DC23FA /* KakaoAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAccount.swift; sourceTree = "<group>"; };
+		CBA203E22754F6C600DC23FA /* OtherAccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAccountData.swift; sourceTree = "<group>"; };
 		CBA203E827550C0E00DC23FA /* AccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
 		CBA60CC8272A68E600FF3ABB /* UploadAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadAPI.swift; sourceTree = "<group>"; };
 		CBA60CCA272A696600FF3ABB /* UploadRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRemote.swift; sourceTree = "<group>"; };
@@ -458,7 +458,6 @@
 				CB8F17DA271879840052D4AE /* Account.swift */,
 				CB8F17D8271877FA0052D4AE /* User.swift */,
 				CBBAC82B2712ED14003EB1A2 /* AccountInfo.swift */,
-				CBA203E22754F6C600DC23FA /* KakaoAccount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -706,6 +705,7 @@
 		CB8F17DE27190C710052D4AE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				CBA203E22754F6C600DC23FA /* OtherAccountData.swift */,
 				CB8F17DF27190CA50052D4AE /* RegisterData.swift */,
 				CB8F17E127190D1C0052D4AE /* LoginData.swift */,
 				CB8F17E32719110F0052D4AE /* AuthNumData.swift */,
@@ -1234,7 +1234,7 @@
 				CB8F17B427180BDE0052D4AE /* AccountRequest.swift in Sources */,
 				CB8F17E42719110F0052D4AE /* AuthNumData.swift in Sources */,
 				CBA023592717EDD3001ED232 /* Constants.swift in Sources */,
-				CBA203E32754F6C600DC23FA /* KakaoAccount.swift in Sources */,
+				CBA203E32754F6C600DC23FA /* OtherAccountData.swift in Sources */,
 				CBA02338271588BC001ED232 /* FourthTransferSendView.swift in Sources */,
 				CBBAC81A2712AB99003EB1A2 /* FirstCreateAccountView.swift in Sources */,
 				CBAF7682271550D200E827E1 /* ThirdTransferSendView.swift in Sources */,

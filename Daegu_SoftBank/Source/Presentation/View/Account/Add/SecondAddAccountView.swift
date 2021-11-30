@@ -11,13 +11,11 @@ struct SecondAddAccountView: View {
     @EnvironmentObject var navigationState: NavigationState
     @StateObject var viewModel: SecondAddAccountViewModel = DependencyProvider.shared.container.resolve(SecondAddAccountViewModel.self)!
     
-    var accounts: [KakaoAccount]
+    var accounts: [Account]
     
     var body: some View {
         VStack(alignment: .leading) {
-//            Text("\(Set(viewModel.accounts.map({ $0.bank })).count) 개의 은행에서\n\(viewModel.accounts.count) 개의 계좌를 찾았습니다.")
-//                .font(.title2)
-            Text("1개의 은행에서 \(viewModel.accounts.count)개의 계좌를 찾았습니다.")
+            Text("\(Set(viewModel.accounts.map({ $0.bank })).count)개의 은행에서 \(viewModel.accounts.count)개의 계좌를 찾았습니다.")
                 .font(.title2)
             
             Text("등록할 계좌를 선택해주세요. 등록된 계좌는 간편하게 송금 및 조회할 수 있습니다.")
@@ -29,14 +27,14 @@ struct SecondAddAccountView: View {
                     Divider()
                     
                     Button(action: {
-                        if viewModel.selectedAccounts.contains(account.accountId) {
-                            viewModel.selectedAccounts.remove(at: viewModel.selectedAccounts.firstIndex(of: account.accountId)!)
+                        if let idx = viewModel.selectedAccounts.firstIndex(of: account.account) {
+                            viewModel.selectedAccounts.remove(at: idx)
                         }
                         else {
-                            viewModel.selectedAccounts.append(account.accountId)
+                            viewModel.selectedAccounts.append(account.account)
                         }
                     }, label: {
-                        SimpleKakaoAccountRow(account: account, isChecked: viewModel.selectedAccounts.contains(account.accountId))
+                        SimpleAccountRow(account: account, isChecked: viewModel.selectedAccounts.contains(account.account))
                     })
                 }
             }

@@ -18,7 +18,7 @@ class FirstAddAccountViewModel: BaseViewModel {
     @Published var isSuccess: Bool = false
     @Published var isFailure: Bool = false
     var user: User = User()
-    var accounts: [KakaoAccount] = []
+    var accounts: [Account] = []
     
     init(fetchMyUserUseCase: FetchMyUserUseCase,
          fetchMyAccountsUseCase: FetchMyAccountsUseCase,
@@ -61,8 +61,15 @@ class FirstAddAccountViewModel: BaseViewModel {
         ) { [weak self] otherAccounts, myAccounts in
             let myAccountsId = myAccounts.map({ $0.account })
             
-            self?.accounts = otherAccounts.filter({ !myAccountsId.contains($0.accountId) })
-            self?.isSuccess = true
+            self?.accounts = otherAccounts.filter({ !myAccountsId.contains($0.account) })
+            
+            if self?.accounts.count == 0 {
+                self?.errorMessage = "추가할 수 있는 계좌가 없습니다."
+                self?.isErrorOccurred = true
+            }
+            else {
+                self?.isSuccess = true
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ class AccountRemote: BaseRemote<AccountAPI> {
     func getAccountByBankAndAccount(_ bank: Int, _ account: String) -> AnyPublisher<Account, Error> {
         if bank == 1 {
             return self.request(.getAccountByBankAndAccount(bank, account))
-                .map(Response<Response<KakaoAccount>>.self, using: decoder)
+                .map(Response<Response<OtherAccountData>>.self, using: decoder)
                 .map { $0.data.data }
                 .map({
                     Account(
@@ -47,10 +47,21 @@ class AccountRemote: BaseRemote<AccountAPI> {
         }
     }
     
-    func getOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[KakaoAccount], Error> {
+    func getOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[Account], Error> {
         return self.request(.getOtherAccounts(birth, name))
-            .map(Response<[KakaoAccount]>.self, using: decoder)
-            .map { $0.data }
+            .map(Response<[OtherAccountData]>.self, using: decoder)
+            .map {
+                $0.data.map {
+                    Account(
+                        idx: -1,
+                        account: $0.accountId,
+                        name: "",
+                        money: Int($0.money) ?? 0,
+                        userId: $0.user.id,
+                        bank: "Kakao"
+                    )
+                }
+            }
             .eraseToAnyPublisher()
     }
     

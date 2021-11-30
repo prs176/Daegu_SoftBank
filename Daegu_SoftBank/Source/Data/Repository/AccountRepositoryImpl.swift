@@ -26,7 +26,7 @@ class AccountRepositoryImpl: AccountRepository {
         accountRemote.getAccountByBankAndAccount(bank, account)
     }
     
-    func fetchOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[KakaoAccount], Error> {
+    func fetchOtherAccounts(_ birth: String, _ name: String) -> AnyPublisher<[Account], Error> {
         accountRemote.getOtherAccounts(birth, name)
     }
     

@@ -1,5 +1,5 @@
 //
-//  KakaoAccount.swift
+//  OtherAccountData.swift
 //  Daegu_SoftBank
 //
 //  Created by 박세은 on 2021/11/29.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-class KakaoAccount: Codable, Hashable {
+class OtherAccountData: Codable, Hashable {
     var accountId: String
     var money: String
-    var user: KakaoUser
+    var user: OtherUser
     var userPhone: String
     
-    static func == (lhs: KakaoAccount, rhs: KakaoAccount) -> Bool {
+    static func == (lhs: OtherAccountData, rhs: OtherAccountData) -> Bool {
         return lhs.accountId == rhs.accountId
     }
     
@@ -24,7 +24,7 @@ class KakaoAccount: Codable, Hashable {
     internal init(
         accountId: String = "",
         money: String = "",
-        user: KakaoUser = KakaoUser(),
+        user: OtherUser = OtherUser(),
         userPhone: String = ""
     ) {
         self.accountId = accountId
@@ -34,7 +34,7 @@ class KakaoAccount: Codable, Hashable {
     }
 }
 
-class KakaoUser: Codable {
+class OtherUser: Codable {
     var phone: String
     var id: String
     var name: String
