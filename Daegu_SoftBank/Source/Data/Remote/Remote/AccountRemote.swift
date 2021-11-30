@@ -15,10 +15,10 @@ class AccountRemote: BaseRemote<AccountAPI> {
             .eraseToAnyPublisher()
     }
     
-    func getAccounts() -> AnyPublisher<[Account], Error> {
+    func getAccounts() -> AnyPublisher<([Account], [OtherAccount]), Error> {
         return self.request(.getAccounts)
-            .map(Response<[Account]>.self, using: decoder)
-            .map { $0.data }
+            .map(Response<AccountData>.self, using: decoder)
+            .map { ($0.data.accounts, $0.data.others) }
             .eraseToAnyPublisher()
     }
     

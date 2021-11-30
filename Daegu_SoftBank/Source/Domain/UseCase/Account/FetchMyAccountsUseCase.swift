@@ -14,7 +14,7 @@ class FetchMyAccountsUseCase: BaseUseCase {
         self.accountRepository = accountRepository
     }
     
-    func buildUseCasePublisher() -> AnyPublisher<[Account], Error> {
+    func buildUseCasePublisher() -> AnyPublisher<([Account], [OtherAccount]), Error> {
         accountRepository.fetchMyAccounts()
     }
 }

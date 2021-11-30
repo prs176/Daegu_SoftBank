@@ -9,5 +9,5 @@ import Foundation
 
 class AccountData: Codable {
     var accounts: [Account]
-    var others: [KakaoAccount]
+    var others: [OtherAccount]
 }

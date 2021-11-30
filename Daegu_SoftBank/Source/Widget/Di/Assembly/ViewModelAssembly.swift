@@ -39,7 +39,8 @@ class ViewModelAssembly: Assembly {
         
         // MARK: Home
         container.register(HomeViewModel.self) { r in
-            HomeViewModel(fetchMyUserUseCase: r.resolve(FetchMyUserUseCase.self)!)
+            HomeViewModel(fetchMyUserUseCase: r.resolve(FetchMyUserUseCase.self)!,
+                          fetchMyAccountsUseCase: r.resolve(FetchMyAccountsUseCase.self)!)
         }
         .inObjectScope(.container)
         

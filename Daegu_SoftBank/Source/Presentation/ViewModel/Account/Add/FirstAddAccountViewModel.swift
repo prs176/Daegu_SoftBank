@@ -63,10 +63,11 @@ class FirstAddAccountViewModel: BaseViewModel {
                     fetchMyAccountsUseCase.buildUseCasePublisher()
                 )
                 .eraseToAnyPublisher()
-        ) { [weak self] kakaoAccounts, accounts in
-            let myAccountIds = accounts.map({ $0.account })
+        ) { [weak self] otherAccounts, myAccounts in
+            var myAccountsId: [String] = myAccounts.0.map({ $0.account })
+            myAccountsId.append(contentsOf: myAccounts.1.map({ $0.account }))
             
-            self?.accounts = kakaoAccounts.filter({ !myAccountIds.contains($0.accountId) })
+            self?.accounts = otherAccounts.filter({ !myAccountsId.contains($0.accountId) })
             self?.isSuccess = true
         }
     }

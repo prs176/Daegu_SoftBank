@@ -10,7 +10,7 @@ import Combine
 protocol AccountRepository {
     func applyAccount(_ request: AccountRequest) -> AnyPublisher<AccountInfo, Error>
     
-    func fetchMyAccounts() -> AnyPublisher<[Account], Error>
+    func fetchMyAccounts() -> AnyPublisher<([Account], [OtherAccount]), Error>
     
     func fetchAccountByBankAndAccount(_ bank: Int, _ account: String) -> AnyPublisher<Account, Error>
     
